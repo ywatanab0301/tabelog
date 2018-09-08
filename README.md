@@ -15,7 +15,7 @@
 |text|text||
 |images_id|references||
 |review_tag_id|references||
-|visit_day|daterime||
+|visit_day|datetime||
 |share_with|integer||
 
 ### Association
