@@ -22,5 +22,5 @@
 - belongs_to :user
 - has_many :likes
 - has_many :images
-- belongs_to :shops
-- has_many :review-tag
+- belongs_to :shop
+- has_many :review-tags
