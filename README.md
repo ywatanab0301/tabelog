@@ -1,24 +1,26 @@
-# README
+## reviewsテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|time|integer||
+|price|integer||
+|rate |integer||
+|food_rate |integer||
+|service_rate|integer||
+|atomosphier_rate|integer||
+|cp_rate|integer||
+|drink_rate|integer||
+|title|string||
+|text|text||
+|images_id|references||
+|review_tag_id|references||
+|visit_day|daterime||
+|share_with|integer||
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to :user
+- has_many :likes
+- has_many :images
+- belongs_to :shops
+- has_many :review-tag
