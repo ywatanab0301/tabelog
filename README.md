@@ -3,20 +3,20 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|time|integer||
-|price|integer||
-|rate |integer||
-|food_rate |integer||
-|service_rate|integer||
-|atomosphier_rate|integer||
-|cp_rate|integer||
-|drink_rate|integer||
-|title|string||
-|text|text||
+|time|integer|null: false|
+|price|integer|null: false|
+|rate |integer|null: false|
+|food_rate |integer|null: false|
+|service_rate|integer|null: false|
+|atomosphier_rate|integer|null: false|
+|cp_rate|integer|null: false|
+|drink_rate|integer|null: false|
+|title|string|null: false|
+|text|text|null: false|
 |images_id|references||
-|review_tag_id|references||
-|visit_day|datetime||
-|share_with|integer||
+|review_tag_id|references|null: false, foreign_key: true|
+|visit_day|datetime|null: false|
+|share_with|integer|null: false|
 
 ### Association
 - belongs_to :user
