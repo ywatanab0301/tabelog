@@ -2,7 +2,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 |time|integer|null: false|
 |price|integer|null: false|
 |rate |integer|null: false|
@@ -13,8 +13,7 @@
 |drink_rate|integer|null: false|
 |title|string|null: false|
 |text|text|null: false|
-|images_id|references||
-|review_tag_id|references|null: false, foreign_key: true|
+|images|references||
 |visit_day|datetime|null: false|
 |share_with|integer|null: false|
 
