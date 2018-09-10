@@ -7,6 +7,17 @@
             %span.top-headline__logo-img 全国のグルメ・レストランガイド 食べログ
           .top-headline__usermenu
             #welcome.js-welcome-wrapper
+              %ul.p-user-menu.js-exec-welcome
+                %li.p-user-menu__item
+                  %a#open-message-notification.p-user-menu__target.p-user-menu__target--dropdown{:href => "#"}
+                    %span.p-user-menu__text メッセージ
+                    %span#messages.p-user-menu__badge{:style => "display:none;"} 0
+                %li.p-user-menu__item お知らせ
+                %li.p-user-menu__item 150pt
+                %li.p-user-menu__item 予約確認
+                %li.p-user-menu__item 行った・行きたい
+                %li.p-user-menu__item マイページ
+                %li.p-user-menu__item.p-user-menu__item--setting ユーザ画像
       .top-header
         .top-header__visual.js-top-main-visual-image
           .top-header__overlay
