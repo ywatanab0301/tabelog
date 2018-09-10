@@ -185,3 +185,4 @@
 ### Association
 - belongs_to :shop
 - belongs_to :genre
+
