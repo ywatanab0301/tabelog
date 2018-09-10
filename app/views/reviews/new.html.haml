@@ -1,0 +1,21 @@
+.js-bkm-modal-header.p-modal-bkm__header.p-modal-bkm__header--edit
+  .p-modal-bkm__header-inner
+    %p.p-modal-bkm__rst-name-wrap
+      %span.p-modal-bkm__rst-name restraunt名
+    %p.p-modal-bkm__rst-aliasname （読み仮名）
+%p.p-modal-bkm__textfield-title.js-review-title-wrap
+  %textarea#js-review-title.p-modal-bkm__textfield-title-target{:maxlength => "100", :name => "subject", :placeholder => "口コミのタイトルを入れてください", :rows => "1", :style => "overflow: hidden; overflow-wrap: break-word; height: 22px;"}
+.p-modal-bkm__textfield-comment.js-review-comment-wrapper
+  %textarea#js-review-comment.p-modal-bkm__textfield-comment-target{:cols => "30", :name => "comment", :placeholder => "口コミ本文をいれてください", :rows => "1", :style => "overflow-x: hidden; overflow-wrap: break-word; height: 120px; max-height: 209px;"}
+  .js-modal-footer.c-modal__footer.c-modal__footer--floating.p-modal-bkm__footer
+    .p-modal-bkm__footer-frame
+      .p-modal-bkm__footer-addinfo.p-modal-bkm__footer-addinfo--visit
+        %dl.p-modal-bkm__data.p-modal-bkm__data--edit
+          %dt.p-modal-bkm__data-subject 訪問日
+          %dd.p-modal-bkm__data-select
+            %p.p-modal-bkm__data-btn-wrapper.c-select
+              %input.js-visit-date-input{:name => "visit_date", :type => "hidden", :value => ""}/
+              %input.js-visit-date-trigger.p-modal-bkm__data-btn-dtl{:type => "button", :value => "-"}/
+            .js-visit-date-calendar-wrapper.p-modal-bkm__calendar-wrapper
+      %p.p-modal-bkm__footer-save
+        %button#js-save.c-btn.c-btn--success.p-modal-bkm__footer-btn.p-modal-bkm__footer-btn--success.js-lock{:type => "button"} 登録
