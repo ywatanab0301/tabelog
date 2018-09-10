@@ -8,7 +8,7 @@
 |rate |integer|null: false|
 |food_rate |integer|null: false|
 |service_rate|integer|null: false|
-|atomosphere_rate|integer|null: false|
+|atmosphere_rate|integer|null: false|
 |cp_rate|integer|null: false|
 |drink_rate|integer|null: false|
 |title|string|null: false|
