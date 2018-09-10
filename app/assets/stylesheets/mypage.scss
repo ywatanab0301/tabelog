@@ -1,0 +1,28 @@
+#mypage-location-wrap {
+  height: 45px;
+  width: 100%;
+  padding-top: 100px;
+  background-color: $background;
+  #location-wrap {
+    margin: 0 auto;
+    width: 980px;
+    #location {
+      font-size: 11px;
+      text-align: left;
+      ul.location-bar {
+        display: flex;
+        justify-content: flex-start;
+        li {
+          padding-right: 5px;
+        }
+        li.link {
+          color: $font_blue;
+        }
+        li.username {
+          font-weight: bold;
+          color: $font_gray;
+        }
+      }
+    }
+  }
+}
