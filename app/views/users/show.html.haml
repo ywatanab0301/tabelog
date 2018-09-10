@@ -16,9 +16,38 @@
           itismorningさん
 
 .mypage-header-wrap
-
   .mypage-header
-    .mypage-header__cover
+    .mypage-header-cover
       #cover-image
-
-
+      #page-info
+        itismorningのレストランガイド
+      #user-avatar
+        %span= image_tag 'avatar_nophoto.gif'
+      #header-cover_actions
+        レビュアーページ設定
+    .mypage-header-contents
+      .mypage-header-contents__image-wrap
+      .mypage-header-contents__info
+        .mypage-header-contents__info--nickname
+        .mypage-header-contents__info--prof
+      .mypage-header-contents__counts
+        .rvwr-counter
+          %dl
+            %dt
+            %dd
+          %dl
+            %dt
+            %dd
+          %dl
+            %dt
+            %dd
+          %dl
+            %dt
+            %dd
+    .mypage-header-navi
+      .mypage-header-navi__log
+      .mypage-header-navi__rvw
+      .mypage-header-navi__interest
+      .mypage-header-navi__matome
+      .mypage-header-navi__follow
+      .mypage-header-navi__follower
