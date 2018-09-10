@@ -3,7 +3,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
-|time|integer|null: false|
+|lunch_dinner|integer|null: false|
 |price|integer|null: false|
 |rate |integer|null: false|
 |food_rate |integer|null: false|
