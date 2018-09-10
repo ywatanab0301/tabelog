@@ -1,8 +1,9 @@
 !!!
-%html
+%html{:lang => "ja"}
   %head
+    %meta{:charset => "utf-8"}/
+    %title 食べログ   - ランキングと口コミで探せるグルメサイト
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Tabelog
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
