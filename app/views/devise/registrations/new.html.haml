@@ -1,21 +1,45 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.user_resistrations
+  .location-link
+    = link_to "食べログ",destroy_user_session_path, method: :delete
+    %span.location-name
+      >食べログ会員登録(メールアドレス入力)
+    = render "devise/shared/links"
+  .user_resistrattion_box
+    .user_resistration
+      無料会員登録
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .user_inputspace
+        %ul
+          %li.user_resistration__mailname
+            = f.label :"メールアドレス"
+          %li.user_resistration__mailad
+            = f.email_field :email, autofocus: true, autocomplete: "email"
+        %ul
+          %li.user_resistration__nickname
+            = f.label :"ニックネーム"
+          %li.user_resistration__inputname
+            = f.text_field :nickname
+            %span.nickname_text1
+              いいね！をするとき、口コミを投稿するときに公開されるあなたのニックネームです。
+            %span.nickname_text2
+              登録したニックネームはあとで変更が可能です。
+        %ul
+          %li.user_resistration__profile
+            = f.label :"プロフィール画像"
+          %li.user_resistration__inputavatar
+            = f.file_field :avatar
+            %span.profile_text
+              プロフィール画像は、会員登録後にいつでも変更することができます。
+        %ul
+          %li.user_resistration__pass
+            = f.label :"パスワード"
+          %li.user_resistration__passinput
+            = f.password_field :password, autocomplete: "new-password"
+        %ul
+          %li.user_resistration__repass
+            = f.label :"パスワード（再確認）"
+          %li.user_resistration__repassinput
+            = f.password_field :password_confirmation, autocomplete: "new-password"
+      .user_resistration__btn
+        = f.submit "登録する", class: "submit_btn", style: "padding: 10px", id:"submitbtn"
