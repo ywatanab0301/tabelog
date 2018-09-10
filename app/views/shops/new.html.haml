@@ -12,27 +12,16 @@
       %li (店舗数)店舗
     %li (口コミ数)口コミ
 
-/ #main
-/   #main__heading レストラン新規登録(レストラン情報入力)
+.main
+  .main__heading レストラン新規登録(レストラン情報入力)
 
-/   .notice
-/     .notice-main
-/       レストランを追加する際には、レストラン情報が最新のものであることをご確認の上、入力してください。
-/       また、当サイトの趣旨にあわないお店は管理側で判断し、削除する場合がございますので、ご了承ください。
-/     .notice-btn
-/       海外のレストラン新規登録はこちら
+  .main__notice
+    .main__notice__text
+      レストランを追加する際には、レストラン情報が最新のものであることをご確認の上、入力してください。
+      %br/
+      また、当サイトの趣旨にあわないお店は管理側で判断し、削除する場合がございますので、ご了承ください。
 
-/   .rst-form
-/     = form_for [@shop] do |f|
-/       .rst-form__title 店名
-
-/       %table#newentry
-/         %tbody
-/           %tr
-/             %th
-/               %i.label 必須
-/               %label 店名
-/             %td
-/               .shop_name
+  .main__rst-form
+    .main__rst-form__title 店名
 
 

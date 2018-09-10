@@ -1,3 +1,7 @@
+html {
+  font-size: 62.5%;
+}
+
 .location{
   padding: 15px 0;
   width: 100%;
@@ -13,16 +17,22 @@
       }
     }
     &__right{
+      ul{
       float:right;
       list-style: none;
+      }
+        li{
+          display: inline-block;
+        }
     }
 }
 
-#main{
+.main{
   &__heading{
+    display: table;
     border-top: 3px solid $newshop_line;
     border-bottom: 3px solid $newshop_line;
-    width: 100px;
+    width: 100%;
     box-sizing: border-box;
     color: #000;
     font-weight: bold;
@@ -31,13 +41,29 @@
   }
 }
 
-#main{
+.main{
   &__notice{
-    position: relative;
     margin: 15px 12px;
     &__main{
-      float: left;
       max-width: 700px;
+    }
+  }
+}
+
+.main{
+  &__rst-form{
+    &__title{
+      margin-top: 18px;
+      display: table;
+      width: 100%;
+      color: #000;
+      font-weight: bold;
+      border-top: 2px solid $newshop_line;
+      background: $newshop_title_background;
+      padding: 1.1rem 1rem 0.9rem 1.2rem;
+      box-sizing: border-box;
+      font-size: 1.4rem;
+
     }
   }
 }
