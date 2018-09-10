@@ -1,0 +1,188 @@
+.user_resistrations{
+  height: calc(100vh - 10vh);
+  width: 100vw;
+  padding-top: 10vh;
+  background-color: $background;
+  .location-link{
+    width: 650px;
+    height: 30px;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 12px;
+    .location-name{
+      font-weight: bold;
+      font-size: 12px;
+    }
+  }
+  .user_resistrattion_box{
+    width: 650px;
+    height: 500px;
+    margin: 0 auto;
+    background-color: $white;
+    filter: drop-shadow(1px 1px 1px #000);
+    .user_resistration{
+      height: 50px;
+      width: 100%;
+      text-align: center;
+      line-height: 50px;
+      font-weight: bold;
+      font-size: 18px;
+      box-shadow: 1px 1px 1px;
+    }
+      .user_inputspace{
+        width: 575px;
+        height: 325px;
+        padding: 20px 5px;
+        margin: 0 auto;
+        margin-top: 0px;
+        ul{
+          display: flex;
+          li.user_resistration__mailname{
+            height: 60px;
+            width: 140px;
+            background-color: $background;
+            padding-left: 10px;
+            line-height: 60px;
+            margin-bottom: 3px;
+            font-size: 12px;
+            font-weight: bold;
+          }
+          li.user_resistration__mailad{
+            height: 60px;
+            width: 425px;
+            #user_email{
+              margin-left: 15px;
+              width: 380px;
+              height:30px;
+              padding:5px 5px;
+              line-height: 60px;
+            }
+          }
+          li.user_resistration__nickname{
+            height: 80px;
+            width: 140px;
+            background-color: $background;
+            padding-left: 10px;
+            line-height: 80px;
+            margin-bottom: 3px;
+            font-size: 12px;
+            font-weight: bold;
+          }
+          li.user_resistration__inputname{
+            height: 30px;
+            width: 425px;
+            #user_nickname{
+              margin-left: 15px;
+              width: 380px;
+              height:18px;
+              padding:5px 5px;
+              line-height: 60px;
+            }
+            .nickname_text1{
+              font-size: 8px;
+              padding:0px 15px;
+              line-height: 8px;
+              color: $font_green;
+            }
+            .nickname_text2{
+              font-size: 8px;
+              padding:0px 15px;
+              line-height: 8px;
+              color: $font_green;
+            }
+          }
+          li.user_resistration__profile{
+            height: 150px;
+            width: 140px;
+            background-color: $background;
+            padding-left: 10px;
+            line-height: 150px;
+            margin-bottom: 3px;
+            font-size: 12px;
+            font-weight: bold;
+          }
+          li.user_resistration__inputavatar{
+            height: 120px;
+            width: 425px;
+            position: relative;
+            #user_avatar{
+              margin-left: 135px;
+              width: 380px;
+              height:110px;
+              padding:5px 5px;
+            }
+              img{
+                position: absolute;
+                top: 3px;
+                left: 15px;
+                width: 110px;
+                height: 110px;
+              }
+              .profile_text{
+                font-size: 8px;
+                padding:0px 15px;
+                line-height: 8px;
+                color: $font_green;
+              }
+          }
+          li.user_resistration__pass{
+            height: 40px;
+            width: 140px;
+            background-color: $background;
+            padding-left: 10px;
+            line-height: 40px;
+            margin-bottom: 3px;
+            font-size: 12px;
+            font-weight: bold;
+          }
+          li.user_resistration__passinput{
+            height: 30px;
+            width: 425px;
+            #user_password{
+              margin-left: 15px;
+              width: 380px;
+              height: 20px;
+              padding: 5px 5px;
+              line-height: 40px;
+            }
+          }
+          li.user_resistration__repass{
+            height: 40px;
+            width: 140px;
+            background-color: $background;
+            padding-left: 10px;
+            line-height: 40px;
+            margin-bottom: 3px;
+            font-size: 12px;
+            font-weight: bold;
+          }
+          li.user_resistration__repassinput{
+            height: 30px;
+            width: 425px;
+            #user_password_confirmation{
+              margin-left: 15px;
+              width: 380px;
+              height: 20px;
+              padding: 5px 5px;
+              line-height: 40px;
+            }
+          }
+        }
+      }
+    .user_resistration__btn{
+      height: 20px;
+      width: 300px;
+      margin: 0 auto;
+    .submit_btn{
+      width: 300px;
+      padding: 50px 20px;
+      margin: 0 auto;
+      font-size: 50px;
+      font-weight: bold;
+      margin-top: 50px;
+      }
+      .log_in{
+      }
+    }
+  }
+}
