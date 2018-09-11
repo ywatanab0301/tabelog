@@ -1,56 +1,94 @@
-#mypage-location-wrap
-  #location-wrap
-    #location
-      %ul.location-bar
-        %li
-          %span= image_tag 'home_icon.png'
-        %li.link
-          食べログ
-        %li
-          %span= image_tag 'location_arrow.png'
-        %li.link
-          食べログレビュアー
-        %li
-          %span= image_tag 'location_arrow.png'
-        %li.username
-          itismorningさん
+.mypage-heading-wrap
+  #mypage-location-wrap
+    #location-wrap
+      #location
+        %ul.location-bar
+          %li
+            %span= image_tag 'home_icon.png'
+          %li.link
+            食べログ
+          %li
+            %span= image_tag 'location_arrow.png'
+          %li.link
+            食べログレビュアー
+          %li
+            %span= image_tag 'location_arrow.png'
+          %li.username
+            itismorningさん
 
-.mypage-header-wrap
-  .mypage-header
-    .mypage-header-cover
-      #cover-image
-      #page-info
-        itismorningのレストランガイド
-      #user-avatar
-        %span= image_tag 'avatar_nophoto.gif'
-      #header-cover_actions
-        レビュアーページ設定
-    .mypage-header-contents
-      .mypage-header-contents__image-wrap
-      .mypage-header-contents__info
-        .mypage-header-contents__info--nickname
-        .mypage-header-contents__info--prof
-      .mypage-header-contents__counts
-        .rvwr-counter
-          %dl
-            %dt
-            %dd
-          %dl
-            %dt
-            %dd
-          %dl
-            %dt
-            %dd
-          %dl
-            %dt
-            %dd
-    .mypage-header-navi
-      .mypage-header-navi__log
-      .mypage-header-navi__rvw
-      .mypage-header-navi__interest
-      .mypage-header-navi__matome
-      .mypage-header-navi__follow
-      .mypage-header-navi__follower
+  .mypage-header-wrap
+    .mypage-header
+      .mypage-header__cover-image
+        .cover-image
+        .page-name
+          itismorningのレストランガイド
+        .rvwr-page-setting
+          = link_to "レビュアーページ設定"
+      .mypage-header__user-avatar
+        %span.avatar-image= image_tag 'avatar_nophoto.gif'
+      .mypage-header-contents
+        .mypage-header-contents__image-wrap
+        .mypage-header-contents__info
+          .mypage-header-contents__userinfo
+            .mypage-header-contents__info--nickname
+              itismorning
+            .mypage-header-contents__info--prof
+              = link_to "➤ プロフィール詳細"
+        .mypage-header-contents__counts
+          .rvwr-counter
+            %dl
+              %dt
+                口コミ数
+              %dd
+                ○件
+            %dl
+              %dt
+                写真
+              %dd
+                ○枚 (like数表示)
+            %dl
+              %dt
+                訪問者数
+              %dd
+                ○人(先週○人)
+            %dl.last-child
+              %dt
+                いいね！
+              %dd
+                (Like数表示)
+      .mypage-header-navi
+        %ul.mypage-header-navi__list
+          %li.mypage-header-navi__log
+            .rvwr_navi__count
+              1
+            .rvwr-navi__menu
+              ログ
+          %li.mypage-header-navi__rvw
+            .rvwr_navi__count
+              1
+            .rvwr-navi__menu
+              行ったお店
+          %li.mypage-header-navi__interest
+            .rvwr_navi__count
+              0
+            .rvwr-navi__menu
+              行きたいお店
+          %li.mypage-header-navi__matome
+            .rvwr_navi__count
+              0
+            .rvwr-navi__menu
+              まとめ
+          %li.mypage-header-navi__follow
+            .rvwr_navi__count
+              0
+            .rvwr-navi__menu
+              フォロー中
+          %li.mypage-header-navi__follower
+            .rvwr_navi__count
+              0
+            .rvwr-navi__menu
+              フォロワー
+
 
 #logout
   = link_to "ログアウト", destroy_user_session_path, method: :delete
