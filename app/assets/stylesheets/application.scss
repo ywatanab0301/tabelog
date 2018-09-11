@@ -3,6 +3,7 @@
 @import "./color" ;
 @import "./user-resistration" ;
 @import "./shops" ;
+@import "./top" ;
 
 
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, output, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, section, main, summary, time, mark, audio, video, embed {
@@ -46,7 +47,40 @@ li {
     list-style: inherit;
 }
 
+a {
+    color: #06c;
+    text-decoration: none;
+}
+
 .l-container{
   width: 100%;
   box-sizing: border-box;
+}
+
+.p-user-menu {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.p-user-menu__item{
+  display: inline-block;
+  position: relative;
+  font-size: 1.2rem;
+}
+
+.balloon {
+    display: block;
+    position: relative;
+    border: 1px solid #d2d2d2;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    background-color: #ffffff;
+}
+
+.p-user-menu__target.p-user-menu__target--dropdown {
+    padding-right: 1px;
+}
+
+.p-user-menu__target {
+    padding: 0 8px;
 }
