@@ -1,0 +1,261 @@
+.useredit{
+  width: 100vw;
+  height: calc(100vh - 10vh);
+  padding-top: 10vh;
+  .location-link{
+    width: 900px;
+    height: 30px;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 12px;
+    &__reviewer{
+      font-weight: bold;
+      font-size: 12px;
+      color: $font_blue;
+    }
+    &__username{
+      font-weight: bold;
+      font-size: 12px;
+      color: $font_blue;
+    }
+    &__reviewsetting{
+      font-weight: bold;
+      font-size: 12px;
+      color: $font_blue;
+    }
+    &__profile{
+      font-weight: bold;
+      font-size: 12px;
+      color: $font_blue;
+    }
+  }
+  .useredit-box{
+    width: 900px;
+    height: 700px;
+    margin: 0 auto;
+    display: flex;
+    .useredit_leftbox{
+      width: 175px;
+      height: 650px;
+      padding: 5px;
+      background-color: $white;
+      filter: drop-shadow(1px 1px 1px #000);
+      &_username{
+        padding: 5px;
+        height: 100px;
+        border-bottom: 1px solid $background-gray;
+        &--img{
+          float: left;
+          width: 70px;
+          height: 70px;
+            img{
+            width: 70px;
+            height: 70px;
+            border-radius: 8px 8px;
+          }
+        }
+        &--name{
+          font-size: 14px;
+          font-weight: bold;
+          width: 80px;
+          float: right;
+          margin:5px 0 0 5px;
+          word-wrap: break-word;
+        }
+        &--text{
+          clear: both;
+          font-size: 13px;
+          color: $font_blue;
+          padding: 8px 1px 1px 1px;
+        }
+      }
+      .useredit_leftbox_account{
+        font-size: 13px;
+        font-weight: bold;
+        padding: 3px 0 3px 5px;
+        border-bottom: 1px dotted $background-gray;
+      }
+      ul.list1{
+        border-bottom: 1px solid $background-gray;
+        li.useredit_leftbox_login{
+          font-size: 13px;
+          padding: 5px 0 3px 5px;
+          color: $font_blue;
+        }
+        li.useredit_leftbox_mail{
+          font-size: 13px;
+          padding: 3px 0 3px 5px;
+          color: $font_blue;
+        }
+        li.useredit_leftbox_premium{
+          font-size: 13px;
+          padding: 3px 0 3px 5px;
+          color: $font_blue;
+        }
+        li.useredit_leftbox_1coin{
+          font-size: 13px;
+          padding: 3px 0 3px 5px;
+          color: $font_blue;
+        }
+        li.useredit_leftbox_reserve{
+          font-size: 13px;
+          padding: 3px 0 3px 5px;
+          color: $font_blue;
+        }
+      }
+      &_setting{
+        font-size: 13px;
+        font-weight: bold;
+        padding: 5px 0 3px 5px;
+        border-bottom: 1px dotted $background-gray;
+      }
+      ul.list2{
+        border-bottom: 1px solid $background-gray;
+        li.useredit_leftbox_reviewerpage{
+          font-size: 13px;
+          padding: 5px 0 3px 5px;
+          color: $font_blue;
+        }
+        li.useredit_leftbox_profile{
+          font-size: 13px;
+          padding: 3px 0 3px 5px;
+          color: $font_blue;
+        }
+        li.useredit_leftbox_restaurant{
+          font-size: 13px;
+          padding: 3px 0 3px 5px;
+          color: $font_blue;
+        }
+        li.useredit_leftbox_privacy{
+          font-size: 13px;
+          padding: 3px 0 3px 5px;
+          color: $font_blue;
+        }
+      }
+      &_follow1{
+        font-size: 13px;
+        font-weight: bold;
+        padding: 5px 0 3px 5px;
+        border-bottom: 1px dotted $background-gray;
+      }
+      ul.list3{
+        border-bottom: 1px solid $background-gray;
+        li.useredit_leftbox_follow2{
+          font-size: 13px;
+          padding: 5px 0 3px 5px;
+          color: $font_blue;
+        }
+        li.useredit_leftbox_facebook{
+          font-size: 13px;
+          padding: 3px 0 3px 5px;
+          color: $font_blue;
+        }
+        li.useredit_leftbox_magazine{
+          font-size: 13px;
+          padding: 3px 0 3px 5px;
+          color: $font_blue;
+        }
+        li.useredit_leftbox_block{
+          font-size: 13px;
+          padding: 3px 0 3px 5px;
+          color: $font_blue;
+        }
+      }
+      &_anything{
+        font-size: 13px;
+        font-weight: bold;
+        padding: 5px 0 3px 5px;
+        border-bottom: 1px dotted $background-gray;
+      }
+      ul.list4{
+        li.useredit_leftbox_coupon{
+          font-size: 13px;
+          padding: 5px 0 3px 5px;
+          color: $font_blue;
+        }
+        li.useredit_leftbox_restaurant{
+          font-size: 13px;
+          padding: 3px 0 3px 5px;
+          color: $font_blue;
+        }
+        li.useredit_leftbox_point{
+          font-size: 13px;
+          padding: 3px 0 3px 5px;
+          color: $font_blue;
+        }
+      }
+    }
+    .useredit_mainbox{
+      width: 690px;
+      height: 690px;
+      padding: 5px 5px 5px 20px;
+      background-color: $white;
+      &_profile{
+        height: 50px;
+        line-height: 50px;
+        border-top: 3px solid $background-gray;
+        border-bottom: 3px solid $background-gray;
+        h2{
+          padding-left: 15px;
+          font-weight: bold;
+        }
+      }
+      ul.edit{
+        margin-top: 30px;
+        display: flex;
+        border-top: 1px solid $background-gray;
+        border-bottom: 1px solid $background-gray;
+        li.useredit_mainbox_nickname{
+          height: 80px;
+          width: 140px;
+          background-color: $background-lightgray;
+          padding-left: 10px;
+          line-height: 80px;
+          font-size: 12px;
+          font-weight: bold;
+        }
+        li.useredit_mainbox_nicknameinput{
+          width: calc(100% - 140px);
+          position: relative;
+          #user_nickname{
+            width: 300px;
+            padding: 5px 0 5px 5px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+          }
+        .edit_text1{
+            font-size: 11px;
+            line-height: 11px;
+            color: $font_green;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+          }
+        }
+      }
+      .user_edit_btn{
+        width: 100%;
+        height: 60px;
+        background-color: $background-lightgray;
+        position: relative;
+        .edit_btn{
+          border: 1px solid $font_green;
+          width: 50px;
+          padding: 5px 0;
+          background-color: $font_green;
+          color: $white;
+          border-radius: 4px;/*角の丸み*/
+          box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+          margin: 0 auto;
+          position: absolute;
+          top: 15px;
+          left: 300px;
+          }
+        .edit_btn:active{
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+        }
+      }
+    }
+  }
+}
