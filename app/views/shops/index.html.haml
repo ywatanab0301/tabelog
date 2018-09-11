@@ -4,7 +4,7 @@
       %header.top-headline
         .top-headline__inner
           %h1.top-headline__logo
-            %span.top-headline__logo-img 全国のグルメ・レストランガイド 食べログ
+            %span.top-headline__logo-img
           .top-headline__usermenu
             #welcome.js-welcome-wrapper
               %ul.p-user-menu.js-exec-welcome
@@ -12,20 +12,55 @@
                   %a#open-message-notification.p-user-menu__target.p-user-menu__target--dropdown{:href => "#"}
                     %span.p-user-menu__text メッセージ
                     %span#messages.p-user-menu__badge{:style => "display:none;"} 0
-                %li.p-user-menu__item お知らせ
+                %li.p-user-menu__item
+                  %a#open-message-notification.p-user-menu__target.p-user-menu__target--dropdown{:href => "#"}
+                    %span.p-user-menu__text お知らせ
+                    %span#messages.p-user-menu__badge{:style => "display:none;"} 0
                 %li.p-user-menu__item 150pt
-                %li.p-user-menu__item 予約確認
-                %li.p-user-menu__item 行った・行きたい
-                %li.p-user-menu__item マイページ
-                %li.p-user-menu__item.p-user-menu__item--setting ユーザ画像
+                %li.p-user-menu__item
+                  %a.p-user-menu__target{:href => "#"}
+                  %span.p-user-menu__text 予約確認
+                %li.p-user-menu__item
+                  %a.p-user-menu__target{:href => "#"} 行った・行きたい
+                %li.p-user-menu__item
+                  %a.p-user-menu__target{:href => "#"} マイページ
+                %li.p-user-menu__item.p-user-menu__item--setting
+                  %a#open-user-setting.p-user-menu__target.p-user-menu__target--dropdown.p-user-menu__target--user-image{:href => "#"}
+                    %img{:alt => "Naoto241568", :height => "27", :src => "#", :width => "27"}/
       .top-header
         .top-header__visual.js-top-main-visual-image
           .top-header__overlay
-          %ul#js-top-slide-img.top-header__images
-            %li.top-header__image.top-header__image--slide01
-            %li.top-header__image.top-header__image--slide02
-            %li.top-header__image.top-header__image--slide03
-            %li.top-header__image.top-header__image--slide04
-            %li.top-header__image.top-header__image--slide05
-            %li.top-header__image.top-header__image--slide06
+            .bx-wrapper
+              .bx-viewport
+                %ul#js-top-slide-img.top-header__images
+                  %li.top-header__image.top-header__image--slide01
+                  %li.top-header__image.top-header__image--slide02
+                  %li.top-header__image.top-header__image--slide03
+                  %li.top-header__image.top-header__image--slide04
+                  %li.top-header__image.top-header__image--slide05
+                  %li.top-header__image.top-header__image--slide06
+            .top-header__slide-box
+        #js-top-main-visual.top-header__inner
+          .top-header__lead
+            %p.top-header__main-lead
+              おいしいを見つけよう
+            %p.top-header__sub-lead
+              気のおけない仲間との乾杯も、特別な日のごちそうも。
+              %br>/
+              食べログであなたの思い出をより「おいしく」。
+
+          .top-header__search
+            #js-global-header-search.global-header-search
+              .l-container.p-header-wrapper.p-header-wrapper--bottom
+                .l-contents.l-contents--fixed
+                  #suggest_datas{"data-area_datatype" => "", "data-area_id" => "", "data-lat" => "", "data-lng" => "", "data-multiple-suggest-flg" => "0", "data-no_suggest_flg" => "", :style => "display:none;"}
+                  #multi-suggest{:style => "display:none;"}
+                  #js-sa-user-input{"data-value" => "", :style => "display:none;"}
+                  .p-header
+                    %p.p-header__logo
+                      %a.p-header__logo-img{:href => "#", :title => "食べログ トップへ"} 食べログ
+                      / ここからメインコンテンツ
+  .l-container.top-container.top-container--maincontents
+    .l-contents.l-contents--fixed.topcontents--fixed
+
 
