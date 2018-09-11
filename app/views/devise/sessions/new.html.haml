@@ -1,17 +1,28 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.user_logins
+  .location-link
+    = link_to "食べログ",destroy_user_session_path, method: :delete
+    %span.location-name
+      >食べログへログイン(パスワード入力)
+  .user_login_box
+    .user_login
+      ユーザーログイン
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .user_inputspace
+        %ul
+          %li.user_login__mailname
+            = f.label :email
+          %li.user_login__mailad
+            = f.email_field :email, autofocus: true, autocomplete: "email"
+        %ul
+          %li.user_login__pass
+            = f.label :password
+          %li.user_login__passinput
+            = f.password_field :password, autocomplete: "current-password"
+        - if devise_mapping.rememberable?
+          .user_login__remembername
+            = f.label :"パスワードを記憶する?"
+            .user_login__remember
+              = f.check_box :remember_me
+            .user_login__btn
+              = f.button "Log in", class: "login-btn"
+      = render "devise/shared/links"
