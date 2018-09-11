@@ -7,3 +7,83 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
 .rsttop-headline__usermenu.p-user-menu__item {
     margin-top: -5px;
 }
+
+body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermenu .p-user-menu__text {
+    color: #fff;
+}
+
+.top-header__inner {
+    position: relative;
+    margin: 0 auto;
+    width: 1120px;
+    min-width: 1120px;
+    height: 540px;
+    z-index: 10;
+    .top-header__lead {
+      position: absolute;
+      top: 220px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      color: #fff;
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+      .top-header__main-lead {
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: 0.02em;
+        line-height: 1.4;
+        font-size: 5.4rem;
+        }
+        .top-header__sub-lead {
+          margin-top: 9px;
+          text-align: center;
+          letter-spacing: 0.1em;
+          line-height: 1.7;
+          margin-left: 1.1rem;
+          font-size: 2rem;
+      }
+    }
+    .top-header__visible-btn-wrapper.is-active {
+    cursor: pointer;
+    }
+    .top-header__visible-btn-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 55px;
+    left: 0;
+    margin: 0 auto;
+    width: 50px;
+    height: 45px;
+    }
+    .top-header__search {
+      position: absolute;
+      bottom: 135px;
+      right: 0;
+      left: 0;
+      .global-header-search {
+      padding-top: 0px;
+      .l-container.p-header-wrapper.p-header-wrapper--bottom {
+        z-index: 1;
+        margin: 0 auto;
+        padding: 0;
+        border-radius: 3px;
+        width: 875px;
+        min-width: 875px;
+        background: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        .top-header__search.global-header-search:not(.is-scroll).l-contents.l-contents--fixed {
+          width: 875px;
+          min-width: 875px;
+          }
+        }
+      }
+    }
+}
+.top-container.top-container--maincontents {
+    padding-top: 20px;
+}
