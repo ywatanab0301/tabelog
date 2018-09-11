@@ -47,28 +47,22 @@
               overflow-wrap: normal;
               white-space: nowrap;
               vertical-align: middle;
+              background:url("images/logo_tabelog.svg");
             }
           }
           .top-headline__usermenu {
             display: table-cell;
             text-align: right;
-            margin-top: -5px;
             .js-welcome-wrapper {
               .p-user-menu.js-exec-welcome {
                 display: inline-block;
                 white-space: nowrap;
-                .p-user-menu__item{
-                  display: inline-block;
-                  position: relative;
-                  font-size: 1.2rem;
+                .rsttop-headline__usermenu .p-user-menu__item {
+                  margin-top: -5px;
+                  }
                   .p-user-menu__target.p-user-menu__target--dropdown {
                     padding-right: 1px;
-                    body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermenu .p-user-menu__target {
-                        color: #fff;
-                      body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermenu .p-user-menu__text {
-                        color: #fff;
-                        }
-                      .p-user-menu__badge {
+                      .p-user-menu__badge::after {
                         margin-left: 3px;
                         padding: 0 4px;
                         border-radius: 8px;
@@ -77,7 +71,6 @@
                         font-weight: bold;
                         background: #e64c30;
                         font-size: 1.1rem;
-                      }
                       }
                   }
 
@@ -111,5 +104,4 @@
         }
       }
     }
-  }
 
