@@ -79,6 +79,10 @@
         height: 120px;
         width: 120px;
         box-shadow: 0 0 1px $font_gray;
+        img {
+          height: 120px;
+          width: 120px
+        }
       }
       .mypage-header-contents {
         display: flex;
