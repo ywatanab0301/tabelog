@@ -13,24 +13,24 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
 }
 
 .top-header__inner {
-    position: relative;
-    margin: 0 auto;
-    width: 1120px;
-    min-width: 1120px;
-    height: 540px;
-    z-index: 10;
-    .top-header__lead {
-      position: absolute;
-      top: 220px;
-      left: 0;
-      right: 0;
-      margin: auto;
-      color: #fff;
-      -webkit-transform: translateY(-50%);
-      -moz-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
-      -o-transform: translateY(-50%);
-      transform: translateY(-50%);
+  position: relative;
+  margin: 0 auto;
+  width: 1120px;
+  min-width: 1120px;
+  height: 540px;
+  z-index: 10;
+  .top-header__lead {
+    position: absolute;
+    top: 220px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: #fff;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
       .top-header__main-lead {
         font-weight: bold;
         text-align: center;
@@ -48,24 +48,24 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
       }
     }
     .top-header__visible-btn-wrapper.is-active {
-    cursor: pointer;
+      cursor: pointer;
     }
     .top-header__visible-btn-wrapper {
-    position: absolute;
-    right: 0;
-    bottom: 55px;
-    left: 0;
-    margin: 0 auto;
-    width: 50px;
-    height: 45px;
-    }
+      position: absolute;
+      right: 0;
+      bottom: 55px;
+      left: 0;
+      margin: 0 auto;
+      width: 50px;
+      height: 45px;
+      }
     .top-header__search {
       position: absolute;
       bottom: 135px;
       right: 0;
       left: 0;
       .global-header-search {
-      padding-top: 0px;
+        padding-top: 0px;
       .l-container.p-header-wrapper.p-header-wrapper--bottom {
         z-index: 1;
         margin: 0 auto;
@@ -85,5 +85,17 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
     }
 }
 .top-container.top-container--maincontents {
-    padding-top: 20px;
+  padding-top: 20px;
+  .top-container.top-container {
+    min-width: 1120px;
+      .top-contents {
+        position: relative;
+        z-index: 1;
+        min-width: 1120px;
+        padding: 0;
+    }
+  }
+  .top-column {
+    margin-top: 20px;
+}
 }
