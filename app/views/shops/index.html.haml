@@ -1,5 +1,5 @@
 .top-body-wrapper
-  .l-container.top-container.top-container--header
+  .container.top-container.top-container--header
     .top-header-wrap
       %header.top-headline
         .top-headline__inner
@@ -7,25 +7,25 @@
             %span.top-headline__logo-img
           .top-headline__usermenu
             #welcome.js-welcome-wrapper
-              %ul.p-user-menu.js-exec-welcome
-                %li.p-user-menu__item
-                  %a#open-message-notification.p-user-menu__target.p-user-menu__target--dropdown{:href => "#"}
-                    %span.p-user-menu__text メッセージ
-                    %span#messages.p-user-menu__badge{:style => "display:none;"} 0
-                %li.p-user-menu__item
-                  %a#open-message-notification.p-user-menu__target.p-user-menu__target--dropdown{:href => "#"}
-                    %span.p-user-menu__text お知らせ
-                    %span#messages.p-user-menu__badge{:style => "display:none;"} 0
-                %li.p-user-menu__item 150pt
-                %li.p-user-menu__item
-                  %a.p-user-menu__target{:href => "#"}
-                  %span.p-user-menu__text 予約確認
-                %li.p-user-menu__item
-                  %a.p-user-menu__target{:href => "#"} 行った・行きたい
-                %li.p-user-menu__item
-                  %a.p-user-menu__target{:href => "#"} マイページ
-                %li.p-user-menu__item.p-user-menu__item--setting
-                  %a#open-user-setting.p-user-menu__target.p-user-menu__target--dropdown.p-user-menu__target--user-image{:href => "#"}
+              %ul.user-menu.js-exec-welcome
+                %li.user-menu__item
+                  %a#open-message-notification.user-menu__target.user-menu__target--dropdown{:href => "#"}
+                    %span.user-menu__text メッセージ
+                    %span#messages.user-menu__badge{:style => "display:none;"} 0
+                %li.user-menu__item
+                  %a#open-message-notification.user-menu__target.user-menu__target--dropdown{:href => "#"}
+                    %span.user-menu__text お知らせ
+                    %span#messages.user-menu__badge{:style => "display:none;"} 0
+                %li.user-menu__item 150pt
+                %li.user-menu__item
+                  %a.user-menu__target{:href => "#"}
+                  %span.user-menu__text 予約確認
+                %li.user-menu__item
+                  %a.user-menu__target{:href => "#"} 行った・行きたい
+                %li.user-menu__item
+                  %a.user-menu__target{:href => "#"} マイページ
+                %li.user-menu__item.user-menu__item--setting
+                  %a#open-user-setting.user-menu__target.user-menu__target--dropdown.user-menu__target--user-image{:href => "#"}
                     %img{:alt => "Naoto241568", :height => "27", :src => "#", :width => "27"}/
       .top-header
         .top-header__visual.js-top-main-visual-image
@@ -51,8 +51,8 @@
 
           .top-header__search
             #js-global-header-search.global-header-search
-              .l-container.p-header-wrapper.p-header-wrapper--bottom
-                .l-contents.l-contents--fixed
+              .container.p-header-wrapper.p-header-wrapper--bottom
+                .contents.contents--fixed
                   #suggest_datas{"data-area_datatype" => "", "data-area_id" => "", "data-lat" => "", "data-lng" => "", "data-multiple-suggest-flg" => "0", "data-no_suggest_flg" => "", :style => "display:none;"}
                   #multi-suggest{:style => "display:none;"}
                   #js-sa-user-input{"data-value" => "", :style => "display:none;"}
@@ -60,8 +60,8 @@
                     %p.p-header__logo
                       %a.p-header__logo-img{:href => "#", :title => "食べログ トップへ"} 食べログ
                       / ここからメインコンテンツ
-  .l-container.top-container.top-container--maincontents
-    .l-contents.l-contents--fixed.topcontents--fixed
+  .container.top-container.top-container--maincontents
+    .contents.contents--fixed.topcontents--fixed
       .content-index-data{"data-type" => "top_announcements"}
         #top_announcements.top-annoucement
           .tabelog-info
@@ -69,7 +69,21 @@
               %span.tabelog-info__label.tabelog-info__label--news お知らせ
               %a.tablog_announcement.tabelog-info__title.js-tablog_announcement{:href => "#", :target => "tablog_announcement"}
                 全国ラーメンTOP100 「食べログ ラーメン 百名店 2018」を発表しました。
-        .l-column2.top-colum
-          .l-column2__main.top-colum__main
+        .colum2.top-colum
+          .colum2__left.top-colum__left
+          .colum2__right.top-colum__right
+            .js-right-user-info
+              .userdata
+                .userdata-box
+                  .userdata-box__header
+                    .userdata-box__img.userdata-box__img--nologin
+                      .userdata-box__img
+                        %img{ width: "40", height: "40", alt: "ゲストさん", src: "images/avatar_nophoto.gif"}
+                    .userdata-box__status.userdata-box__status--nologin
+                      %p.userdata-box__name.userdata-box__name--nologin 会員未登録
+                  %p.userdata-nologin-notice ログインすると、「行ったお店」「行きたいお店」を食べログ上で管理できるようになります。
+              .userdata-user-search
+              %p.userdata-submit
+
 
 
