@@ -66,7 +66,7 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
       left: 0;
       .global-header-search {
         padding-top: 0px;
-      .l-container.p-header-wrapper.p-header-wrapper--bottom {
+      .container.p-header-wrapper.p-header-wrapper--bottom {
         z-index: 1;
         margin: 0 auto;
         padding: 0;
@@ -76,7 +76,7 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
         background: none;
         -webkit-box-shadow: none;
         box-shadow: none;
-        .top-header__search.global-header-search:not(.is-scroll).l-contents.l-contents--fixed {
+        .top-header__search.global-header-search:not(.is-scroll).contents.contents--fixed {
           width: 875px;
           min-width: 875px;
           }
@@ -84,6 +84,7 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
       }
     }
 }
+// ここからメインコンテンツ
 .top-container.top-container--maincontents {
   padding-top: 20px;
   .top-container.top-container {
@@ -95,7 +96,62 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
         padding: 0;
     }
   }
-  .top-column {
+  .top-annoucement {
+    margin: 1.7rem 0 3.7rem;
+    }
+  .top-colum {
     margin-top: 20px;
-}
-}
+    .top-colum__left {
+      width: 830px;
+      min-width: 830px;
+    }
+    .top-colum__right {
+      width: 260px;
+      min-width: 260px;
+      .js-right-user-info {
+        .userdata {
+          border-radius: 3px;
+          background-color: #f4f4f4;
+          padding: 1.2rem;
+          .userdata-box {
+            border: 1px solid #e1e1e1;
+            border-radius: 3px;
+            background-color: #fff;
+            padding: 1.5rem 1.2rem;
+            .userdata-box__header {
+              display: table;
+              width: 100%;
+              table-layout: fixed;
+              height: 40px;
+              .userdata-box__img.userdata-box__img--nologin {
+                width: 50px;
+                .userdata-box__img {
+                  padding: 4px;
+                  border: 1px solid #e1e1e1;
+                  border-radius: 7px;
+                  }
+                }
+              .userdata-box__status {
+                  display: table-cell;
+                  vertical-align: top;
+                  padding-left: 5px;
+              }
+                .userdata-box__name.userdata-box__name--nologin {
+                  font-size: 1.4rem;
+                }
+              }
+              .userdata-nologin-notice {
+                margin: 1rem 0.2rem;
+                font-size: 1.1rem;
+              }
+            }
+            }
+          }
+        }
+        .userdata-user-search {
+          border-top: 1px solid #eeece4;
+          margin-top: 2rem;
+          padding-top: 2rem;
+        }
+      }
+    }
