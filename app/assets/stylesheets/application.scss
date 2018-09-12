@@ -10,22 +10,22 @@
 
 
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, output, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, section, main, summary, time, mark, audio, video, embed {
-    outline: 0;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    vertical-align: baseline;
-    background: transparent;
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  background: transparent;
 }
 
 
 body {
-    color: #595960;
-    font-family: "メイリオ","Meiryo","Hiragino Sans","ヒラギノ角ゴシック","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","ＭＳ Ｐゴシック","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 1.2rem;
-    line-height: 1.4;
-    background-color: #fff;
+  color: #595960;
+  font-family: "メイリオ","Meiryo","Hiragino Sans","ヒラギノ角ゴシック","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","ＭＳ Ｐゴシック","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  background-color: #fff;
 }
 
 
@@ -43,91 +43,120 @@ div,p{
 }
 
 ol, ul {
-    list-style: none;
+  list-style: none;
 }
 
 li {
-    list-style: inherit;
+  list-style: inherit;
 }
 
 a {
-    color: #06c;
-    text-decoration: none;
+  color: #06c;
+  text-decoration: none;
 }
 
-.l-container{
+img {
+    vertical-align: bottom;
+}
+
+.container{
   width: 100%;
   box-sizing: border-box;
 }
 
-.p-user-menu {
-    display: inline-block;
-    white-space: nowrap;
+.user-menu {
+  display: inline-block;
+  white-space: nowrap;
 }
 
-.p-user-menu__item{
+.user-menu__item{
   display: inline-block;
   position: relative;
   font-size: 1.2rem;
 }
 
 .balloon {
-    display: block;
-    position: relative;
-    border: 1px solid #d2d2d2;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    background-color: #ffffff;
+  display: block;
+  position: relative;
+  border: 1px solid #d2d2d2;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  background-color: #ffffff;
 }
 
-.p-user-menu__target.p-user-menu__target--dropdown {
-    padding-right: 1px;
+.user-menu__target.user-menu__target--dropdown {
+  padding-right: 1px;
 }
 
-.p-user-menu__target {
-    padding: 0 8px;
+.user-menu__target {
+  padding: 0 8px;
 }
 
-.p-user-menu__target.p-user-menu__target--dropdown:after {
-    display: inline-block;
-    color: #999;
-    font-size: 1rem;
-    font-family: "メイリオ";
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    -webkit-font-smoothing: antialiased;
-    text-transform: none;
-    speak: none;
-    content: "\f633";
+.user-menu__target.user-menu__target--dropdown:after {
+  display: inline-block;
+  color: #999;
+  font-size: 1rem;
+  font-family: "メイリオ";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  speak: none;
+  content: "\f633";
 }
 
 
 .top-header__inner .top-header__search {
-    position: absolute;
-    bottom: 135px;
-    right: 0;
-    left: 0;
+  position: absolute;
+  bottom: 135px;
+  right: 0;
+  left: 0;
 }
 
-.l-contents.l-contents--fixed {
-    padding-right: 0;
-    padding-left: 0;
-    width: 980px;
+.contents.contents--fixed {
+  padding-right: 0;
+  padding-left: 0;
+  width: 980px;
 }
 
-.l-contents {
-    margin: 0 auto;
-    padding: 0 10px;
-    width: 100%;
-    min-width: 980px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+.contents {
+  margin: 0 auto;
+  padding: 0 10px;
+  width: 100%;
+  min-width: 980px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.l-contents:before, .l-contents:after {
-    display: block;
-    overflow: hidden;
-    content: "";
+.contents:before, .contents:after {
+  display: block;
+  overflow: hidden;
+  content: "";
 }
 
+.colum2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.top-colum__left{
+  width: 700px;
+  min-width: 700px;
+  box-sizing: border-box;
+}
+
+.top-colum__right{
+  width: 260px;
+  min-width: 260px;
+  box-sizing: border-box;
+}
+.userdata-box__img.userdata-box__img--nologin{
+    display: table-cell;
+    vertical-align: top;
+}
+
+.userdata-box__name.userdata-box__name--nologin {
+  vertical-align: middle;
+}
