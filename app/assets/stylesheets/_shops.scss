@@ -8,7 +8,7 @@
   min-width: 1120px;
   width: 100%;
   background-color: $white;
-  .l-container.top-container.top-container--header{
+  .container.top-container.top-container--header{
     display: block;
     position: relative;
     z-index: 2;
@@ -54,15 +54,15 @@
             display: table-cell;
             text-align: right;
             .js-welcome-wrapper {
-              .p-user-menu.js-exec-welcome {
+              .user-menu.js-exec-welcome {
                 display: inline-block;
                 white-space: nowrap;
-                .rsttop-headline__usermenu .p-user-menu__item {
+                .rsttop-headline__usermenu .user-menu__item {
                   margin-top: -5px;
                   }
-                  .p-user-menu__target.p-user-menu__target--dropdown {
+                  .user-menu__target.user-menu__target--dropdown {
                     padding-right: 1px;
-                      .p-user-menu__badge::after {
+                      .user-menu__badge::after {
                         margin-left: 3px;
                         padding: 0 4px;
                         border-radius: 8px;
