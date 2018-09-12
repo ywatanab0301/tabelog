@@ -7,6 +7,7 @@ class CreateReviews < ActiveRecord::Migration[5.0]
       t.integer          :rate, null: false
       t.integer          :food_rate, null: false
       t.integer          :service_rate, null: false
+      t.integer          :drink_rate
       t.integer          :atmosphere, null: false
       t.integer          :cp_rate, null: false
       t.string           :title, null: false
