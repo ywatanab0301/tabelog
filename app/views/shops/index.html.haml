@@ -71,6 +71,12 @@
                 全国ラーメンTOP100 「食べログ ラーメン 百名店 2018」を発表しました。
         .colum2.top-colum
           .colum2__left.top-colum__left
+            .top-search
+              %section.top-search__colum
+                .top-search__heading
+                  %h2.top-heading1.top-search__title お店、レストランを探す
+                  .top-search__data-count
+                    .navi-count 店舗
           .colum2__right.top-colum__right
             .js-right-user-info
               .userdata
@@ -82,8 +88,40 @@
                     .userdata-box__status.userdata-box__status--nologin
                       %p.userdata-box__name.userdata-box__name--nologin 会員未登録
                   %p.userdata-nologin-notice ログインすると、「行ったお店」「行きたいお店」を食べログ上で管理できるようになります。
-              .userdata-user-search
-              %p.userdata-submit
+                  %p.userdata-loginbtn
+                    %a.btn-size.btn-detail.btn-sucess.js-login-window ログイン
+                  .premium-style.premium-box
+                    %p.userdata-text クレジットカードで初月無料
+                    %a.p-mark.premium-btn{href: "#"} プレミアムサービスについて
+              .userdata-search
+                %p.userdata-search__title レビュアーを探す
+                %form#FreeWord.js-free-word-user.userdata__user-search-form{"accept-charset" => "UTF-8", :action => "#", :method => "get", :name => "FreeWord"}
+                  %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+                  %input#PG{:name => "PG", :type => "hidden", :value => "1"}/
+                  %input#pcd{:name => "pcd", :type => "hidden", :value => "0"}/
+                  %input#LstPrf{:name => "LstPrf", :type => "hidden"}/
+                  %input#LstAre{:name => "LstAre", :type => "hidden"}/
+                  .userdata__user-search-rvwr
+                  %input#sw.c-textfield.c-textfield--full.userdata__user-search-textfield.js-search-reviewer-name{:name => "sw", :placeholder => "レビュアー名", :type => "text", :value => ""}/
+                  %input.btn-detail.userdata__user-search-btn{"data-disable-with" => "検索", :name => "commit", :type => "submit", :value => "検索"}/
+                .userdata-search-link
+                  %a.link-arrow{ href: "#"}
+                    %i.fas.fa-angle-right
+                    %span 全国のレビュアーから探す
+              .userdata-start__action
+                %a.btn-size.btn-detail 初めての方へ
+            .feature-wrap
+              .js-right-feature
+                %section.feature-all
+                  %h3.feature-name 特集
+                  .feature-area
+                    #ads-iframe
+                      %iframe#ads-iframe
+                    .feature-banner
+                    .feature-info
+                      %p.add-title ⭐️3.5以上の居酒屋特集
+                      %p.add-resume 全国のオススメ店ご紹介！
+                    .feature
 
 
 
