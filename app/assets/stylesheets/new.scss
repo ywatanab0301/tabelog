@@ -3,8 +3,9 @@ html {
 }
 
 .location{
+  margin: 0 auto;
+  width: 980px;
   padding: 15px 0;
-  width: 100%;
   height: 15px;
   font-size: 92%;
     &__left{
@@ -17,14 +18,19 @@ html {
       }
     }
     &__right{
+      float: right;
       ul{
-      float:right;
-      list-style: none;
+        list-style: none;
       }
         li{
           display: inline-block;
         }
     }
+}
+
+.main{
+  margin: 0 auto;
+  width: 980px;
 }
 
 .main{
@@ -44,9 +50,6 @@ html {
 .main{
   &__notice{
     margin: 15px 12px;
-    &__main{
-      max-width: 700px;
-    }
   }
 }
 
@@ -71,5 +74,97 @@ html {
 .main{
   table.input{
     border-top: 1px solid $newshop_line;
+    width: 100%;
+  }
+  tbody{
+    border-top: 1px solid $newshop_line;
+  }
+  tr{
+    height: 60px;
+    border-bottom: 1px solid $newshop_line;
+    th{
+      font-size: 12px;
+      line-height: 18px;
+      padding: 8px 13px;
+      width: 174px;
+      font-weight: bold;
+      text-align: left;
+      background-color: $newshop_background;
+      .emphasis {
+        background-color: red;
+        border-radius: 2px;
+        color: $white;
+        font-size: 11px;
+        margin: 2px;
+        height: 13px;
+        width: 22px;
+        float: right;
+        padding: 2px 3px;
+      }
+    }
+    td{
+      background-color: $white;
+      display: inline-block;
+      vertical-align: middle;
+      padding: 10px;
+      font-size: 1.3rem;
+      input{
+        width: 750px;
+        height: 25px;
+
+      }
+      .notice{
+        color: $newshop_notice;
+        font-size: 92%;
+        padding-top: 4px;
+      }
+    }
+  }
+  .p.attention{
+    color: red;
+    font-size: 12px;
+    padding-top: 8px;
   }
 }
+
+.main__rst-form__footer{
+  background-color: $newshop_background;
+  height: 48px;
+  padding: 10px;
+  border-bottom: 1px solid $newshop_line;
+  &__btn{
+    display: table;
+    margin: 5px auto;
+    table-layout: fixed;
+    box-sizing: border-box;
+    &__back{
+      display: table-cell;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid $grey;
+      border-radius: 3px;
+      color: $black;
+      font-weight: bold;
+      padding: 0.6rem 1.2rem;
+      font-size: 1.2rem;
+      background-color: $white;
+      height: 18px;
+      width: 24px;
+    }
+    &__submit{
+      margin-left: 10px;
+      .submit_btn{
+        text-align: center;
+        cursor: pointer;
+        border: 1px solid $send_border;
+        border-radius: 3px;
+        color: $white;
+        font-weight: bold;
+        padding: 0.6rem 1.2rem;
+        font-size: 1.2rem;
+        background-color: $send_background;
+      }
+    }
+  }
+}
+

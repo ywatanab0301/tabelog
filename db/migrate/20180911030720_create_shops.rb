@@ -31,7 +31,7 @@ class CreateShops < ActiveRecord::Migration[5.0]
       t.integer     :open_date
       t.string      :others
       t.string      :dress_code
-      t.integer     :confirmation_method, null: false
+      t.integer     :confirmation_method
       t.text        :comment
       t.timestamps
     end

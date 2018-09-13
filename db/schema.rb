@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 20180911060522) do
     t.integer  "open_date"
     t.string   "others"
     t.string   "dress_code"
-    t.integer  "confirmation_method",               null: false
+    t.integer  "confirmation_method"
     t.text     "comment",             limit: 65535
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false

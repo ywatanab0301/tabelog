@@ -4,7 +4,7 @@
       %li.fa.fa-home
       = link_to shops_path, method: :get do
         %li 食べログ
-      %li レストラン新規登録
+      %li > レストラン新規登録
 
   .location__right
     %ul
@@ -22,7 +22,79 @@
       また、当サイトの趣旨にあわないお店は管理側で判断し、削除する場合がございますので、ご了承ください。
 
   .main__rst-form
+
+  = form_for @shop do |f|
     .main__rst-form__title 店名
     %table.input
+      %tbody
+        %tr
+          %th
+            .emphasis 必須
+            = f.label :"店名"
+          %td
+            .input
+              = f.text_field :shop_name
+        %tr
+          %th
+            .emphasis 必須
+            = f.label :"フリガナ"
+          %td
+            = f.text_field :shop_name_f
+    .p.attention ※店名表記は管理側で修正する場合がございますので、あらかじめご了承ください。
 
+    .main__rst-form__title 電話番号・住所
+    %table.input
+      %tbody
+        %tr
+          %th
+            .emphasis 必須
+            = f.label :"電話番号"
+          %td
+            = f.text_field :phone_number
+            %p.notice 電話番号がない、または一般公開していないなどでわからないお店は管理側で登録しますので、お問い合わせフォームよりご依頼ください。
+        %tr
+          %th
+            = f.label :"都道府県"
+          %td
+            = f.collection_select :shop_prefectures, Prefecture.all, :id, :name
+        %tr
+          %th
+            .emphasis 必須
+            = f.label :"市町村区・番地"
+          %td
+            = f.text_field :city_address
+            %p.notice 入力した住所を元に下記の地図にマーカーをポイントします。マーカーは後から微調整することも可能ですので位置をご確認ください。
+        %tr
+          %th
+            = f.label :"ビル名・階数"
+          %td
+            = f.text_field :building
 
+    .main__rst-form__title 店舗詳細情報
+    %table.input
+      %tbody
+        %tr
+          %th
+            = f.label :"ジャンル"
+          %td
+            .input
+              = f.collection_select :shop_genres, Genre.all, :id, :name
+        %tr
+          %th
+            = f.label :"営業時間"
+          %td
+            .input
+              = f.text_field :hours
+        %tr
+          %th
+            = f.label :"定休日"
+          %td
+            .input
+              = f.text_field :closed_day
+
+    .main__rst-form__footer
+      .main__rst-form__footer__btn
+        .main__rst-form__footer__btn__back
+          = link_to "戻る", @shop
+        .main__rst-form__footer__btn__submit
+          = f.submit "登録する", class: "submit_btn"
