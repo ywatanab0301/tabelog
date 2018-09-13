@@ -230,6 +230,25 @@
                         %a.c-link-circle{ href:"#"}
                           %span 全国のお店を探す
             %section#js-timeline.top-timeline
+              #timeline-header.top-timeline__heading
+                %h3.top-text1.top-text.js-text-title
+                  %span 新着口コミ
+                .top-timeline__actions
+                  / js処理
+              .js-follow-banner
+                %p.js-follow-analysts
+                  / 要js処理
+                  %span.follow-banner-contents
+                    %span.follow-banner-icons
+                      %img{:alt => "", :height => "42", :src => "#", :width => "106"}/
+                    %span.follow-banner-title 好みのあう人をフォローすると、その人のオススメのお店から探せます。
+              #js-timeline-contents.timeline-contents
+                .timeline.timeline-body.js.timeline-box.is-visible
+                  .timeline-inner
+                    %p.timeline-date
+                      %span.text-num.timeline__entry-date 2018/9/12
+                    .timeline-post
+                      .timeline-post-data
           .colum2__right.top-colum__right
             .js-right-user-info
               .userdata
