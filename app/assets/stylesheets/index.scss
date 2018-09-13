@@ -1,0 +1,97 @@
+.location{
+  margin: 0 auto;
+  width: 980px;
+  padding: 15px 0;
+  height: 15px;
+  font-size: 92%;
+    &__left{
+      ul {
+        list-style: none;
+        float:left;
+        li{
+          display: inline-block;
+        }
+      }
+    }
+    &__right{
+      float: right;
+      ul{
+        list-style: none;
+      }
+        li{
+          display: inline-block;
+        }
+    }
+}
+
+.contents{
+  margin: 0 auto;
+  width: 980px;
+}
+
+.contents__side{
+  float: left;
+  width: 190px;
+  &__top{
+    margin-bottom: 16px;
+    padding: 8px;
+    border-radius: 4px;
+    width: 100%;
+    background-color: $shopindex_back;
+    &__area{
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+      border-radius: 4px;
+      box-shadow: 0 0 1px 1px rgba(19,19,30,0.1);
+      background: $white;
+      &__header{
+        padding: 14px 2rem 10px 10px;
+        color: $black;
+        font-size: 15px;
+        font-weight: bold;
+        }
+      &__main{
+        background-color: rgb(254, 250, 230);
+        padding: 15px 10px 14px;
+        border-top: solid 1px $shopindex_grey;
+        border-bottom: solid 1px $shopindex_grey;
+        border-left: solid 1px $shopindex_orange;
+        font-weight: bold;
+        font-size: 15px;
+      }
+      &__footer{
+        padding: 12px 2px;
+        text-align: center;
+        margin: 0 auto;
+        text-decoration: none;
+        a.target{
+          font-size: 11px;
+          text-decoration: none;
+        }
+      }
+    }
+    &__genre{
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+      border-radius: 4px;
+      box-shadow: 0 0 1px 1px rgba(19,19,30,0.1);
+      background: $white;
+      &__header{
+        padding: 14px 2rem 10px 10px;
+        color: $black;
+        font-size: 15px;
+        font-weight: bold;
+      }
+      &__main{
+        background-color: rgb(254, 250, 230);
+        padding: 15px 10px 14px;
+        border-top: solid 1px $shopindex_grey;
+        border-bottom: solid 1px $shopindex_grey;
+        border-left: solid 1px $shopindex_orange;
+        font-weight: bold;
+        font-size: 15px;
+      }
+    }
+  }
+
+}
