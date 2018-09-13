@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180910043847) do
+ActiveRecord::Schema.define(version: 20180911060522) do
+
+  create_table "budgets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",                    null: false
@@ -32,6 +50,71 @@ ActiveRecord::Schema.define(version: 20180910043847) do
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
+  create_table "shop_budgets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "shop_id"
+    t.integer  "budget_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["budget_id"], name: "index_shop_budgets_on_budget_id", using: :btree
+    t.index ["shop_id"], name: "index_shop_budgets_on_shop_id", using: :btree
+  end
+
+  create_table "shop_genres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "shop_id"
+    t.integer  "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_shop_genres_on_genre_id", using: :btree
+    t.index ["shop_id"], name: "index_shop_genres_on_shop_id", using: :btree
+  end
+
+  create_table "shop_prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "shop_id"
+    t.integer  "prefecture_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["prefecture_id"], name: "index_shop_prefectures_on_prefecture_id", using: :btree
+    t.index ["shop_id"], name: "index_shop_prefectures_on_shop_id", using: :btree
+  end
+
+  create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "shop_name",                         null: false
+    t.string   "shop_name_f",                       null: false
+    t.integer  "phone_number",                      null: false
+    t.string   "city_address",                      null: false
+    t.string   "building"
+    t.text     "map",                 limit: 65535
+    t.text     "hours",               limit: 65535
+    t.string   "closed_day"
+    t.integer  "reservation"
+    t.integer  "payment"
+    t.integer  "private_room"
+    t.integer  "capacity"
+    t.integer  "chartered"
+    t.integer  "parking"
+    t.integer  "smorking"
+    t.integer  "dish"
+    t.integer  "drink"
+    t.integer  "nomiho"
+    t.integer  "course"
+    t.string   "service_charge"
+    t.integer  "location"
+    t.integer  "facility_atmosphere"
+    t.integer  "kids"
+    t.string   "homepage"
+    t.string   "official_account1"
+    t.string   "official_account2"
+    t.string   "official_account3"
+    t.integer  "open_date"
+    t.string   "others"
+    t.string   "dress_code"
+    t.integer  "confirmation_method"
+    t.text     "comment",             limit: 65535
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.index ["shop_name"], name: "index_shops_on_shop_name", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nickname",                            null: false
     t.string   "avatar"
@@ -49,4 +132,10 @@ ActiveRecord::Schema.define(version: 20180910043847) do
   end
 
   add_foreign_key "reviews", "users"
+  add_foreign_key "shop_budgets", "budgets"
+  add_foreign_key "shop_budgets", "shops"
+  add_foreign_key "shop_genres", "genres"
+  add_foreign_key "shop_genres", "shops"
+  add_foreign_key "shop_prefectures", "prefectures"
+  add_foreign_key "shop_prefectures", "shops"
 end
