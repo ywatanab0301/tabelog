@@ -1,0 +1,615 @@
+= render partial: 'shares/header'
+.shop_view
+  .shop_views
+    .location-link
+      = link_to "食べログ",destroy_user_session_path, method: :delete
+      %span.location-link__location
+        > 埼玉
+      %span.location-link__searchshop
+        > 埼玉寿司
+      %span.location-link__search-location
+        > 川口・越谷・春日部・三郷寿司
+      %span.location-link__location-name
+        > 川口寿司
+      %span.location-link__station
+        > 川口元郷駅寿司
+      %span.location-link__shopname
+        > 鮨 猪股
+    .shop_subheader
+      .shop_subheader-left
+        .shop_views-namespace
+          .shop_views-namespace__shopname
+            カレーな舞
+          .shop_views-namespace__ratestar
+            ⭐️⭐️⭐️⭐️⭐️4.99
+          %span.shop_views-namespace__icons
+            🌃4.90🌅4.88💌174件
+          .shop_views-namespace__aword
+        .shop_views-detailspace
+          .shop_views-detailspace__station
+            最寄り駅: 六本木一丁目
+          .shop_views-detailspace__genre
+            ジャンル: 割烹・小料理
+          .shop_views-detailspace__average
+            予算🌃¥30,000~ 🌅¥30,000~
+            %span.shop_views-detailspace__schedule
+              定休日: 日曜・祝日
+            %span.shop_views-detailspace__moredetail
+              店舗詳細(詳細)
+      .shop_subheader-right
+        .shop_views-buttons
+          .button.shop-views
+            %button.shop-views__gonebtn
+              行った
+            %button.shop-views__wannabtn
+              行きたい
+            %button.shop-views__postbtn
+              投稿
+          %button.shop-views__recommend
+            メモを残そう（例：友達のおすすめカフェ）
+    .shop_lists
+      %ul.header_list
+        %li.shop_lists__top
+          店舗トップ
+        %li.shop_lists__menu
+          メニュー・コース
+        %li.shop_lists__image
+          写真
+        %li.shop_lists__review
+          口コミ
+        %li.shop_lists__map
+          地図
+    .shop_main
+      .shop_main-left
+        .shop_mainleft-1stimages
+          .shop_mainleft-images__1
+            = image_tag "avatar_nophoto.gif"
+          .shop_mainleft-images__2
+            = image_tag "avatar_nophoto.gif"
+          .shop_mainleft-images__3
+            = image_tag "avatar_nophoto.gif"
+          .shop_mainleft-images__4
+            = image_tag "avatar_nophoto.gif"
+          .shop_mainleft-images__5
+            = image_tag "avatar_nophoto.gif"
+        .shop_mainleft-2ndimages
+          .shop_mainleft-images__6
+            = image_tag "avatar_nophoto.gif"
+          .shop_mainleft-images__7
+            = image_tag "avatar_nophoto.gif"
+          .shop_mainleft-images__8
+            = image_tag "avatar_nophoto.gif"
+          .shop_mainleft-images__9
+            = image_tag "avatar_nophoto.gif"
+          .shop_mainleft-images__10
+            = image_tag "avatar_nophoto.gif"
+        .shop_mainleft-moreimages
+          .shop_mainleft-moreimages__link
+            もっと見る
+        .shop_mainleft-review
+          .shop_mainleft-review__title
+            口コミ
+          %button.review-postbtn
+            投稿する
+        .shop_mainleft-friend
+          .shop_mainleft-friend__image
+            = image_tag "avatar_nophoto.gif"
+          .shop_mainleft-friend__text
+            フォロー中の「RINA-Stone」さんが行っています。
+        %ul.pickup_review1
+          %li.pickup_review-avatar
+            .pickup_review-avatar__icon
+              = image_tag "avatar_nophoto.gif"
+            .pickup_review-avatar__nickname
+              パーカーやっておしまい
+            .pickup_review-avatar__count
+              (724)
+          %li.pickup_review-text
+            .pickup_review-text__title
+              10回目
+            .pickup_review-text__text
+              久しぶりの猪俣。ここしばらく電話が通じず、予約できませんでした。超人気店になっちゃいましたね。握りのお任せのみです。少しずつ値上がりしていて、今は¥2万ぐらいでしょうか。・とり貝・ウニ(青森)・シャコ・金目鯛・赤貝・かっぱ巻き・クジラ・赤身(那智勝浦)
+            .pickup_review-text__continue
+              続きを読む
+            .pickup_review-text__icons
+              %span.pickup_review-text__heart
+                💗300
+              %span.pickup_review-text__time
+                2018/03/23
+              %span.pickup_review-text__rates
+                ⭐️⭐️⭐️3.00
+        %ul.pickup_review2
+          %li.pickup_review-avatar
+            .pickup_review-avatar__icon
+              = image_tag "avatar_nophoto.gif"
+            .pickup_review-avatar__nickname
+              パーカーやっておしまい
+            .pickup_review-avatar__count
+              (724)
+          %li.pickup_review-text
+            .pickup_review-text__title
+              10回目
+            .pickup_review-text__text
+              久しぶりの猪俣。ここしばらく電話が通じず、予約できませんでした。超人気店になっちゃいましたね。握りのお任せのみです。少しずつ値上がりしていて、今は¥2万ぐらいでしょうか。・とり貝・ウニ(青森)・シャコ・金目鯛・赤貝・かっぱ巻き・クジラ・赤身(那智勝浦)
+            .pickup_review-text__continue
+              続きを読む
+            .pickup_review-text__icons
+              %span.pickup_review-text__heart
+                💗300
+              %span.pickup_review-text__time
+                2018/03/23
+              %span.pickup_review-text__rates
+                ⭐️⭐️⭐️3.00
+        %ul.pickup_review3
+          %li.pickup_review-avatar
+            .pickup_review-avatar__icon
+              = image_tag "avatar_nophoto.gif"
+            .pickup_review-avatar__nickname
+              パーカーやっておしまい
+            .pickup_review-avatar__count
+              (724)
+          %li.pickup_review-text
+            .pickup_review-text__title
+              10回目
+            .pickup_review-text__text
+              久しぶりの猪俣。ここしばらく電話が通じず、予約できませんでした。超人気店になっちゃいましたね。握りのお任せのみです。少しずつ値上がりしていて、今は¥2万ぐらいでしょうか。・とり貝・ウニ(青森)・シャコ・金目鯛・赤貝・かっぱ巻き・クジラ・赤身(那智勝浦)
+            .pickup_review-text__continue
+              続きを読む
+            .pickup_review-text__icons
+              %span.pickup_review-text__heart
+                💗300
+              %span.pickup_review-text__time
+                2018/03/23
+              %span.pickup_review-text__rates
+                ⭐️⭐️⭐️3.00
+        .shop_mainleft-morereview
+          .shop_mainleft-morereview__link
+            口コミをもっと見る （106件）
+        .shop_mainleft-aroundshop
+          .shop_mainleft-aroundshop__title
+            [PR] 近くのお店
+        %ul.around_shops
+          %li.around_shops__left
+            .around_shops__left-image
+              = image_tag "avatar_nophoto.gif"
+            .around_shops__left-shopname
+              串カツ田中 川口店
+            .around_shops__left-genre
+              串揚げ
+            .around_shops__left-stars
+              ⭐️⭐️⭐️3.00
+            .around_shops__left-denner
+              🌃¥30,000~
+            .around_shops__left-lunch
+              🌅¥30,000~
+          %li.around_shops__center
+            .around_shops__center-image
+              = image_tag "avatar_nophoto.gif"
+            .around_shops__center-shopname
+              串カツ西山 川口店
+            .around_shops__center-genre
+              串揚げ
+            .around_shops__center-stars
+              ⭐️⭐️⭐️3.00
+            .around_shops__center-denner
+              🌃¥30,000~
+            .around_shops__center-lunch
+              🌅¥30,000~
+          %li.around_shops__right
+            .around_shops__right-image
+              = image_tag "avatar_nophoto.gif"
+            .around_shops__right-shopname
+              串カツ中田 川口店
+            .around_shops__right-genre
+              串揚げ
+            .around_shops__right-stars
+              ⭐️⭐️⭐️3.00
+            .around_shops__right-denner
+              🌃¥30,000~
+            .around_shops__right-lunch
+              🌅¥30,000~
+        .shop_mainleft-shopdetail
+          .shop_mainleft-shopdetail__title
+            店舗情報（詳細）
+        .shop_mainleft-information
+          .shop_mainleft-information__title
+            店舗基本情報
+        %ul.shop_details_lists
+          %li.shop_details_lists__shopname
+            店名
+          %li.shop_details_lists__shopname-input
+            鮨 猪股 （スシイノマタ）
+        %ul.shop_details_lists
+          %li.shop_details_lists__genre
+            ジャンル
+          %li.shop_details_lists__genre-input
+            寿司
+        %ul.shop_details_lists
+          %li.shop_details_lists__telephone
+            お問い合わせ
+          %li.shop_details_lists__telephone-input
+            048-211-4175
+        %ul.shop_details_lists
+          %li.shop_details_lists__canreserve
+            予約可否
+          %li.shop_details_lists__canreserve-input
+            完全予約制
+        %ul.shop_details_lists
+          %li.shop_details_lists__address
+            住所
+          %li.shop_details_lists__address-input
+            埼玉県川口市幸町1-12-23 サンリーブ幸町コートハウス
+        %ul.shop_details_lists
+          %li.shop_details_lists__access
+            交通手段
+          %li.shop_details_lists__access-input
+            JR川口駅東口より徒歩1０分
+        %ul.shop_details_lists
+          %li.shop_details_lists__time
+            営業時間
+          %li.shop_details_lists__time-input
+            24時間
+        %ul.shop_details_lists
+          %li.shop_details_lists__closed
+            定休日
+          %li.shop_details_lists__closed-input
+            毎週日曜日、祝日
+        %ul.shop_details_lists
+          %li.shop_details_lists__money
+            予算
+          %li.shop_details_lists__money-input
+            予算
+        %ul.shop_details_lists
+          %li.shop_details_lists__paying
+            支払い方法
+          %li.shop_details_lists__paying-input
+            カード不可・電子マネー不可
+        .shop_mainleft-seat-details
+          .shop_mainleft-seat-details__title
+            席・設備
+        %ul.shop_details_lists
+          %li.shop_details_lists__seat
+            席数
+          %li.shop_details_lists__seat-count
+            8席
+        %ul.shop_details_lists
+          %li.shop_details_lists__private
+            個室
+          %li.shop_details_lists__private-count
+            無
+        %ul.shop_details_lists
+          %li.shop_details_lists__donate
+            貸切
+          %li.shop_details_lists__donate-can
+            不可
+        %ul.shop_details_lists
+          %li.shop_details_lists__smoke
+            禁煙・喫煙
+          %li.shop_details_lists__smoke-shop
+            完全禁煙
+        %ul.shop_details_lists
+          %li.shop_details_lists__parking
+            駐車場
+          %li.shop_details_lists__parking-shop
+            無
+        .shop_mainleft-feature
+          .shop_mainleft-feature__title
+            特徴・関連情報
+        %ul.shop_details_lists
+          %li.shop_details_lists__scene
+            利用シーン
+          %li.shop_details_lists__scene-input
+            知人・友人と
+        %ul.shop_details_lists
+          %li.shop_details_lists__hp
+            ホームページ
+          %li.shop_details_lists__hp-input
+        %ul.shop_details_lists
+          %li.shop_details_lists__open
+            オープン日
+          %li.shop_details_lists__open-fanfare
+            2014年7月
+        %ul.shop_details_lists
+          %li.shop_details_lists__firstposter
+            初投稿者
+          %li.shop_details_lists__firstposter-name
+            chienasiko（80）
+        .shop_mainleft-underbox
+          .shop_mainleft-underbox_upper
+            %button.shop_mainleft-underbox__mailbtn
+              メールで情報を送る
+            %button.shop_mainleft-underbox__copybtn
+              印刷ページを表示
+          %button.shop_mainleft-underbox__blogbtn
+            ブログに店舗情報を貼る
+        .shop_mainleft-notice
+          .shop_mainleft-notice__text
+            このレストランは食べログ店舗会員等に登録しているため、ユーザーの皆様は編集することができません。
+            %br
+              店舗情報に誤りを発見された場合には、ご連絡をお願いいたします。
+              %span.shop_mainleft-notice__formlink
+                お問い合わせフォーム
+        .shop_mainleft-around
+          .shop_mainleft-around__title
+            周辺のお店ランキング
+        .shop_mainleft-aroundrank
+          .shop_mainleft-aroundranking
+            .shop_mainleft-aroundranking__no1
+              .shop_mainleft-aroundranking__no1-image
+                = image_tag "avatar_nophoto.gif"
+              .shop_mainleft-aroundranking__no1-shopname
+                シャンドワゾー
+              .shop_mainleft-aroundranking__no1-count
+                (174)
+              .shop_mainleft-aroundranking__no1-genre
+                (ケーキ)
+              .shop_mainleft-aroundranking__no1-stars
+                ⭐️⭐️⭐️3.00
+            .shop_mainleft-aroundranking__no2
+              .shop_mainleft-aroundranking__no1-image
+                = image_tag "avatar_nophoto.gif"
+              .shop_mainleft-aroundranking__no1-shopname
+                シャンドワゾー
+              .shop_mainleft-aroundranking__no1-count
+                (174)
+              .shop_mainleft-aroundranking__no1-genre
+                (ケーキ)
+              .shop_mainleft-aroundranking__no1-stars
+                ⭐️⭐️⭐️3.00
+            .shop_mainleft-aroundranking__no3
+              .shop_mainleft-aroundranking__no1-image
+                = image_tag "avatar_nophoto.gif"
+              .shop_mainleft-aroundranking__no1-shopname
+                シャンドワゾー
+              .shop_mainleft-aroundranking__no1-count
+                (174)
+              .shop_mainleft-aroundranking__no1-genre
+                (ケーキ)
+              .shop_mainleft-aroundranking__no1-stars
+                ⭐️⭐️⭐️3.00
+            .shop_mainleft-aroundranking__no4
+              .shop_mainleft-aroundranking__no1-image
+                = image_tag "avatar_nophoto.gif"
+              .shop_mainleft-aroundranking__no1-shopname
+                シャンドワゾー
+              .shop_mainleft-aroundranking__no1-count
+                (174)
+              .shop_mainleft-aroundranking__no1-genre
+                (ケーキ)
+              .shop_mainleft-aroundranking__no1-stars
+                ⭐️⭐️⭐️3.00
+            .shop_mainleft-aroundranking__no5
+              .shop_mainleft-aroundranking__no1-image
+                = image_tag "avatar_nophoto.gif"
+              .shop_mainleft-aroundranking__no1-shopname
+                シャンドワゾー
+              .shop_mainleft-aroundranking__no1-count
+                (174)
+              .shop_mainleft-aroundranking__no1-genre
+                (ケーキ)
+              .shop_mainleft-aroundranking__no1-stars
+                ⭐️⭐️⭐️3.00
+        .shop_mainleft-moreranking
+          .shop_mainleft-moreranking-link
+            川口・鳩ヶ谷のレストラン情報を見る
+      .shop_main-right
+        .shop_mainright-telphone
+          .shop_mainright-telephone__number
+            042-571-5991
+          %button.telephone__sendbtn
+            送る
+        .shop_mainright-ranktitle
+          .shop_mainright-ranktitle__ranking
+            周辺のお店ランキング
+        .shop_mainright-buttons
+          %button.raking
+            👑総合ランキング
+          %button.dinner
+            🌃夜
+          %button.lunch
+            🌅昼
+        .shop_mainright-rankhead
+          %p.shop_mainright-rankhead__text
+            「######」のランキング（昼の点数の高いお店）です。
+        %ul.shops_ranking
+          %li.shop_mainright-rank1
+            .shop_mainright-ranking__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-ranking__shopname
+              鮨 猪股
+            .shop_mainright-ranking__genre
+              （寿司）
+            .shop_mainright-ranking__box
+              .shop_mainright-ranking__box-stars
+                ⭐️⭐️⭐️3.00
+              .shop_mainright-ranking__box-reviewcount
+                [ 口コミ 106 件 ]
+          %li.shop_mainright-rank2
+            .shop_mainright-ranking__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-ranking__shopname
+              鮨 猪股
+            .shop_mainright-ranking__genre
+              （寿司）
+            .shop_mainright-ranking__box
+              .shop_mainright-ranking__box-stars
+                ⭐️⭐️⭐️3.00
+              .shop_mainright-ranking__box-reviewcount
+                [ 口コミ 106 件 ]
+          %li.shop_mainright-rank3
+            .shop_mainright-ranking__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-ranking__shopname
+              鮨 猪股
+            .shop_mainright-ranking__genre
+              （寿司）
+            .shop_mainright-ranking__box
+              .shop_mainright-ranking__box-stars
+                ⭐️⭐️⭐️3.00
+              .shop_mainright-ranking__box-reviewcount
+                [ 口コミ 106 件 ]
+          %li.shop_mainright-rank4
+            .shop_mainright-ranking__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-ranking__shopname
+              鮨 猪股
+            .shop_mainright-ranking__genre
+              （寿司）
+            .shop_mainright-ranking__box
+              .shop_mainright-ranking__box-stars
+                ⭐️⭐️⭐️3.00
+              .shop_mainright-ranking__box-reviewcount
+                [ 口コミ 106 件 ]
+          %li.shop_mainright-rank5
+            .shop_mainright-ranking__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-ranking__shopname
+              鮨 猪股
+            .shop_mainright-ranking__genre
+              （寿司）
+            .shop_mainright-ranking__box
+              .shop_mainright-ranking__box-stars
+                ⭐️⭐️⭐️3.00
+              .shop_mainright-ranking__box-reviewcount
+                [ 口コミ 106 件 ]
+        .shop_mainright-moreranking
+          .shop_mainright-moreranking__morelink
+            「####」のランキングをもっと見る
+        .shop_mainright-nearshops
+          .shop_mainright-nearshops__title
+            このお店の近くのグルメ情報まとめ
+        %ul.nearshops_information
+          %li.shop_mainright-recommend1
+            .shop_mainright-recommend__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-recommend__text
+              浦和で飲むならこのお店！おすすめの居酒屋12選
+            .shop_mainright-recommend__person
+              食べログまとめ編集部
+          %li.shop_mainright-recommend2
+            .shop_mainright-recommend__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-recommend__text
+              埼玉グルメ！食べログランキングで人気のお店13選
+            .shop_mainright-recommend__person
+              食べログまとめ編集部
+          %li.shop_mainright-recommend3
+            .shop_mainright-recommend__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-recommend__text
+              【食べ歩き珍道中】越谷レイクタウン
+            .shop_mainright-recommend__person
+              だるま３世
+          %li.shop_mainright-recommend4
+            .shop_mainright-recommend__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-recommend__text
+              新時代のマニアックな中華街！西川口チャイナタウンまとめ9選
+            .shop_mainright-recommend__person
+              やっぱりモツが好き
+          %li.shop_mainright-recommend5
+            .shop_mainright-recommend__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-recommend__text
+              埼玉県春日部市の埼玉県立 #春日部高校 周辺の美味しい...
+            .shop_mainright-recommend__person
+              takafumiaoki000
+        .shop_mainright-morerecommend
+          .shop_mainright-morerecommend__linktext
+            このお店の近くのグルメ情報まとめをもっと見る
+        .shop_mainright-feature
+          .shop_mainright-feature__title
+            食べログ特集
+        %ul.shops_features
+          %li.shop_mainright-feature1
+            .shop_mainright-feature__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-feature__title
+              Mastercard限定
+            .shop_mainright-feature__text
+              食べログ人気店を含む全国約600店で受けられるお得なサービス
+          %li.shop_mainright-feature2
+            .shop_mainright-feature__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-feature__title
+              ANAカード利用者様へ
+            .shop_mainright-feature__text
+              マイルが貯まるお店が見つかるANAカードマイルプラス・グルメ
+          %li.shop_mainright-feature3
+            .shop_mainright-feature__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-feature__title
+              私たちの居場所、ここにも
+            .shop_mainright-feature__text
+              プルーム・テックを利用できるお店特集
+          %li.shop_mainright-feature4
+            .shop_mainright-feature__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-feature__title
+              ★3.5以上の居酒屋特集
+            .shop_mainright-feature__text
+              全国のおすすめ店ご紹介！／胸のムカムカに。スクラートG！
+          %li.shop_mainright-feature5
+            .shop_mainright-feature__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-feature__title
+              出張先で、人気店を探せる
+            .shop_mainright-feature__text
+              せっかくの遠出。普段は行けない「地方の人気店」を機内で探そう
+          %li.shop_mainright-feature6
+            .shop_mainright-feature__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-feature__title
+              百名店の味わいをご自宅で！
+            .shop_mainright-feature__text
+              食べログ 百名店の味わいを楽しめるカレーが新発売！
+          %li.shop_mainright-feature7
+            .shop_mainright-feature__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-feature__title
+              秋を堪能できるお店特集
+            .shop_mainright-feature__text
+              宴会・女子会・二次会などに。秋が満喫できるお店セレクション！
+          %li.shop_mainright-feature8
+            .shop_mainright-feature__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-feature__title
+              全国ご当地グルメ・観光特集
+            .shop_mainright-feature__text
+              人気の観光スポットや特産品など、地域ならではの情報をご紹介
+        .shop_mainright-allfeature
+          .shop_mainright-allfeature__linktext
+            特集一覧へ
+        .shop_mainright-forshops
+          .shop_mainright-forshops__title
+            店舗運営者の方へ
+        %ul.forshops
+          %li.shop_mainright-promotion1
+            .shop_mainright-promotion__title
+              無料でお店のPRができます！
+            .shop_mainright-promotion__text
+              店舗準会員になると、無駄な広告費をかけずに効果的なPRができます。
+              %span.shop_mainright-promotion__link
+                詳しくはこちら
+          %li.shop_mainright-promotion2
+            .shop_mainright-promotion__title
+              無料ではじめる予約台帳アプリ
+            .shop_mainright-promotion__text
+              紙ではできない予約管理を。いますぐ無料ではじめよう。
+              %span.shop_mainright-promotion__link
+                詳しくはこちら
+          %li.shop_mainright-promotion3
+            .shop_mainright-promotion__title
+              手数料3.24％、飲食店向けのカード決済！
+            .shop_mainright-promotion__text
+              固定費ゼロ。決済手数料3.24%で気軽にカード決済を導入できます。
+              %span.shop_mainright-promotion__link
+                詳しくはこちら
+          %li.shop_mainright-promotion4
+            .shop_mainright-promotion__title
+              食べログ店舗会員登録がお済みの方へ
+            .shop_mainright-promotion__text
+              既に会員登録が完了している方はこちらからログインできます。
+              %span.shop_mainright-promotion__link
+                ログインはこちらから
+= render partial: 'shares/footer'
