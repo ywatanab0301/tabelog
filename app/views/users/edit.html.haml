@@ -1,0 +1,80 @@
+.useredit
+  .location-link
+    = link_to "食べログ", destroy_user_session_path, method: :delete
+    %span.location-link__reviewer
+      > 食べログレビュアー
+    %span.location-link__username
+      > #{@user.nickname} さん
+    %span.location-link__reviewsetting
+      > レビュアー設定
+    %span.location-link__profile
+      > プロフィール
+  .useredit-box
+    .useredit_leftbox
+      .useredit_leftbox_username
+        .useredit_leftbox_username--img
+          -if current_user.avatar?
+            = image_tag @user.avatar.url
+          -else
+            = image_tag "avatar_nophoto.gif"
+        .useredit_leftbox_username--name
+          = @user.nickname
+        %p.useredit_leftbox_username--text
+          下書き一覧
+      %p.useredit_leftbox_account
+        アカウント設定
+      %ul.list1
+        %li.useredit_leftbox_login
+          ログイン
+        %li.useredit_leftbox_mail
+          お知らせメール
+        %li.useredit_leftbox_premium
+          プレミアムサービス
+        %li.useredit_leftbox_1coin
+          ワンコインランチサービス
+        %li.useredit_leftbox_reserve
+          ネット予約連絡先
+      %p.useredit_leftbox_setting
+        レビュアー設定
+      %ul.list2
+        %li.useredit_leftbox_reviewerpage
+          レビュアーページ
+        %li.useredit_leftbox_profile
+          プロフィール
+        %li.useredit_leftbox_restaurant
+          おすすめレストラン
+        %li.useredit_leftbox_privacy
+          プライバシー
+      %p.useredit_leftbox_follow1
+        フォロー管理
+      %ul.list3
+        %li.useredit_leftbox_follow2
+          フォロー中
+        %li.useredit_leftbox_facebook
+          facebookの友達
+        %li.useredit_leftbox_magazine
+          食べログマガジン
+        %li.useredit_leftbox_block
+          ブロック
+      %p.useredit_leftbox_anything
+        その他サービス
+      %ul.list4
+        %li.useredit_leftbox_coupon
+          プレミアムクーポン
+        %li.useredit_leftbox_restaurant
+          レストランメニュー
+        %li.useredit_leftbox_point
+          保有Tポイント
+    .useredit_mainbox
+      .useredit_mainbox_profile
+        %h2 プロフィール
+      = form_for @user do |f|
+        %ul.edit
+          %li.useredit_mainbox_nickname
+            ニックネーム
+          %li.useredit_mainbox_nicknameinput
+            = f.text_field :nickname
+            %span.edit_text1
+              ニックネームの変更は何度でも可能です。
+        .user_edit_btn
+          = f.button "更新", class: "edit_btn"
