@@ -59,3 +59,4 @@ gem 'erb2haml'
 gem 'haml-rails'
 gem 'mini_magick'
 gem 'pry-rails'
+gem "font-awesome-rails"

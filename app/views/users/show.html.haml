@@ -1,103 +1,392 @@
-.mypage-heading-wrap
-  #mypage-location-wrap
-    #location-wrap
-      #location
-        %ul.location-bar
-          %li
-            %span= image_tag 'home_icon.png'
-          %li.link
-            = link_to "食べログ"
-          %li
-            %span= image_tag 'location_arrow.png'
-          %li.link
-            = link_to "食べログレビュアー"
-          %li
-            %span= image_tag 'location_arrow.png'
-          %li.username
+.mypage-view
+  .mypage-heading-wrap
+    #mypage-location-wrap
+      #location-wrap
+        #location
+          %ul.location-bar
+            %li
+              %span= image_tag 'home_icon.png'
+            %li.link
+              = link_to "食べログ"
+            %li
+              %span= image_tag 'location_arrow.png'
+            %li.link
+              = link_to "食べログレビュアー"
+            %li
+              %span= image_tag 'location_arrow.png'
+            %li.username
+              %p
+                = @user.nickname
+                さん
+
+    .mypage-header-wrap
+      .mypage-header
+        .mypage-header__cover-image
+          .cover-image
+          .page-name
             %p
               = @user.nickname
-              さん
+              のレストランガイド
+          .rvwr-page-setting
+            = link_to "レビュアーページ設定", edit_user_path
+        .mypage-header__user-avatar
+          -if current_user.avatar?
+            = image_tag @user.avatar.url
+          -else
+            = image_tag "avatar_nophoto.gif"
+        .mypage-header-contents
+          .mypage-header-contents__image-wrap
+          .mypage-header-contents__info
+            .mypage-header-contents__userinfo
+              .mypage-header-contents__info--nickname
+                = @user.nickname
+              .mypage-header-contents__info--prof
+                = link_to "➤ プロフィール詳細"
+          .mypage-header-contents__counts
+            .rvwr-counter
+              %dl
+                %dt
+                  口コミ数
+                %dd
+                  ○件
+              %dl
+                %dt
+                  写真
+                %dd
+                  ○枚 (like数表示)
+              %dl
+                %dt
+                  訪問者数
+                %dd
+                  ○人(先週○人)
+              %dl.last-child
+                %dt
+                  いいね！
+                %dd
+                  (Like数表示)
+        .mypage-header-navi
+          %ul.mypage-header-navi__list
+            %li.mypage-header-navi__log
+              .rvwr_navi__count
+                1
+              .rvwr-navi__menu
+                ログ
+            %li.mypage-header-navi__rvw
+              .rvwr_navi__count
+                1
+              .rvwr-navi__menu
+                行ったお店
+            %li.mypage-header-navi__interest
+              .rvwr_navi__count
+                0
+              .rvwr-navi__menu
+                行きたいお店
+            %li.mypage-header-navi__matome
+              .rvwr_navi__count
+                0
+              .rvwr-navi__menu
+                まとめ
+            %li.mypage-header-navi__follow
+              .rvwr_navi__count
+                0
+              .rvwr-navi__menu
+                フォロー中
+            %li.mypage-header-navi__follower
+              .rvwr_navi__count
+                0
+              .rvwr-navi__menu
+                フォロワー
 
-  .mypage-header-wrap
-    .mypage-header
-      .mypage-header__cover-image
-        .cover-image
-        .page-name
+  #container
+    .main-column
+      .recommend-wrap
+        .recommend-title
           %p
-            = @user.nickname
-            のレストランガイド
-        .rvwr-page-setting
-          = link_to "レビュアーページ設定", edit_user_path
-      .mypage-header__user-avatar
-        -if current_user.avatar?
-          = image_tag @user.avatar.url
-        -else
-          = image_tag "avatar_nophoto.gif"
-      .mypage-header-contents
-        .mypage-header-contents__image-wrap
-        .mypage-header-contents__info
-          .mypage-header-contents__userinfo
-            .mypage-header-contents__info--nickname
-              = @user.nickname
-            .mypage-header-contents__info--prof
-              = link_to "➤ プロフィール詳細"
-        .mypage-header-contents__counts
-          .rvwr-counter
-            %dl
-              %dt
-                口コミ数
-              %dd
-                ○件
-            %dl
-              %dt
-                写真
-              %dd
-                ○枚 (like数表示)
-            %dl
-              %dt
-                訪問者数
-              %dd
-                ○人(先週○人)
-            %dl.last-child
-              %dt
-                いいね！
-              %dd
-                (Like数表示)
-      .mypage-header-navi
-        %ul.mypage-header-navi__list
-          %li.mypage-header-navi__log
-            .rvwr_navi__count
-              1
-            .rvwr-navi__menu
-              ログ
-          %li.mypage-header-navi__rvw
-            .rvwr_navi__count
-              1
-            .rvwr-navi__menu
-              行ったお店
-          %li.mypage-header-navi__interest
-            .rvwr_navi__count
-              0
-            .rvwr-navi__menu
-              行きたいお店
-          %li.mypage-header-navi__matome
-            .rvwr_navi__count
-              0
-            .rvwr-navi__menu
-              まとめ
-          %li.mypage-header-navi__follow
-            .rvwr_navi__count
-              0
-            .rvwr-navi__menu
-              フォロー中
-          %li.mypage-header-navi__follower
-            .rvwr_navi__count
-              0
-            .rvwr-navi__menu
-              フォロワー
+            👑おすすめレストラン
+          .reccomend-edit-link
+            = fa_icon "cog", class: 'icon'
+        .recommend-text
+          .recommend-text__left
+            .review-info
+              .restaurant-name
+                👑スターバックス・コーヒー 渋谷マークシティ店
+              .review-prefecture
+                東京
+              .review-area
+                渋谷、神泉/カフェ、カフェ・喫茶（その他）、喫茶店
+            .review-title
+              %p
+                %a
+                  💬店員さんの神対応。
+          .recommend-text__right
+            .review-rate-dinner
+              夜 ☆☆☆☆☆
+            .review-rate-lunch
+              昼 ★★★★★ 5.0
+        .recommend-text
+          .recommend-text__left
+            .review-info
+              .restaurant-name
+                👑トムボーイ 106 モアイカフェ 渋谷道玄坂店
+              .review-prefecture
+                東京
+              .review-area
+                渋谷、神泉/ダイニングバー、インド料理、インドカレー
+            .review-title
+              %p
+                %a
+                  💬おいしいインドカレー屋さん
+          .recommend-text__right
+            .review-rate-dinner
+              夜 ☆☆☆☆☆
+            .review-rate-lunch
+              昼 ★★★☆☆ 3.0
 
+      .reviews-wrap
+        %p.visited-month
+          2018/09 訪問
+          .review-post
+            .review-post__rst-info
+              .review-post__rst-info-wrap
+                .review-post__rst-name
+                  %p
+                    %a
+                      トムボーイ 106 モアイカフェ 渋谷道玄坂店
+                    %span.review-post__rst-area
+                      (渋谷、神泉 / ダイニングバー、インド料理、インドカレー)
+                .review-post__buttons
+                  .review-post__buttons--trash
+                    =link_to ""
+                    = fa_icon "trash-o", class: 'icon'
+                  .review-post__buttons--edit
+                    =link_to ""
+                    = fa_icon "edit", class: 'icon'
+            .review-post__rst-review
+              .review-post__rst-review--score-data
+                .review-score
+                  .review-rating-star
+                    🌅  🌟🌟🌟⭐⭐
+                  .review-rating-point
+                    3.0
+                  %ul.review-rate-detail
+                    %li.food-rate
+                      %p
+                        [ 料理・味
+                        %strong
+                          4.0
+                    %li.service-rate
+                      %p
+                        サービス
+                        %strong
+                          2.0
+                    %li.atmosphere-rate
+                      %p
+                        雰囲気
+                        %strong
+                          3.0
+                    %li.cp-rate
+                      %p
+                        CP
+                        %strong
+                          3.0
+                    %li.drink-rate
+                      %p.drink-rate
+                        酒・ドリンク
+                        %strong
+                          ー
+                        ]
+                  .review-count
+                    1回目
+                .review-price
+                  .review-used-price
+                    %p
+                      使った金額（1人）：
+                      夜 ~￥999
+                  .price-range
+              .review-post__rst-review--content
+                .review-title
+                  %p
+                    %a
+                      おいしいインドカレー屋さん
+                .review-text
+                  %p
+                    友人と二人で利用しました。料理が出てくる順番が前後していたり、出てきた料理の内容が友人のものと自分のものがごちゃ混ぜになっていたりと、インドクオリティなのかなと言う感じでそれはそれで楽しめました。笑　料理自体はとても美味しかったです！　チキンバターカレーのランチをいただきました。ごちそうさまでした。
+                  %span.review-showall
+                    もっと見る
+                  %p.review-update-date
+                    2018/09/11更新
+              .review-post__rst-review--like-button
+                %button
+                  いいね！
+        %p.visited-month
+          2018/08 訪問
+          .review-post
+            .review-post__rst-info
+              .review-post__rst-info-wrap
+                .review-post__rst-name
+                  %p
+                    %a
+                      スターバックス・コーヒー 渋谷マークシティ店
+                    %span.review-post__rst-area
+                      渋谷、神泉/カフェ、カフェ・喫茶（その他）、喫茶店
+                .review-post__buttons
+                  .review-post__buttons--trash
+                    = fa_icon "trash-o", class: 'icon'
+                  .review-post__buttons--edit
+                    = fa_icon "edit", class: 'icon'
+            .review-post__rst-review
+              .review-post__rst-review--score-data
+                .review-score
+                  .review-rating-star
+                    🌅  ⭐⭐⭐⭐⭐
+                  .review-rating-point
+                    5.0
+                  %ul.review-rate-detail
+                    %li.food-rate
+                      %p
+                        [ 料理・味
+                        %strong
+                          ー
+                    %li.service-rate
+                      %p
+                        サービス
+                        %strong
+                          5.0
+                    %li.atmosphere-rate
+                      %p
+                        雰囲気
+                        %strong
+                          3.0
+                    %li.cp-rate
+                      %p
+                        CP
+                        %strong
+                          ー
+                    %li.drink-rate
+                      %p.drink-rate
+                        酒・ドリンク
+                        %strong
+                          ー
+                        ]
+                  .review-count
+                    1回目
+                .review-price
+                  .review-used-price
+                    %p
+                      使った金額（1人）：
+                      夜 ~￥999
+                  .price-range
+              .review-post__rst-review--content
+                .review-title
+                  %p
+                    %a
+                      店員さんの神対応。
+                .review-text
+                  %p
+                    土曜日の朝、アイスコーヒーを床にぶちまけてしまいましたが、イケメンお兄さんが嫌な顔一つせず対応してくださり、手際よく床の掃除、更にはコーヒーを新しいものに交換してくれました。スタバの神対応は本当でした！
+                  %span.review-showall
+                    もっと見る
+                  %p.review-update-date
+                    2018/09/11更新
+              .review-post__rst-review--like-button
+                %button
+                  いいね！
 
-#logout
-  = link_to "ログアウト", destroy_user_session_path, method: :delete
-#user_edit
-  = link_to "編集", edit_user_path
+    .side-column
+      .side-column-inner
+        .top-info
+          .notice
+            %span
+              お知らせ
+          .notice-text
+            全国カレーTOP100 「食べログ カレー 百名店 2018」を発表しました。
+        .middle-info
+        .timeline-calendar
+          .timeline-calendar__title
+            %h3
+              = fa_icon "calendar", class: 'icon'
+              行ったカレンダー
+          .timeline-calendar__container
+        .visited-area
+          .visited-area__title
+            %h3
+              = fa_icon "map", class: 'icon'
+              訪れたエリア
+          .visited-area__container
+            .visited-area__container--map
+          .visited-area__rank
+            %ul
+              %li.area-rank1
+                👑東京 [2件]
+              %li.area-rank2
+                👑東京 [2件]
+              %li.area-rank3
+                👑東京 [2件]
+        .visit-genre
+          .visit-genre__title
+            %h3
+              よく行くジャンル
+          .visit-genre__chart
+            .visit-genre__chart1
+              .visit-genre__chart1--chart
+              .visit-genre__chart1--rank
+            .visit-genre__chart2
+              .visit-genre__chart2--chart
+              .visit-genre__chart2--rank
+            .visit-genre__chart3
+              .visit-genre__chart3--chart
+              .visit-genre__chart3--rank
+          .visit-genre__rank
+            %ul
+              %li.genre-rank1
+                👑インドカレー [1件]
+              %li.genre-rank2
+                👑喫茶店 [1件]
+              %li.genre-rank3
+                👑南アジア料理 [1件]
+        .my-best-restaurant
+          .my-best-restaurant__title
+            %h3
+              マイベストレストラン
+          %ul.my-best-restaurant__list
+            %li
+            %li
+            %li
+            %li
+          %ul.my-best-restaurant__list
+            %li
+            %li
+            %li
+            %li
+          %ul.my-best-restaurant__list
+            %li
+            %li
+            %li
+            %li
+        .my-ranking
+          .area-ranking
+            %h3.area-genre__title
+              %p
+                = @user.nickname
+                さんのよく行くエリア
+            %ul.area-genre__list
+              %li
+                👑東京
+              %li
+              %li
+          .genre-ranking
+            %h3.area-genre__title
+              %p
+                = @user.nickname
+                さんのよく行くジャンル
+              %ul.area-genre__list
+                %li
+                  👑カフェ
+                %li
+                  👑喫茶店
+                %li
+                  👑南アジア料理
+        %button
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
+        %button
+          = link_to "編集", edit_user_path
