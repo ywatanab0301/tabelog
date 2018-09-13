@@ -44,9 +44,35 @@
           height: 340px;
           background-color: gray;
           position: relative;
-          .cover-image {
+          #cover-image {
             width: 100%;
             height: 100%;
+            position: relative;
+            .change-cover-image {
+              button.change-header-cover {
+                display: none;
+                font-size: 12px;
+                font-weight: bold;
+                border: solid 1px $font_gray;
+                background: $white;
+                border-radius: 4px;
+                padding: 3px 10px 3px;
+                position: absolute;
+                top: 140px;
+                right: 30px;
+              }
+              .change-header-cover-list {
+                border: solid 1px $font_gray;
+                background: $white;
+                font-size: 12px;
+                font-weight: bold;
+                padding: 3px 10px 3px;
+                position: absolute;
+                top: 165px;
+                right: 35px;
+                display: none;
+              }
+            }
           }
           .page-name {
             padding: 0 0 0 15px;

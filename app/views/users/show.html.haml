@@ -22,7 +22,14 @@
     .mypage-header-wrap
       .mypage-header
         .mypage-header__cover-image
-          .cover-image
+          #cover-image
+            = form_for @user do |f|
+              .change-cover-image
+                %button.change-header-cover
+                  カバー写真を変更
+                %button.change-header-cover-list
+                  = f.file_field :background_image, class: 'hidden'
+                  写真を変更する
           .page-name
             %p
               = @user.nickname
