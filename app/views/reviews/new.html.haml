@@ -1,21 +1,115 @@
-.js-bkm-modal-header.p-modal-bkm__header.p-modal-bkm__header--edit
-  .p-modal-bkm__header-inner
-    %p.p-modal-bkm__rst-name-wrap
-      %span.p-modal-bkm__rst-name restraunt名
-    %p.p-modal-bkm__rst-aliasname （読み仮名）
-%p.p-modal-bkm__textfield-title.js-review-title-wrap
-  %textarea#js-review-title.p-modal-bkm__textfield-title-target{:maxlength => "100", :name => "subject", :placeholder => "口コミのタイトルを入れてください", :rows => "1", :style => "overflow: hidden; overflow-wrap: break-word; height: 22px;"}
-.p-modal-bkm__textfield-comment.js-review-comment-wrapper
-  %textarea#js-review-comment.p-modal-bkm__textfield-comment-target{:cols => "30", :name => "comment", :placeholder => "口コミ本文をいれてください", :rows => "1", :style => "overflow-x: hidden; overflow-wrap: break-word; height: 120px; max-height: 209px;"}
-  .js-modal-footer.c-modal__footer.c-modal__footer--floating.p-modal-bkm__footer
-    .p-modal-bkm__footer-frame
-      .p-modal-bkm__footer-addinfo.p-modal-bkm__footer-addinfo--visit
-        %dl.p-modal-bkm__data.p-modal-bkm__data--edit
-          %dt.p-modal-bkm__data-subject 訪問日
-          %dd.p-modal-bkm__data-select
-            %p.p-modal-bkm__data-btn-wrapper.c-select
-              %input.js-visit-date-input{:name => "visit_date", :type => "hidden", :value => ""}/
-              %input.js-visit-date-trigger.p-modal-bkm__data-btn-dtl{:type => "button", :value => "-"}/
-            .js-visit-date-calendar-wrapper.p-modal-bkm__calendar-wrapper
-      %p.p-modal-bkm__footer-save
-        %button#js-save.c-btn.c-btn--success.p-modal-bkm__footer-btn.p-modal-bkm__footer-btn--success.js-lock{:type => "button"} 登録
+.reviews__header
+  .reviews__header-inner
+    %p.reviews__rst-name-wrap
+      %span.reviews__rst-name レストラン名
+    %p.reviews__rst-aliasname （レストラン）
+
+  .hr
+
+= form_for @review do |f|
+  .reviews__sceneselect-wrap
+    .reviews__sceneselect
+      .reviews__sceneselectspace
+        %p.reviews__sceneselectspace-text 口コミ対象をお選びください
+        .reviews__sceneselectspace-item
+          %button.reviews__sceneselectspace-item--dinner
+            %span 🌙夜
+          %button.reviews__sceneselectspace-item--lunch
+            %span 🌞昼
+
+  .reviews-rating
+    .reviews-rating--total
+      .total-rating
+        .total-rating--scene
+          %span 🌙夜
+        .total-rating--star
+          %p.title 総合
+          #star-rating-total
+        .total-rating--score
+          = f.text_field :rate
+      .cost-person
+        .cost-person--title 使った金額（1人）
+        .cost-person--selectcost
+          = f.text_field :price
+    .reviews-rating--detail1
+      .rate-dish
+        .rate-dish--info
+          .title 料理・味
+          #star-rating-dish
+        .rate-dish--score
+          = f.text_field :food_rate
+      .rate-cp
+        .rate-cp--info
+          .title CP
+          #star-rating-cp
+        .rate-cp--score
+          = f.text_field :cp_rate
+      .rate-service
+        .rate-service--info
+          .title サービス
+          #star-rating-service
+        .rate-service--score
+          = f.text_field :service_rate
+    .reviews-rating--detail2
+      .rate-drink
+        .rate-drink--info
+          .title お酒・ドリンク
+          #star-rating-drink️️
+        .rate-drink--score
+          = f.text_field :cp_rate
+      .rate-atmosphere
+        .rate-atmosphere--info
+          .title 雰囲気
+          #star-rating-atmosphere
+        .rate-atmosphere--score
+          = f.text_field :atmosphere
+      .close-window
+
+  .review-textfield
+    .hr
+    .review-title-wrap
+      .review-input-title
+        = f.text_field :title, placeholder: "口コミのタイトルを入れてください", class: "input-title"
+      / %textarea#js-review-title.reviews__textfield-title-target{:maxlength => "100", :name => "subject", :placeholder => "口コミのタイトルを入れてください", :rows => "1", :style => "overflow: hidden; overflow-wrap: break-word; height: 22px;"}
+    .review-comment-wrapper
+      .review-input-text
+        = f.text_area :text, placeholder: "口コミ本文をいれてください", class: "input-text", cols: "30"
+      / %textarea#js-review-comment.reviews__textfield-comment-target{:cols => "30", :name => "comment", :placeholder => "口コミ本文をいれてください", :rows => "1", :style => "overflow-x: hidden; overflow-wrap: break-word; height: 120px; max-height: 209px;"}
+    .reviews__notice-frame
+      %p.reviews__textfield-notice
+        %span 入力文字数：
+        %em.js-text-count-num.reviews__notice-item 0
+
+      .hr
+
+  .reviews__photo
+    .photo-navbar
+      .photo-navbar--add 写真を追加
+    .photo-select-field
+      .photo-select-field__pic1
+        %label.fas.fa-camera.btn
+          = f.file_field :pic1, style: "display: none;"
+      .photo-select-field__pic2
+        %label.fas.fa-camera.btn
+          = f.file_field :pic2, style: "display: none;"
+      .photo-select-field__pic3
+        %label.fas.fa-camera.btn
+          = f.file_field :pic3, style: "display: none;"
+      .photo-select-field__pic4
+        %label.fas.fa-camera.btn
+          = f.file_field :pic4, style: "display: none;"
+      .photo-select-field__pic5
+        %label.fas.fa-camera.btn
+          = f.file_field :pic5, style: "display: none;"
+  .reviews__footer
+    .reviews__footer--visitinfo
+      %dt.reviews__data-subject 訪問日
+      %dd.reviews__data-select
+        = f.text_field :visit_day, id: "datepicker"
+    .reviews__footer--submit
+      .reviews__footer--submit--button
+      = f.submit "投稿する", class: "submit_btn", id:"submitbtn"
+    .reviews__footer--draft
+
+
+
