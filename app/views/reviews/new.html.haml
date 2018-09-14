@@ -13,9 +13,11 @@
         %p.reviews__sceneselectspace-text 口コミ対象をお選びください
         .reviews__sceneselectspace-item
           %button.reviews__sceneselectspace-item--dinner
-            %span 🌙夜
+            %span 夜
+            = f.check_box :lunch_dinner
           %button.reviews__sceneselectspace-item--lunch
-            %span 🌞昼
+            %span 昼
+            = f.check_box :lunch_dinner
 
   .reviews-rating
     .reviews-rating--total
@@ -25,6 +27,7 @@
         .total-rating--star
           %p.title 総合
           #star-rating-total
+          / %p.arrow-box
         .total-rating--score
           = f.text_field :rate
       .cost-person
