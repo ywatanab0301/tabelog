@@ -67,7 +67,7 @@ $(function() {
           alert("The rating is set to " + data.rating + "!");
       }
   );
-  $("#review_cp_rate").spinner({
+  $("#review_drink_rate").spinner({
     step: 0.1, max: 5, min: 1.0
       }
     );
