@@ -7,12 +7,11 @@ $(function() {
   });
 
   $("#star-rating-total").rateYo({
-      ratedFill: "#E74C3C", starWidth: "35px",
-      })
-      .on("rateyo.set", function (e, data) {
-          alert("The rating is set to " + data.rating + "!");
-      }
-  );
+    ratedFill: "#E74C3C", starWidth: "35px",
+    })
+    .on("rateyo.set", function (e, data) {
+        alert("The rating is set to " + data.rating + "!");
+    });
 
   $("#review_rate").spinner({
     step: 0.1, max: 5, min: 1.0
