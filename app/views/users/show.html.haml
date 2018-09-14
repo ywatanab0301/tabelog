@@ -1,3 +1,4 @@
+= render "shares/header"
 .mypage-view
   .mypage-heading-wrap
     #mypage-location-wrap
@@ -25,11 +26,16 @@
           #cover-image
             = form_for @user do |f|
               .change-cover-image
-                %button.change-header-cover
+                -if current_user.background_image?
+                  = image_tag @user.background_image.url
+                -else
+                  = image_tag "nature-wallpaper-2.jpg", class:'image'
+                %label.change-header-cover
                   カバー写真を変更
-                %button.change-header-cover-list
-                  = f.file_field :background_image, class: 'hidden'
-                  写真を変更する
+                  = f.file_field :background_image, style: 'display: none;'
+                  = f.hidden_field :user_id, value: current_user.id
+                  = f.submit "変更を保存", class: "clas name"
+                .change-header-cover-list
           .page-name
             %p
               = @user.nickname
@@ -55,12 +61,8 @@
                 %dt
                   口コミ数
                 %dd
-                  ○件
-              %dl
-                %dt
-                  写真
-                %dd
-                  ○枚 (like数表示)
+                  = @reviews.length
+                  件
               %dl
                 %dt
                   訪問者数
@@ -75,7 +77,7 @@
           %ul.mypage-header-navi__list
             %li.mypage-header-navi__log
               .rvwr_navi__count
-                1
+                = @reviews.length
               .rvwr-navi__menu
                 ログ
             %li.mypage-header-navi__rvw
@@ -104,7 +106,7 @@
               .rvwr-navi__menu
                 フォロワー
 
-  #container
+  .container
     .main-column
       .recommend-wrap
         .recommend-title
@@ -112,53 +114,40 @@
             👑おすすめレストラン
           .reccomend-edit-link
             = fa_icon "cog", class: 'icon'
-        .recommend-text
-          .recommend-text__left
-            .review-info
-              .restaurant-name
-                👑スターバックス・コーヒー 渋谷マークシティ店
-              .review-prefecture
-                東京
-              .review-area
-                渋谷、神泉/カフェ、カフェ・喫茶（その他）、喫茶店
-            .review-title
-              %p
-                %a
-                  💬店員さんの神対応。
-          .recommend-text__right
-            .review-rate-dinner
-              夜 ☆☆☆☆☆
-            .review-rate-lunch
-              昼 ★★★★★ 5.0
-        .recommend-text
-          .recommend-text__left
-            .review-info
-              .restaurant-name
-                👑トムボーイ 106 モアイカフェ 渋谷道玄坂店
-              .review-prefecture
-                東京
-              .review-area
-                渋谷、神泉/ダイニングバー、インド料理、インドカレー
-            .review-title
-              %p
-                %a
-                  💬おいしいインドカレー屋さん
-          .recommend-text__right
-            .review-rate-dinner
-              夜 ☆☆☆☆☆
-            .review-rate-lunch
-              昼 ★★★☆☆ 3.0
+        -@review_ranks.first(5).each do |review|
+          .recommend-text
+            .recommend-text__left
+              .review-info
+                .restaurant-name
+                  👑
+                  = review.shop.shop_name
+                .review-prefecture
+                  東京
+                .review-area
+                  渋谷、神泉/カフェ、カフェ・喫茶（その他）、喫茶店
+              .review-title
+                %p
+                  %a
+                    💬
+                    = review.title
+            .recommend-text__right
+              .review-rate-dinner
+                夜 ☆☆☆☆☆ ???
+              .review-rate-lunch
+                昼 ★★★★★ ???
 
-      .reviews-wrap
-        %p.visited-month
-          2018/09 訪問
+      -@reviews.each do |review|
+        .reviews-wrap
+          %p.visited-month
+            = review.visit_day.strftime('%Y/%m')
+            訪問
           .review-post
             .review-post__rst-info
               .review-post__rst-info-wrap
                 .review-post__rst-name
                   %p
                     %a
-                      トムボーイ 106 モアイカフェ 渋谷道玄坂店
+                      = review.shop.shop_name
                     %span.review-post__rst-area
                       (渋谷、神泉 / ダイニングバー、インド料理、インドカレー)
                 .review-post__buttons
@@ -174,34 +163,33 @@
                   .review-rating-star
                     🌅  🌟🌟🌟⭐⭐
                   .review-rating-point
-                    3.0
+                    = review.rate.round(1) unless review.rate == nil
                   %ul.review-rate-detail
                     %li.food-rate
                       %p
-                        [ 料理・味
+                        料理・味
                         %strong
-                          4.0
+                          = review.food_rate.round(1) unless review.food_rate == nil
                     %li.service-rate
                       %p
                         サービス
                         %strong
-                          2.0
+                          = review.service_rate.round(1) unless review.service_rate == nil
                     %li.atmosphere-rate
                       %p
                         雰囲気
                         %strong
-                          3.0
+                          = review.atmosphere.round(1) unless review.atmosphere == nil
                     %li.cp-rate
                       %p
                         CP
                         %strong
-                          3.0
+                          = review.cp_rate.round(1) unless review.cp_rate == nil
                     %li.drink-rate
                       %p.drink-rate
                         酒・ドリンク
                         %strong
-                          ー
-                        ]
+                          = review.drink_rate.round(1) unless review.drink_rate == nil
                   .review-count
                     1回目
                 .review-price
@@ -214,87 +202,15 @@
                 .review-title
                   %p
                     %a
-                      おいしいインドカレー屋さん
+                      = review.title
                 .review-text
                   %p
-                    友人と二人で利用しました。料理が出てくる順番が前後していたり、出てきた料理の内容が友人のものと自分のものがごちゃ混ぜになっていたりと、インドクオリティなのかなと言う感じでそれはそれで楽しめました。笑　料理自体はとても美味しかったです！　チキンバターカレーのランチをいただきました。ごちそうさまでした。
+                    = review.text
                   %span.review-showall
                     もっと見る
                   %p.review-update-date
-                    2018/09/11更新
-              .review-post__rst-review--like-button
-                %button
-                  いいね！
-        %p.visited-month
-          2018/08 訪問
-          .review-post
-            .review-post__rst-info
-              .review-post__rst-info-wrap
-                .review-post__rst-name
-                  %p
-                    %a
-                      スターバックス・コーヒー 渋谷マークシティ店
-                    %span.review-post__rst-area
-                      渋谷、神泉/カフェ、カフェ・喫茶（その他）、喫茶店
-                .review-post__buttons
-                  .review-post__buttons--trash
-                    = fa_icon "trash-o", class: 'icon'
-                  .review-post__buttons--edit
-                    = fa_icon "edit", class: 'icon'
-            .review-post__rst-review
-              .review-post__rst-review--score-data
-                .review-score
-                  .review-rating-star
-                    🌅  ⭐⭐⭐⭐⭐
-                  .review-rating-point
-                    5.0
-                  %ul.review-rate-detail
-                    %li.food-rate
-                      %p
-                        [ 料理・味
-                        %strong
-                          ー
-                    %li.service-rate
-                      %p
-                        サービス
-                        %strong
-                          5.0
-                    %li.atmosphere-rate
-                      %p
-                        雰囲気
-                        %strong
-                          3.0
-                    %li.cp-rate
-                      %p
-                        CP
-                        %strong
-                          ー
-                    %li.drink-rate
-                      %p.drink-rate
-                        酒・ドリンク
-                        %strong
-                          ー
-                        ]
-                  .review-count
-                    1回目
-                .review-price
-                  .review-used-price
-                    %p
-                      使った金額（1人）：
-                      夜 ~￥999
-                  .price-range
-              .review-post__rst-review--content
-                .review-title
-                  %p
-                    %a
-                      店員さんの神対応。
-                .review-text
-                  %p
-                    土曜日の朝、アイスコーヒーを床にぶちまけてしまいましたが、イケメンお兄さんが嫌な顔一つせず対応してくださり、手際よく床の掃除、更にはコーヒーを新しいものに交換してくれました。スタバの神対応は本当でした！
-                  %span.review-showall
-                    もっと見る
-                  %p.review-update-date
-                    2018/09/11更新
+                    = review.updated_at.strftime('%Y/%m/%d')
+                    更新
               .review-post__rst-review--like-button
                 %button
                   いいね！
@@ -397,3 +313,4 @@
           = link_to "ログアウト", destroy_user_session_path, method: :delete
         %button
           = link_to "編集", edit_user_path
+= render "shares/footer"

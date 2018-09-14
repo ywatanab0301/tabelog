@@ -1,7 +1,5 @@
 .mypage-view {
   width: 100vw;
-  height: calc(100vh - 10vh);
-  margin-top: 10vh;
   .mypage-heading-wrap {
     border-bottom: 1px solid $font_gray;
     box-shadow: 0 0.5px 1px $font_gray;
@@ -38,19 +36,23 @@
       .mypage-header {
         margin: 0 auto;
         position: relative;
-        height: 570px;
+        height: 540px;
         width: 980px;
         .mypage-header__cover-image{
           height: 340px;
-          background-color: gray;
+          background-color: $background-lightgray;
           position: relative;
           #cover-image {
             width: 100%;
             height: 100%;
             position: relative;
             .change-cover-image {
-              button.change-header-cover {
-                display: none;
+              img.image {
+                height: 340px;
+                width: 980px;
+              }
+              .change-header-cover {
+                // display: none;
                 font-size: 12px;
                 font-weight: bold;
                 border: solid 1px $font_gray;
@@ -114,7 +116,7 @@
         }
         .mypage-header-contents {
           display: flex;
-          height:165px;
+          height:135px;
           .mypage-header-contents__image-wrap {
             width: 155px;
           }
@@ -160,7 +162,6 @@
           }
         .mypage-header-navi {
           width: 100%;
-          height: 160px;
           ul.mypage-header-navi__list {
             display: flex;
             padding: 10px 0 0 0;
@@ -190,16 +191,12 @@
     }
   }
 
-  #container {
+  .container {
     display: flex;
-    width: 100%;
-    height: 100%;
-    position: relative;
+    justify-content: center;
     .main-column {
       width: 660px;
       margin: 30px 20px 0 0;
-      position: absolute;
-      left: calc(50% - 490px);
       .recommend-wrap{
         background-color: $background-lightgray;
         padding: 10px 10px 10px;
@@ -378,6 +375,12 @@
                     }
                   }
                 }
+                ul:before {
+                    content:'[';
+                  }
+                ul:after {
+                  content: ']';
+                }
               }
               .review-count {
                 position: absolute;
@@ -431,7 +434,7 @@
               }
             }
             .review-post__rst-review--like-button {
-              padding: 3px 10px 40px 3px;
+              padding: 10px 10px 40px 3px;
               button {
                 color: $white;
                 font-weight: bold;
@@ -446,8 +449,6 @@
     }
     .side-column {
       width: 300px;
-      position: absolute;
-      right: calc(50% - 490px);
       .side-column-inner {
         margin: 30px 30px 0 0;
         padding: 0 20px;
