@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20180910043847) do
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",                    null: false
     t.integer  "lunch_dinner",               null: false
-    t.integer  "price",                      null: false
     t.integer  "rate",                       null: false
     t.integer  "food_rate",                  null: false
     t.integer  "service_rate",               null: false
@@ -24,12 +23,9 @@ ActiveRecord::Schema.define(version: 20180910043847) do
     t.integer  "cp_rate",                    null: false
     t.string   "title",                      null: false
     t.text     "text",         limit: 65535, null: false
-    t.integer  "image_id"
     t.datetime "visit_day",                  null: false
-    t.integer  "share_with",                 null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.index ["image_id"], name: "index_reviews_on_image_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
