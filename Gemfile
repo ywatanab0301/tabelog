@@ -60,9 +60,6 @@ gem 'devise'
 gem "font-awesome-rails"
 gem 'carrierwave'
 gem 'mini_magick'
-<<<<<<< HEAD
 gem 'pry-rails'
 gem "font-awesome-rails"
-=======
 gem 'devise'
->>>>>>> master
