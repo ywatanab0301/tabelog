@@ -1,8 +1,402 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.js-bkm-modal-header.p-modal-bkm__header {
-  width: 700px;
-  height: 79px;
-  background-color: red;
+.reviews__header {
+  width: 900px;
+  height: 60px;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+  padding: 1.2rem 0 1.2rem;
 }
+
+.reviews__rst-aliasname {
+  line-height: 2;
+  color: #595960;
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+
+.hr {
+  height: 1px;
+  border: none;
+  border-top: 1px #d8ccb2 solid;
+}
+
+.reviews__sceneselect {
+  width: 900px;
+  height:100px;
+  margin: 0 auto;
+  line-height: 30px;
+}
+
+.reviews__sceneselectspace {
+  width: 300px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.reviews__sceneselectspace-text {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.reviews__sceneselectspace-item {
+  display: flex;
+  width: 300px;
+  margin: 0 auto;
+  &--dinner {
+    background-color: white;
+    width: 50%;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 3px;
+    border: 1px solid #d8ccb2;
+    margin-right: 20px;
+  }
+  &--lunch {
+    width: 50%;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 3px;
+    border: 1px solid #d8ccb2
+  }
+}
+.reviews-rating {
+  width: 900px;
+  height: 150px;
+  margin: 0 auto;
+  display: flex;
+  padding-bottom: 10px;
+  &--total {
+    width: 400px;
+    height: 150px;
+    .total-rating {
+      height: 80px;
+      display: flex;
+      &--scene {
+        width: 80px;
+        height: 100%;
+      }
+      &--star {
+        width: 200px;
+        height: 100%;
+        .title {
+          font-size: 12px;
+        }
+        .rate {
+          font-size: 35px;
+        }
+      }
+      &--score {
+        width: 120px;
+        height: 100%;
+        margin-top: 20px;
+        #review_rate {
+          height: 20px;
+          width: 50px;
+          text-align: center;
+          font-weight: bold;
+          font-size: 16px;
+          color: red;
+        }
+      }
+    }
+    .cost-person {
+      height: 70px;
+      &--title {
+        font-size: 12px;
+        padding-left: 80px;
+      }
+      &--selectcost {
+        padding-left: 80px;
+        #review_price {
+          font-size: 10px;
+          height: 15px;
+          width: 180px;
+          color: black;
+        }
+      }
+    }
+  }
+  &--detail1 {
+    width: 250px;
+    height: 150px;
+    .rate-dish {
+      height: 50px;
+      display: flex;
+      &--info {
+        width: 150px;
+      }
+      .title {
+        font-size: 12px;
+      }
+      .star {
+        font-size: 20px;
+      }
+      &--score {
+        width: 50px;
+        height: 100%;
+        margin-top: 20px;
+      }
+      #review_food_rate {
+        height: 12px;
+        width: 40px;
+        color: red;
+        text-align: center;
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+    .rate-cp {
+      height: 50px;
+      display: flex;
+      &--info {
+        width: 150px;
+      }
+      .title {
+        font-size: 12px;
+      }
+      .star {
+        font-size: 20px;
+      }
+      &--score {
+        width: 50px;
+        height: 100%;
+        margin-top: 20px;
+      }
+      #review_cp_rate {
+        height: 12px;
+        width: 40px;
+        color: red;
+        text-align: center;
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+    .rate-service {
+      height: 50px;
+      display: flex;
+      &--info {
+        width: 150px;
+      }
+      .title {
+        font-size: 12px;
+      }
+      .star {
+        font-size: 20px;
+      }
+      &--score {
+        width: 50px;
+        height: 100%;
+        margin-top: 20px;
+      }
+      #review_service_rate {
+        height: 12px;
+        width: 40px;
+        color: red;
+        text-align: center;
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+  }
+  &--detail2 {
+    width: 250px;
+    height: 150px;
+    .rate-drink {
+      height: 50px;
+      display: flex;
+      &--info {
+        width: 150px;
+      }
+      .title {
+        font-size: 12px;
+      }
+      .star {
+        font-size: 20px;
+      }
+      &--score {
+        width: 50px;
+        height: 100%;
+        margin-top: 20px;
+      }
+      #review_cp_rate {
+        height: 12px;
+        width: 40px;
+        color: red;
+        text-align: center;
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+    .rate-atmosphere {
+      height: 50px;
+      display: flex;
+      &--info {
+        width: 150px;
+      }
+      .title {
+        font-size: 12px;
+      }
+      .star {
+        font-size: 20px;
+      }
+      &--score {
+        width: 50px;
+        height: 100%;
+        margin-top: 20px;
+      }
+      #review_atmosphere {
+        height: 12px;
+        width: 40px;
+        color: red;
+        text-align: center;
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+    .close-window {
+      height: 50px;
+    }
+  }
+}
+
+.review-textfield {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.input-title {
+  width: 860px;
+  border: none;
+  font-weight: bold;
+  color: #13131e;
+  padding: 1rem;
+}
+
+.input-text {
+  width: 860px;
+  height: 100px;
+  border: none;
+  color: #13131e;
+  padding: 1rem;
+}
+
+.reviews__textfield-notice {
+  color: #a8a8a8;
+  min-height: 2rem;
+  font-size: 0.7rem;
+}
+
+.reviews__photo {
+  width: 900px;
+  height: 200px;
+  background-color: #faf8f5;
+  margin: 0 auto;
+}
+
+.photo-navbar {
+  height:40px;
+  &--add {
+    font-weight: bold;
+    color: #797152;
+    font-size: 14px;
+  }
+}
+
+.fas.fa-camera {
+  font-size: 30px;
+  padding: 50px 70px;
+  img {
+    width: 150px;
+    height: 135px;
+    position: relative;
+    display: inline-block;
+    margin-top: -77px;
+    margin-left: -55px;
+    // vertical-align: top;
+  }
+}
+
+.photo-select-field {
+  height: 150px;
+  display: flex;
+  &__pic1 {
+    width: 20%;
+    // box-sizing: border-box;
+    margin: 0.2rem;
+    border: 1px solid gray;
+    border-style: dashed;
+  }
+  &__pic2 {
+    width: 20%;
+    margin: 0.2rem;
+    border: 1px solid gray;
+    border-style: dashed;
+  }
+  &__pic3 {
+    width: 20%;
+    margin: 0.2rem;
+    border: 1px solid gray;
+    border-style: dashed;
+  }
+  &__pic4 {
+    width: 20%;
+    margin: 0.2rem;
+    border: 1px solid gray;
+    border-style: dashed;
+  }
+  &__pic5 {
+    width: 20%;
+    margin: 0.2rem;
+    border: 1px solid gray;
+    border-style: dashed;
+  }
+}
+
+.reviews__footer {
+  width: 900px;
+  height: 50px;
+  margin: 0 auto;
+  bottom: 0;
+  background-color: rgba(238,236,228,0.8);
+  box-shadow: none;
+  display: flex;
+  &--visitinfo {
+    width: 300px;
+    display: flex;
+    .reviews__data-subject {
+      padding: 7px;
+      font-size: 12px;
+    }
+    .reviews__data-select {
+      padding: 5px;
+    }
+    #datepicker{
+      height: 20px;
+      font-size:12px;
+      text-align: center;
+    }
+  }
+  &--submit {
+    width: 300px;
+    .submit_btn {
+      width: 200px;
+      height: 32px;
+      border: 1px solid #82ad24;
+      background-color: #9c0;
+      border-radius: 3px;
+      font-weight: bold;
+      font-size: 13px;
+      color: white;
+    }
+  }
+  &--draft {
+    width: 300px;
+  }
+}
+
