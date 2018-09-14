@@ -1,0 +1,122 @@
+.user_logins{
+  height: calc(100vh - 10vh);
+  width: 100vw;
+  padding-top: 10vh;
+  background-color: $background;
+  .location-link{
+    width: 650px;
+    height: 30px;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 12px;
+    .location-name{
+      font-weight: bold;
+      font-size: 12px;
+    }
+  }
+  .user_login_box{
+    width: 650px;
+    height: 300px;
+    margin: 0 auto;
+    background-color: $white;
+    filter: drop-shadow(1px 1px 1px #000);
+    .user_login{
+      height: 60px;
+      width: 100%;
+      text-align: center;
+      line-height: 60px;
+      font-weight: bold;
+      font-size: 18px;
+      box-shadow: 1px 1px 1px;
+    }
+      .user_inputspace{
+        width: 575px;
+        padding: 40px 5px;
+        margin: 0 auto;
+        margin-top: 0px;
+        ul{
+          display: flex;
+          li.user_login__mailname{
+            height: 60px;
+            width: 140px;
+            background-color: $background;
+            padding-left: 10px;
+            line-height: 60px;
+            margin-bottom: 3px;
+            font-size: 12px;
+            font-weight: bold;
+          }
+          li.user_login__mailad{
+            height: 60px;
+            width: 425px;
+            position: relative;
+            #user_email{
+              margin-left: 15px;
+              width: 380px;
+              height:30px;
+              padding:5px 5px;
+              line-height: 60px;
+              position: absolute;
+              top: 7px;
+              left: 0px;
+            }
+          }
+        }
+        ul{
+          display: flex;
+          li.user_login__pass{
+            height: 60px;
+            width: 140px;
+            background-color: $background;
+            padding-left: 10px;
+            line-height: 60px;
+            margin-bottom: 3px;
+            font-size: 12px;
+            font-weight: bold;
+          }
+          li.user_login__passinput{
+            height: 60px;
+            width: 425px;
+            position: relative;
+            #user_password{
+              margin-left: 15px;
+              width: 380px;
+              height: 30px;
+              padding: 5px 5px;
+              line-height: 60px;
+              position: absolute;
+              top: 7px;
+              left: 0px;
+            }
+          }
+        }
+          .user_login__remembername{
+            position: relative;
+            margin-top: 10px;
+            margin-left: 40px;
+          }
+          .user_login__remember{
+            position: absolute;
+            top: -2px;
+            left: 180px;
+        }
+      }
+      .user_login__btn{
+      height: 30px;
+      float: right;
+      .login-btn{
+        width: 80px;
+        padding: 10px 0;
+        margin-right: 70px;
+        border: 1px solid $font_green;
+        background-color: $font_green;
+        color: $white;
+        border-radius: 4px;/*角の丸み*/
+        box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+        }
+        .edit_btn:active{
+          box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+        }
+      }
+    }
+  }
