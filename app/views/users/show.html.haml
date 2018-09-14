@@ -26,16 +26,15 @@
           #cover-image
             = form_for @user do |f|
               .change-cover-image
-                -if current_user.background_image?
-                  = image_tag @user.background_image.url
-                -else
+                -if current_user.background_image.nil?
                   = image_tag "nature-wallpaper-2.jpg", class:'image'
+                -else
+                  = image_tag @user.background_image.url, class:'image'
                 %label.change-header-cover
                   カバー写真を変更
                   = f.file_field :background_image, style: 'display: none;'
                   = f.hidden_field :user_id, value: current_user.id
-                  = f.submit "変更を保存", class: "clas name"
-                .change-header-cover-list
+                = f.submit "変更を保存する", class: "cover-image-submit"
           .page-name
             %p
               = @user.nickname
@@ -82,7 +81,7 @@
                 ログ
             %li.mypage-header-navi__rvw
               .rvwr_navi__count
-                1
+                = @reviews.length
               .rvwr-navi__menu
                 行ったお店
             %li.mypage-header-navi__interest

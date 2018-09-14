@@ -52,7 +52,7 @@
                 width: 980px;
               }
               .change-header-cover {
-                // display: none;
+                display: none;
                 font-size: 12px;
                 font-weight: bold;
                 border: solid 1px $font_gray;
@@ -63,16 +63,17 @@
                 top: 140px;
                 right: 30px;
               }
-              .change-header-cover-list {
-                border: solid 1px $font_gray;
-                background: $white;
+              .cover-image-submit {
+                display: none;
                 font-size: 12px;
                 font-weight: bold;
-                padding: 3px 10px 3px;
+                border: solid 1px $font_gray;
+                background: $white;
+                border-radius: 4px;
+                padding: 3px 60px 3px;
                 position: absolute;
-                top: 165px;
-                right: 35px;
-                display: none;
+                top: 140px;
+                right: 30px;
               }
             }
           }
