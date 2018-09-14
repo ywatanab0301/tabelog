@@ -27,25 +27,21 @@
   .contents__main
     .contents__main__header
       .contents__main__header__title
-        %h2.title 全国のお店、レストラン
+        %span.title 全国のお店、レストラン
         %span.count 1000
         %span.unit 件
-      .contents__main__header__search
-        %a.search_form 検索条件を変更
-        .fa.fa-cog
+      %a.search_form 検索条件を変更
 
-    %ul.nav-tabs
-      %li.nav-item
-        %a.nav-link.active{href: "#"} 標準【会員店舗優先】
-      %li.nav-item
+    %ul.nav.nav-tabs
+      %li.nav-item.origin
+        %a.nav-link{href: "#"} 標準【会員店舗優先】
+      %li.nav-item.rank
         %a.nav-link{href: "#"} ランキング
-      %li.nav-item
+      %li.nav-item.review
         %a.nav-link{href: "#"} 口コミ数
-      %li.nav-item
-        %a.nav-link{href: "#"} ニューオープン
 
     .contents__main__list
-      %p.page-count 1~20 件を表示
+      %span.page-count 1~20 件を表示
       %span ／
-      %p.shop.count 全 100 件
+      %span.shop.count 全 100 件
 
