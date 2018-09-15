@@ -61,3 +61,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
 gem 'bootstrap', '~> 4.1.3'
+
+group :production do
+  gem 'unicorn'
+end
