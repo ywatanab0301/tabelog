@@ -7,4 +7,6 @@ class Review < ApplicationRecord
   has_many :tags, through: :review_tags
   has_many :review_budgets
   has_many :budgets, through: :review_budgets
+
+  accepts_nested_attributes_for :images
 end
