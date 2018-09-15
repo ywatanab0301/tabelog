@@ -13,59 +13,69 @@
         %p.reviews__sceneselectspace-text 口コミ対象をお選びください
         .reviews__sceneselectspace-item
           %button.reviews__sceneselectspace-item--dinner
-            %span 夜
-            = f.check_box :lunch_dinner
+            %label
+              = f.radio_button :lunch_dinner, "Dinner"
+              🌙夜
+
           %button.reviews__sceneselectspace-item--lunch
-            %span 昼
-            = f.check_box :lunch_dinner
+            %label
+              = f.radio_button :lunch_dinner, "Lunch"
+              🌞昼
+
 
   .reviews-rating
     .reviews-rating--total
       .total-rating
-        .total-rating--scene
-          %span 🌙夜
+        / .total-rating--scene
+        /   %span 🌙夜
         .total-rating--star
           %p.title 総合
           #star-rating-total
-          / %p.arrow-box
+          .counter
         .total-rating--score
-          = f.text_field :rate
+          = f.text_area :rate
       .cost-person
         .cost-person--title 使った金額（1人）
         .cost-person--selectcost
-          = f.text_field :rate
+        = form.fields_for @image do
+          = f.collection_select :review_budgets, Budget.all, :id, :name
     .reviews-rating--detail1
       .rate-dish
         .rate-dish--info
           .title 料理・味
           #star-rating-dish
+          .counter
         .rate-dish--score
-          = f.text_field :food_rate
+          = f.text_area :food_rate
       .rate-cp
         .rate-cp--info
           .title CP
           #star-rating-cp
+          .counter
         .rate-cp--score
-          = f.text_field :cp_rate
+          = f.text_area :cp_rate
       .rate-service
         .rate-service--info
           .title サービス
           #star-rating-service
+          .counter
         .rate-service--score
-          = f.text_field :service_rate
+          = f.text_area :service_rate
     .reviews-rating--detail2
       .rate-drink
         .rate-drink--info
           .title お酒・ドリンク
           #star-rating-drink️️
+          .counter
         .rate-drink--score
-          = f.text_field :drink_rate
+          = f.text_area :drink_rate
       .rate-atmosphere
         .rate-atmosphere--info
           .title 雰囲気
           #star-rating-atmosphere
+          .counter
         .rate-atmosphere--score
-          = f.text_field :atmosphere
+          = f.text_area :atmosphere
       .close-window
 
   .review-textfield
