@@ -66,7 +66,7 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
       left: 0;
       .global-header-search {
         padding-top: 0px;
-      .container.p-header-wrapper.p-header-wrapper--bottom {
+      .container.header-wrapper.header-wrapper--bottom {
         z-index: 1;
         margin: 0 auto;
         padding: 0;
@@ -76,9 +76,39 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
         background: none;
         -webkit-box-shadow: none;
         box-shadow: none;
-        .top-header__search.global-header-search:not(.is-scroll).contents.contents--fixed {
+        .top-header__search.global-header-search:not(.is-scroll).contents.contents--fixed.search-header {
           width: 875px;
           min-width: 875px;
+          height: 54px;
+          .search-header {
+            display: table;
+            margin: 0 auto;
+            width: 100%;
+            height: 29px;
+            .top-header__search.global-header-search:not(.is-scroll).search-header__logo {
+                display: none;
+              }
+              .search-header__logo {
+                display: table-cell;
+                padding: 4px 0;
+                width: 150px;
+                vertical-align: middle;
+                .search-header__logo-img {
+                  display: inline-block;
+                  width: 130px;
+                  height: 26px;
+                  overflow: hidden;
+                  text-indent: 100%;
+                  word-wrap: normal;
+                  overflow-wrap: normal;
+                  white-space: nowrap;
+                  vertical-align: top;
+                  background: url(https://tblg.k-img.com/images/restaurant/logo/logo_tabelog.svg?1499244152) no-repeat 0 0;
+                  -webkit-background-size: 130px 26px;
+                  background-size: 130px 26px;
+                }
+              }
+            }
           }
         }
       }
