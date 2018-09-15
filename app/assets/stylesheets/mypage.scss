@@ -111,8 +111,8 @@
           width: 120px;
           box-shadow: 0 0 1px $font_gray;
           img {
-            height: 120px;
-            width: 120px
+            height: 100%;
+            width: 100%;
           }
         }
         .mypage-header-contents {
@@ -413,24 +413,39 @@
                 p {
                   font-size: 13px;
                   color: $font_gray;
-                  max-height: 70px;
                   margin: 12px 0 11px;
-                  display: -webkit-box;
-                  -webkit-box-orient: vertical;
-                  -webkit-line-clamp: 3;
+                  height: 13px * 1.4 * 3;
+                  line-height: 1.4;
                   overflow: hidden;
+                  position: relative;
+                  &:before,
+                  &:after {
+                    position: absolute;
+                  }
+                  &:before {
+                  content: "...";
+                  top: 13px * 1.4 * (3 - 1);
+                  right: 0;
+                  }
+                  &:after {
+                    content: "";
+                    height: 100%;
+                    width: 100%;
+                  }
                 }
                 span.review-showall {
                   font-size: 13px;
                   font-weight: bold;
                   color: $font_blue;
                 }
-                p.review-update-date {
-                  font-size: 10px;
-                  color: $font_gray;
+                .review-update-date {
                   position: absolute;
                   right: 0;
-                  bottom: -10px;
+                  bottom: 0;
+                  h6 {
+                    font-size: 10px;
+                    color: $font_gray;
+                  }
                 }
               }
             }

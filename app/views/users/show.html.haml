@@ -1,4 +1,4 @@
-= render "shares/header"
+
 .mypage-view
   .mypage-heading-wrap
     #mypage-location-wrap
@@ -81,7 +81,7 @@
                 ログ
             %li.mypage-header-navi__rvw
               .rvwr_navi__count
-                = @reviews.length
+                = @reviews.uniq.length
               .rvwr-navi__menu
                 行ったお店
             %li.mypage-header-navi__interest
@@ -207,9 +207,10 @@
                     = review.text
                   %span.review-showall
                     もっと見る
-                  %p.review-update-date
-                    = review.updated_at.strftime('%Y/%m/%d')
-                    更新
+                  .review-update-date
+                    %h6
+                      = review.updated_at.strftime('%Y/%m/%d')
+                      更新
               .review-post__rst-review--like-button
                 %button
                   いいね！
@@ -312,4 +313,4 @@
           = link_to "ログアウト", destroy_user_session_path, method: :delete
         %button
           = link_to "編集", edit_user_path
-= render "shares/footer"
+
