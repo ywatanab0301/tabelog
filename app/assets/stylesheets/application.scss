@@ -102,6 +102,10 @@ input, button, textarea, select {
   font: inherit;
 }
 
+article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, section, main, summary, address {
+  display: block;
+}
+
 .c-textfield{
   display: inline-block;
   position: relative;
@@ -387,3 +391,85 @@ width: 100%;
 }
 
 
+
+.crown-no1.rating-crown__inner, .crown-no2.rating-crown__inner, .crown-no3.rating-crown__inner {
+  min-width: 2.6rem;
+  padding: 0.3rem 0 0.4rem;
+}
+
+.crown-no1.rating-crown__inner, .crown-no2.rating-crown__gly, .crown-no3.rating-crown__gly {
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.1rem;
+}
+
+.c-rating {
+  display: inline-block;
+  word-wrap: normal;
+  overflow-wrap: normal;
+  white-space: nowrap;
+  vertical-align: text-bottom;
+  line-height: 1;
+  font-size: 1.4rem;
+}
+
+.c-rating:before, .c-rating:after {
+  display: block;
+  overflow: hidden;
+  content: "";
+}
+
+.c-rating__star {
+  display: block;
+  position: relative;
+  float: left;
+  margin-top: -1px;
+  margin-right: 0.2em;
+}
+
+.c-rating__star:before {
+  position: relative;
+  color: #e1e1e1;
+  text-shadow: 0 0 1px #fff;
+  content: '\f603\f603\f603\f603\f603';
+}
+
+.c-rating__star:before, .c-rating__star:after {
+  display: block;
+  top: 0;
+  left: 0;
+  letter-spacing: 1px;
+  font-family: 'Tabelog Glyph';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+  speak: none;
+}
+
+.c-rating__star+.c-rating__val {
+  font-size: 1.08em;
+}
+
+.c-rating__val.c-rating__val--strong {
+  color: #e10000;
+  font-weight: bold;
+}
+
+.c-rating__val {
+  display: block;
+  float: left;
+  font-family: Arial;
+  font-weight: normal;
+}
+
+.c-rating:after {
+  clear: both;
+}
+
+.c-rating:before, .c-rating:after {
+  display: block;
+  overflow: hidden;
+  content: "";
+}
