@@ -7,6 +7,7 @@
   margin: 0 auto;
   text-align: center;
   font-weight: bold;
+  font-size: 16px;
   padding: 1.2rem 0 1.2rem;
 }
 
@@ -72,18 +73,15 @@
   display: flex;
   padding-bottom: 10px;
   &--total {
-    width: 400px;
+    width: 340px;
     height: 150px;
     .total-rating {
       height: 80px;
       display: flex;
-      &--scene {
-        width: 80px;
-        height: 100%;
-      }
       &--star {
-        width: 200px;
+        width: 240px;
         height: 100%;
+        padding-left:30px;
         .title {
           font-size: 12px;
         }
@@ -92,30 +90,32 @@
         }
       }
       &--score {
-        width: 120px;
+        width: 160px;
         height: 100%;
         margin-top: 20px;
         #review_rate {
-          height: 20px;
-          width: 50px;
+          margin-top: 3px;
+          height: 30px;
+          width: 60px;
           text-align: center;
           font-weight: bold;
-          font-size: 16px;
+          font-size: 18px;
           color: red;
         }
       }
     }
     .cost-person {
       height: 70px;
+      padding-left: 30px;
       &--title {
         font-size: 12px;
-        padding-left: 80px;
+        padding-bottom: 10px;
       }
       &--selectcost {
-        padding-left: 80px;
-        #review_price {
-          font-size: 10px;
-          height: 15px;
+        margin: 0 0 10px 10px;
+        #review_review_budgets {
+          font-size: 14px;
+          height: 25px;
           width: 180px;
           color: black;
         }
@@ -123,7 +123,7 @@
     }
   }
   &--detail1 {
-    width: 250px;
+    width: 280px;
     height: 150px;
     .rate-dish {
       height: 50px;
@@ -143,8 +143,8 @@
         margin-top: 20px;
       }
       #review_food_rate {
-        height: 12px;
-        width: 40px;
+        height: 20px;
+        width: 50px;
         color: red;
         text-align: center;
         font-weight: bold;
@@ -169,8 +169,8 @@
         margin-top: 20px;
       }
       #review_cp_rate {
-        height: 12px;
-        width: 40px;
+        height: 20px;
+        width: 50px;
         color: red;
         text-align: center;
         font-weight: bold;
@@ -195,8 +195,8 @@
         margin-top: 20px;
       }
       #review_service_rate {
-        height: 12px;
-        width: 40px;
+        height: 20px;
+        width: 50px;
         color: red;
         text-align: center;
         font-weight: bold;
@@ -205,7 +205,7 @@
     }
   }
   &--detail2 {
-    width: 250px;
+    width: 280px;
     height: 150px;
     .rate-drink {
       height: 50px;
@@ -225,8 +225,8 @@
         margin-top: 20px;
       }
       #review_drink_rate {
-        height: 12px;
-        width: 40px;
+        height: 20px;
+        width: 50px;
         color: red;
         text-align: center;
         font-weight: bold;
@@ -251,8 +251,8 @@
         margin-top: 20px;
       }
       #review_atmosphere {
-        height: 12px;
-        width: 40px;
+        height: 20px;
+        width: 50px;
         color: red;
         text-align: center;
         font-weight: bold;
@@ -268,6 +268,7 @@
 .review-textfield {
   width: 900px;
   margin: 0 auto;
+  font-size: 16px;
 }
 
 .input-title {

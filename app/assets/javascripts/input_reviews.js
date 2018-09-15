@@ -7,81 +7,95 @@ $(function() {
   });
 
   $("#star-rating-total").rateYo({
-    ratedFill: "#E74C3C", starWidth: "35px",
-    })
+    ratedFill: "#E74C3C",
+    starWidth: "35px",
+    onChange: function (rating, rateYoInstance) {
+     $(this).next().text(rating);
+   }
+  })
     .on("rateyo.set", function (e, data) {
-        alert("The rating is set to " + data.rating + "!");
+      $(this).on("click", function(){
+        $("#review_rate").stop(true).text(data.rating);
+      });
     });
+  $("#star-rating-total").rateYo({
+  });
 
-  $("#review_rate").spinner({
-    step: 0.1, max: 5, min: 1.0
-      }
-    );
-
-  $("#review_price").spinner({
-    step: 0.1, max: 5, min: 1.0
-      }
-    );
 
   $("#star-rating-dish").rateYo({
-      ratedFill: "#fa0", starWidth: "25px",
-      })
-      .on("rateyo.set", function (e, data) {
-          alert("The rating is set to " + data.rating + "!");
-      }
-  );
-  $("#review_food_rate").spinner({
-    step: 0.1, max: 5, min: 1.0
-      }
-    );
+    ratedFill: "#E74C3C",
+    starWidth: "25px",
+    onChange: function (rating, rateYoInstance) {
+     $(this).next().text(rating);
+   }
+  })
+    .on("rateyo.set", function (e, data) {
+      $(this).on("click", function(){
+        $("#review_food_rate").stop(true).text(data.rating);
+      });
+    });
+  $("#star-rating-dish").rateYo({
+  });
 
   $("#star-rating-cp").rateYo({
-      ratedFill: "#fa0", starWidth: "25px",
-      })
-      .on("rateyo.set", function (e, data) {
-          alert("The rating is set to " + data.rating + "!");
-      }
-  );
-  $("#review_cp_rate").spinner({
-    step: 0.1, max: 5, min: 1.0
-      }
-    );
+    ratedFill: "#E74C3C",
+    starWidth: "25px",
+    onChange: function (rating, rateYoInstance) {
+     $(this).next().text(rating);
+   }
+  })
+    .on("rateyo.set", function (e, data) {
+      $(this).on("click", function(){
+        $("#review_cp_rate").stop(true).text(data.rating);
+      });
+    });
+  $("#star-rating-cp").rateYo({
+  });
 
   $("#star-rating-service").rateYo({
-      ratedFill: "#fa0", starWidth: "25px",
-      })
-      .on("rateyo.set", function (e, data) {
-          alert("The rating is set to " + data.rating + "!");
-      }
-  );
-  $("#review_service_rate").spinner({
-    step: 0.1, max: 5, min: 1.0
-      }
-    );
+    ratedFill: "#E74C3C",
+    starWidth: "25px",
+    onChange: function (rating, rateYoInstance) {
+     $(this).next().text(rating);
+   }
+  })
+    .on("rateyo.set", function (e, data) {
+      $(this).on("click", function(){
+        $("#review_service_rate").stop(true).text(data.rating);
+      });
+    });
+  $("#star-rating-service").rateYo({
+  });
 
   $("#star-rating-drink").rateYo({
-      ratedFill: "#fa0", starWidth: "25px",
-      })
-      .on("rateyo.set", function (e, data) {
-          alert("The rating is set to " + data.rating + "!");
-      }
-  );
-  $("#review_drink_rate").spinner({
-    step: 0.1, max: 5, min: 1.0
-      }
-    );
+    ratedFill: "#E74C3C",
+    starWidth: "25px",
+    onChange: function (rating, rateYoInstance) {
+     $(this).next().text(rating);
+   }
+  })
+    .on("rateyo.set", function (e, data) {
+      $(this).on("click", function(){
+        $("#review_drink_rate").stop(true).text(data.rating);
+      });
+    });
+  $("#star-rating-drink").rateYo({
+  });
 
   $("#star-rating-atmosphere").rateYo({
-      ratedFill: "#fa0", starWidth: "25px",
-      })
-      .on("rateyo.set", function (e, data) {
-          alert("The rating is set to " + data.rating + "!");
-      }
-  );
-  $("#review_atmosphere").spinner({
-    step: 0.1, max: 5, min: 1.0
-      }
-    );
+    ratedFill: "#E74C3C",
+    starWidth: "25px",
+    onChange: function (rating, rateYoInstance) {
+     $(this).next().text(rating);
+   }
+  })
+    .on("rateyo.set", function (e, data) {
+      $(this).on("click", function(){
+        $("#review_atmosphere").stop(true).text(data.rating);
+      });
+    });
+  $("#star-rating-atmosphere").rateYo({
+  });
 
 
   $('#review_pic1').after('<span></span>');
