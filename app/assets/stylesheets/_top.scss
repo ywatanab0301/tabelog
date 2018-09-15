@@ -115,13 +115,13 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
     }
 }
 // ここからメインコンテンツ
-.container.top-container.top-container--maincontents {
+.containe.top-container.top-container--maincontents {
   padding-top: 20px;
   .contents.contents--fixed.topcontents--fixed {
-    margin-left: 140px;
+    // margin-left: 140px;
   }
   .top-container.top-container {
-    min-width: 1120px;
+    min-width: 1120px ;
       .top-contents {
         position: relative;
         z-index: 1;
