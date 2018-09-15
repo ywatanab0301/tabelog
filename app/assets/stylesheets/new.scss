@@ -96,8 +96,8 @@ html {
         color: $white;
         font-size: 11px;
         margin: 2px;
-        height: 13px;
-        width: 22px;
+        height: 18px;
+        width: 30px;
         float: right;
         padding: 2px 3px;
       }
@@ -134,7 +134,7 @@ html {
   border-bottom: 1px solid $newshop_line;
   &__btn{
     display: table;
-    margin: 5px auto;
+    margin: auto;
     table-layout: fixed;
     box-sizing: border-box;
     &__back{
@@ -149,7 +149,6 @@ html {
       font-size: 1.2rem;
       background-color: $white;
       height: 18px;
-      width: 24px;
     }
     &__submit{
       margin-left: 10px;

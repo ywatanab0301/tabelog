@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20180915044117) do
 
+
   create_table "budgets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -57,7 +58,11 @@ ActiveRecord::Schema.define(version: 20180915044117) do
     t.integer  "rate",                       null: false
     t.integer  "food_rate",                  null: false
     t.integer  "service_rate",               null: false
+<<<<<<< HEAD
     t.integer  "drink_rate",                 null: false
+=======
+    t.integer  "drink_rate"
+>>>>>>> master
     t.integer  "atmosphere",                 null: false
     t.integer  "cp_rate",                    null: false
     t.string   "title",                      null: false
@@ -65,6 +70,11 @@ ActiveRecord::Schema.define(version: 20180915044117) do
     t.datetime "visit_day",                  null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+<<<<<<< HEAD
+=======
+    t.integer  "shop_id",                    null: false
+    t.index ["image_id"], name: "index_reviews_on_image_id", using: :btree
+>>>>>>> master
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
@@ -93,6 +103,16 @@ ActiveRecord::Schema.define(version: 20180915044117) do
     t.datetime "updated_at",    null: false
     t.index ["prefecture_id"], name: "index_shop_prefectures_on_prefecture_id", using: :btree
     t.index ["shop_id"], name: "index_shop_prefectures_on_shop_id", using: :btree
+  end
+
+  create_table "shopimgs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "img1"
+    t.string   "img2"
+    t.string   "img3"
+    t.string   "img4"
+    t.string   "img5"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -130,7 +150,10 @@ ActiveRecord::Schema.define(version: 20180915044117) do
     t.text     "comment",             limit: 65535
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+    t.integer  "shopimg_id"
+    t.text     "prtext",              limit: 65535
     t.index ["shop_name"], name: "index_shops_on_shop_name", using: :btree
+    t.index ["shopimg_id"], name: "index_shops_on_shopimg_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

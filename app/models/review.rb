@@ -9,4 +9,5 @@ class Review < ApplicationRecord
   has_many :budgets, through: :review_budgets
 
   accepts_nested_attributes_for :images
+
 end

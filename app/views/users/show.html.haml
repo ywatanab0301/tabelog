@@ -1,4 +1,316 @@
-#logout
-  = link_to "ログアウト", destroy_user_session_path, method: :delete
-#user_edit
-  = link_to "編集", edit_user_path
+
+.mypage-view
+  .mypage-heading-wrap
+    #mypage-location-wrap
+      #location-wrap
+        #location
+          %ul.location-bar
+            %li
+              %span= image_tag 'home_icon.png'
+            %li.link
+              = link_to "食べログ"
+            %li
+              %span= image_tag 'location_arrow.png'
+            %li.link
+              = link_to "食べログレビュアー"
+            %li
+              %span= image_tag 'location_arrow.png'
+            %li.username
+              %p
+                = @user.nickname
+                さん
+
+    .mypage-header-wrap
+      .mypage-header
+        .mypage-header__cover-image
+          #cover-image
+            = form_for @user do |f|
+              .change-cover-image
+                -if current_user.background_image.nil?
+                  = image_tag "nature-wallpaper-2.jpg", class:'image'
+                -else
+                  = image_tag @user.background_image.url, class:'image'
+                %label.change-header-cover
+                  カバー写真を変更
+                  = f.file_field :background_image, style: 'display: none;'
+                  = f.hidden_field :user_id, value: current_user.id
+                = f.submit "変更を保存する", class: "cover-image-submit"
+          .page-name
+            %p
+              = @user.nickname
+              のレストランガイド
+          .rvwr-page-setting
+            = link_to "レビュアーページ設定", edit_user_path
+        .mypage-header__user-avatar
+          -if current_user.avatar?
+            = image_tag @user.avatar.url
+          -else
+            = image_tag "avatar_nophoto.gif"
+        .mypage-header-contents
+          .mypage-header-contents__image-wrap
+          .mypage-header-contents__info
+            .mypage-header-contents__userinfo
+              .mypage-header-contents__info--nickname
+                = @user.nickname
+              .mypage-header-contents__info--prof
+                = link_to "➤ プロフィール詳細"
+          .mypage-header-contents__counts
+            .rvwr-counter
+              %dl
+                %dt
+                  口コミ数
+                %dd
+                  = @reviews.length
+                  件
+              %dl
+                %dt
+                  訪問者数
+                %dd
+                  ○人(先週○人)
+              %dl.last-child
+                %dt
+                  いいね！
+                %dd
+                  (Like数表示)
+        .mypage-header-navi
+          %ul.mypage-header-navi__list
+            %li.mypage-header-navi__log
+              .rvwr_navi__count
+                = @reviews.length
+              .rvwr-navi__menu
+                ログ
+            %li.mypage-header-navi__rvw
+              .rvwr_navi__count
+                = @reviews.uniq.length
+              .rvwr-navi__menu
+                行ったお店
+            %li.mypage-header-navi__interest
+              .rvwr_navi__count
+                0
+              .rvwr-navi__menu
+                行きたいお店
+            %li.mypage-header-navi__matome
+              .rvwr_navi__count
+                0
+              .rvwr-navi__menu
+                まとめ
+            %li.mypage-header-navi__follow
+              .rvwr_navi__count
+                0
+              .rvwr-navi__menu
+                フォロー中
+            %li.mypage-header-navi__follower
+              .rvwr_navi__count
+                0
+              .rvwr-navi__menu
+                フォロワー
+
+  .container
+    .main-column
+      .recommend-wrap
+        .recommend-title
+          %p
+            👑おすすめレストラン
+          .reccomend-edit-link
+            = fa_icon "cog", class: 'icon'
+        -@review_ranks.first(5).each do |review|
+          .recommend-text
+            .recommend-text__left
+              .review-info
+                .restaurant-name
+                  👑
+                  = review.shop.shop_name
+                .review-prefecture
+                  東京
+                .review-area
+                  渋谷、神泉/カフェ、カフェ・喫茶（その他）、喫茶店
+              .review-title
+                %p
+                  %a
+                    💬
+                    = review.title
+            .recommend-text__right
+              .review-rate-dinner
+                夜 ☆☆☆☆☆ ???
+              .review-rate-lunch
+                昼 ★★★★★ ???
+
+      -@reviews.each do |review|
+        .reviews-wrap
+          %p.visited-month
+            = review.visit_day.strftime('%Y/%m')
+            訪問
+          .review-post
+            .review-post__rst-info
+              .review-post__rst-info-wrap
+                .review-post__rst-name
+                  %p
+                    %a
+                      = review.shop.shop_name
+                    %span.review-post__rst-area
+                      (渋谷、神泉 / ダイニングバー、インド料理、インドカレー)
+                .review-post__buttons
+                  .review-post__buttons--trash
+                    =link_to ""
+                    = fa_icon "trash-o", class: 'icon'
+                  .review-post__buttons--edit
+                    =link_to ""
+                    = fa_icon "edit", class: 'icon'
+            .review-post__rst-review
+              .review-post__rst-review--score-data
+                .review-score
+                  .review-rating-star
+                    🌅  🌟🌟🌟⭐⭐
+                  .review-rating-point
+                    = review.rate.round(1) unless review.rate == nil
+                  %ul.review-rate-detail
+                    %li.food-rate
+                      %p
+                        料理・味
+                        %strong
+                          = review.food_rate.round(1) unless review.food_rate == nil
+                    %li.service-rate
+                      %p
+                        サービス
+                        %strong
+                          = review.service_rate.round(1) unless review.service_rate == nil
+                    %li.atmosphere-rate
+                      %p
+                        雰囲気
+                        %strong
+                          = review.atmosphere.round(1) unless review.atmosphere == nil
+                    %li.cp-rate
+                      %p
+                        CP
+                        %strong
+                          = review.cp_rate.round(1) unless review.cp_rate == nil
+                    %li.drink-rate
+                      %p.drink-rate
+                        酒・ドリンク
+                        %strong
+                          = review.drink_rate.round(1) unless review.drink_rate == nil
+                  .review-count
+                    1回目
+                .review-price
+                  .review-used-price
+                    %p
+                      使った金額（1人）：
+                      夜 ~￥999
+                  .price-range
+              .review-post__rst-review--content
+                .review-title
+                  %p
+                    %a
+                      = review.title
+                .review-text
+                  %p
+                    = review.text
+                  %span.review-showall
+                    もっと見る
+                  .review-update-date
+                    %h6
+                      = review.updated_at.strftime('%Y/%m/%d')
+                      更新
+              .review-post__rst-review--like-button
+                %button
+                  いいね！
+
+    .side-column
+      .side-column-inner
+        .top-info
+          .notice
+            %span
+              お知らせ
+          .notice-text
+            全国カレーTOP100 「食べログ カレー 百名店 2018」を発表しました。
+        .middle-info
+        .timeline-calendar
+          .timeline-calendar__title
+            %h3
+              = fa_icon "calendar", class: 'icon'
+              行ったカレンダー
+          .timeline-calendar__container
+        .visited-area
+          .visited-area__title
+            %h3
+              = fa_icon "map", class: 'icon'
+              訪れたエリア
+          .visited-area__container
+            .visited-area__container--map
+          .visited-area__rank
+            %ul
+              %li.area-rank1
+                👑東京 [2件]
+              %li.area-rank2
+                👑東京 [2件]
+              %li.area-rank3
+                👑東京 [2件]
+        .visit-genre
+          .visit-genre__title
+            %h3
+              よく行くジャンル
+          .visit-genre__chart
+            .visit-genre__chart1
+              .visit-genre__chart1--chart
+              .visit-genre__chart1--rank
+            .visit-genre__chart2
+              .visit-genre__chart2--chart
+              .visit-genre__chart2--rank
+            .visit-genre__chart3
+              .visit-genre__chart3--chart
+              .visit-genre__chart3--rank
+          .visit-genre__rank
+            %ul
+              %li.genre-rank1
+                👑インドカレー [1件]
+              %li.genre-rank2
+                👑喫茶店 [1件]
+              %li.genre-rank3
+                👑南アジア料理 [1件]
+        .my-best-restaurant
+          .my-best-restaurant__title
+            %h3
+              マイベストレストラン
+          %ul.my-best-restaurant__list
+            %li
+            %li
+            %li
+            %li
+          %ul.my-best-restaurant__list
+            %li
+            %li
+            %li
+            %li
+          %ul.my-best-restaurant__list
+            %li
+            %li
+            %li
+            %li
+        .my-ranking
+          .area-ranking
+            %h3.area-genre__title
+              %p
+                = @user.nickname
+                さんのよく行くエリア
+            %ul.area-genre__list
+              %li
+                👑東京
+              %li
+              %li
+          .genre-ranking
+            %h3.area-genre__title
+              %p
+                = @user.nickname
+                さんのよく行くジャンル
+              %ul.area-genre__list
+                %li
+                  👑カフェ
+                %li
+                  👑喫茶店
+                %li
+                  👑南アジア料理
+        %button
+          = link_to "ログアウト", destroy_user_session_path, method: :delete
+        %button
+          = link_to "編集", edit_user_path
+

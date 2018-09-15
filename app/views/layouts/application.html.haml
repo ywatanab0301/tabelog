@@ -17,4 +17,6 @@
     %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css", :rel => "stylesheet"}/
     %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"}
   %body
+    = render partial: 'shares/header'
     = yield
+    = render partial: 'shares/footer'
