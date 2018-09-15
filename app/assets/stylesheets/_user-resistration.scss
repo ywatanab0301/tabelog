@@ -53,7 +53,7 @@
             #user_email{
               margin-left: 15px;
               width: 380px;
-              height:30px;
+              height: 40px;
               padding:5px 5px;
               line-height: 60px;
             }
@@ -70,11 +70,11 @@
           }
           li.user_resistration__inputname{
             height: 30px;
-            width: 425px;
+            width: 410px;
             #user_nickname{
               margin-left: 15px;
               width: 380px;
-              height:18px;
+              height: 40px;
               padding:5px 5px;
               line-height: 60px;
             }
@@ -100,6 +100,7 @@
             margin-bottom: 3px;
             font-size: 12px;
             font-weight: bold;
+            position: relative;
           }
           li.user_resistration__inputavatar{
             height: 120px;
@@ -119,6 +120,9 @@
                 height: 110px;
               }
               .profile_text{
+                position: absolute;
+                bottom: -10px;
+                left: 5px;
                 font-size: 8px;
                 padding:0px 15px;
                 line-height: 8px;
@@ -141,7 +145,7 @@
             #user_password{
               margin-left: 15px;
               width: 380px;
-              height: 20px;
+              height: 40px;
               padding: 5px 5px;
               line-height: 40px;
             }
@@ -162,7 +166,7 @@
             #user_password_confirmation{
               margin-left: 15px;
               width: 380px;
-              height: 20px;
+              height: 40px;
               padding: 5px 5px;
               line-height: 40px;
             }
@@ -175,11 +179,10 @@
       margin: 0 auto;
     .submit_btn{
       width: 300px;
-      padding: 50px 20px;
       margin: 0 auto;
-      font-size: 50px;
       font-weight: bold;
-      margin-top: 50px;
+      margin-top: 90px;
+      height: 20px;
       }
       .log_in{
       }
