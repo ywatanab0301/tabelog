@@ -18,4 +18,7 @@ class ShopsController < ApplicationController
     params.require(:shop).permit(:shop_name, :shop_name_f, :phone_number, :city_address, :building, :hours, :closed_day, :prefecture_ids, :genre_ids)
   end
 
+  def show
+  end
+
 end
