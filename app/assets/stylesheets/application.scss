@@ -10,8 +10,11 @@
 @import "./shops" ;
 @import "./top" ;
 @import "./announcement" ;
-@import "./toptimeline" ;
-
+@import "./top-timeline" ;
+@import "./top-condition" ;
+@import "./top-lunch" ;
+@import "./kodawari-search" ;
+@import "./top-genre-rank" ;
 
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, output, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, section, main, summary, time, mark, audio, video, embed {
   outline: 0;
@@ -33,7 +36,7 @@ body {
   font-family: "メイリオ","Meiryo","Hiragino Sans","ヒラギノ角ゴシック","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","ＭＳ Ｐゴシック","Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 1.2rem;
   line-height: 1.4;
-  background-color: #fff;
+  background-color: $white;
 }
 
 
@@ -106,7 +109,7 @@ input, button, textarea, select {
   border: 1px solid #d2d2d2;
   height: 2.5em;
   vertical-align: middle;
-  background-color: #fff;
+  background-color: $white;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -127,8 +130,8 @@ input, button, textarea, select {
 
 .c-link-circle:before {
   margin-right: 0.3em;
-  color: #ff9600;
-  background-color: #fff;
+  color: $sub_orange;
+  background-color: $white;
   border-radius: 50%;
   font-family: "Tabelog Glyph";
   font-style: normal;
@@ -162,7 +165,7 @@ input, button, textarea, select {
   border: 1px solid #d2d2d2;
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  background-color: #ffffff;
+  background-color: $white;
 }
 
 .user-menu__target.user-menu__target--dropdown {
@@ -300,7 +303,7 @@ width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
-  color: #fff;
+  color: $white;
   font-weight: bold;
   text-shadow: 0 0 6px rgba(0,0,0,0.5);
   font-size: 2.4rem;
@@ -350,4 +353,37 @@ width: 100%;
   -moz-animation: timeline-open 0.6s cubic-bezier(0, 0, 0.2, 1) forwards;
   animation: timeline-open 0.6s cubic-bezier(0, 0, 0.2, 1) forwards;
 }
+
+.c-rating {
+  display: inline-block;
+  word-wrap: normal;
+  overflow-wrap: normal;
+  white-space: nowrap;
+  vertical-align: text-bottom;
+  line-height: 1;
+  font-size: 1.4rem;
+}
+
+.c-rating:before, .c-rating:after {
+  display: block;
+  overflow: hidden;
+  content: "";
+}
+
+.c-heading3 {
+  position: relative;
+  padding-left: 3px;
+}
+
+.c-heading3:before {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 3px;
+  content: '';
+  background-color: #fa0;
+}
+
 
