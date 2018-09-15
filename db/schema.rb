@@ -79,6 +79,16 @@ ActiveRecord::Schema.define(version: 20180913102306) do
     t.index ["shop_id"], name: "index_shop_prefectures_on_shop_id", using: :btree
   end
 
+  create_table "shopimgs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "img1"
+    t.string   "img2"
+    t.string   "img3"
+    t.string   "img4"
+    t.string   "img5"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "shop_name",                         null: false
     t.string   "shop_name_f",                       null: false
@@ -114,7 +124,10 @@ ActiveRecord::Schema.define(version: 20180913102306) do
     t.text     "comment",             limit: 65535
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+    t.integer  "shopimg_id"
+    t.text     "prtext",              limit: 65535
     t.index ["shop_name"], name: "index_shops_on_shop_name", using: :btree
+    t.index ["shopimg_id"], name: "index_shops_on_shopimg_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

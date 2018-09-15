@@ -63,3 +63,7 @@ gem 'pry-rails'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'bootstrap', '~> 4.1.3'
+
+group :production do
+  gem 'unicorn'
+end

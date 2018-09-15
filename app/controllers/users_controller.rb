@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only:[:show, :edit, :update]
+  before_action :set_user
 
   def show
     @reviews = @user.reviews.includes(:shop).order('visit_day DESC')
