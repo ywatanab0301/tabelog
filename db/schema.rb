@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180911060522) do
+ActiveRecord::Schema.define(version: 20180915044117) do
 
   create_table "budgets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -24,10 +24,31 @@ ActiveRecord::Schema.define(version: 20180911060522) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "pic1"
+    t.string   "pic2"
+    t.string   "pic3"
+    t.string   "pic4"
+    t.string   "pic5"
+    t.integer  "review_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_images_on_review_id", using: :btree
+  end
+
   create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "review_budgets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "review_id"
+    t.integer  "budget_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["budget_id"], name: "index_review_budgets_on_budget_id", using: :btree
+    t.index ["review_id"], name: "index_review_budgets_on_review_id", using: :btree
   end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -128,6 +149,9 @@ ActiveRecord::Schema.define(version: 20180911060522) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "images", "reviews"
+  add_foreign_key "review_budgets", "budgets"
+  add_foreign_key "review_budgets", "reviews"
   add_foreign_key "reviews", "users"
   add_foreign_key "shop_budgets", "budgets"
   add_foreign_key "shop_budgets", "shops"
