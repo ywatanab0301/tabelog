@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .top-body-wrapper
   .container.top-container.top-container--header
     .top-header-wrap
@@ -787,6 +788,83 @@
 
 
 
+=======
+.location
+  .location__left
+    %ul
+      %li.fa.fa-home
+      = link_to shops_path, method: :get do
+        %li 食べログ
+      %li > レストラン新規登録
+
+  .location__right
+    %ul
+    = link_to '#' do
+      %li (店舗数)店舗
+    %li (口コミ数)
+
+.contents
+  .contents__side
+    .contents__side__top
+      .contents__side__top__area
+        .contents__side__top__area__header エリアから探す
+        .contents__side__top__area__main 全国
+        .contents__side__top__area__footer
+          %a.target{href: "#"} このエリアを地図で見る
+      .contents__side__top__genre
+        .contents__side__top__genre__header ジャンルから探す
+        .contents__side__top__genre__main すべて
+
+  .contents__main
+    .contents__main__header
+      .contents__main__header__title
+        %span.title 全国のお店、レストラン
+        %span.count 1000
+        %span.unit 件
+      %a.search_form 検索条件を変更
+
+    %ul.nav.nav-tabs
+      %li.nav-item.origin
+        %a.nav-link{href: "#"} 標準【会員店舗優先】
+      %li.nav-item.rank
+        %a.nav-link{href: "#"} ランキング
+      %li.nav-item.review
+        %a.nav-link{href: "#"} 口コミ数
+
+    .contents__main__list
+      %span.page-count 1~20 件を表示
+      %span ／
+      %span.shop.count 全 100 件
+
+    .contents__main__shop
+      .contents__main__shop__header
+        .contents__main__shop__header__inner
+          %a.rst_name{href: "#"} 小割烹おはし あきはばらりびんぐ
+
+        .contants__main__shop__header__btn
+          %button.btn.btn-outline-secondary{type: "button"}
+            .fa.fa-heart  行った
+          %button.btn.btn-outline-secondary{type: "button"}
+            .fa.fa-map-pin  行きたい
+
+      .contents__main__shop__body
+
+        .contents__main__shop__body__left 投稿された写真が表示されるよ　ふぁいと٩(๑❛ᴗ❛๑)۶
+
+        .contents__main__shop__body__right
+          %p.pr 団体様宴会にも○ お家のリビングの様な空間でおばんざいを味わう贅沢なひと時を。
+
+          .contents__main__shop__body__right__rate
+            %span.star ☆☆☆☆☆
+            %span.rate 3.16
+            .fa.fa-comments
+            %a.review{href: "#"} 25件
+
+          .contents__main__shop__body__right__review
+            %a.title{href: "#"} 落ち着く空間
+            %span.name by.NAME
+            %p.review レビューが表示されるよー。ふぁいと٩( 'ω' )و
+>>>>>>> master
 
 
 
