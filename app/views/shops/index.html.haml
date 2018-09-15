@@ -52,14 +52,15 @@
 
           .top-header__search
             #js-global-header-search.global-header-search
-              .container.p-header-wrapper.p-header-wrapper--bottom
+              .container.header-wrapper.header-wrapper--bottom
                 .contents.contents--fixed
                   #suggest_datas{"data-area_datatype" => "", "data-area_id" => "", "data-lat" => "", "data-lng" => "", "data-multiple-suggest-flg" => "0", "data-no_suggest_flg" => "", :style => "display:none;"}
                   #multi-suggest{:style => "display:none;"}
                   #js-sa-user-input{"data-value" => "", :style => "display:none;"}
-                  .p-header
-                    %p.p-header__logo
-                      %a.p-header__logo-img{:href => "#", :title => "食べログ トップへ"} 食べログ
+                  .search-header
+                    %p.search-header__logo
+                      %a.search-header__logo-img{:href => "#", :title => "食べログ トップへ"} 食べログ
+                    .header-search
                       / ここからメインコンテンツ
   .container.top-container.top-container--maincontents
     .contents.contents--fixed.topcontents--fixed
