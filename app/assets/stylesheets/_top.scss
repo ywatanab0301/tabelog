@@ -1,7 +1,7 @@
 
 
 body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermenu .p-user-menu__target {
-    color: #fff;
+    color: $white;
 }
 
 .rsttop-headline__usermenu.p-user-menu__item {
@@ -9,7 +9,7 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
 }
 
 body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermenu .p-user-menu__text {
-    color: #fff;
+    color: $white;
 }
 
 .top-header__inner {
@@ -25,7 +25,7 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
     left: 0;
     right: 0;
     margin: auto;
-    color: #fff;
+    color: $white;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -276,7 +276,7 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
           .userdata-box {
             border: 1px solid #e1e1e1;
             border-radius: 3px;
-            background-color: #fff;
+            background-color: $white;
             padding: 1.5rem 1.2rem;
             .userdata-box__header {
               display: table;
@@ -311,7 +311,7 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
               .premium-btn {
                 display: inline-block;
                 border-color: #a7013b;
-                color: #fff;
+                color: $white;
                 border-radius: 3px;
                 width: 100%;
                 text-align: center;
