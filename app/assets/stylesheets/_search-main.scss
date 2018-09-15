@@ -8,7 +8,7 @@
   min-width: 1120px;
   width: 100%;
   background-color: $white;
-  .container.top-container.top-container--header{
+  .containe.top-container.top-container--header{
     display: block;
     position: relative;
     z-index: 2;
@@ -91,6 +91,7 @@
           left: 0;
           min-width: 1120px;
           background-color: $black;
+          background: url(https://precious.ismcdn.jp/mwimgs/e/b/-/img_eb7d1e5114ff8a84eef83ccaec2f1cd5300355.jpg) no-repeat 0 50%;
           overflow: hidden;
           .top-header__overlay {
             position: absolute;
