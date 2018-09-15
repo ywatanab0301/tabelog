@@ -98,9 +98,9 @@ $(function() {
   });
 
 
-  $('#review_pic1').after('<span></span>');
+  $('#image_pic1').after('<span></span>');
     // アップロードするファイルを選択
-  $('#review_pic1').change(function(e) {
+  $('#image_pic1').change(function(e) {
     var file = $(this).prop('files')[0];
 
     // 画像以外は処理を停止
@@ -119,9 +119,9 @@ $(function() {
     reader.readAsDataURL(file);
   });
 
-  $('#review_pic2').after('<span></span>');
+  $('#image_pic2').after('<span></span>');
     // アップロードするファイルを選択
-  $('#review_pic2').change(function(e) {
+  $('#image_pic2').change(function(e) {
     var file = $(this).prop('files')[0];
 
     // 画像以外は処理を停止
@@ -140,9 +140,9 @@ $(function() {
     reader.readAsDataURL(file);
   });
 
-  $('#review_pic3').after('<span></span>');
+  $('#image_pic3').after('<span></span>');
     // アップロードするファイルを選択
-  $('#review_pic3').change(function(e) {
+  $('#image_pic3').change(function(e) {
     var file = $(this).prop('files')[0];
 
     // 画像以外は処理を停止
@@ -161,9 +161,9 @@ $(function() {
     reader.readAsDataURL(file);
   });
 
-  $('#review_pic4').after('<span></span>');
+  $('#image_pic4').after('<span></span>');
     // アップロードするファイルを選択
-  $('#review_pic4').change(function(e) {
+  $('#image_pic4').change(function(e) {
     var file = $(this).prop('files')[0];
 
     // 画像以外は処理を停止
@@ -182,9 +182,9 @@ $(function() {
     reader.readAsDataURL(file);
   });
 
-  $('#review_pic5').after('<span></span>');
+  $('#image_pic5').after('<span></span>');
     // アップロードするファイルを選択
-  $('#review_pic5').change(function(e) {
+  $('#image_pic5').change(function(e) {
     var file = $(this).prop('files')[0];
 
     // 画像以外は処理を停止
