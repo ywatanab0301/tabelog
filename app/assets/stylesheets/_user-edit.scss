@@ -1,7 +1,5 @@
 .useredit{
   width: 100vw;
-  height: calc(100vh - 10vh);
-  padding-top: 10vh;
   .location-link{
     width: 900px;
     height: 30px;
@@ -31,12 +29,10 @@
   }
   .useredit-box{
     width: 900px;
-    height: 700px;
     margin: 0 auto;
     display: flex;
     .useredit_leftbox{
       width: 175px;
-      height: 650px;
       padding: 5px;
       background-color: $white;
       filter: drop-shadow(1px 1px 1px #000);
@@ -187,7 +183,6 @@
     }
     .useredit_mainbox{
       width: 690px;
-      height: 690px;
       padding: 5px 5px 5px 20px;
       background-color: $white;
       &_profile{
@@ -198,6 +193,7 @@
         h2{
           padding-left: 15px;
           font-weight: bold;
+          line-height: 40px;
         }
       }
       ul.edit{
