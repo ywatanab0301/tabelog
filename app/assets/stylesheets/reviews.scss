@@ -3,11 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .reviews__header {
   width: 900px;
-  height: 60px;
   margin: 0 auto;
   text-align: center;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
   padding: 1.2rem 0 1.2rem;
 }
 
@@ -71,7 +70,7 @@
   height: 150px;
   margin: 0 auto;
   display: flex;
-  padding-bottom: 10px;
+  margin-bottom: 30px;
   &--total {
     width: 340px;
     height: 150px;
@@ -271,6 +270,12 @@
   font-size: 16px;
 }
 
+.review-input-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
 .input-title {
   width: 860px;
   border: none;
@@ -281,7 +286,7 @@
 
 .input-text {
   width: 860px;
-  height: 100px;
+  height: 150px;
   border: none;
   color: #13131e;
   padding: 1rem;
@@ -291,6 +296,7 @@
   color: #a8a8a8;
   min-height: 2rem;
   font-size: 0.7rem;
+  margin-bottom: 10px;
 }
 
 .reviews__photo {
