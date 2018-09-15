@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180913102306) do
+ActiveRecord::Schema.define(version: 20180915072018) do
 
   create_table "budgets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -124,10 +124,8 @@ ActiveRecord::Schema.define(version: 20180913102306) do
     t.text     "comment",             limit: 65535
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-    t.integer  "shopimg_id"
     t.text     "prtext",              limit: 65535
     t.index ["shop_name"], name: "index_shops_on_shop_name", using: :btree
-    t.index ["shopimg_id"], name: "index_shops_on_shopimg_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

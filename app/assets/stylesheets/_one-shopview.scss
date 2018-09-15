@@ -178,13 +178,11 @@
       }
       .shop_subheader-right{
         width: 280px;
-        height: 170px;
         .shop_views-buttons{
-          padding: 15px 0px 15px 10px;
+          padding: 4px 0px 5px 5px;
           background-color: #eeece4;
-          height: 75px;
           width: 270px;
-          margin-top: 30px;
+          margin-top: 13px;
           border-radius: 3px 3px;
           .button.shop-views{
             display: flex;
@@ -290,28 +288,28 @@
           display: flex;
           margin-top: 10px;
           .shop_mainleft-images__1{
-            margin-right: 20px;
+            margin-right: 14px;
             img{
               width: 120px;
               height: 120px;
             }
           }
           .shop_mainleft-images__2{
-            margin-right: 20px;
+            margin-right: 14px;
             img{
               width: 120px;
               height: 120px;
             }
           }
           .shop_mainleft-images__3{
-            margin-right: 20px;
+            margin-right: 14px;
             img{
               width: 120px;
               height: 120px;
             }
           }
           .shop_mainleft-images__4{
-            margin-right: 20px;
+            margin-right: 14px;
             img{
               width: 120px;
               height: 120px;
@@ -329,28 +327,28 @@
           display: flex;
           margin-top: 10px;
           .shop_mainleft-images__6{
-            margin-right: 20px;
+            margin-right: 14px;
             img{
               width: 120px;
               height: 120px;
             }
           }
           .shop_mainleft-images__7{
-            margin-right: 20px;
+            margin-right: 14px;
             img{
               width: 120px;
               height: 120px;
             }
           }
           .shop_mainleft-images__8{
-            margin-right: 20px;
+            margin-right: 14px;
             img{
               width: 120px;
               height: 120px;
             }
           }
           .shop_mainleft-images__9{
-            margin-right: 20px;
+            margin-right: 14px;
             img{
               width: 120px;
               height: 120px;
@@ -388,6 +386,7 @@
             color: white;
             border: 1px solid $font_green;
             margin-top: 28px;
+            width: 60px;
           }
         }
         .shop_mainleft-friend{
@@ -1243,12 +1242,13 @@
         }
       }
       .shop_main-right{
-        margin-top:20px;
+        margin-top:15px;
         width: 300px;
         .shop_mainright-telphone{
           height: 70px;
           display: flex;
           border-bottom: 1px solid $background-gray;
+          border-top: 1px solid $background-gray;
           .shop_mainright-telephone__number{
             font-size: 20px;
             font-weight: bold;
@@ -1276,7 +1276,7 @@
         }
         .shop_mainright-buttons{
           height: 40px;
-          padding: 20px 0 3px 0;
+          padding: 5px 0 3px 0;
           display: flex;
           button.raking{
             margin-left: 3px;
