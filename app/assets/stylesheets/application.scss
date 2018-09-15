@@ -9,7 +9,7 @@
 @import "./user-login" ;
 @import "./index";
 @import "./one-shopview" ;
-@import "./shops" ;
+@import "./search-main" ;
 @import "./top" ;
 @import "./announcement" ;
 @import "./top-timeline" ;
@@ -149,7 +149,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, 
   content: "\f631";
 }
 
-.container{
+.containe {
   width: 100%;
   box-sizing: border-box;
 }
@@ -206,7 +206,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, 
 
 .contents.contents--fixed {
   padding-right: 0;
-  padding-left: 0;
+  padding-left: 150px;
   width: 980px;
 }
 
