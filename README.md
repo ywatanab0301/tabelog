@@ -16,6 +16,7 @@
 |image|references||
 |visit_day|datetime|null: false|
 |share_with|integer|null: false|
+|shop_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user

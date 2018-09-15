@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180915072018) do
+ActiveRecord::Schema.define(version: 20180913102306) do
 
   create_table "budgets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180915072018) do
     t.integer  "rate",                       null: false
     t.integer  "food_rate",                  null: false
     t.integer  "service_rate",               null: false
+    t.integer  "drink_rate"
     t.integer  "atmosphere",                 null: false
     t.integer  "cp_rate",                    null: false
     t.string   "title",                      null: false
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 20180915072018) do
     t.integer  "share_with",                 null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "shop_id",                    null: false
     t.index ["image_id"], name: "index_reviews_on_image_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
