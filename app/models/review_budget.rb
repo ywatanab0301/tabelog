@@ -1,4 +1,4 @@
 class ReviewBudget < ApplicationRecord
-  belongs_to :review
-  belongs_to :budget
+  belongs_to :review, optional: true
+  belongs_to :budget, optional: true
 end
