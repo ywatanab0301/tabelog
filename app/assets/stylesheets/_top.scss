@@ -320,7 +320,30 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
                   border: 1px solid #e1e1e1;
                   border-radius: 7px;
                   }
+                .userdata-box__img>img {
+                  border-radius: 3px;
                 }
+              }
+              .userdata-box__status.userdata-box__status--nologin {
+                vertical-align: middle;
+                padding-left: 10px;
+              }
+              .userdata__info {
+                display: table-cell;
+                vertical-align: top;
+                padding-left: 10px;
+                .userdata__name {
+                  font-size: 1.1rem;
+                  .userdata__rvwr-name {
+                    color: #13131e;
+                    margin-right: 0.5rem;
+                    font-size: 1.5rem;
+                  }
+                }
+                .userdata__profile {
+                  font-size: 1rem;
+                }
+              }
               .userdata-box__status {
                   display: table-cell;
                   vertical-align: top;
@@ -330,6 +353,36 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
                   font-size: 1.4rem;
                 }
               }
+            .userdata__data-list {
+              margin-top: 1rem;
+              .userdata__data-item {
+                border-top: 1px solid #f4f4f4;
+                line-height: 1;
+                padding: 1rem 0;
+                .userdata__data-row>a::before, .userdata__data-row>a::after {
+                  display: block;
+                  overflow: hidden;
+                  content: "";
+                }
+                .userdata__data-row>a::after {
+                  clear: both;
+                }
+                .userdata__data-row>a {
+                  display: block;
+                }
+                .userdata__data-row {
+                  .userdata__data-subject {
+                    float: left;
+                  }
+                  .userdata__data-count {
+                    float: right;
+                    color: #949499;
+                    font-size: 1.1rem;
+                  }
+                }
+              }
+            }
+
               .userdata-nologin-notice {
                 margin: 1rem 0.2rem;
                 font-size: 1.1rem;
