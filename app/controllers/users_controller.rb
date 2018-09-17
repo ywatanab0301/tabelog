@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user
 
+  def index
+  end
+
   def show
     @reviews = @user.reviews.includes(:shop).order('visit_day DESC')
     @review_ranks = @user.reviews.includes(:shop).order('rate DESC')
