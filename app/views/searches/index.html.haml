@@ -11,21 +11,21 @@
             - if user_signed_in?
               %ul.user-menu.js-exec-welcome
                 %li.user-menu__item
-                  %a#open-message-notification.user-menu__target.user-menu__target--dropdown{:href => "#"}
+                  %a#open-message-notification.user-menu__target.user-menu__target--dropdown{ href: "#"}
                     %span.user-menu__text メッセージ
-                    %span#messages.user-menu__badge{:style => "display:none;"} 0
+                    %span#messages.user-menu__badge{ style: "display:none;"} 0
                   / #message-notification.user-menu__popup.user-menu__popup--notification.js-exec-notification-box
                   /   .balloon.balloon--top
                   /     #message-notification-list.notification-list
                   /     .notification-bottom
-                  /       %a#message-link.c-link-circle{:href => "#"}
+                  /       %a#message-link.c-link-circle{href: "#"}
                   /         %span
                   /           %strong> 受信メッセージ一覧
                   /           を見る
                 %li.user-menu__item
-                  %a#open-information-notification.user-menu__target.user-menu__target--dropdown{:href => "#"}
+                  %a#open-information-notification.user-menu__target.user-menu__target--dropdown{ href: "#"}
                     %span.user-menu__text お知らせ
-                    %span#informations.user-menu__badge{:style => "display:none;"} 0
+                    %span#informations.user-menu__badge{ style: "display:none;"} 0
                   / #information-notification.user-menu__popup.user-menu__popup--notification.js-exec-notification-box
                   /   .balloon.balloon--top
                   /     .notification-sort
@@ -36,54 +36,54 @@
                   /           %span.notification-sort__text いいね！ほか
                   /     #information-notification-list.notification-list
                   /     .notification-bottom
-                  /       %a#information-link.icon-b-circle-orange{"data-comment-url" => "#", "data-other-url" => "#", :href => "#"}
+                  /       %a#information-link.icon-b-circle-orange{"data-comment-url" => "#", "data-other-url" => "#", href: "#"}
                   /         %strong> いいね！ほか
                   /         の通知をもっと見る
                 %li.user-menu__item
-                  %a.user-menu__target{:href => "#"}
+                  %a.user-menu__target{ href: "#"}
                     %span.c-badge-tpoint.c-badge-tpoint--s
                       %i Tpoint
                     %em.user-menu__text.user-menu__text--tpoint 150
                     pt
                 %li.user-menu__item
-                  %a.user-menu__target{:href => "#"}
+                  %a.user-menu__target{ href: "#"}
                     %span.user-menu__text 予約確認
                 %li.user-menu__item
-                  %a.user-menu__target{:href => "#"} 行った・行きたい
+                  %a.user-menu__target{ href: "#"} 行った・行きたい
                 %li.user-menu__item
-                  %a.user-menu__target{:href => "/users/id"} マイページ
+                  %a.user-menu__target{ href: "/users/#{current_user.id}"} マイページ
                 %li.user-menu__item.user-menu__item--setting
-                  %a#open-user-setting.user-menu__target.user-menu__target--dropdown.user-menu__target--user-image{:href => "#"}
-                    %img{:alt => "Naoto241568", :height => "27", :src => "https://tblg.k-img.com/user/images/Profile/8486/30x30_8486420.jpg?1521882867", :width => "27"}/
+                  %a#open-user-setting.user-menu__target.user-menu__target--dropdown.user-menu__target--user-image{href: "#"}
+                    %img{ alt: "", height: "27", src: "current_user.avatar.url", width: "27"}/
                   / #user-setting.p-user-menu__popup.user-menu__popup--setting.js-exec-user-setting-box
                   /   .balloon.balloon--top
                   /     %ul.setting-list
                   /       %li.setting-list__item
-                  /         %a.setting-list__target{:href => "#"} フォロー中一覧
+                  /         %a.setting-list__target{href: "#"} フォロー中一覧
                   /       %li.setting-list__item
-                  /         %a.setting-list__target{:href => "#"} 下書き一覧
+                  /         %a.setting-list__target{href: "#"} 下書き一覧
                   /       %li.setting-list__item
-                  /         %a.setting-list__target{:href => "#"} 設定
+                  /         %a.setting-list__target{href: "#"} 設定
                   /       %li.setting-list__item.setting-list__item--logout
-                  /         %a.setting-list__target{:href => "#"} ログアウト
+                  /         %a.setting-list__target{href: "#"} ログアウト
 
             - else
-              %ul.p-user-menu.js-exec-welcome
-                %li.p-user-menu__item
-                  %a.p-user-menu__target{:href => "#"} 食べログの特長と便利な使い方
-                %li.p-user-menu__item
-                  %a.p-user-menu__target{:href => "/users/sign_up"} 無料会員登録
-                %li.p-user-menu__item
-                  %a.p-user-menu__target{:href => "#"}
+              %ul.user-menu.js-exec-welcome
+                %li.user-menu__item
+                  %a.user-menu__target{ href: "#"} 食べログの特長と便利な使い方
+                %li.user-menu__item
+                  %a.user-menu__target{ href: "/users/sign_up"} 無料会員登録
+                %li.user-menu__item
+                  %a.user-menu__target{ href: "#"}
                     %span.c-badge-tpoint.c-badge-tpoint--s>
                       %i Tpoint
                     保有Tポイント
-                %li.p-user-menu__item
-                  %a.p-user-menu__target{:href => "#"} 予約確認
-                %li.p-user-menu__item
-                  %a.p-user-menu__target{:href => "#"} 行った・行きたい
-                %li.p-user-menu__item
-                  %a.js-open-login-modal.p-user-menu__target{:href => "/users/sign_in"} ログイン
+                %li.user-menu__item
+                  %a.user-menu__target{ href: "#"} 予約確認
+                %li.user-menu__item
+                  %a.user-menu__target{ href: "#"} 行った・行きたい
+                %li.user-menu__item
+                  %a.js-open-login-modal.p-user-menu__target{ href: "/users/sign_in"} ログイン
 
       .top-header
         .top-header__visual.js-top-main-visual-image
@@ -111,12 +111,12 @@
             #js-global-header-search.global-header-search
               .container.header-wrapper.header-wrapper--bottom
                 .contents.contents--fixed
-                  #suggest_datas{"data-area_datatype" => "", "data-area_id" => "", "data-lat" => "", "data-lng" => "", "data-multiple-suggest-flg" => "0", "data-no_suggest_flg" => "", :style => "display:none;"}
-                  #multi-suggest{:style => "display:none;"}
-                  #js-sa-user-input{"data-value" => "", :style => "display:none;"}
+                  #suggest_datas{"data-area_datatype" => "", "data-area_id" => "", "data-lat" => "", "data-lng" => "", "data-multiple-suggest-flg" => "0", "data-no_suggest_flg" => "", style: "display:none;"}
+                  #multi-suggest{ style: "display:none;"}
+                  #js-sa-user-input{"data-value" => "", style: "display:none;"}
                   .search-header
                     %p.search-header__logo
-                      %a.search-header__logo-img{:href => "#", :title => "食べログ トップへ"} 食べログ
+                      %a.search-header__logo-img{ href: "#", title: "食べログ トップへ"} 食べログ
                     .header-search
                       / ここからメインコンテンツ
   .containe.top-container.top-container--maincontents
@@ -126,7 +126,7 @@
           .tabelog-info
             %p.tabelog-info__item
               %span.tabelog-info__label.tabelog-info__label--news お知らせ
-              %a.tablog_announcement.tabelog-info__title.js-tablog_announcement{:href => "#", :target => "tablog_announcement"}
+              %a.tablog_announcement.tabelog-info__title.js-tablog_announcement{ href: "#", target: "tablog_announcement"}
                 全国ラーメンTOP100 「食べログ ラーメン 百名店 2018」を発表しました。
         .colum2.top-colum
           .colum2__left.top-colum__left
@@ -299,7 +299,7 @@
                   / 要js処理
                   %span.follow-banner-contents
                     %span.follow-banner-icons
-                      %img{:alt => "", :height => "42", :src => "#", :width => "106"}/
+                      %img{alt: "", height: "42", src: "#", width: "106"}/
                     %span.follow-banner-title 好みのあう人をフォローすると、その人のオススメのお店から探せます。
               #js-timeline-contents.timeline-contents
                 .timeline.timeline-body.js-timeline-box.is-visible
@@ -309,22 +309,22 @@
                     .timeline-post
                       .timeline__post-data
                         %span.timeline__post-img
-                          %img{:alt => "食べログマガジン", :height => "50", :src => "https://tblg.k-img.com/images/tabelog_magazine_logo.svg", :width => "50"}/
+                          %img{alt: "食べログマガジン", height: "50", src: "https://tblg.k-img.com/images/tabelog_magazine_logo.svg", width: "50"}/
                         %span.timeline__post-name 食べログマガジン
                       .timeline__post-item.timeline-matome
                         .timeline-matome__contents.js-magazine-area{"data-magazine-link-url" => "https://magazine.tabelog.com/articles/50291"}
                           .timeline-matome__photo
-                            %a.timeline-matome__photo-link{:href => "#", :target => "_blank"}
-                              %img.timeline-matome__photo-img{:alt => "食べログマガジン", :height => "140", :src => "https://upload.wikimedia.org/wikipedia/ja/thumb/d/df/ZaruSoba2.jpg/300px-ZaruSoba2.jpg", :width => "140"}/
+                            %a.timeline-matome__photo-link{href: "#", target: "_blank"}
+                              %img.timeline-matome__photo-img{alt: "食べログマガジン", height: "140", src: "https://upload.wikimedia.org/wikipedia/ja/thumb/d/df/ZaruSoba2.jpg/300px-ZaruSoba2.jpg", width: "140"}/
                           .timeline-matome__info
                             .timeline-matome__text
                               %p.timeline-matome__title
-                                %a.timeline-matome__title-link{:href => "#", :target => "_blank"}
+                                %a.timeline-matome__title-link{href: "#", target: "_blank"}
                                   %strong 〈出世ごはん〉英国貴族のような“余裕”を身につけるなら、創業100年以上の老舗そば屋へ
                               .timeline-matome__desc
                                 %p 肩の力が抜けていながら品がある、日本橋の老舗そば屋で、鴨そばを食べながら貴族的ムードの極意を学ぶ。
                                 %p.timeline-matome__desc-target
-                                  %a{:href => "https://magazine.tabelog.com/articles/50291", :target => "_blank"} マガジンを見る
+                                  %a{href: "https://magazine.tabelog.com/articles/50291", target: "_blank"} マガジンを見る
                 .timeline.timeline-body.js-timeline-box.is-visible
                   .timeline-inner
                     %p.timeline-date
@@ -332,9 +332,9 @@
                         %span.text-num 2018/09  "訪問"
                     .timeline-post
                       .timeline__post-data
-                        %a.timeline__post-target.js-timeline-rvwr-name{:href => "/rvwr/008486420/", :target => "_blank"}
+                        %a.timeline__post-target.js-timeline-rvwr-name{href: "/rvwr/008486420/", target: "_blank"}
                           %span.timeline__post-img
-                            %img{:alt => "Naoto", :height => "50", :src => "https://tblg.k-img.com/user/images/Profile/8486/120x120_8486420.jpg?1521882867", :width => "50"}/
+                            %img{alt: "Naoto", height: "50", src: "https://tblg.k-img.com/user/images/Profile/8486/120x120_8486420.jpg?1521882867", width: "50"}/
                           %span.timeline__post-name
                         .c-balloon.c-balloon--top.timeline__post-balloon.is-hidden
                           / ここからjs要素を追加
@@ -348,7 +348,7 @@
                       .timeline__post-item.rvw-item.is-rvw-notitle.js-timeline-content-wrap.js-bookmark.js-done{"data-interested-review-id" => "90145454", "data-rst-id" => "13095101"}
                         .rvw-item__rst-data
                           %p.rvw-item__rst-info
-                            %a.rvw-item__rst-name{:href => "https://tabelog.com/rvwr/008486420/rvwdtl/B381585265/", :target => "_blank"} 蒙古タンメン中本 渋谷店
+                            %a.rvw-item__rst-name{href: "https://tabelog.com/rvwr/008486420/rvwdtl/B381585265/", target: "_blank"} 蒙古タンメン中本 渋谷店
                             %span.rvw-item__rst-area-catg (渋谷、神泉/ラーメン、つけ麺、丼もの（その他）)
                         .rvw-item__inner.js-clickable-area{"data-detail-url" => "https://tabelog.com/rvwr/008486420/rvwdtl/B381585265/"}
                           .rvw-item__rvw-info
@@ -366,7 +366,7 @@
                     .userdata-box__header
                       .userdata-box__img.userdata-box__img--nologin
                         .userdata-box__img
-                          %img{:alt => "", :height => "40", :src => "images/avatar_nophoto.gif", :width => "40"}/
+                          %img{alt: "", height: "40", src: "current_user.avatar.url", width: "40"}/
                       .userdata__info
                         %p.userdata__name
                           %strong.userdata__rvwr-name> Naoto241568
@@ -375,49 +375,49 @@
                     %ul.userdata__data-list
                       %li.userdata__data-item
                         .userdata__data-row
-                          %a{:href => "#"}
+                          %a{href: "#"}
                             .userdata__data-subject
                               ログ
                             .userdata__data-count
                               1
                       %li.userdata__data-item
                         .userdata__data-row
-                          %a{:href => "#"}
+                          %a{href: "#"}
                             .userdata__data-subject
                               行ったお店
                             .userdata__data-count
                               1
                       %li.userdata__data-item
                         .userdata__data-row.is-disabled
-                          %a{:href => "#"}
+                          %a{href: "#"}
                             .userdata__data-subject
                               行きたいお店
                             .userdata__data-count
                               0
                       %li.userdata__data-item
                         .userdata__data-row
-                          %a{:href => "#"}
+                          %a{href: "#"}
                             .userdata__data-subject
                               フォロー中
                             .userdata__data-count
                               1
                       %li.userdata__data-item
                         .userdata__data-row.is-disabled
-                          %a{:href => "#"}
+                          %a{href: "#"}
                             .userdata__data-subject
                               フォロワー
                             .userdata__data-count
                               0
                       %li.userdata__data-item
                         .userdata__data-row.is-disabled
-                          %a{:href => "#"}
+                          %a{href: "#"}
                             .userdata__data-subject
                               下書き一覧
                             .userdata__data-count
                               0
                       %li.userdata__data-item
                         .userdata__data-row
-                          %a{:href => "#"}
+                          %a{href: "#"}
                             .userdata__data-subject
                               公開中口コミ一覧
                             .userdata__data-count
@@ -425,22 +425,22 @@
                     .premium-style.premium-box
                       %p.userdata-text
                         クレジットカードで初月無料
-                      %a.p-mark.premium-btn{:href => "#"} プレミアムサービスについて
-              .userdata-search
-                %p.userdata-search__title レビュアーを探す
-                %form#FreeWord.js-free-word-user.userdata__user-search-form{"accept-charset" => "UTF-8", :action => "#", :method => "get", :name => "FreeWord"}
-                  %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-                  %input#PG{:name => "PG", :type => "hidden", :value => "1"}/
-                  %input#pcd{:name => "pcd", :type => "hidden", :value => "0"}/
-                  %input#LstPrf{:name => "LstPrf", :type => "hidden"}/
-                  %input#LstAre{:name => "LstAre", :type => "hidden"}/
-                  .userdata__user-search-rvwr
-                  %input#sw.c-textfield.c-textfield--full.userdata__user-search-textfield.js-search-reviewer-name{:name => "sw", :placeholder => "レビュアー名", :type => "text", :value => ""}/
-                  %input.btn-detail.userdata__user-search-btn{"data-disable-with" => "検索", :name => "commit", :type => "submit", :value => "検索"}/
-                .userdata-search-link
-                  %a-arrow{ href: "#"}
-                    %i.fas.fa-angle-right
-                    %span 全国のレビュアーから探す
+                      %a.p-mark.premium-btn{href: "#"} プレミアムサービスについて
+                .userdata-search
+                  %p.userdata-search__title レビュアーを探す
+                  %form#FreeWord.js-free-word-user.userdata__user-search-form{"accept-charset" => "UTF-8", action: "#", method: "get", name: "FreeWord"}
+                    %input{name: "utf8", type: "hidden", value: "✓"}/
+                    %input#PG{name: "PG", type: "hidden", value: "1"}/
+                    %input#pcd{name: "pcd", type: "hidden", value: "0"}/
+                    %input#LstPrf{name: "LstPrf", type: "hidden"}/
+                    %input#LstAre{name: "LstAre", type: "hidden"}/
+                    .userdata__user-search-rvwr
+                    %input#sw.c-textfield.c-textfield--full.userdata__user-search-textfield.js-search-reviewer-name{name: "sw", placeholder: "レビュアー名", type: "text", value: ""}/
+                    %input.btn-detail.userdata__user-search-btn{"data-disable-with" => "検索", name: "commit", type: "submit", value: "検索"}/
+                  .userdata-search-link
+                    %a.link-arrow{ href: "#"}
+                      %i.fas.fa-angle-right
+                      %span 全国のレビュアーから探す
 
             - else
               .js-right-user-info
@@ -449,30 +449,30 @@
                     .userdata-box__header
                       .userdata-box__img.userdata-box__img--nologin
                         .userdata-box__img
-                          %img{ width: "40", height: "40", alt: "ゲストさん", src: "images/avatar_nophoto.gif"}
+                          %img{ width: "40", height: "40", alt: "", src: "https://tblg.k-img.com/images/user2/nophoto/rvwr_nophoto_70x70.gif"}
                       .userdata-box__status.userdata-box__status--nologin
                         %p.userdata-box__name.userdata-box__name--nologin 会員未登録
                     %p.userdata-nologin-notice ログインすると、「行ったお店」「行きたいお店」を食べログ上で管理できるようになります。
                     %p.userdata-loginbtn
-                      %a.btn-size.btn-detail.btn-sucess.js-login-window ログイン
+                      %a.btn-size.btn-detail.btn-sucess.js-login-window{ href: "users/sign_in"} ログイン
                     .premium-style.premium-box
                       %p.userdata-text クレジットカードで初月無料
                       %a.p-mark.premium-btn{href: "#"} プレミアムサービスについて
-              .userdata-search
-                %p.userdata-search__title レビュアーを探す
-                %form#FreeWord.js-free-word-user.userdata__user-search-form{"accept-charset" => "UTF-8", :action => "#", :method => "get", :name => "FreeWord"}
-                  %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-                  %input#PG{:name => "PG", :type => "hidden", :value => "1"}/
-                  %input#pcd{:name => "pcd", :type => "hidden", :value => "0"}/
-                  %input#LstPrf{:name => "LstPrf", :type => "hidden"}/
-                  %input#LstAre{:name => "LstAre", :type => "hidden"}/
-                  .userdata__user-search-rvwr
-                  %input#sw.c-textfield.c-textfield--full.userdata__user-search-textfield.js-search-reviewer-name{:name => "sw", :placeholder => "レビュアー名", :type => "text", :value => ""}/
-                  %input.btn-detail.userdata__user-search-btn{"data-disable-with" => "検索", :name => "commit", :type => "submit", :value => "検索"}/
-                .userdata-search-link
-                  %a-arrow{ href: "#"}
-                    %i.fas.fa-angle-right
-                    %span 全国のレビュアーから探す
+                .userdata-search
+                  %p.userdata-search__title レビュアーを探す
+                  %form#FreeWord.js-free-word-user.userdata__user-search-form{"accept-charset" => "UTF-8", action: "#", method: "get", name: "FreeWord"}
+                    %input{name: "utf8", type: "hidden", value: "✓"}/
+                    %input#PG{name: "PG", type: "hidden", value: "1"}/
+                    %input#pcd{name: "pcd", type: "hidden", value: "0"}/
+                    %input#LstPrf{name: "LstPrf", type: "hidden"}/
+                    %input#LstAre{name: "LstAre", type: "hidden"}/
+                    .userdata__user-search-rvwr
+                    %input#sw.c-textfield.c-textfield--full.userdata__user-search-textfield.js-search-reviewer-name{name: "sw", placeholder: "レビュアー名", type: "text", value: ""}/
+                    %input.btn-detail.userdata__user-search-btn{"data-disable-with" => "検索", name: "commit", type: "submit", value: "検索"}/
+                  .userdata-search-link
+                    %a.link-arrow{ href: "#"}
+                      %i.fas.fa-angle-right
+                      %span 全国のレビュアーから探す
               .userdata-start__action
                 %a.btn-size.btn-detail 初めての方へ
             .feature-wrap
@@ -766,7 +766,7 @@
                       %span.rating-crown__inner
                         %i.rating-crown__gly
                         %span.rating-crown__rank 1
-                    %img{:alt => "ミート矢澤 - 料理写真:デミグラスチーズハンバーグL size 目玉焼きトッピング", :height => "210", :src => "https://tblg.k-img.com/restaurant/images/Rvw/72731/200x200_square_72731367.jpg", :width => "209"}/
+                    %img{alt: "ミート矢澤 - 料理写真:デミグラスチーズハンバーグL size 目玉焼きトッピング", height: "210", src: "https://tblg.k-img.com/restaurant/images/Rvw/72731/200x200_square_72731367.jpg", width: "209"}/
                     .top-genre-rank__info
                       .top-genre-rank__name ミート矢澤 (1451)
                       .top-genre-rank__area-genre 東京都/ハンバーグ
@@ -780,7 +780,7 @@
                       %span.rating-crown__inner
                         %i.rating-crown__gly
                         %span.rating-crown__rank 2
-                    %img{:alt => "ハンバーグ ウィル - 料理写真:●デミグラスソース 仔牛の骨と筋と野菜をじっくり煮込んだソースです。", :height => "210", :src => "https://tblg.k-img.com/restaurant/images/Rvw/3680/200x200_square_3680362.jpg", :width => "209"}/
+                    %img{alt: "ハンバーグ ウィル - 料理写真:●デミグラスソース 仔牛の骨と筋と野菜をじっくり煮込んだソースです。", height: "210", src: "https://tblg.k-img.com/restaurant/images/Rvw/3680/200x200_square_3680362.jpg", width: "209"}/
                     .top-genre-rank__info
                       .top-genre-rank__name ハンバーグ ウィル (455)
                       .top-genre-rank__area-genre 東京都/ハンバーグ
@@ -794,7 +794,7 @@
                       %span.rating-crown__inner
                         %i.rating-crown__gly
                         %span.rating-crown__rank 3
-                    %img{:alt => "グリル アラベル - 料理写真:黒毛和牛ハンバーグ・テンゴ（２１０ｇ）", :height => "210", :src => "https://tblg.k-img.com/restaurant/images/Rvw/35891/200x200_square_35891119.jpg", :width => "209"}/
+                    %img{alt: "グリル アラベル - 料理写真:黒毛和牛ハンバーグ・テンゴ（２１０ｇ）", height: "210", src: "https://tblg.k-img.com/restaurant/images/Rvw/35891/200x200_square_35891119.jpg", width: "209"}/
                     .top-genre-rank__info
                       .top-genre-rank__name グリル アラベル 名古屋分店 (117)
                       .top-genre-rank__area-genre 愛知県/ハンバーグ
@@ -808,7 +808,7 @@
                       %span.rating-crown__inner
                         %i.rating-crown__gly
                         %span.rating-crown__rank 4
-                    %img{:alt => "グリルK - 料理写真:炭火焼ハンバーグクイーン（260g）", :height => "209", :src => "https://tblg.k-img.com/restaurant/images/Rvw/72012/200x200_square_72012074.jpg", :width => "210"}/
+                    %img{alt: "グリルK - 料理写真:炭火焼ハンバーグクイーン（260g）", height: "209", src: "https://tblg.k-img.com/restaurant/images/Rvw/72012/200x200_square_72012074.jpg", width: "210"}/
                     .top-genre-rank__info
                       .top-genre-rank__name グリルK (255)
                       .top-genre-rank__area-genre 東京都/ハンバーグ
@@ -822,7 +822,7 @@
                       %span.rating-crown__inner
                         %i.rating-crown__gly
                         %span.rating-crown__rank 5
-                    %img{:alt => "キッチン たか - 料理写真:バーグカレー", :height => "209", :src => "https://tblg.k-img.com/restaurant/images/Rvw/10113/200x200_square_10113688.jpg", :width => "195"}/
+                    %img{alt: "キッチン たか - 料理写真:バーグカレー", height: "209", src: "https://tblg.k-img.com/restaurant/images/Rvw/10113/200x200_square_10113688.jpg", width: "195"}/
                     .top-genre-rank__info
                       .top-genre-rank__name キッチン たか (181)
                       .top-genre-rank__area-genre 東京都/ハンバーグ
@@ -922,3 +922,4 @@
           .top-genre-rank__more-link
             %a.c-link-circle{ href: "#"}
               %span 全国 グルメランキング TOP20（総合ランキングTOP20）を見る
+= render "shares/footer"
