@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "shops#new"
   devise_for :users
   resources :shops
   get 'shops/show/menu' => 'shops#show_menu'
