@@ -55,10 +55,10 @@
             メモを残そう（例：友達のおすすめカフェ）
     .shop_lists
       %ul.header_list
-        %li.shop_lists__top
+        %li.menu-shop_lists__top
           店舗トップ
         %li.shop_lists__menu
-          メニュー・コース
+          メニュー
         %li.shop_lists__image
           写真
         %li.shop_lists__review
@@ -67,153 +67,68 @@
           地図
     .shop_main
       .shop_main-left
-        .shop_mainleft-1stimages
-          .shop_mainleft-images__1
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-images__2
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-images__3
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-images__4
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-images__5
-            = image_tag "avatar_nophoto.gif"
-        .shop_mainleft-2ndimages
-          .shop_mainleft-images__6
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-images__7
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-images__8
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-images__9
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-images__10
-            = image_tag "avatar_nophoto.gif"
-        .shop_mainleft-moreimages
-          .shop_mainleft-moreimages__link
-            もっと見る
-        .shop_mainleft-review
-          .shop_mainleft-review__title
-            口コミ
-          %button.review-postbtn
-            投稿する
-        .shop_mainleft-friend
-          .shop_mainleft-friend__image
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-friend__text
-            フォロー中の「RINA-Stone」さんが行っています。
-        %ul.pickup_review1
-          %li.pickup_review-avatar
-            .pickup_review-avatar__icon
-              = image_tag "avatar_nophoto.gif"
-            .pickup_review-avatar__nickname
-              パーカーやっておしまい
-            .pickup_review-avatar__count
-              (724)
-          %li.pickup_review-text
-            .pickup_review-text__title
-              10回目
-            .pickup_review-text__text
-              久しぶりの猪俣。ここしばらく電話が通じず、予約できませんでした。超人気店になっちゃいましたね。握りのお任せのみです。少しずつ値上がりしていて、今は¥2万ぐらいでしょうか。・とり貝・ウニ(青森)・シャコ・金目鯛・赤貝・かっぱ巻き・クジラ・赤身(那智勝浦)
-            .pickup_review-text__continue
-              続きを読む
-            .pickup_review-text__icons
-              %span.pickup_review-text__heart
-                💗300
-              %span.pickup_review-text__time
-                2018/03/23
-              %span.pickup_review-text__rates
-                ⭐️⭐️⭐️3.00
-        %ul.pickup_review2
-          %li.pickup_review-avatar
-            .pickup_review-avatar__icon
-              = image_tag "avatar_nophoto.gif"
-            .pickup_review-avatar__nickname
-              パーカーやっておしまい
-            .pickup_review-avatar__count
-              (724)
-          %li.pickup_review-text
-            .pickup_review-text__title
-              10回目
-            .pickup_review-text__text
-              久しぶりの猪俣。ここしばらく電話が通じず、予約できませんでした。超人気店になっちゃいましたね。握りのお任せのみです。少しずつ値上がりしていて、今は¥2万ぐらいでしょうか。・とり貝・ウニ(青森)・シャコ・金目鯛・赤貝・かっぱ巻き・クジラ・赤身(那智勝浦)
-            .pickup_review-text__continue
-              続きを読む
-            .pickup_review-text__icons
-              %span.pickup_review-text__heart
-                💗300
-              %span.pickup_review-text__time
-                2018/03/23
-              %span.pickup_review-text__rates
-                ⭐️⭐️⭐️3.00
-        %ul.pickup_review3
-          %li.pickup_review-avatar
-            .pickup_review-avatar__icon
-              = image_tag "avatar_nophoto.gif"
-            .pickup_review-avatar__nickname
-              パーカーやっておしまい
-            .pickup_review-avatar__count
-              (724)
-          %li.pickup_review-text
-            .pickup_review-text__title
-              10回目
-            .pickup_review-text__text
-              久しぶりの猪俣。ここしばらく電話が通じず、予約できませんでした。超人気店になっちゃいましたね。握りのお任せのみです。少しずつ値上がりしていて、今は¥2万ぐらいでしょうか。・とり貝・ウニ(青森)・シャコ・金目鯛・赤貝・かっぱ巻き・クジラ・赤身(那智勝浦)
-            .pickup_review-text__continue
-              続きを読む
-            .pickup_review-text__icons
-              %span.pickup_review-text__heart
-                💗300
-              %span.pickup_review-text__time
-                2018/03/23
-              %span.pickup_review-text__rates
-                ⭐️⭐️⭐️3.00
-        .shop_mainleft-morereview
-          .shop_mainleft-morereview__link
-            口コミをもっと見る （106件）
-        .shop_mainleft-aroundshop
-          .shop_mainleft-aroundshop__title
-            [PR] 近くのお店
-        %ul.around_shops
-          %li.around_shops__left
-            .around_shops__left-image
-              = image_tag "avatar_nophoto.gif"
-            .around_shops__left-shopname
-              串カツ田中 川口店
-            .around_shops__left-genre
-              串揚げ
-            .around_shops__left-stars
-              ⭐️⭐️⭐️3.00
-            .around_shops__left-denner
-              🌃¥30,000~
-            .around_shops__left-lunch
-              🌅¥30,000~
-          %li.around_shops__center
-            .around_shops__center-image
-              = image_tag "avatar_nophoto.gif"
-            .around_shops__center-shopname
-              串カツ西山 川口店
-            .around_shops__center-genre
-              串揚げ
-            .around_shops__center-stars
-              ⭐️⭐️⭐️3.00
-            .around_shops__center-denner
-              🌃¥30,000~
-            .around_shops__center-lunch
-              🌅¥30,000~
-          %li.around_shops__right
-            .around_shops__right-image
-              = image_tag "avatar_nophoto.gif"
-            .around_shops__right-shopname
-              串カツ中田 川口店
-            .around_shops__right-genre
-              串揚げ
-            .around_shops__right-stars
-              ⭐️⭐️⭐️3.00
-            .around_shops__right-denner
-              🌃¥30,000~
-            .around_shops__right-lunch
-              🌅¥30,000~
+        .shop-menu
+          .shop-menu-update-date
+            %p
+              ※2018/09/14 更新
+          .shop-menu-title
+            .shop-menu-title__name
+              料理メニュー
+            .shop-menu-title__display-price
+              (税抜価格)
+          .shop-menu-lists
+            %ul
+              %li.shop-menu-list
+                .shop-menu-image
+                  = image_tag "avatar_nophoto.gif"
+                .shop-menu-content
+                  .shop-menu-content-upper
+                    .shop-menu-name
+                      特上カルビ
+                    .shop-menu-price
+                      %p.shop-menu-price-number
+                        2,990円
+                  .shop-menu-content-bottom
+                    .shop-menu-detail
+                      主な使用部位・ヘッドバラ、三角バラ、カイノミ、ササバラ
+                      Regular 1390円
+                      Small 750円
+                      Family 1890円
+              %li.shop-menu-list
+                .shop-menu-image
+                  = image_tag "avatar_nophoto.gif"
+                .shop-menu-content
+                  .shop-menu-content-upper
+                    .shop-menu-name
+                      とろ肉3秒炙り
+                    .shop-menu-price
+                      %p.shop-menu-price-number
+                        1,390円
+                  .shop-menu-content-bottom
+                    .shop-menu-detail
+                      牛８No1メニュー。極上ロースを薄切りで3秒炙ります
+              %li.shop-menu-list
+                .shop-menu-image
+                .shop-menu-content
+                  .shop-menu-content-upper
+                    .shop-menu-name
+                      ファミリー１ポンド盛り
+                    .shop-menu-price
+                      %p.shop-menu-price-number
+                        3,890円
+                  .shop-menu-content-bottom
+                    .shop-menu-detail
+              %li.shop-menu-list
+                .shop-menu-image
+                .shop-menu-content
+                  .shop-menu-content-upper
+                    .shop-menu-name
+                      女性のためのセレブ盛り
+                    .shop-menu-price
+                      %p.shop-menu-price-number
+                        2,690円
+                  .shop-menu-content-bottom
+                    .shop-menu-detail
         .shop_mainleft-shopdetail
           .shop_mainleft-shopdetail__title
             店舗情報（詳細）

@@ -13,7 +13,12 @@ class ShopsController < ApplicationController
   end
 
   def show
+  end
 
+  def show_menu
+  end
+
+  def show_reviews
   end
 
   private
