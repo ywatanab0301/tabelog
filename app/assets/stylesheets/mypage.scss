@@ -62,6 +62,13 @@
                 position: absolute;
                 top: 140px;
                 right: 30px;
+                img {
+                position: absolute;
+                top: -141px;
+                left: -817px;
+                width: 980px;
+                height: 340px;
+                }
               }
               .cover-image-submit {
                 display: none;
@@ -113,6 +120,30 @@
           img {
             height: 100%;
             width: 100%;
+          }
+          .change-header-avatar-image {
+            display: none;
+            font-size: 12px;
+            font-weight: bold;
+            border: solid 1px $font_gray;
+            background: $white;
+            border-radius: 4px;
+            padding: 3px 10px 3px;
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+          .mypage-avatar-image-submit {
+            display: none;
+            font-size: 12px;
+            font-weight: bold;
+            border: solid 1px $font_gray;
+            background: $white;
+            border-radius: 4px;
+            padding: 3px 10px 3px;
+            position: absolute;
+            top: 0;
+            right: 0;
           }
         }
         .mypage-header-contents {
