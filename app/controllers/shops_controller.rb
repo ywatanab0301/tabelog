@@ -13,10 +13,6 @@ class ShopsController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
-=======
-
->>>>>>> master
   end
 
   private
