@@ -7,22 +7,20 @@
   .hr
 
 = form_for @review, url: user_reviews_path do |f|
+  = f.hidden_field :user_id, value: current_user.id
   .reviews__sceneselect-wrap
     .reviews__sceneselect
       .reviews__sceneselectspace
         %p.reviews__sceneselectspace-text 口コミ対象をお選びください
         .reviews__sceneselectspace-item
-          %button.reviews__sceneselectspace-item--dinner
+          .reviews__sceneselectspace-item--dinner
             %label
-              = f.radio_button :lunch_dinner, "Dinner"
-              🌙夜
-
-          %button.reviews__sceneselectspace-item--lunch
+              = f.radio_button :lunch_dinner, "1"
+              🌃夜
+          .reviews__sceneselectspace-item--lunch
             %label
-              = f.radio_button :lunch_dinner, "Lunch"
-              🌞昼
-
-
+              = f.radio_button :lunch_dinner, "2"
+              🌅昼
   .reviews-rating
     .reviews-rating--total
       .total-rating
@@ -35,7 +33,7 @@
       .cost-person
         .cost-person--title 使った金額（1人）
         .cost-person--selectcost
-          = f.collection_select :review_budgets, Budget.all, :id, :name
+          = f.collection_select :budget_ids, Budget.all, :id, :name
     .reviews-rating--detail1
       .rate-dish
         .rate-dish--info
@@ -98,24 +96,20 @@
     .photo-select-field
       .photo-select-field__pic1
         %label.fas.fa-camera.btn
-          = fields_for (@image) do |i|
-            = i.file_field :pic1, style: "display: none;"
+          / = fields_for @image do |i|
+          = f.file_field :pic1, style: "display: none;"
       .photo-select-field__pic2
         %label.fas.fa-camera.btn
-          = fields_for (@image) do |i|
-            = i.file_field :pic2, style: "display: none;"
+          = f.file_field :pic2, style: "display: none;"
       .photo-select-field__pic3
         %label.fas.fa-camera.btn
-          = fields_for (@image) do |i|
-            = i.file_field :pic3, style: "display: none;"
+          = f.file_field :pic3, style: "display: none;"
       .photo-select-field__pic4
         %label.fas.fa-camera.btn
-          = fields_for (@image) do |i|
-            = i.file_field :pic4, style: "display: none;"
+          = f.file_field :pic4, style: "display: none;"
       .photo-select-field__pic5
         %label.fas.fa-camera.btn
-          = fields_for (@image) do |i|
-            = i.file_field :pic5, style: "display: none;"
+          = f.file_field :pic5, style: "display: none;"
   .reviews__footer
     .reviews__footer--visitinfo
       %dt.reviews__data-subject 訪問日
@@ -123,9 +117,7 @@
         = f.text_field :visit_day, id: "datepicker"
     .reviews__footer--submit
       %btn.reviews__footer--submit--button
-      / = f.hidden_field :user_id, value: current_user.id
-      = f.submit "投稿する", class: "submit_btn", id:"submitbtn"
+        = f.submit "投稿する", class: "submit_btn", id:"submitbtn"
     .reviews__footer--draft
-
 
 
