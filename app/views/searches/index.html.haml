@@ -54,7 +54,7 @@
                   %a.user-menu__target{ href: "/users/#{current_user.id}"} マイページ
                 %li.user-menu__item.user-menu__item--setting
                   %a#open-user-setting.user-menu__target.user-menu__target--dropdown.user-menu__target--user-image{href: "#"}
-                    %img{ alt: "", height: "27", src: "current_user.avatar.url", width: "27"}/
+                    %img{ alt: "", height: "27" ,src: "#{current_user.avatar}", width: "27"}/
                   / #user-setting.p-user-menu__popup.user-menu__popup--setting.js-exec-user-setting-box
                   /   .balloon.balloon--top
                   /     %ul.setting-list
@@ -324,7 +324,7 @@
                               .timeline-matome__desc
                                 %p 肩の力が抜けていながら品がある、日本橋の老舗そば屋で、鴨そばを食べながら貴族的ムードの極意を学ぶ。
                                 %p.timeline-matome__desc-target
-                                  %a{href: "https://magazine.tabelog.com/articles/50291", target: "_blank"} マガジンを見る
+                                  %a{href: "#{}", target: "_blank"} マガジンを見る
                 .timeline.timeline-body.js-timeline-box.is-visible
                   .timeline-inner
                     %p.timeline-date
@@ -334,7 +334,7 @@
                       .timeline__post-data
                         %a.timeline__post-target.js-timeline-rvwr-name{href: "/rvwr/008486420/", target: "_blank"}
                           %span.timeline__post-img
-                            %img{alt: "Naoto", height: "50", src: "https://tblg.k-img.com/user/images/Profile/8486/120x120_8486420.jpg?1521882867", width: "50"}/
+                            %img{alt: "Naoto", height: "50", src: "#", width: "50"}/
                           %span.timeline__post-name
                         .c-balloon.c-balloon--top.timeline__post-balloon.is-hidden
                           / ここからjs要素を追加
@@ -366,7 +366,7 @@
                     .userdata-box__header
                       .userdata-box__img.userdata-box__img--nologin
                         .userdata-box__img
-                          %img{alt: "", height: "40", src: "current_user.avatar.url", width: "40"}/
+                          %img{alt: "", height: "40", src: "#{current_user.avatar}", width: "40"}/
                       .userdata__info
                         %p.userdata__name
                           %strong.userdata__rvwr-name> Naoto241568
