@@ -31,6 +31,7 @@
                 -else
                   = image_tag @user.background_image.url, class:'image'
                 %label.change-header-cover
+                  = fa_icon "camera", class: "camera-icon"
                   カバー写真を変更
                   = f.file_field :background_image, style: 'display: none;'
                   = f.hidden_field :user_id, value: current_user.id
@@ -41,11 +42,18 @@
               のレストランガイド
           .rvwr-page-setting
             = link_to "レビュアーページ設定", edit_user_path
-        .mypage-header__user-avatar
-          -if current_user.avatar?
-            = image_tag @user.avatar.url
-          -else
-            = image_tag "avatar_nophoto.gif"
+        =form_for @user do |f|
+          .mypage-header__user-avatar
+            -if current_user.avatar?
+              = image_tag @user.avatar.url
+            -else
+              = image_tag "avatar_nophoto.gif"
+            %label.change-header-avatar-image
+              = fa_icon "camera", class: "camera-icon"
+              変更
+              = f.file_field :avatar, style: 'display: none;'
+              = f.hidden_field :user_id, value: current_user.id
+            = f.submit "保存", class: "mypage-avatar-image-submit"
         .mypage-header-contents
           .mypage-header-contents__image-wrap
           .mypage-header-contents__info
