@@ -8,26 +8,83 @@
               全国のグルメ・レストランガイド 食べログ
           .top-headline__usermenu
             #welcome.js-welcome-wrapper
+            - if user_signed_in?
               %ul.user-menu.js-exec-welcome
                 %li.user-menu__item
                   %a#open-message-notification.user-menu__target.user-menu__target--dropdown{:href => "#"}
                     %span.user-menu__text メッセージ
                     %span#messages.user-menu__badge{:style => "display:none;"} 0
+                  / #message-notification.user-menu__popup.user-menu__popup--notification.js-exec-notification-box
+                  /   .balloon.balloon--top
+                  /     #message-notification-list.notification-list
+                  /     .notification-bottom
+                  /       %a#message-link.c-link-circle{:href => "#"}
+                  /         %span
+                  /           %strong> 受信メッセージ一覧
+                  /           を見る
                 %li.user-menu__item
-                  %a#open-message-notification.user-menu__target.user-menu__target--dropdown{:href => "#"}
+                  %a#open-information-notification.user-menu__target.user-menu__target--dropdown{:href => "#"}
                     %span.user-menu__text お知らせ
-                    %span#messages.user-menu__badge{:style => "display:none;"} 0
-                %li.user-menu__item 150pt
+                    %span#informations.user-menu__badge{:style => "display:none;"} 0
+                  / #information-notification.user-menu__popup.user-menu__popup--notification.js-exec-notification-box
+                  /   .balloon.balloon--top
+                  /     .notification-sort
+                  /       %ul.notification-sort__box
+                  /         %li#selector-comment.notification-sort__tab.notification-sort__tab--comment.gly-b-conversation
+                  /           %span.notification-sort__text コメント
+                  /         %li#selector-other.notification-sort__tab.notification-sort__tab--other.gly-b-tabelike.is-selected
+                  /           %span.notification-sort__text いいね！ほか
+                  /     #information-notification-list.notification-list
+                  /     .notification-bottom
+                  /       %a#information-link.icon-b-circle-orange{"data-comment-url" => "#", "data-other-url" => "#", :href => "#"}
+                  /         %strong> いいね！ほか
+                  /         の通知をもっと見る
                 %li.user-menu__item
                   %a.user-menu__target{:href => "#"}
-                  %span.user-menu__text 予約確認
+                    %span.c-badge-tpoint.c-badge-tpoint--s
+                      %i Tpoint
+                    %em.user-menu__text.user-menu__text--tpoint 150
+                    pt
+                %li.user-menu__item
+                  %a.user-menu__target{:href => "#"}
+                    %span.user-menu__text 予約確認
                 %li.user-menu__item
                   %a.user-menu__target{:href => "#"} 行った・行きたい
                 %li.user-menu__item
-                  %a.user-menu__target{:href => "#"} マイページ
+                  %a.user-menu__target{:href => "/users/id"} マイページ
                 %li.user-menu__item.user-menu__item--setting
                   %a#open-user-setting.user-menu__target.user-menu__target--dropdown.user-menu__target--user-image{:href => "#"}
-                    %img{:alt => "Naoto241568", :height => "27", :src => "#", :width => "27"}/
+                    %img{:alt => "Naoto241568", :height => "27", :src => "https://tblg.k-img.com/user/images/Profile/8486/30x30_8486420.jpg?1521882867", :width => "27"}/
+                  / #user-setting.p-user-menu__popup.user-menu__popup--setting.js-exec-user-setting-box
+                  /   .balloon.balloon--top
+                  /     %ul.setting-list
+                  /       %li.setting-list__item
+                  /         %a.setting-list__target{:href => "#"} フォロー中一覧
+                  /       %li.setting-list__item
+                  /         %a.setting-list__target{:href => "#"} 下書き一覧
+                  /       %li.setting-list__item
+                  /         %a.setting-list__target{:href => "#"} 設定
+                  /       %li.setting-list__item.setting-list__item--logout
+                  /         %a.setting-list__target{:href => "#"} ログアウト
+
+            - else
+              %ul.p-user-menu.js-exec-welcome
+                %li.p-user-menu__item
+                  %a.p-user-menu__target{:href => "#"} 食べログの特長と便利な使い方
+                %li.p-user-menu__item
+                  %a.p-user-menu__target{:href => "/users/sign_up"} 無料会員登録
+                %li.p-user-menu__item
+                  %a.p-user-menu__target{:href => "#"}
+                    %span.c-badge-tpoint.c-badge-tpoint--s>
+                      %i Tpoint
+                    保有Tポイント
+                %li.p-user-menu__item
+                  %a.p-user-menu__target{:href => "#"} 予約確認
+                %li.p-user-menu__item
+                  %a.p-user-menu__target{:href => "#"} 行った・行きたい
+                %li.p-user-menu__item
+                  %a.js-open-login-modal.p-user-menu__target{:href => "/users/sign_in"} ログイン
+
       .top-header
         .top-header__visual.js-top-main-visual-image
           .top-header__overlay
@@ -302,21 +359,105 @@
                                     %span.c-rating__time.c-rating__time--lunch
 
           .colum2__right.top-colum__right
-            .js-right-user-info
-              .userdata
-                .userdata-box
-                  .userdata-box__header
-                    .userdata-box__img.userdata-box__img--nologin
-                      .userdata-box__img
-                        %img{ width: "40", height: "40", alt: "ゲストさん", src: "images/avatar_nophoto.gif"}
-                    .userdata-box__status.userdata-box__status--nologin
-                      %p.userdata-box__name.userdata-box__name--nologin 会員未登録
-                  %p.userdata-nologin-notice ログインすると、「行ったお店」「行きたいお店」を食べログ上で管理できるようになります。
-                  %p.userdata-loginbtn
-                    %a.btn-size.btn-detail.btn-sucess.js-login-window ログイン
-                  .premium-style.premium-box
-                    %p.userdata-text クレジットカードで初月無料
-                    %a.p-mark.premium-btn{href: "#"} プレミアムサービスについて
+            - if user_signed_in?
+              .js-right-user-info
+                .userdata
+                  .userdata-box
+                    .userdata-box__header
+                      .userdata-box__img.userdata-box__img--nologin
+                        .userdata-box__img
+                          %img{:alt => "", :height => "40", :src => "images/avatar_nophoto.gif", :width => "40"}/
+                      .userdata__info
+                        %p.userdata__name
+                          %strong.userdata__rvwr-name> Naoto241568
+                          さん
+                        %p.userdata__profile
+                    %ul.userdata__data-list
+                      %li.userdata__data-item
+                        .userdata__data-row
+                          %a{:href => "#"}
+                            .userdata__data-subject
+                              ログ
+                            .userdata__data-count
+                              1
+                      %li.userdata__data-item
+                        .userdata__data-row
+                          %a{:href => "#"}
+                            .userdata__data-subject
+                              行ったお店
+                            .userdata__data-count
+                              1
+                      %li.userdata__data-item
+                        .userdata__data-row.is-disabled
+                          %a{:href => "#"}
+                            .userdata__data-subject
+                              行きたいお店
+                            .userdata__data-count
+                              0
+                      %li.userdata__data-item
+                        .userdata__data-row
+                          %a{:href => "#"}
+                            .userdata__data-subject
+                              フォロー中
+                            .userdata__data-count
+                              1
+                      %li.userdata__data-item
+                        .userdata__data-row.is-disabled
+                          %a{:href => "#"}
+                            .userdata__data-subject
+                              フォロワー
+                            .userdata__data-count
+                              0
+                      %li.userdata__data-item
+                        .userdata__data-row.is-disabled
+                          %a{:href => "#"}
+                            .userdata__data-subject
+                              下書き一覧
+                            .userdata__data-count
+                              0
+                      %li.userdata__data-item
+                        .userdata__data-row
+                          %a{:href => "#"}
+                            .userdata__data-subject
+                              公開中口コミ一覧
+                            .userdata__data-count
+                              1
+                    .premium-style.premium-box
+                      %p.userdata-text
+                        クレジットカードで初月無料
+                      %a.p-mark.premium-btn{:href => "#"} プレミアムサービスについて
+              .userdata-search
+                %p.userdata-search__title レビュアーを探す
+                %form#FreeWord.js-free-word-user.userdata__user-search-form{"accept-charset" => "UTF-8", :action => "#", :method => "get", :name => "FreeWord"}
+                  %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+                  %input#PG{:name => "PG", :type => "hidden", :value => "1"}/
+                  %input#pcd{:name => "pcd", :type => "hidden", :value => "0"}/
+                  %input#LstPrf{:name => "LstPrf", :type => "hidden"}/
+                  %input#LstAre{:name => "LstAre", :type => "hidden"}/
+                  .userdata__user-search-rvwr
+                  %input#sw.c-textfield.c-textfield--full.userdata__user-search-textfield.js-search-reviewer-name{:name => "sw", :placeholder => "レビュアー名", :type => "text", :value => ""}/
+                  %input.btn-detail.userdata__user-search-btn{"data-disable-with" => "検索", :name => "commit", :type => "submit", :value => "検索"}/
+                .userdata-search-link
+                  %a-arrow{ href: "#"}
+                    %i.fas.fa-angle-right
+                    %span 全国のレビュアーから探す
+
+            - else
+              .js-right-user-info
+                .userdata
+                  .userdata-box
+                    .userdata-box__header
+                      .userdata-box__img.userdata-box__img--nologin
+                        .userdata-box__img
+                          %img{ width: "40", height: "40", alt: "ゲストさん", src: "images/avatar_nophoto.gif"}
+                      .userdata-box__status.userdata-box__status--nologin
+                        %p.userdata-box__name.userdata-box__name--nologin 会員未登録
+                    %p.userdata-nologin-notice ログインすると、「行ったお店」「行きたいお店」を食べログ上で管理できるようになります。
+                    %p.userdata-loginbtn
+                      %a.btn-size.btn-detail.btn-sucess.js-login-window ログイン
+                    .premium-style.premium-box
+                      %p.userdata-text クレジットカードで初月無料
+                      %a.p-mark.premium-btn{href: "#"} プレミアムサービスについて
               .userdata-search
                 %p.userdata-search__title レビュアーを探す
                 %form#FreeWord.js-free-word-user.userdata__user-search-form{"accept-charset" => "UTF-8", :action => "#", :method => "get", :name => "FreeWord"}
