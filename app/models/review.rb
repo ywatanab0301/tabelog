@@ -8,6 +8,11 @@ class Review < ApplicationRecord
   has_many :review_budgets, dependent: :destroy
   has_many :budgets, through: :review_budgets
 
+  has_many :likes, dependent: :destroy
+  def like_user(user_id)
+   likes.find_by(user_id: user_id)
+  end
+
 
   mount_uploader :pic1, ImageUploader
   mount_uploader :pic2, ImageUploader
