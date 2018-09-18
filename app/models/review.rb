@@ -8,7 +8,6 @@ class Review < ApplicationRecord
   has_many :review_budgets, dependent: :destroy
   has_many :budgets, through: :review_budgets
 
-  # accepts_nested_attributes_for :review_budgets, allow_destroy: true
 
   mount_uploader :pic1, ImageUploader
   mount_uploader :pic2, ImageUploader
