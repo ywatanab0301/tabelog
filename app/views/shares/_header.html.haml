@@ -21,10 +21,10 @@
           %li.upper__right-list__mypage
             マイページ
           %li.upper__right-list__avatar
-            / -if current_user.avatar?
-            /   = image_tag @user.avatar.url
-            / -else
-            /   = image_tag "avatar_nophoto.gif"
+            -if current_user.avatar?
+              = image_tag @user.avatar.url
+            -else
+              = image_tag "avatar_nophoto.gif"
     .header_down
       .header_down__left
         =image_tag "logo_tabelog.svg"
