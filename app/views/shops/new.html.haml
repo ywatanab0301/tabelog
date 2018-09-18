@@ -56,7 +56,7 @@
           %th
             = f.label :"都道府県"
           %td
-            = f.collection_select :shop_prefectures, Prefecture.all, :id, :name
+            = f.collection_select :prefecture_ids, Prefecture.all, :id, :name
         %tr
           %th
             .emphasis 必須
@@ -70,6 +70,40 @@
           %td
             = f.text_field :building
 
+    .main__rst-form__title 店舗情報
+    %table.input
+      %tbody
+        %tr
+          %th
+            = f.label :"見出しのサブタイトル"
+          %td
+            = f.text_field :prtext
+        %tr
+          %th
+            = f.label :"店舗・料理写真1"
+          %td
+            = f.file_field :pic1
+        %tr
+          %th
+            = f.label :"店舗・料理写真2"
+          %td
+            = f.file_field :pic2
+        %tr
+          %th
+            = f.label :"店舗・料理写真3"
+          %td
+            = f.file_field :pic3
+        %tr
+          %th
+            = f.label :"店舗・料理写真4"
+          %td
+            = f.file_field :pic4
+        %tr
+          %th
+            = f.label :"店舗・料理写真5"
+          %td
+            = f.file_field :pic5
+
     .main__rst-form__title 店舗詳細情報
     %table.input
       %tbody
@@ -77,8 +111,7 @@
           %th
             = f.label :"ジャンル"
           %td
-            .input
-              = f.collection_select :shop_genres, Genre.all, :id, :name
+            = f.collection_select :genre_ids, Genre.all, :id, :name
         %tr
           %th
             = f.label :"営業時間"
