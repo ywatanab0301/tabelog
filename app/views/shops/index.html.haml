@@ -39,9 +39,13 @@
           .fa.fa-utensils
           %span 標準【会員店舗優先】
       %li.nav-item.rank
-        %a.nav-link{href: "#"} ランキング
+        %a.nav-link{href: "#"}
+          .fa.fa-chess-king
+          %span ランキング
       %li.nav-item.review
-        %a.nav-link{href: "#"} 口コミ数
+        %a.nav-link{href: "#"}
+          .fa.fa-comment
+          %span 口コミ数
 
     .content__main__list
       %span.page-count 1~20 件を表示
@@ -64,7 +68,18 @@
 
           .content__main__shop__each__body
 
-            .content__main__shop__each__body__left 投稿された写真が表示されるよ　ふぁいと٩(๑❛ᴗ❛๑)۶
+            .content__main__shop__each__body__left
+              .content__main__shop__each__body__left__frame
+                = image_tag shop.pic1.url, class: "photo1" if shop.pic1.present?
+                %ul.photolist
+                  %li.photolist
+                    = image_tag shop.pic2.url, class: "photo2" if shop.pic2.present?
+                  %li.photolist
+                    = image_tag shop.pic3.url, class: "photo3" if shop.pic3.present?
+                  %li.photolist
+                    = image_tag shop.pic4.url, class: "photo4" if shop.pic4.present?
+                  %li.photolist
+                    = image_tag shop.pic5.url, class: "photo5" if shop.pic5.present?
 
             .content__main__shop__each__body__right
               %p.pr

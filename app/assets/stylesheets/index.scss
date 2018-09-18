@@ -181,7 +181,7 @@
   border-top: solid 2px $shop_border;
   height: 280px;
   &__header{
-    padding: 13px 17.5em 13px 10px;
+    padding: 13px 10px 13px 10px;
     width: 770px;
     border-bottom: 1px solid $shopindex_back;
     display: inline-block;
@@ -197,8 +197,7 @@
       }
     }
     ul.btn{
-      margin-left: 600px;
-      display: inline;
+      float: right;
     }
   }
   &__body{
@@ -206,9 +205,34 @@
       float: left;
       width: 160px;
       height: 193px;
-      border: 1px solid black;
       margin-top: 10px;
       margin-left: 10px;
+      &__frame{
+        padding: 4px;
+        border: 1px solid $shop_border;
+        width: 160px;
+        height: 160px;
+        background-color: $white;
+        img.photo1{
+          width: 150px;
+          height: 150px;
+        }
+      }
+      ul.photolist{
+        margin-top: 10px;
+        list-style: none;
+        li.photolist{
+          float: left;
+          margin-right: 4px;
+          width: 33.5px;
+          height: 33.5px;
+          overflow: hidden;
+          img.photo2, img.photo3, img.photo4, img.photo5{
+            width: 33.5px;
+            height: 33.5px;
+          }
+        }
+      }
     }
     &__right{
        float: left;
