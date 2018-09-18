@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :shops
   resources :searches
   resources :users do
-    resources :reviews
+    resources :reviews, only: [:new, :create]
   end
 end
