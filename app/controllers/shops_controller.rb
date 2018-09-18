@@ -13,7 +13,6 @@ class ShopsController < ApplicationController
   end
 
   def show
-
   end
 
   private

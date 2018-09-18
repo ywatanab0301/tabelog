@@ -1,0 +1,231 @@
+.top-timeline:before, .top-timeline:after {
+  display: block;
+  overflow: hidden;
+  content: "";
+}
+// sassが当たっていない部分
+.top-timeline {
+  margin-top: 4rem;
+  .top-timeline__heading {
+    border-top: 2px solid $border-bottom;
+    padding-top: 2.6rem;
+  .top-timeline__heading:before, .top-timeline__heading:after {
+    display: block;
+    overflow: hidden;
+    content: "";
+    .top-text {
+      float: left;
+    }
+    .top-text {
+      color: #13131e;
+      line-height: 1;
+      font-size: 2rem;
+      }
+    }
+  }
+}
+
+// 以下よりtimeline
+.timeline-contents {
+  position: relative;
+  .timeline {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 22px 0;
+    opacity: 1.0;
+    .timeline-inner {
+      position: relative;
+      .timeline-date {
+        position: relative;
+        min-height: 1em;
+        line-height: 1;
+        margin-bottom: 1.2rem;
+        // sass要調整
+        .timeline__visit-date::before{
+          margin-left: 45px;
+          font-size: 1.3rem;
+          .text-num {
+            font-family: Arial;
+          }
+        }
+        .timeline__entry-date {
+          color: #949499;
+          float: right;
+          margin-right: 5px;
+          font-size: 1.1rem;
+        }
+      }
+      .timeline-post {
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+        .timeline__post-data {
+          margin-right: 12px;
+          padding-bottom: 4px;
+          width: 58px;
+          min-width: 58px;
+          text-align: center;
+          line-height: 1.5;
+          background-color: $white;
+          .timeline__post-img {
+            display: inline-block;
+            border-radius: 7px;
+            border: 1px solid #eeeded;
+            background-color: $white;
+            margin-bottom: 4px;
+            .timeline__post-img>img {
+              border-radius: 7px;
+              border: 3px $white solid;
+            }
+            .timeline__post-name {
+              color: #595960;
+              font-weight: bold;
+              font-size: 1.2rem;
+            }
+          }
+        }
+        .timeline__post-item {
+          position: relative;
+          width: 760px;
+          min-width: 760px;
+          border: 1px solid #e0dccc;
+          border-radius: 5px;
+          box-sizing: border-box;
+          box-shadow: 0 1px 2px -2px rgba(0,0,0,0.7);
+          background-color: $white;
+          flex-grow: 1;
+          z-index: 1;
+          .rvw-item__rst-data {
+            position: relative;
+            z-index: 1;
+            margin: 0 20px;
+            border-bottom: 1px solid $border-bottom;
+            .rvw-item__rst-info {
+              padding: 1.3em 5.5em 1em 0;
+              .rvw-item__rst-name {
+                display: inline;
+                font-weight: bold;
+                font-size: 134%;
+                vertical-align: bottom;
+              }
+              .rvw-item__rst-area-catg {
+                margin-left: 5px;
+                color: #949499;
+                font-weight: normal;
+                font-size: 92%;
+                vertical-align: bottom;
+                line-height: 1.8;
+            }
+          }
+        }
+        .rvw-item__inner {
+          .rvw-item__rvw-info {
+            display: flex;
+            margin: 0 20px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid $border-bottom;
+            min-height: 3.3rem;
+            justify-content: space-between;
+            .rvw-item__score-data {
+              position: relative;
+              color: #595960;
+              line-height: 1;
+              .rvw-item__score {
+                display: block;
+                margin: 8px 0 4px;
+                .rvw-item__score-total {
+                  margin: 3px 3px 3px 0;
+                  padding-bottom: 1px;
+                  font-size: 143%;
+                  vertical-align: middle;
+                }
+              }
+            }
+          }
+        }
+        .timeline__post-item::before {
+          position: absolute;
+          top: 20px;
+          left: -8px;
+          content: '';
+          display: inline-block;
+          width: 0;
+          height: 0;
+          border-top: 8px solid transparent;
+          border-right: 8px solid #e0dccc;
+          border-bottom: 8px solid transparent;
+          }
+          // 下記はsassが当たっていない部分
+          .timeline-matome__contents {
+            display: flex;
+            padding: 20px;
+            justify-content: space-between;
+            .timeline-matome__photo {
+              padding-right: 20px;
+              vertical-align: top;
+              width: 140px;
+              min-width: 140px;
+              height: 140px;
+              .timeline-matome__photo-link {
+                display: block;
+                border: solid 1px transparent;
+                position: relative;
+                margin: 0;
+                width: 140px;
+                height: 140px;
+                overflow: hidden;
+                .timeline-matome__photo-img {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  width: auto;
+                  max-width: inherit;
+                  max-height: 100%;
+                  transform: translate(-50%, -50%);
+                }
+              }
+            }
+            .timeline-matome__info {
+              flex-grow: 1;
+              .timeline-matome__text {
+                padding-right: 50px;
+                min-height: 112px;
+                color: #13131e;
+                font-size: 1.3rem;
+                .timeline-matome__title {
+                  margin-bottom: 12px;
+                  .timeline-matome__title-link {
+                    color: #13131e;
+                    font-weight: bold;
+                    line-height: 1.7;
+                    font-size: 1.6rem;
+                    .timeline-matome__title-link>strong {
+                      border-bottom: dotted 1px;
+                    }
+                  }
+                }
+                .timeline-matome__desc {
+                  line-height: 1.6;
+                  .timeline-matome__desc-target {
+                    margin-top: 10px;
+                    font-weight: bold;
+                    .timeline-matome__desc-target>a::after {
+                      display: inline-block;
+                      margin-left: 5px;
+                      width: 10px;
+                      height: 9px;
+                      vertical-align: middle;
+                      content: "";
+                      background: url(https://tblg.k-img.com/images/shared/icons/common_icons.png?1499244152) no-repeat -24px -15px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

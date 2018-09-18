@@ -62,6 +62,13 @@
                 position: absolute;
                 top: 140px;
                 right: 30px;
+                img {
+                position: absolute;
+                top: -141px;
+                left: -817px;
+                width: 980px;
+                height: 340px;
+                }
               }
               .cover-image-submit {
                 display: none;
@@ -113,6 +120,34 @@
           img {
             height: 100%;
             width: 100%;
+          }
+          .change-header-avatar-image {
+            display: none;
+            font-size: 12px;
+            font-weight: bold;
+            border: solid 1px $font_gray;
+            background: $white;
+            border-radius: 4px;
+            padding: 3px 10px 3px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            img.avatar_review {
+              height: 118px;
+              width: 118px;
+            }
+          }
+          .mypage-avatar-image-submit {
+            display: none;
+            font-size: 12px;
+            font-weight: bold;
+            border: solid 1px $font_gray;
+            background: $white;
+            border-radius: 4px;
+            padding: 3px 10px 3px;
+            position: absolute;
+            top: 0;
+            right: 0;
           }
         }
         .mypage-header-contents {
@@ -288,11 +323,12 @@
         padding: 0 0 5px 40px;
         }
         .review-post {
-          height: 330px;
+          height: 310px;
           background-color: $white;
           border: 1px solid $border_gray;
           border-radius: 5px;
           padding-bottom: 7px;
+          position: relative;
           .review-post__rst-info {
             padding: 15px;
             .review-post__rst-info-wrap {
@@ -300,11 +336,17 @@
               display: flex;
               padding-bottom: 10px;
               .review-post__rst-name {
+                display: flex;
+                width: 550px;
                 a {
                   display: inline;
+                  width: 400px;
                   font-size: 16px;
                   font-weight: bold;
                   color: $font_blue;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
                 }
                 span.review-post__rst-area {
                   font-size: 10px;
@@ -316,12 +358,15 @@
                 }
               }
             }
-              .review-post__buttons{
+            .review-post__buttons{
                 padding-right: 5px;
                 display: flex;
-                width: 55px;
+                width: 65px;
                 justify-content:space-between;
-                padding-left: 8px;
+                padding-left: 9px;
+                position: absolute;
+                top: 17px;
+                right: 17px;
                 .review-post__buttons--trash {
                   .icon {
                     font-size: 20px;
@@ -334,7 +379,7 @@
                     color: $font_gray;
                   }
                 }
-              }
+            }
           }
           .review-post__rst-review{
             max-height: 220px;
@@ -450,7 +495,7 @@
               }
             }
             .review-post__rst-review--like-button {
-              padding: 10px 10px 40px 3px;
+              padding: 10px 10px 20px 3px;
               button {
                 color: $white;
                 font-weight: bold;
