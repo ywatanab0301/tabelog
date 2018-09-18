@@ -182,7 +182,9 @@
   height: 280px;
   &__header{
     padding: 13px 17.5em 13px 10px;
+    width: 770px;
     border-bottom: 1px solid $shopindex_back;
+    display: inline-block;
     &__inner{
       border-left: 3px solid #e1e1e1;
       padding-left: 1em;
@@ -194,19 +196,10 @@
         text-decoration: none;
       }
     }
-    button.btn.btn-outline-secondary{
-      margin-left: 500px;
-      color: red;
+    ul.btn{
+      margin-left: 600px;
+      display: inline;
     }
-    // &__btn{
-    //   margin-left: 700px;
-    //   color: red;
-    //   button.btn.btn-outline-secondary{
-    //     width: 91px;
-    //     padding-left: 700px;
-    //     color: red;
-    //   }
-    // }
   }
   &__body{
     &__left{
