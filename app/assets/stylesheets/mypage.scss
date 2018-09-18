@@ -18,6 +18,9 @@
             justify-content: flex-start;
             li {
               padding-right: 5px;
+              img{
+                vertical-align: middle;
+              }
             }
             li.link {
               color: $font_blue;
