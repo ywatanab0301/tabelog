@@ -1,3 +1,4 @@
+= render partial: 'shares/header'
 .location
   .location__left
     %ul
@@ -46,33 +47,36 @@
       %span.shop.count 全 100 件
 
     .content__main__shop
-      .content__main__shop__header
-        .content__main__shop__header__inner
-          %a.rst_name{href: "#"} 小割烹おはし あきはばらりびんぐ
+      - @shops.each do |shop|
+        .content__main__shop__each
+          .content__main__shop__each__header
+            .content__main__shop__each__header__inner
+              %a.rst_name{href: "#"}
+                = shop.shop_name
 
-        .contant__main__shop__header__btn
-          %button.btn.btn-outline-secondary{type: "button"}
-            .fa.fa-heart  行った
-          %button.btn.btn-outline-secondary{type: "button"}
-            .fa.fa-map-pin  行きたい
+            .contant__main__shop__each__header__btn
+              %button.btn.btn-outline-secondary{type: "button"}
+                .fa.fa-heart  行った
+              %button.btn.btn-outline-secondary{type: "button"}
+                .fa.fa-map-pin  行きたい
 
-      .content__main__shop__body
+          .content__main__shop__each__body
 
-        .content__main__shop__body__left 投稿された写真が表示されるよ　ふぁいと٩(๑❛ᴗ❛๑)۶
+            .content__main__shop__each__body__left 投稿された写真が表示されるよ　ふぁいと٩(๑❛ᴗ❛๑)۶
 
-        .content__main__shop__body__right
-          %p.pr 団体様宴会にも○ お家のリビングの様な空間でおばんざいを味わう贅沢なひと時を。
+            .content__main__shop__each__body__right
+              %p.pr
+                = shop.prtext
 
-          .content__main__shop__body__right__rate
-            %span.star ☆☆☆☆☆
-            %span.rate 3.16
-            .fa.fa-comments
-            %a.review{href: "#"} 25件
+              .content__main__shop__each__body__right__rate
+                %span.star ☆☆☆☆☆
+                %span.rate 3.16
+                .fa.fa-comments
+                %a.review{href: "#"} 25件
 
-          .content__main__shop__body__right__review
-            %a.title{href: "#"} 落ち着く空間
-            %span.name by.NAME
-            %p.review レビューが表示されるよー。ふぁいと٩( 'ω' )و
+              .content__main__shop__each__body__right__review
+                %a.title{href: "#"} 落ち着く空間
+                %span.name by.NAME
+                %p.review レビューが表示されるよー。ふぁいと٩( 'ω' )و
 
-
-
+= render partial: 'shares/footer'

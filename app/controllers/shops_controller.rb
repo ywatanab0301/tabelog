@@ -9,7 +9,7 @@ class ShopsController < ApplicationController
   end
 
   def create
-    Shop.create(shop_params)
+    @shop = Shop.create(shop_params)
   end
 
   def show
@@ -24,7 +24,22 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    params.require(:shop).permit(:shop_name, :shop_name_f, :phone_number, :city_address, :building, :hours, :closed_day, :prefecture_ids, :genre_ids)
+    params.require(:shop).permit(
+      :shop_name,
+      :shop_name_f,
+      :phone_number,
+      :city_address,
+      :building,
+      :hours,
+      :closed_day,
+      :prtext,
+      :prefecture_ids,
+      :genre_ids,
+      :pic1,
+      :pic2,
+      :pic3,
+      :pic4,
+      :pic5)
   end
 
 end

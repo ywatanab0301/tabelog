@@ -126,7 +126,7 @@
   }
 }
 
-.contents__main{
+.content__main{
   ul.nav.nav-tabs{
     padding: 0 20px;
     border-bottom: 1px solid $shopindex_border;
@@ -176,9 +176,10 @@
   font-size: 12px;
 }
 
-.content__main__shop{
+.content__main__shop__each{
   margin: 18px 0;
   border-top: solid 2px $shop_border;
+  height: 280px;
   &__header{
     padding: 13px 17.5em 13px 10px;
     border-bottom: 1px solid $shopindex_back;
@@ -193,12 +194,19 @@
         text-decoration: none;
       }
     }
-    &__btn{
-      margin-left: 700px;
-      button.btn.btn-outline-secondary{
-        width: 91px;
-      }
+    button.btn.btn-outline-secondary{
+      margin-left: 500px;
+      color: red;
     }
+    // &__btn{
+    //   margin-left: 700px;
+    //   color: red;
+    //   button.btn.btn-outline-secondary{
+    //     width: 91px;
+    //     padding-left: 700px;
+    //     color: red;
+    //   }
+    // }
   }
   &__body{
     &__left{

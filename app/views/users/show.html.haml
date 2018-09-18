@@ -1,4 +1,4 @@
-
+= render partial: 'shares/header'
 .mypage-view
   .mypage-heading-wrap
     #mypage-location-wrap
@@ -30,8 +30,7 @@
                   = image_tag "nature-wallpaper-2.jpg", class:'image'
                 -else
                   = image_tag @user.background_image.url, class:'image'
-                %label.change-header-cover
-                  = fa_icon "camera", class: "camera-icon"
+                %label.change-header-cover.fas.fa-camera
                   カバー写真を変更
                   = f.file_field :background_image, style: 'display: none;'
                   = f.hidden_field :user_id, value: current_user.id
@@ -48,8 +47,7 @@
               = image_tag @user.avatar.url
             -else
               = image_tag "avatar_nophoto.gif"
-            %label.change-header-avatar-image
-              = fa_icon "camera", class: "camera-icon"
+            %label.change-header-avatar-image.fas.fa-camera
               変更
               = f.file_field :avatar, style: 'display: none;'
               = f.hidden_field :user_id, value: current_user.id
@@ -64,21 +62,21 @@
                 = link_to "➤ プロフィール詳細"
           .mypage-header-contents__counts
             .rvwr-counter
-              %dl
-                %dt
+              %dl.status
+                %dt.status
                   口コミ数
-                %dd
+                %dd.status
                   = @reviews.length
                   件
-              %dl
-                %dt
+              %dl.status
+                %dt.status
                   訪問者数
-                %dd
+                %dd.status
                   ○人(先週○人)
               %dl.last-child
-                %dt
+                %dt.status
                   いいね！
-                %dd
+                %dd.status
                   (Like数表示)
         .mypage-header-navi
           %ul.mypage-header-navi__list
@@ -119,8 +117,7 @@
         .recommend-title
           %p
             👑おすすめレストラン
-          .reccomend-edit-link
-            = fa_icon "cog", class: 'icon'
+          .reccomend-edit-link.fas.fa-cog
         -@review_ranks.first(5).each do |review|
           .recommend-text
             .recommend-text__left
@@ -233,14 +230,12 @@
         .middle-info
         .timeline-calendar
           .timeline-calendar__title
-            %h3
-              = fa_icon "calendar", class: 'icon'
+            %h3.far.fa-calendar
               行ったカレンダー
           .timeline-calendar__container
         .visited-area
           .visited-area__title
-            %h3
-              = fa_icon "map", class: 'icon'
+            %h3.fas.fa-map
               訪れたエリア
           .visited-area__container
             .visited-area__container--map
@@ -320,4 +315,4 @@
           = link_to "ログアウト", destroy_user_session_path, method: :delete
         %button
           = link_to "編集", edit_user_path
-
+= render partial: 'shares/footer'

@@ -7,6 +7,7 @@
 @import "./mypage";
 @import "./new";
 @import "./user-resistration" ;
+@import "./reviews" ;
 @import "./user-edit" ;
 @import "./user-login" ;
 @import "./index";
@@ -210,7 +211,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, 
 
 .contents.contents--fixed {
   padding-right: 0;
-  padding-left: 150px;
+  padding-left: 270px;
   width: 980px;
 }
 
