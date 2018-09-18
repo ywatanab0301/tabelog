@@ -114,6 +114,7 @@
       color: $font_blue;
       height: 50px;
       line-height: 50px;
+      vertical-align: middle;
     }
     .shop_subheader{
       border-top: 1px solid $background-gray;
@@ -240,7 +241,7 @@
           line-height: 45px;
           font-size: 14px;
         }
-        li.shop_lists__menu{
+        li.menu-shop_lists__menu{
           border-right: 1px solid $background-gray;
           width: 196px;
           font-weight: bold;
@@ -250,7 +251,7 @@
           color: white;
           font-size: 14px;
         }
-        li.shop_lists__image{
+        li.menu-shop_lists__image{
           border-right: 1px solid $background-gray;
           width: 196px;
           font-weight: bold;
@@ -258,7 +259,7 @@
           line-height: 45px;
           font-size: 14px;
         }
-        li.shop_lists__review{
+        li.menu-shop_lists__review{
           border-right: 1px solid $background-gray;
           width: 196px;
           font-weight: bold;
@@ -266,7 +267,7 @@
           line-height: 45px;
           font-size: 14px;
         }
-        li.shop_lists__map{
+        li.menu-shop_lists__map{
           width: 196px;
           font-weight: bold;
           text-align: center;
