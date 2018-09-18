@@ -24,30 +24,53 @@ ActiveRecord::Schema.define(version: 20180918030425) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "pic1"
+    t.string   "pic2"
+    t.string   "pic3"
+    t.string   "pic4"
+    t.string   "pic5"
+    t.integer  "review_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_images_on_review_id", using: :btree
+  end
+
   create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "review_budgets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "review_id"
+    t.integer  "budget_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["budget_id"], name: "index_review_budgets_on_budget_id", using: :btree
+    t.index ["review_id"], name: "index_review_budgets_on_review_id", using: :btree
+  end
+
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",                    null: false
     t.integer  "lunch_dinner",               null: false
-    t.integer  "price",                      null: false
-    t.integer  "rate",                       null: false
-    t.integer  "food_rate",                  null: false
-    t.integer  "service_rate",               null: false
-    t.integer  "atmosphere",                 null: false
-    t.integer  "cp_rate",                    null: false
+    t.float    "rate",         limit: 24,    null: false
+    t.float    "food_rate",    limit: 24,    null: false
+    t.float    "service_rate", limit: 24,    null: false
+    t.float    "drink_rate",   limit: 24,    null: false
+    t.float    "atmosphere",   limit: 24,    null: false
+    t.float    "cp_rate",      limit: 24,    null: false
     t.string   "title",                      null: false
     t.text     "text",         limit: 65535, null: false
-    t.integer  "image_id"
+    t.string   "pic1"
+    t.string   "pic2"
+    t.string   "pic3"
+    t.string   "pic4"
+    t.string   "pic5"
     t.datetime "visit_day",                  null: false
-    t.integer  "share_with",                 null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.integer  "shop_id",                    null: false
-    t.index ["image_id"], name: "index_reviews_on_image_id", using: :btree
+    t.integer  "shop_id"
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
@@ -138,6 +161,9 @@ ActiveRecord::Schema.define(version: 20180918030425) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "images", "reviews"
+  add_foreign_key "review_budgets", "budgets"
+  add_foreign_key "review_budgets", "reviews"
   add_foreign_key "reviews", "users"
   add_foreign_key "shop_budgets", "budgets"
   add_foreign_key "shop_budgets", "shops"

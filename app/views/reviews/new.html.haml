@@ -1,0 +1,123 @@
+.reviews__header
+  .reviews__header-inner
+    %p.reviews__rst-name-wrap
+      %span.reviews__rst-name レストラン名
+    %p.reviews__rst-aliasname （レストラン）
+
+  .hr
+
+= form_for @review, url: user_reviews_path do |f|
+  = f.hidden_field :user_id, value: current_user.id
+  .reviews__sceneselect-wrap
+    .reviews__sceneselect
+      .reviews__sceneselectspace
+        %p.reviews__sceneselectspace-text 口コミ対象をお選びください
+        .reviews__sceneselectspace-item
+          .reviews__sceneselectspace-item--dinner
+            %label
+              = f.radio_button :lunch_dinner, "1"
+              🌃夜
+          .reviews__sceneselectspace-item--lunch
+            %label
+              = f.radio_button :lunch_dinner, "2"
+              🌅昼
+  .reviews-rating
+    .reviews-rating--total
+      .total-rating
+        .total-rating--star
+          %p.title 総合
+          #star-rating-total
+          .counter
+        .total-rating--score
+          = f.text_area :rate
+      .cost-person
+        .cost-person--title 使った金額（1人）
+        .cost-person--selectcost
+          = f.collection_select :budget_ids, Budget.all, :id, :name
+    .reviews-rating--detail1
+      .rate-dish
+        .rate-dish--info
+          .title 料理・味
+          #star-rating-dish
+          .counter
+        .rate-dish--score
+          = f.text_area :food_rate
+      .rate-cp
+        .rate-cp--info
+          .title CP
+          #star-rating-cp
+          .counter
+        .rate-cp--score
+          = f.text_area :cp_rate
+      .rate-service
+        .rate-service--info
+          .title サービス
+          #star-rating-service
+          .counter
+        .rate-service--score
+          = f.text_area :service_rate
+    .reviews-rating--detail2
+      .rate-drink
+        .rate-drink--info
+          .title お酒・ドリンク
+          #star-rating-drink️️
+          .counter
+        .rate-drink--score
+          = f.text_area :drink_rate
+      .rate-atmosphere
+        .rate-atmosphere--info
+          .title 雰囲気
+          #star-rating-atmosphere
+          .counter
+        .rate-atmosphere--score
+          = f.text_area :atmosphere
+      .close-window
+
+  .review-textfield
+    .hr
+    .review-title-wrap
+      .review-input-title
+        = f.text_field :title, placeholder: "口コミのタイトルを入れてください", class: "input-title"
+
+    .review-comment-wrapper
+      .review-input-text
+        = f.text_area :text, placeholder: "口コミ本文をいれてください", class: "input-text", cols: "30"
+
+    .reviews__notice-frame
+      %p.reviews__textfield-notice
+        %span 入力文字数：
+        %em.js-text-count-num.reviews__notice-item 0
+
+      .hr
+
+  .reviews__photo
+    .photo-navbar
+      .photo-navbar--add 写真を追加
+    .photo-select-field
+      .photo-select-field__pic1
+        %label.fas.fa-camera.btn
+          / = fields_for @image do |i|
+          = f.file_field :pic1, style: "display: none;"
+      .photo-select-field__pic2
+        %label.fas.fa-camera.btn
+          = f.file_field :pic2, style: "display: none;"
+      .photo-select-field__pic3
+        %label.fas.fa-camera.btn
+          = f.file_field :pic3, style: "display: none;"
+      .photo-select-field__pic4
+        %label.fas.fa-camera.btn
+          = f.file_field :pic4, style: "display: none;"
+      .photo-select-field__pic5
+        %label.fas.fa-camera.btn
+          = f.file_field :pic5, style: "display: none;"
+  .reviews__footer
+    .reviews__footer--visitinfo
+      %dt.reviews__data-subject 訪問日
+      %dd.reviews__data-select
+        = f.text_field :visit_day, id: "datepicker"
+    .reviews__footer--submit
+      %btn.reviews__footer--submit--button
+        = f.submit "投稿する", class: "submit_btn", id:"submitbtn"
+    .reviews__footer--draft
+
+
