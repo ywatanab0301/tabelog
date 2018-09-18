@@ -35,7 +35,9 @@
 
     %ul.nav.nav-tabs
       %li.nav-item.origin
-        %a.nav-link{href: "#"} 標準【会員店舗優先】
+        %a.nav-link{href: "#"}
+          .fa.fa-utensils
+          %span 標準【会員店舗優先】
       %li.nav-item.rank
         %a.nav-link{href: "#"} ランキング
       %li.nav-item.review
@@ -78,5 +80,7 @@
                 %a.title{href: "#"} 落ち着く空間
                 %span.name by.NAME
                 %p.review レビューが表示されるよー。ふぁいと٩( 'ω' )و
+    .content__main__page
+      = paginate @shops
 
 = render partial: 'shares/footer'

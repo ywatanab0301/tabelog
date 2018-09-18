@@ -70,6 +70,7 @@ gem 'mini_magick'
 gem 'devise'
 gem 'bootstrap', '~> 4.1.3'
 gem 'rmagick'
+gem 'kaminari'
 
 group :production do
   gem 'unicorn'
