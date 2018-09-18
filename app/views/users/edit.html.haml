@@ -1,3 +1,4 @@
+= render partial: 'shares/header'
 .useredit
   .location-link
     = link_to "食べログ", destroy_user_session_path, method: :delete
@@ -78,3 +79,4 @@
               ニックネームの変更は何度でも可能です。
         .user_edit_btn
           = f.button "更新", class: "edit_btn"
+= render partial: 'shares/footer'

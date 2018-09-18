@@ -1,4 +1,4 @@
-
+= render partial: 'shares/header'
 .mypage-view
   .mypage-heading-wrap
     #mypage-location-wrap
@@ -64,21 +64,21 @@
                 = link_to "➤ プロフィール詳細"
           .mypage-header-contents__counts
             .rvwr-counter
-              %dl
-                %dt
+              %dl.status
+                %dt.status
                   口コミ数
-                %dd
+                %dd.status
                   = @reviews.length
                   件
-              %dl
-                %dt
+              %dl.status
+                %dt.status
                   訪問者数
-                %dd
+                %dd.status
                   ○人(先週○人)
               %dl.last-child
-                %dt
+                %dt.status
                   いいね！
-                %dd
+                %dd.status
                   (Like数表示)
         .mypage-header-navi
           %ul.mypage-header-navi__list
@@ -320,4 +320,4 @@
           = link_to "ログアウト", destroy_user_session_path, method: :delete
         %button
           = link_to "編集", edit_user_path
-
+= render partial: 'shares/footer'

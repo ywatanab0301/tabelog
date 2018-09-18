@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180915072018) do
+ActiveRecord::Schema.define(version: 20180918030425) do
 
   create_table "budgets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -147,6 +147,11 @@ ActiveRecord::Schema.define(version: 20180915072018) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.text     "prtext",              limit: 65535
+    t.string   "pic1"
+    t.string   "pic2"
+    t.string   "pic3"
+    t.string   "pic4"
+    t.string   "pic5"
     t.index ["shop_name"], name: "index_shops_on_shop_name", using: :btree
   end
 
