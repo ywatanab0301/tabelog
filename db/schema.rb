@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180918030425) do
+ActiveRecord::Schema.define(version: 20180918031630) do
 
   create_table "budgets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20180918030425) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "follower_id"
+    t.integer  "following_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true, using: :btree
+    t.index ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
+    t.index ["following_id"], name: "index_relationships_on_following_id", using: :btree
   end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -76,6 +86,16 @@ ActiveRecord::Schema.define(version: 20180918030425) do
     t.datetime "updated_at",    null: false
     t.index ["prefecture_id"], name: "index_shop_prefectures_on_prefecture_id", using: :btree
     t.index ["shop_id"], name: "index_shop_prefectures_on_shop_id", using: :btree
+  end
+
+  create_table "shopimgs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "img1"
+    t.string   "img2"
+    t.string   "img3"
+    t.string   "img4"
+    t.string   "img5"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
