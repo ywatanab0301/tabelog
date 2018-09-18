@@ -1,0 +1,472 @@
+
+
+body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermenu .p-user-menu__target {
+    color: $white;
+}
+
+.rsttop-headline__usermenu.p-user-menu__item {
+    margin-top: -5px;
+}
+
+body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermenu .p-user-menu__text {
+    color: $white;
+}
+
+.top-header__inner {
+  position: relative;
+  margin: 0 auto;
+  width: 1120px;
+  min-width: 1120px;
+  height: 540px;
+  z-index: 10;
+  .top-header__lead {
+    position: absolute;
+    top: 220px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: $white;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+      .top-header__main-lead {
+        font-weight: bold;
+        text-align: center;
+        letter-spacing: 0.02em;
+        line-height: 1.4;
+        font-size: 5.4rem;
+        }
+        .top-header__sub-lead {
+          margin-top: 9px;
+          text-align: center;
+          letter-spacing: 0.1em;
+          line-height: 1.7;
+          margin-left: 1.1rem;
+          font-size: 2rem;
+      }
+    }
+    .top-header__visible-btn-wrapper.is-active {
+      cursor: pointer;
+    }
+    .top-header__visible-btn-wrapper {
+      position: absolute;
+      right: 0;
+      bottom: 55px;
+      left: 0;
+      margin: 0 auto;
+      width: 50px;
+      height: 45px;
+      }
+    .top-header__search {
+      position: absolute;
+      bottom: 135px;
+      right: 0;
+      left: 0;
+      .global-header-search {
+        padding-top: 0px;
+      .container.header-wrapper.header-wrapper--bottom {
+        z-index: 1;
+        margin: 0 auto;
+        padding: 0;
+        border-radius: 3px;
+        width: 875px;
+        min-width: 875px;
+        background: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        .top-header__search.global-header-search:not(.is-scroll).contents.contents--fixed.search-header {
+          width: 875px;
+          min-width: 875px;
+          height: 54px;
+          .search-header {
+            display: table;
+            margin: 0 auto;
+            width: 100%;
+            height: 29px;
+            .top-header__search.global-header-search:not(.is-scroll).search-header__logo {
+                display: none;
+              }
+              .search-header__logo {
+                display: table-cell;
+                padding: 4px 0;
+                width: 150px;
+                vertical-align: middle;
+                .search-header__logo-img {
+                  display: inline-block;
+                  width: 130px;
+                  height: 26px;
+                  overflow: hidden;
+                  text-indent: 100%;
+                  word-wrap: normal;
+                  overflow-wrap: normal;
+                  white-space: nowrap;
+                  vertical-align: top;
+                  background: url(https://tblg.k-img.com/images/restaurant/logo/logo_tabelog.svg?1499244152) no-repeat 0 0;
+                  -webkit-background-size: 130px 26px;
+                  background-size: 130px 26px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+}
+// ここからメインコンテンツ
+.containe.top-container.top-container--maincontents {
+  padding-top: 20px;
+  .contents.contents--fixed.topcontents--fixed {
+    // margin-left: 140px;
+  }
+  .top-container.top-container {
+    min-width: 1120px ;
+      .top-contents {
+        position: relative;
+        z-index: 1;
+        min-width: 1120px;
+        padding: 0;
+    }
+  }
+  .top-annoucement {
+    margin: 1.7rem 0 3.7rem;
+    }
+  .top-colum {
+    margin-top: 20px;
+    .top-colum__left {
+      width: 830px;
+      min-width: 830px;
+      margin-right: 50px;
+      .top-search {
+        display: table;
+        width: 100%;
+        .top-search__colum {
+          display: table-cell;
+          vertical-align: top;
+          .top-search__heading {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            .top-heading1 {
+              color: #13131e;
+              line-height: 1;
+              font-size: 2rem;
+            }
+            .top-search__data-count {
+              font-weight: bold;
+              text-align: right;
+              flex-grow: 1;
+              .navi-count {
+                font-size: 1rem;
+              }
+            }
+          }
+          .top-search__contents {
+            position: relative;
+            padding: 24px 18px;
+            border: 1px solid #e1e1e1;
+            border-radius: 3px;
+            margin-top: 2.5rem;
+            -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.1);
+            box-shadow: 0 0 1px rgba(0,0,0,0.1);
+            .top-search__contents-title {
+              color: #13131e;
+              font-weight: bold;
+              font-size: 1.3rem;
+            }
+            .top-search__hotarea {
+              position: absolute;
+              top: 20px;
+              right: 20px;
+              .top-search__hotarea-link {
+                color: #06c;
+                cursor: pointer;
+              }
+            }
+            .top-search__mainarea-list {
+              display: flex;
+              margin-top: 1rem;
+              .top-search__mainarea-item {
+                position: relative;
+                margin-left: 4px;
+                width: 155px;
+                height: 155px;
+              }
+              .top-search__mainarea-item:first-child {
+                margin-left: 0;
+              }
+              .top-search__mainarea-item>a {
+                display: block;
+                width: 100%;
+                height: 100%;
+              }
+              .top-search__mainarea-item.top-search__mainarea-item--tokyo {
+                background: url(https://tblg.k-img.com/images/restaurant/image/rsttop_search_tokyo.jpg?1499244152) no-repeat 0 0;
+              }
+              .top-search__mainarea-item.top-search__mainarea-item--osaka {
+                background: url(https://tblg.k-img.com/images/restaurant/image/rsttop_search_osaka.jpg?1499244152) no-repeat 0 0;
+              }
+              .top-search__mainarea-item.top-search__mainarea-item--kyoto {
+                background: url(https://tblg.k-img.com/images/restaurant/image/rsttop_search_kyoto.jpg?1499244152) no-repeat 0 0;
+              }
+              .top-search__mainarea-item.top-search__mainarea-item--aichi {
+                background: url(https://tblg.k-img.com/images/restaurant/image/rsttop_search_aichi.jpg?1499244152) no-repeat 0 0;
+
+              }
+              .top-search__mainarea-item.top-search__mainarea-item--fukuoka {
+                background: url(https://tblg.k-img.com/images/restaurant/image/rsttop_search_fukuoka.jpg?1499244152) no-repeat 0 0;
+              }
+            }
+            .top-search__place-all {
+              display: flex;
+              width: 100%;
+              .top-search__place-column {
+                width: 52%;
+                flex-basis: 52%;
+                .top-search__place-set {
+                  width: 100%;
+                  line-height: 1;
+                  font-size: 1.3rem;
+                  margin-top: 2rem;
+                  // .top-search__place-title {
+                  // }
+                  .top-search__place-list-box:before, .top-search__place-list-box:after {
+                    display: block;
+                    overflow: hidden;
+                    content: "";
+                  }
+                  .top-search__place-list-box:after {
+                    clear: both;
+                  }
+                  .top-search__place-list-box {
+                    margin-top: 0.7rem;
+                    margin-left: 0;
+                    .top-search__place-list {
+                      .top-search__place-list-link:first-of-type {
+                        padding-left: 0;
+                      }
+                      .top-search__place-list-link::before {
+                        display: inline-block;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0.5rem;
+                        margin: auto 0;
+                        border-left: dotted 1px #e0dccc;
+                        vertical-align: middle;
+                        content: '';
+                        height: 1.1rem;
+                      }
+                      .top-search__place-list-link {
+                        position: relative;
+                        float: left;
+                        line-height: 1.3;
+                        padding-left: 1.1rem;
+                   }
+                  }
+                }
+              }
+            }
+              .top-search__place-column.top-search__place-column--right {
+                margin-left: 2%;
+                width: 46%;
+                flex-basis: 46%;
+                .top-search__place-set {
+                  width: 100%;
+                  line-height: 1;
+                  font-size: 1.3rem;
+                  margin-top: 2rem;
+                }
+              }
+            }
+            .top-search__morelink {
+              text-align: right;
+              margin-top: 2rem;
+              .top-search__morelink-item {
+                display: inline-block;
+                font-size: 1.3rem;
+              }
+              .top-search__morelink-item:last-child {
+                margin-left: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+    .top-colum__right {
+      width: 260px;
+      min-width: 260px;
+      .js-right-user-info {
+        .userdata {
+          border-radius: 3px;
+          background-color: #f4f4f4;
+          padding: 1.2rem;
+          .userdata-box {
+            border: 1px solid #e1e1e1;
+            border-radius: 3px;
+            background-color: $white;
+            padding: 1.5rem 1.2rem;
+            .userdata-box__header {
+              display: table;
+              width: 100%;
+              table-layout: fixed;
+              height: 40px;
+              .userdata-box__img.userdata-box__img--nologin {
+                width: 50px;
+                .userdata-box__img {
+                  padding: 4px;
+                  border: 1px solid #e1e1e1;
+                  border-radius: 7px;
+                  }
+                .userdata-box__img>img {
+                  border-radius: 3px;
+                }
+              }
+              .userdata-box__status.userdata-box__status--nologin {
+                vertical-align: middle;
+                padding-left: 10px;
+              }
+              .userdata__info {
+                display: table-cell;
+                vertical-align: top;
+                padding-left: 10px;
+                .userdata__name {
+                  font-size: 1.1rem;
+                  .userdata__rvwr-name {
+                    color: #13131e;
+                    margin-right: 0.5rem;
+                    font-size: 1.5rem;
+                  }
+                }
+                .userdata__profile {
+                  font-size: 1rem;
+                }
+              }
+              .userdata-box__status {
+                  display: table-cell;
+                  vertical-align: top;
+                  padding-left: 5px;
+              }
+                .userdata-box__name.userdata-box__name--nologin {
+                  font-size: 1.4rem;
+                }
+              }
+            .userdata__data-list {
+              margin-top: 1rem;
+              .userdata__data-item {
+                border-top: 1px solid #f4f4f4;
+                line-height: 1;
+                padding: 1rem 0;
+                .userdata__data-row>a::before, .userdata__data-row>a::after {
+                  display: block;
+                  overflow: hidden;
+                  content: "";
+                }
+                .userdata__data-row>a::after {
+                  clear: both;
+                }
+                .userdata__data-row>a {
+                  display: block;
+                }
+                .userdata__data-row {
+                  .userdata__data-subject {
+                    float: left;
+                  }
+                  .userdata__data-count {
+                    float: right;
+                    color: #949499;
+                    font-size: 1.1rem;
+                  }
+                }
+              }
+            }
+
+              .userdata-nologin-notice {
+                margin: 1rem 0.2rem;
+                font-size: 1.1rem;
+              }
+              .premium-box {
+                margin-top: 1rem;
+                padding: 1rem;
+              }
+              .premium-btn {
+                display: inline-block;
+                border-color: #a7013b;
+                color: $white;
+                border-radius: 3px;
+                width: 100%;
+                text-align: center;
+                background-color: #c32d61;
+                background-image: -webkit-linear-gradient(top, #c32d61 0,#a8033d 100%);
+                background-image: linear-gradient(to bottom, #c32d61 0,#a8033d 100%);
+                padding: 0.6rem 1rem 0.7rem 0.5rem;
+                font-size: 1rem;
+                box-sizing: border-box;
+              }
+            }
+          }
+            .userdata-search {
+              border-top: 1px solid #eeece4;
+              margin-top: 2rem;
+              padding-top: 2rem;
+              .userdata-search__title {
+                font-weight: bold;
+                font-size: 1.1rem;
+              }
+              .userdata__user-search-form{
+                display: flex;
+                margin: 0.5rem 0 1rem;
+              }
+              .userdata-search-link {
+                text-align: right;
+                line-height: 1;
+                .link-arrow {
+                  display: inline-block;
+                  cursor: pointer;
+                }
+              }
+            }
+            .userdata-start__action {
+              margin-top: 2rem;
+            }
+          }
+      .feature-all {
+        margin-top: 3.6rem;
+        .feature-name {
+          border-top: 2px solid #eeece4;
+          border-bottom: 1px solid #eeece4;
+          color: #13131e;
+          font-weight: bold;
+          margin-bottom: 1rem;
+          padding: 1.6rem 0.3rem 1.5rem;
+          font-size: 1.5rem;
+        }
+        .feature-area{
+          #ads-iframe {
+            border: 0pt none;
+            display: inline-block;
+            width: 260px;
+            height: 82px;
+          }
+        .feature-banner {
+          display: table-cell;
+          width: 60px;
+          vertical-align: top;
+        }
+        .feature-info {
+          display: table-cell;
+          padding-left: 11px;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+        .userdata-user-search {
+          border-top: 1px solid #eeece4;
+          margin-top: 2rem;
+          padding-top: 2rem;
+        }
+      }
+    }

@@ -24,12 +24,12 @@
     }
 }
 
-.contents{
+.content{
   margin: 0 auto;
   width: 980px;
 }
 
-.contents__side{
+.content__side{
   float: left;
   width: 190px;
   &__top{
@@ -95,7 +95,7 @@
   }
 }
 
-.contents__main{
+.content__main{
   float: right;
   width: 770px;
   &__header{
@@ -170,13 +170,13 @@
   }
 }
 
-.contents__main__list{
+.content__main__list{
   padding-top: 10px;
   padding-bottom: 6px;
   font-size: 12px;
 }
 
-.contents__main__shop{
+.content__main__shop{
   margin: 18px 0;
   border-top: solid 2px $shop_border;
   &__header{
