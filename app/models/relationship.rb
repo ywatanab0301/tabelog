@@ -3,5 +3,5 @@ class Relationship < ApplicationRecord
   belongs_to :following, class_name: "User"
   validates :follower_id, presence: true
   validates :following_id, presence: true
-  # 指定したカラムが空でないことをチェック
+  # presenceで指定したカラムが空でないことをチェック
 end
