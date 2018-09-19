@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    binding.pry
     review = Review.new(review_params)
     review.save
     redirect_to :action => "new"

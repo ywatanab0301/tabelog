@@ -1,3 +1,4 @@
+= render partial: 'shares/header'
 .reviews__header
   .reviews__header-inner
     %p.reviews__rst-name-wrap
@@ -119,5 +120,4 @@
       %btn.reviews__footer--submit--button
         = f.submit "投稿する", class: "submit_btn", id:"submitbtn"
     .reviews__footer--draft
-
-
+= render partial: 'shares/footer'

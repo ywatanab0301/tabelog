@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180918031630) do
+ActiveRecord::Schema.define(version: 20180918111117) do
+
 
   create_table "budgets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -64,7 +65,10 @@ ActiveRecord::Schema.define(version: 20180918031630) do
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",                    null: false
     t.integer  "lunch_dinner",               null: false
+<<<<<<< HEAD
     t.integer  "price",                      null: false
+=======
+>>>>>>> master
     t.integer  "rate",                       null: false
     t.integer  "food_rate",                  null: false
     t.integer  "service_rate",               null: false
@@ -72,6 +76,7 @@ ActiveRecord::Schema.define(version: 20180918031630) do
     t.integer  "cp_rate",                    null: false
     t.string   "title",                      null: false
     t.text     "text",         limit: 65535, null: false
+<<<<<<< HEAD
     t.integer  "image_id"
     t.datetime "visit_day",                  null: false
     t.integer  "share_with",                 null: false
@@ -79,6 +84,18 @@ ActiveRecord::Schema.define(version: 20180918031630) do
     t.datetime "updated_at",                 null: false
     t.integer  "shop_id",                    null: false
     t.index ["image_id"], name: "index_reviews_on_image_id", using: :btree
+=======
+    t.datetime "visit_day",                  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.float    "drink_rate",   limit: 24,    null: false
+    t.string   "pic1"
+    t.string   "pic2"
+    t.string   "pic3"
+    t.string   "pic4"
+    t.string   "pic5"
+    t.integer  "shop_id"
+>>>>>>> master
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
