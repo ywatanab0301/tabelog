@@ -1,6 +1,6 @@
 = render partial: 'shares/header'
-= render 'follow_form'
-= render 'stats'
+/ = render 'follow_form'
+/ = render 'stats'
 
 .mypage-view
   .mypage-heading-wrap
@@ -42,8 +42,11 @@
             %p
               = @user.nickname
               のレストランガイド
+          / 下記にフォローボタンのビューファイルをrender
+          = render 'follow_form'
           .rvwr-page-setting
             = link_to "レビュアーページ設定", edit_user_path
+
         =form_for @user do |f|
           .mypage-header__user-avatar
             -if current_user.avatar?
@@ -105,12 +108,12 @@
                 まとめ
             %li.mypage-header-navi__follow
               .rvwr_navi__count
-                0
+                = @user.followings.count
               .rvwr-navi__menu
                 フォロー中
             %li.mypage-header-navi__follower
               .rvwr_navi__count
-                0
+                = @user.followers.count
               .rvwr-navi__menu
                 フォロワー
 

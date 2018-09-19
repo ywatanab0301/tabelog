@@ -97,6 +97,27 @@
             font-weight: bold;
             color: $white;
           }
+          #follow_form {
+            position: absolute;
+            right :25px;
+            bottom : 50px;
+            .btn.btn-large.btn-primary.follow-btn {
+              background-color: white;
+              color: #06c;
+              padding: 5px 10px 0px 10px;
+              font-size: 15px;
+              font-weight: bold;
+              border: solid 1px $font_gray;
+            }
+            .btn.btn-large.follow-btn {
+              background-color: white;
+              color: #06c;
+              padding: 5px 10px 0px 10px;
+              font-size: 15px;
+              font-weight: bold;
+              border: solid 1px $font_gray;
+            }
+          }
           .rvwr-page-setting {
             position: absolute;
             bottom: 25px;
