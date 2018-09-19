@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 20180918111117) do
     t.datetime "visit_day",                  null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.float    "drink_rate",   limit: 24,    null: false
     t.string   "pic1"
     t.string   "pic2"
     t.string   "pic3"
