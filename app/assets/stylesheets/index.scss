@@ -223,13 +223,13 @@
         list-style: none;
         li.photolist{
           float: left;
-          margin-right: 4px;
-          width: 33.5px;
-          height: 33.5px;
+          margin-right: 3px;
+          width: 27px;
+          height: 27px;
           overflow: hidden;
-          img.photo2, img.photo3, img.photo4, img.photo5{
-            width: 33.5px;
-            height: 33.5px;
+          img.photo1,img.photo2, img.photo3, img.photo4, img.photo5{
+            width: 27px;
+            height: 27px;
           }
         }
       }

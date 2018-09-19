@@ -1,3 +1,5 @@
+%script{src: "./app/assets/javascripts/index.js"}
+
 = render partial: 'shares/header'
 .location
   .location__left
@@ -72,6 +74,8 @@
               .content__main__shop__each__body__left__frame
                 = image_tag shop.pic1.url, class: "photo1" if shop.pic1.present?
                 %ul.photolist
+                  %li.photolist
+                    = image_tag shop.pic1.url, class: "photo1" if shop.pic1.present?
                   %li.photolist
                     = image_tag shop.pic2.url, class: "photo2" if shop.pic2.present?
                   %li.photolist
