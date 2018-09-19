@@ -40,11 +40,11 @@
         .shop_views-buttons
           .button.shop-views
             %button.shop-views__gonebtn
-              行った
+              = link_to "行った", new_user_review_path(current_user.id), method: :get
             %button.shop-views__wannabtn
               行きたい
             %button.shop-views__postbtn
-              投稿
+              = link_to "投稿", new_user_review_path(current_user.id), method: :get
           %button.shop-views__recommend
             メモを残そう（例：友達のおすすめカフェ）
     .shop_lists
@@ -394,8 +394,7 @@
             川口・鳩ヶ谷のレストラン情報を見る
       .shop_main-right
         .shop_mainright-telphone
-          .shop_mainright-telephone__number
-            = fa_icon "phone", class: 'phone_icon'
+          .fas.fa-phone.shop_mainright-telephone__number
             042-571-5991
           %button.telephone__sendbtn
             送る

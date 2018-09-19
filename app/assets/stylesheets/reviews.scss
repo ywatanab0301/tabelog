@@ -1,3 +1,567 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.reviews__header {
+  width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 1.2rem 0 1.2rem;
+}
+
+.reviews__rst-aliasname {
+  line-height: 2;
+  color: #595960;
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+
+.hr {
+  height: 1px;
+  border: none;
+  border-top: 1px #d8ccb2 solid;
+}
+
+.reviews__sceneselect {
+  width: 900px;
+  height:100px;
+  margin: 0 auto;
+  line-height: 30px;
+}
+
+.reviews__sceneselectspace {
+  width: 300px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.reviews__sceneselectspace-text {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.reviews__sceneselectspace-item {
+  display: flex;
+  width: 300px;
+  margin: 0 auto;
+  &--dinner {
+    background-color: white;
+    width: 50%;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 3px;
+    border: 1px solid #d8ccb2;
+    margin-right: 20px;
+  }
+  #review_lunch_dinner_1 {
+    margin-left: 50px;
+  }
+  &--lunch {
+    width: 50%;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 3px;
+    border: 1px solid #d8ccb2
+  }
+  #review_lunch_dinner_2 {
+    margin-left: 50px;
+  }
+}
+.reviews-rating {
+  width: 900px;
+  height: 150px;
+  margin: 0 auto;
+  display: flex;
+  margin-bottom: 30px;
+  &--total {
+    width: 340px;
+    height: 150px;
+    .total-rating {
+      height: 80px;
+      display: flex;
+      &--star {
+        width: 240px;
+        height: 100%;
+        padding-left:30px;
+        .title {
+          font-size: 12px;
+        }
+        .counter {
+          position: relative;
+          display: inline-block;
+          margin: 1.5em 0;
+          padding: 3px 10px;
+          min-width: 20px;
+          max-width: 100%;
+          color: #ffffff;
+          font-size: 14px;
+          background: #e64c30;
+          text-align: center;
+          font-weight: bold;
+          border-radius: 5px;
+          left: 73px;
+          bottom: 88px;
+        }
+        .counter:before{
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border: 5px solid transparent;
+          border-top: 5px solid #e64c30;
+        }
+        .rate {
+          font-size: 35px;
+        }
+      }
+      &--score {
+        width: 160px;
+        height: 100%;
+        margin-top: 20px;
+        #review_rate {
+          margin-top: 3px;
+          height: 30px;
+          width: 60px;
+          text-align: center;
+          font-weight: bold;
+          font-size: 18px;
+          color: red;
+        }
+      }
+    }
+    .cost-person {
+      height: 70px;
+      padding-left: 30px;
+      &--title {
+        font-size: 12px;
+        padding-bottom: 10px;
+      }
+      &--selectcost {
+        margin: 0 0 10px 10px;
+        #review_budget_ids {
+          font-size: 14px;
+          height: 25px;
+          width: 180px;
+          color: black;
+        }
+      }
+    }
+  }
+  &--detail1 {
+    width: 280px;
+    height: 150px;
+    .rate-dish {
+      height: 50px;
+      display: flex;
+      &--info {
+        width: 150px;
+      }
+      .title {
+        font-size: 12px;
+      }
+      .star {
+        font-size: 20px;
+      }
+      .counter {
+        position: relative;
+        display: inline-block;
+        margin: 1.5em 0;
+        padding: 3px 10px;
+        min-width: 20px;
+        max-width: 100%;
+        color: #ffffff;
+        font-size: 7px;
+        background: #e64c30;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 5px;
+        left: 90px;
+        bottom: 65px;
+      }
+      .counter:before{
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border: 5px solid transparent;
+        border-top: 5px solid #e64c30;
+      }
+      &--score {
+        width: 50px;
+        height: 100%;
+        margin-top: 20px;
+      }
+      #review_food_rate {
+        height: 20px;
+        width: 50px;
+        color: red;
+        text-align: center;
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+    .rate-cp {
+      height: 50px;
+      display: flex;
+      &--info {
+        width: 150px;
+      }
+      .title {
+        font-size: 12px;
+      }
+      .counter {
+        position: relative;
+        display: inline-block;
+        margin: 1.5em 0;
+        padding: 3px 10px;
+        min-width: 20px;
+        max-width: 100%;
+        color: #ffffff;
+        font-size: 7px;
+        background: #e64c30;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 5px;
+        left: 90px;
+        bottom: 65px;
+      }
+      .counter:before{
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border: 5px solid transparent;
+        border-top: 5px solid #e64c30;
+      }
+      .star {
+        font-size: 20px;
+      }
+      &--score {
+        width: 50px;
+        height: 100%;
+        margin-top: 20px;
+      }
+      #review_cp_rate {
+        height: 20px;
+        width: 50px;
+        color: red;
+        text-align: center;
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+    .rate-service {
+      height: 50px;
+      display: flex;
+      &--info {
+        width: 150px;
+      }
+      .title {
+        font-size: 12px;
+      }
+      .counter {
+        position: relative;
+        display: inline-block;
+        margin: 1.5em 0;
+        padding: 3px 10px;
+        min-width: 20px;
+        max-width: 100%;
+        color: #ffffff;
+        font-size: 7px;
+        background: #e64c30;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 5px;
+        left: 90px;
+        bottom: 65px;
+      }
+      .counter:before{
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border: 5px solid transparent;
+        border-top: 5px solid #e64c30;
+      }
+      .star {
+        font-size: 20px;
+      }
+      &--score {
+        width: 50px;
+        height: 100%;
+        margin-top: 20px;
+      }
+      #review_service_rate {
+        height: 20px;
+        width: 50px;
+        color: red;
+        text-align: center;
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+  }
+  &--detail2 {
+    width: 280px;
+    height: 150px;
+    .rate-drink {
+      height: 50px;
+      display: flex;
+      &--info {
+        width: 150px;
+      }
+      .title {
+        font-size: 12px;
+      }
+      .counter {
+        position: relative;
+        display: inline-block;
+        margin: 1.5em 0;
+        padding: 3px 10px;
+        min-width: 20px;
+        max-width: 100%;
+        color: #ffffff;
+        font-size: 7px;
+        background: #e64c30;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 5px;
+        left: 90px;
+        bottom: 65px;
+      }
+      .counter:before{
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border: 5px solid transparent;
+        border-top: 5px solid #e64c30;
+      }
+      .star {
+        font-size: 20px;
+      }
+      &--score {
+        width: 50px;
+        height: 100%;
+        margin-top: 20px;
+      }
+      #review_drink_rate {
+        height: 20px;
+        width: 50px;
+        color: red;
+        text-align: center;
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+    .rate-atmosphere {
+      height: 50px;
+      display: flex;
+      &--info {
+        width: 150px;
+      }
+      .title {
+        font-size: 12px;
+      }
+      .counter {
+        position: relative;
+        display: inline-block;
+        margin: 1.5em 0;
+        padding: 3px 10px;
+        min-width: 20px;
+        max-width: 100%;
+        color: #ffffff;
+        font-size: 7px;
+        background: #e64c30;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 5px;
+        left: 90px;
+        bottom: 65px;
+      }
+      .counter:before{
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border: 5px solid transparent;
+        border-top: 5px solid #e64c30;
+      }
+      .star {
+        font-size: 20px;
+      }
+      &--score {
+        width: 50px;
+        height: 100%;
+        margin-top: 20px;
+      }
+      #review_atmosphere {
+        height: 20px;
+        width: 50px;
+        color: red;
+        text-align: center;
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+    .close-window {
+      height: 50px;
+    }
+  }
+}
+
+.review-textfield {
+  width: 900px;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+.review-input-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.input-title {
+  width: 860px;
+  border: none;
+  font-weight: bold;
+  color: #13131e;
+  padding: 1rem;
+}
+
+.input-text {
+  width: 860px;
+  height: 150px;
+  border: none;
+  color: #13131e;
+  padding: 1rem;
+}
+
+.reviews__textfield-notice {
+  color: #a8a8a8;
+  min-height: 2rem;
+  font-size: 0.7rem;
+  margin-bottom: 10px;
+}
+
+.reviews__photo {
+  width: 900px;
+  height: 200px;
+  background-color: #faf8f5;
+  margin: 0 auto;
+}
+
+.photo-navbar {
+  height:40px;
+  &--add {
+    font-weight: bold;
+    color: #797152;
+    font-size: 14px;
+  }
+}
+
+.fas.fa-camera {
+  font-size: 30px;
+  padding: 50px 70px;
+  img {
+    width: 150px;
+    height: 135px;
+    position: relative;
+    display: inline-block;
+    margin-top: -45px;
+    margin-left: -95px;
+    // vertical-align: top;
+  }
+}
+
+.photo-select-field {
+  height: 150px;
+  display: flex;
+  &__pic1 {
+    width: 20%;
+    // box-sizing: border-box;
+
+    border: 1px solid gray;
+    border-style: dashed;
+  }
+  &__pic2 {
+    width: 20%;
+
+    border: 1px solid gray;
+    border-style: dashed;
+  }
+  &__pic3 {
+    width: 20%;
+
+    border: 1px solid gray;
+    border-style: dashed;
+  }
+  &__pic4 {
+    width: 20%;
+
+    border: 1px solid gray;
+    border-style: dashed;
+  }
+  &__pic5 {
+    width: 20%;
+
+    border: 1px solid gray;
+    border-style: dashed;
+  }
+}
+
+.reviews__footer {
+  width: 900px;
+  height: 50px;
+  margin: 0 auto;
+  bottom: 0;
+  background-color: rgba(238,236,228,0.8);
+  box-shadow: none;
+  display: flex;
+  &--visitinfo {
+    width: 300px;
+    display: flex;
+    .reviews__data-subject {
+      padding: 7px;
+      font-size: 12px;
+    }
+    .reviews__data-select {
+      padding: 5px;
+    }
+    #datepicker{
+      height: 20px;
+      font-size:12px;
+      text-align: center;
+    }
+  }
+  &--submit {
+    width: 300px;
+    .submit_btn {
+      margin-left: 40px;
+      margin-top: 10px;
+      width: 200px;
+      height: 32px;
+      border: 1px solid #82ad24;
+      background-color: #9c0;
+      border-radius: 3px;
+      font-weight: bold;
+      font-size: 13px;
+      color: white;
+    }
+  }
+  &--draft {
+    width: 300px;
+  }
+}
+
