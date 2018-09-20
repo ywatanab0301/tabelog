@@ -1,6 +1,5 @@
 class Review < ApplicationRecord
   belongs_to :user
-  has_many :likes
   has_many :images
   belongs_to :shop, optional: true
   has_many :review_tags, dependent: :destroy
@@ -9,10 +8,7 @@ class Review < ApplicationRecord
   has_many :budgets, through: :review_budgets
 
   has_many :likes, dependent: :destroy
-  def like_user(user_id)
-   likes.find_by(user_id: user_id)
-  end
-
+  has_many :liking_users, through: :likes, source: :user
 
   mount_uploader :pic1, ImageUploader
   mount_uploader :pic2, ImageUploader
