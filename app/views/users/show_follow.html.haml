@@ -1,6 +1,28 @@
+= render partial: 'shares/header'
+.mypage-view
+  .mypage-heading-wrap
+    #mypage-location-wrap
+      #location-wrap
+        #location
+          %ul.location-bar
+            %li
+              %span= image_tag 'home_icon.png'
+            %li.link
+              = link_to "食べログ"
+            %li
+              %span= image_tag 'location_arrow.png'
+            %li.link
+              = link_to "食べログレビュアー"
+            %li
+              %span= image_tag 'location_arrow.png'
+            %li.username
+              %p
+                = @user.nickname
+                さん
 - @user.followings.each do |user|
   %table
     %tr
       %td
         = user.nickname
       %td= link_to '詳細', user_path(user)
+= render partial: 'shares/footer'
