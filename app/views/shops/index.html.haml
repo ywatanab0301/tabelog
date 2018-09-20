@@ -89,8 +89,12 @@
                 = shop.prtext
 
               .content__main__shop__each__body__right__rate
-                %span.star ☆☆☆☆☆
-                %span.rate 3.16
+                - if shop.reviews.present?
+                  %span.rating-star
+                    %i{:class => "star-actived rate-#{shop.reviews.average(:rate).round}0"}
+                - else
+                  %span.rating-star
+                    %i.star-actived.rate-0
                 .fa.fa-comments
                 %a.review{href: "#"} 25件
 
