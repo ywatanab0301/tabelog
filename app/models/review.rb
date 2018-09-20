@@ -1,7 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :user
   has_many :likes
-  has_many :images
   belongs_to :shop, optional: true
   has_many :review_tags, dependent: :destroy
   has_many :tags, through: :review_tags

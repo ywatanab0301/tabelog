@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180918111117) do
+ActiveRecord::Schema.define(version: 20180920154922) do
 
   create_table "budgets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -22,18 +22,6 @@ ActiveRecord::Schema.define(version: 20180918111117) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "pic1"
-    t.string   "pic2"
-    t.string   "pic3"
-    t.string   "pic4"
-    t.string   "pic5"
-    t.integer  "review_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["review_id"], name: "index_images_on_review_id", using: :btree
   end
 
   create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -101,16 +89,6 @@ ActiveRecord::Schema.define(version: 20180918111117) do
     t.index ["shop_id"], name: "index_shop_prefectures_on_shop_id", using: :btree
   end
 
-  create_table "shopimgs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "img1"
-    t.string   "img2"
-    t.string   "img3"
-    t.string   "img4"
-    t.string   "img5"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "shop_name",                         null: false
     t.string   "shop_name_f",                       null: false
@@ -171,7 +149,6 @@ ActiveRecord::Schema.define(version: 20180918111117) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "images", "reviews"
   add_foreign_key "review_budgets", "budgets"
   add_foreign_key "review_budgets", "reviews"
   add_foreign_key "reviews", "users"
