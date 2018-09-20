@@ -107,15 +107,15 @@
               .rvwr-navi__menu
                 まとめ
             %li.mypage-header-navi__follow
-              .rvwr_navi__count
+              %a.rvwr_navi__count{href: "#{following_user_path(@user)}"}
                 = @user.followings.count
-              .rvwr-navi__menu
-                フォロー中
+                .rvwr-navi__menu
+                  フォロー中
             %li.mypage-header-navi__follower
-              .rvwr_navi__count
+              %a.rvwr_navi__count{ href: "#{followers_user_path(@user)}"}
                 = @user.followers.count
-              .rvwr-navi__menu
-                フォロワー
+                .rvwr-navi__menu
+                  フォロワー
 
   .container
     .main-column
