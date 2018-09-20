@@ -243,11 +243,13 @@
               .rvwr_navi__count {
                 font-size: 18px;
                 font-weight: bold;
+                display: block;
+                color: $font_gray;
+                .rvwr-navi__menu {
+                  font-size: 13px;
+                  font-weight: bold;
               }
-              .rvwr-navi__menu {
-                font-size: 13px;
-                font-weight: bold;
-              }
+            }
           }
         }
       }
