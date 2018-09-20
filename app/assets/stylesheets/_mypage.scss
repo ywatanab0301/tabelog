@@ -18,6 +18,9 @@
             justify-content: flex-start;
             li {
               padding-right: 5px;
+              img{
+                vertical-align: middle;
+              }
             }
             li.link {
               color: $font_blue;
@@ -177,21 +180,24 @@
             font-weight: bold;
             width: 30%;
             border: solid 1px $border_gray;
-            margin: 15px;
+            margin: 10px 0 10px 0;
             border-radius: 3px;
-            padding: 6px 12px 6px 12px;
+            padding: 0px 12px 6px 12px;
             background-color: $white;
             .rvwr-counter {
-              dl {
+              dl.status {
                 display: flex;
                 justify-content:space-between;
-                padding: 6px 0 6px 0;
+                padding: 6px 0 3px 0;
                 border-bottom: 1px dotted $border_gray;
               }
               dl.last-child {
                   border-bottom: none;
+                  display: flex;
+                  justify-content:space-between;
+                  padding: 3px 0 2px 0;
               }
-                dd {
+                dd.status {
                   color: $font-gray;
               }
             }
