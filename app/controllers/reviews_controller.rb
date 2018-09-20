@@ -1,18 +1,26 @@
 class ReviewsController < ApplicationController
 
+  def index
+    @reviews = Review.includes(:user)
+  end
+
   def new
     @review = Review.new
     @review.review_budgets.build
   end
 
   def create
-    binding.pry
     review = Review.new(review_params)
     review.save
     redirect_to :action => "new"
   end
 
+  def show
+    @review = Review.find(params[:id])
+  end
+
   private
+
   def review_params
     params.require(:review).permit(
       :lunch_dinner,
