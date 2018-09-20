@@ -101,16 +101,6 @@ ActiveRecord::Schema.define(version: 20180918111117) do
     t.index ["shop_id"], name: "index_shop_prefectures_on_shop_id", using: :btree
   end
 
-  create_table "shopimgs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "img1"
-    t.string   "img2"
-    t.string   "img3"
-    t.string   "img4"
-    t.string   "img5"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "shop_name",                         null: false
     t.string   "shop_name_f",                       null: false
