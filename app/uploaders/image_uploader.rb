@@ -7,6 +7,7 @@ include CarrierWave::MiniMagick
 include CarrierWave::RMagick
 
   process :resize_to_limit => [720, 540]
+  storage :fog
 
   # 保存形式をJPGにする
   # process :convert => 'jpg'
