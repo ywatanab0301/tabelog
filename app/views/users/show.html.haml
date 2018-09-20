@@ -6,15 +6,18 @@
         #location
           %ul.location-bar
             %li
-              %span= image_tag 'home_icon.png'
+              %span
+                = image_tag 'home_icon.png'
             %li.link
               = link_to "食べログ"
             %li
-              %span= image_tag 'location_arrow.png'
+              %span
+                = image_tag 'location_arrow.png'
             %li.link
               = link_to "食べログレビュアー"
             %li
-              %span= image_tag 'location_arrow.png'
+              %span
+                = image_tag 'location_arrow.png'
             %li.username
               %p
                 = @user.nickname
