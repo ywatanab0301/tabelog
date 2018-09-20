@@ -1,8 +1,9 @@
+= render partial: 'shares/header'
 .shop_view
   .shop_views
     .location-link
       = image_tag 'home_icon.png'
-      食べログ
+      = link_to '食べログ', root_path
       %span.location-link__location
         = image_tag 'location_arrow.png'
         埼玉
@@ -20,12 +21,16 @@
         川口元郷駅寿司
       %span.location-link__shopname
         = image_tag 'location_arrow.png'
-        鮨 猪股
+        %i.fas.fa-utensils
+        = @shop.shop_name
+      %span.location-link__shopreviews
+        = image_tag 'location_arrow.png'
+        口コミ一覧
     .shop_subheader
       .shop_subheader-left
         .shop_views-namespace
           .shop_views-namespace__shopname
-            カレーな舞
+            = @shop.shop_name
           .shop_views-namespace__ratestar
             ⭐️⭐️⭐️⭐️⭐️4.99
           %span.shop_views-namespace__icons
@@ -49,7 +54,7 @@
               行った
             %button.shop-views__wannabtn
               行きたい
-            %button.shop-views__postbtn
+            %button.shop-views__post-btn
               投稿
           %button.shop-views__recommend
             メモを残そう（例：友達のおすすめカフェ）
@@ -123,8 +128,11 @@
             .review-sorting-by-number__select-box
               %select.select-box
                 %option
+                  20
                 %option
+                  50
                 %option
+                  100
           .review-change-display-list-type
             表示形式：
             .display-list-type-normal
@@ -134,225 +142,201 @@
               .fas.fa-list-ul
               = link_to "簡易リスト"
 
-        .shops-reviews-wrap
-          .shops-review-post
-            .shop-review-post__user-info
-              .shop-review-post__user-info--avatar
-                = image_tag "avatar_nophoto.gif"
-              .shop-review-post__user-info--right
-                .shop-review-post__user-info--username
-                  %p.review-user-name
-                    札幌のたけまさ
-                  %p.reviewer-follower-number
-                    (278)
-                  %p
-                    さんの口コミ
-                .shop-review-post__user-info--moreinfo
-                  %p
-                    男性・千葉県
-            .shop-review-post__rst-review
-              .shop-review-post__rst-review--score-data
-                .shop-review-score
-                  .shop-review-rating-star
-                    🌃  🌟🌟🌟⭐⭐
-                  .shop-review-rating-point
-                    3.8
-                  %ul.shop-review-rate-detail
-                    %li.food-rate
-                      %p
-                        料理・味
-                        %strong
-                          ー
-                    %li.service-rate
-                      %p
-                        サービス
-                        %strong
-                          ー
-                    %li.atmosphere-rate
-                      %p
-                        雰囲気
-                        %strong
-                          ー
-                    %li.cp-rate
-                      %p
-                        CP
-                        %strong
-                          ー
-                    %li.drink-rate
-                      %p.drink-rate
-                        酒・ドリンク
-                        %strong
-                          ー
-              .shop-review-post__rst-review--score-data
-                .shop-review-score
-                  .shop-review-rating-star
-                    🌅  🌟🌟🌟⭐⭐
-                  .shop-review-rating-point
-                    3.8
-                  %ul.shop-review-rate-detail
-                    %li.food-rate
-                      %p
-                        料理・味
-                        %strong
-                          ー
-                    %li.service-rate
-                      %p
-                        サービス
-                        %strong
-                          ー
-                    %li.atmosphere-rate
-                      %p
-                        雰囲気
-                        %strong
-                          ー
-                    %li.cp-rate
-                      %p
-                        CP
-                        %strong
-                          ー
-                    %li.drink-rate
-                      %p.drink-rate
-                        酒・ドリンク
-                        %strong
-                          ー
-              .shop-review-count
-                1回
-              .shop-review-price
-                .shop-review-used-price
-                  %p
-                    使った金額（1人）：
-                  .shop-price-range
-                    🌃 ~￥999
-            .shop-review-post-contents
-              .shop-review-one-time
-                %p.shops-shop-review-visited-month
-                  2018/05 訪問
+        -@reviews.each do |review|
+          .shops-reviews-wrap
+            .shops-review-post
+              .shop-review-post__user-info
+                .shop-review-post__user-info--avatar
+                  -if review.user.avatar?
+                    = image_tag review.user.avatar.url
+                  -else
+                    = image_tag "avatar_nophoto.gif"
+                .shop-review-post__user-info--right
+                  .shop-review-post__user-info--username
+                    %p.review-user-name
+                      = review.user.nickname
+                    %p.reviewer-follower-number
+                      (278)
+                    %p
+                      さんの口コミ
+                  .shop-review-post__user-info--moreinfo
+                    %p
+                      男性・千葉県
+              .shop-review-post__rst-review
                 .shop-review-post__rst-review--score-data
                   .shop-review-score
+                    .shop-review-rating-star
+                      🌃  🌟🌟🌟⭐⭐
                     .shop-review-rating-point
-                      🌅3.8
+                      = review.rate.round(1) unless review.rate == nil
                     %ul.shop-review-rate-detail
                       %li.food-rate
                         %p
                           料理・味
                           %strong
-                            ー
+                            = review.food_rate.round(1) unless review.food_rate == nil
                       %li.service-rate
                         %p
                           サービス
                           %strong
-                            ー
+                            = review.service_rate.round(1) unless review.service_rate == nil
                       %li.atmosphere-rate
                         %p
                           雰囲気
                           %strong
-                            ー
+                            = review.atmosphere.round(1) unless review.atmosphere == nil
                       %li.cp-rate
                         %p
                           CP
                           %strong
-                            ー
+                            = review.cp_rate.round(1) unless review.cp_rate == nil
                       %li.drink-rate
                         %p.drink-rate
                           酒・ドリンク
                           %strong
-                            ー
-                    .shop-review-price
-                      .shop-review-used-price
+                            = review.drink_rate.round(1) unless review.drink_rate == nil
+                .shop-review-post__rst-review--score-data
+                  .shop-review-score
+                    .shop-review-rating-star
+                      🌅  🌟🌟🌟⭐⭐
+                    .shop-review-rating-point
+                      = review.rate.round(1) unless review.rate == nil
+                    %ul.shop-review-rate-detail
+                      %li.food-rate
                         %p
-                          使った金額（1人）：
-                        .shop-price-range
-                          🌃 ~￥999
+                          料理・味
+                          %strong
+                            = review.food_rate.round(1) unless review.food_rate == nil
+                      %li.service-rate
+                        %p
+                          サービス
+                          %strong
+                            = review.service_rate.round(1) unless review.service_rate == nil
+                      %li.atmosphere-rate
+                        %p
+                          雰囲気
+                          %strong
+                            = review.atmosphere.round(1) unless review.atmosphere == nil
+                      %li.cp-rate
+                        %p
+                          CP
+                          %strong
+                            = review.cp_rate.round(1) unless review.cp_rate == nil
+                      %li.drink-rate
+                        %p.drink-rate
+                          酒・ドリンク
+                          %strong
+                            = review.drink_rate.round(1) unless review.drink_rate == nil
                 .shop-review-count
-                  1回目
-              .shop-review-post__rst-review--content
-                .shop-review-title
-                  %p
-                    %a
-                      築地直送！まぐろ中落ち三色丼 | 新橋オヤジのあちこちグルメ日記
-                .shop-review-text
-                  %p
-                    おはようございます！
-                    新橋勤務も5年目に入りランチもマンネリ化しつつあるタケマサです(笑)
-
-                    そんなことを考えながら久しぶりに訪問した
-                    新橋3丁目の
-                    プラチナフィッシュガーデンキッチン
-                    久しぶりに訪問するとランチメニューが少し変わっており
-
-                    さらに「数量限定ランチ」というのが出来ていました。
-                    これは面白そう！と
-                    築地直送！まぐろ中落ち三色丼をオーダー
-
-                    出てきたのは想像していたものとは良い方に違っていたボール状の三色丼
-
-                    なんと、これみんなマグロの中落ちです。
-                    ご飯はヘルシーな十六穀米
-
-                    それに新鮮な野菜と小鉢
-
-                    スープにも野菜が入っています。
-
-                    さあマグロ三変化の三色丼をいただきましょう。
-
-                    まずはポピュラーな鉄火から
-                    次にマグロ中落ちタルタルソース
-
-                    3つ目は、マグロ中落ちのポテトサラダ
-
-                    まぐろの中落ちもこんなふうにして食べられるんですね。
-                    久々に行ったプラチナフィッシュガーデンキッチンさんで食べた
-                    築地直送のマグロ中落ちを存分に楽しめる三色丼でした。
-              .shop-review-post-contents-images
-                %ul.shop-review-post-contents-images.ul
-                  %li.shop-review-post-contents-image1
-                    = image_tag "avatar_nophoto.gif"
-                  %li.shop-review-post-contents-image2
-                    = image_tag "avatar_nophoto.gif"
-                  %li.shop-review-post-contents-image3
-                    = image_tag "avatar_nophoto.gif"
-                  %li.shop-review-post-contents-image4
-                    = image_tag "avatar_nophoto.gif"
-                  %li.shop-review-post-contents-image5
-                    = image_tag "avatar_nophoto.gif"
-              .shop-review-post-like-wannago
-                .shop-review-post-like-wannago__buttons
-                  %button.shop-review-post-like-wannago__buttons--like
-                    %i.fas.fa-heart
-                    いいね！
-                  %button.shop-review-post-like-wannago__buttons--wannago
-                    %i.fas.fa-thumbtack
-                    行きたい
-                .shop-review-post-who-likes
-                  .shop-review-post-who-likes__count
-                    %p.number-who-likes
-                      76
+                  1回
+                .shop-review-price
+                  .shop-review-used-price
                     %p
-                      人が「いいね！」しています。
-                  .shop-review-post-who-likes__icons
-                    = image_tag "avatar_nophoto.gif"
-                    = image_tag "avatar_nophoto.gif"
-                    = image_tag "avatar_nophoto.gif"
-                    = image_tag "avatar_nophoto.gif"
-                    = image_tag "avatar_nophoto.gif"
-                    = image_tag "avatar_nophoto.gif"
-                    = image_tag "avatar_nophoto.gif"
-                    = image_tag "avatar_nophoto.gif"
-                    = image_tag "avatar_nophoto.gif"
-                    = image_tag "avatar_nophoto.gif"
-                .shop-review-post-who-wannago
-                  .shop-review-post-who-wannago__count
-                    %p.number-who-wannago
-                      1
+                      使った金額（1人）：
+                    .shop-price-range
+                      🌃 ~￥999
+              .shop-review-post-contents
+                .shop-review-one-time
+                  %p.shops-shop-review-visited-month
+                    = review.visit_day.strftime('%Y/%m')
+                    訪問
+                  .shop-review-post__rst-review--score-data
+                    .shop-review-score
+                      .shop-review-rating-point
+                        🌅
+                        = review.rate.round(1) unless review.rate == nil
+                      %ul.shop-review-rate-detail
+                        %li.food-rate
+                          %p
+                            料理・味
+                            %strong
+                              = review.food_rate.round(1) unless review.food_rate == nil
+                        %li.service-rate
+                          %p
+                            サービス
+                            %strong
+                              = review.service_rate.round(1) unless review.service_rate == nil
+                        %li.atmosphere-rate
+                          %p
+                            雰囲気
+                            %strong
+                              = review.atmosphere.round(1) unless review.atmosphere == nil
+                        %li.cp-rate
+                          %p
+                            CP
+                            %strong
+                              = review.cp_rate.round(1) unless review.cp_rate == nil
+                        %li.drink-rate
+                          %p.drink-rate
+                            酒・ドリンク
+                            %strong
+                              = review.drink_rate.round(1) unless review.drink_rate == nil
+                      .shop-review-price
+                        .shop-review-used-price
+                          %p
+                            使った金額（1人）：
+                          .shop-price-range
+                            🌃 ~￥999
+                  .shop-review-count
+                    1回目
+                .shop-review-post__rst-review--content
+                  .shop-review-title
                     %p
-                      人が「行きたい」しています。
-                  .shop-review-post-who-wannago__icons
-                    = image_tag "avatar_nophoto.gif"
-              .shop-review-post-contents-notice
-                %p.shop-notice-message1
-                  利用規約に違反している口コミは、右のリンクから報告することができます。
-                %p.shop-notice-message2
-                  = link_to "➤ 問題のある口コミを連絡する"
+                      %a
+                        = review.title
+                  .shop-review-text
+                    %p
+                      = simple_format(review.text)
+                .shop-review-post-contents-images
+                  %ul.shop-review-post-contents-images.ul
+                    %li.shop-review-post-contents-image1
+                      = image_tag "avatar_nophoto.gif"
+                    %li.shop-review-post-contents-image2
+                      = image_tag "avatar_nophoto.gif"
+                    %li.shop-review-post-contents-image3
+                      = image_tag "avatar_nophoto.gif"
+                    %li.shop-review-post-contents-image4
+                      = image_tag "avatar_nophoto.gif"
+                    %li.shop-review-post-contents-image5
+                      = image_tag "avatar_nophoto.gif"
+                .shop-review-post-like-wannago
+                  .shop-review-post-like-wannago__buttons
+                    %button.shop-review-post-like-wannago__buttons--like
+                      %i.fas.fa-heart
+                      いいね！
+                    %button.shop-review-post-like-wannago__buttons--wannago
+                      %i.fas.fa-thumbtack
+                      行きたい
+                  .shop-review-post-who-likes
+                    .shop-review-post-who-likes__count
+                      %p.number-who-likes
+                        76
+                      %p
+                        人が「いいね！」しています。
+                    .shop-review-post-who-likes__icons
+                      = image_tag "avatar_nophoto.gif"
+                      = image_tag "avatar_nophoto.gif"
+                      = image_tag "avatar_nophoto.gif"
+                      = image_tag "avatar_nophoto.gif"
+                      = image_tag "avatar_nophoto.gif"
+                      = image_tag "avatar_nophoto.gif"
+                      = image_tag "avatar_nophoto.gif"
+                      = image_tag "avatar_nophoto.gif"
+                      = image_tag "avatar_nophoto.gif"
+                      = image_tag "avatar_nophoto.gif"
+                  .shop-review-post-who-wannago
+                    .shop-review-post-who-wannago__count
+                      %p.number-who-wannago
+                        1
+                      %p
+                        人が「行きたい」しています。
+                    .shop-review-post-who-wannago__icons
+                      = image_tag "avatar_nophoto.gif"
+                .shop-review-post-contents-notice
+                  %p.shop-notice-message1
+                    利用規約に違反している口コミは、右のリンクから報告することができます。
+                  %p.shop-notice-message2
+                    = link_to "➤ 問題のある口コミを連絡する"
 
         .shop_mainleft-shopdetail
           .shop_mainleft-shopdetail__title
@@ -759,4 +743,4 @@
               既に会員登録が完了している方はこちらからログインできます。
               %span.shop_mainright-promotion__link
                 ログインはこちらから
-
+= render partial: 'shares/footer'

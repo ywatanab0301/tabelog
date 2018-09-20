@@ -3,7 +3,7 @@
   .shop_views
     .location-link
       = image_tag 'home_icon.png'
-      食べログ
+      = link_to '食べログ', root_path
       %span.location-link__location
         = image_tag 'location_arrow.png'
         埼玉
@@ -21,12 +21,13 @@
         川口元郷駅寿司
       %span.location-link__shopname
         = image_tag 'location_arrow.png'
-        鮨 猪股
+        %i.fas.fa-utensils
+        = @shop.shop_name
     .shop_subheader
       .shop_subheader-left
         .shop_views-namespace
           .shop_views-namespace__shopname
-            カレーな舞
+            = @shop.shop_name
           .shop_views-namespace__ratestar
             ⭐️⭐️⭐️⭐️⭐️4.99
           %span.shop_views-namespace__icons
@@ -50,12 +51,12 @@
               = link_to "行った", new_user_review_path(current_user.id), method: :get
             %button.shop-views__wannabtn
               行きたい
-            %button.shop-views__postbtn
+            %button.shop-views__post-btn
               = link_to "投稿", new_user_review_path(current_user.id), method: :get
           %button.shop-views__recommend
             メモを残そう（例：友達のおすすめカフェ）
     .shop_lists
-      %ul.header_list
+      %ul.shops-show-header_list
         %li.shops-top-shop_lists__top
           店舗トップ
         %li.shops-top-shop_lists__menu
@@ -102,7 +103,7 @@
           .shop_mainleft-friend__image
             = image_tag "avatar_nophoto.gif"
           .shop_mainleft-friend__text
-            フォロー中の「RINA-Stone」さんが行っています。
+            好みのあう人をフォローすると、その人のオススメのお店から探せます。
         %ul.pickup_review1
           %li.pickup_review-avatar
             .pickup_review-avatar__icon

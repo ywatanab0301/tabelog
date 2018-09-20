@@ -1,8 +1,9 @@
+= render partial: 'shares/header'
 .shop_view
   .shop_views
     .location-link
       = image_tag 'home_icon.png'
-      食べログ
+      = link_to '食べログ', root_path
       %span.location-link__location
         = image_tag 'location_arrow.png'
         埼玉
@@ -20,12 +21,16 @@
         川口元郷駅寿司
       %span.location-link__shopname
         = image_tag 'location_arrow.png'
-        鮨 猪股
+        %i.fas.fa-utensils
+        = @shop.shop_name
+      %span.location-link__shopmenu
+        = image_tag 'location_arrow.png'
+        料理メニュー
     .shop_subheader
       .shop_subheader-left
         .shop_views-namespace
           .shop_views-namespace__shopname
-            カレーな舞
+            = @shop.shop_name
           .shop_views-namespace__ratestar
             ⭐️⭐️⭐️⭐️⭐️4.99
           %span.shop_views-namespace__icons
@@ -534,3 +539,4 @@
               既に会員登録が完了している方はこちらからログインできます。
               %span.shop_mainright-promotion__link
                 ログインはこちらから
+= render partial: 'shares/footer'
