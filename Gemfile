@@ -40,6 +40,30 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+#Auth Gems
+gem 'devise'
+
+#Front
+gem 'bootstrap', '~> 4.1.3'
+gem 'haml-rails'
+gem 'erb2haml'
+
+#Image
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'rmagick'
+gem 'fog-aws'
+
+
+#Other
+gem 'kaminari'
+gem 'pry-rails'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -63,19 +87,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'pry-rails'
-gem 'haml-rails'
-gem 'erb2haml'
-gem 'carrierwave'
-gem 'mini_magick'
-gem 'devise'
-gem 'bootstrap', '~> 4.1.3'
-gem 'rmagick'
-gem 'kaminari'
-gem 'fog-aws'
 
 group :production do
   gem 'unicorn'
