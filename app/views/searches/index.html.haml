@@ -369,8 +369,9 @@
                           %img{alt: "", height: "40", src: "#{current_user.avatar}", width: "40"}/
                       .userdata__info
                         %p.userdata__name
-                          %strong.userdata__rvwr-name> Naoto241568
-                          さん
+                          %strong.userdata__rvwr-name
+                            = current_user.nickname
+                            さん
                         %p.userdata__profile
                     %ul.userdata__data-list
                       %li.userdata__data-item
