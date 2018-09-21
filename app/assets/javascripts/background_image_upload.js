@@ -28,7 +28,7 @@ $(function() {
     // 画像表示
     var reader = new FileReader();
     reader.onload = function() {
-      var img_src = $('<img class= coverimage_review, width= >').attr('src', reader.result);
+      var img_src = $('<img class= coverimage_review>').attr('src', reader.result);
       $(e.target).next().html(img_src);
     }
     reader.readAsDataURL(file);
