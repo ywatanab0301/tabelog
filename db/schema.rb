@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180918101406) do
+
+ActiveRecord::Schema.define(version: 20180920160944) do
 
   create_table "budgets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180918101406) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "pic1"
@@ -45,6 +47,7 @@ ActiveRecord::Schema.define(version: 20180918101406) do
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
+
   create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -66,11 +69,22 @@ ActiveRecord::Schema.define(version: 20180918101406) do
     t.float    "rate",         limit: 24,    null: false
     t.float    "food_rate",    limit: 24,    null: false
     t.float    "service_rate", limit: 24,    null: false
+
     t.float    "drink_rate",   limit: 24,    null: false
     t.float    "atmosphere",   limit: 24,    null: false
     t.float    "cp_rate",      limit: 24,    null: false
     t.string   "title",                      null: false
     t.text     "text",         limit: 65535, null: false
+
+    t.float    "atmosphere",   limit: 24,    null: false
+    t.float    "cp_rate",      limit: 24,    null: false
+    t.float    "drink_rate",   limit: 24,    null: false
+    t.string   "title",                      null: false
+    t.text     "text",         limit: 65535, null: false
+    t.datetime "visit_day",                  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+
     t.string   "pic1"
     t.string   "pic2"
     t.string   "pic3"
@@ -111,20 +125,10 @@ ActiveRecord::Schema.define(version: 20180918101406) do
     t.index ["shop_id"], name: "index_shop_prefectures_on_shop_id", using: :btree
   end
 
-  create_table "shopimgs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "img1"
-    t.string   "img2"
-    t.string   "img3"
-    t.string   "img4"
-    t.string   "img5"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "shop_name",                         null: false
     t.string   "shop_name_f",                       null: false
-    t.integer  "phone_number",                      null: false
+    t.bigint   "phone_number",                      null: false
     t.string   "city_address",                      null: false
     t.string   "building"
     t.text     "map",                 limit: 65535
@@ -181,9 +185,11 @@ ActiveRecord::Schema.define(version: 20180918101406) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+
   add_foreign_key "images", "reviews"
   add_foreign_key "likes", "reviews"
   add_foreign_key "likes", "users"
+
   add_foreign_key "review_budgets", "budgets"
   add_foreign_key "review_budgets", "reviews"
   add_foreign_key "reviews", "users"
