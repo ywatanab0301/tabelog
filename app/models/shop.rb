@@ -13,4 +13,9 @@ class Shop < ApplicationRecord
   mount_uploader :pic3, ImageUploader
   mount_uploader :pic4, ImageUploader
   mount_uploader :pic5, ImageUploader
+
+  def review_average
+    reviews.average(:rate)
+  end
+
 end
