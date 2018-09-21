@@ -39,7 +39,6 @@ class ReviewsController < ApplicationController
       :pic3,
       :pic4,
       :pic5,
-      # review_budgets_attributes: [budget_ids]
       :budget_ids
       ).merge(user_id: current_user.id)
   end
