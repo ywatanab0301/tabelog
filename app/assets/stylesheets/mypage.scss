@@ -67,10 +67,10 @@
                 right: 30px;
                 img {
                 position: absolute;
-                top: -141px;
-                left: -817px;
+                top: -100px;
+                left: -722px;
                 width: 980px;
-                height: 340px;
+                height: 345px;
                 }
               }
               .cover-image-submit {
@@ -135,9 +135,12 @@
             position: absolute;
             top: 0;
             right: 0;
-            img.avatar_review {
-              height: 118px;
-              width: 118px;
+            img {
+              height: 110px;
+              width: 110px;
+              position: absolute;
+              bottom: -90px;
+              right: -3px;
             }
           }
           .mypage-avatar-image-submit {
