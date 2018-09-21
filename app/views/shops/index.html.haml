@@ -1,5 +1,3 @@
-%script{src: "./app/assets/javascripts/index.js"}
-
 = render partial: 'shares/header'
 .location
   .location__left
@@ -64,7 +62,8 @@
 
             %ul.btn
               %button.btn.btn-outline-secondary{type: "button"}
-                .fa.fa-heart  行った
+                .fa.fa-heart
+                  = link_to "行った", new_shop_review_path(shop.id), method: :get
               %button.btn.btn-outline-secondary{type: "button"}
                 .fa.fa-map-pin  行きたい
 
@@ -90,16 +89,19 @@
                 = shop.prtext
 
               .content__main__shop__each__body__right__rate
-                %span.star ☆☆☆☆☆
-                %span.rate 3.16
+                - if shop.reviews.present?
+                  %span.rating-star
+                    %i{:class => "star-actived rate-#{shop.reviews.average(:rate).round}0"}
+                - else
+                  %span.rating-star
+                    %i.star-actived.rate-0
                 .fa.fa-comments
                 %a.review{href: "#"} 25件
 
               .content__main__shop__each__body__right__review
-                %a.title{href: "#"} 落ち着く空間
+                %a.title{href: "#"}sss
                 %span.name by.NAME
                 %p.review レビューが表示されるよー。ふぁいと٩( 'ω' )و
     .content__main__page
       = paginate @shops
-
 = render partial: 'shares/footer'
