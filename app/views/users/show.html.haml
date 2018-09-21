@@ -29,10 +29,10 @@
           #cover-image
             = form_for @user do |f|
               .change-cover-image
-                -if current_user.background_image?
-                  = image_tag @user.background_image.url
-                -else
-                  = image_tag "nature-wallpaper-2.jpg"
+                - if current_user.background_image?
+                  = image_tag @user.background_image.url, class: "image"
+                - else
+                  = image_tag "nature-wallpaper-2.jpg", class: "image"
                 %label.change-header-cover.fas.fa-camera
                   カバー写真を変更
                   = f.file_field :background_image, style: 'display: none;'
