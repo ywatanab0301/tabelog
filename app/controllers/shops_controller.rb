@@ -14,6 +14,7 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @reviews = @shop.reviews.includes(:user).order('visit_day DESC')
   end
 
   def show_menu

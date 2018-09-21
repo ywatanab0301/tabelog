@@ -84,31 +84,61 @@
           border-radius: 3px 3px;
           .button.shop-views{
             display: flex;
-            button.shop-views__gonebtn{
+            .shop-views__gonebtn{
               color: $black;
               background-color: $white;
               width: 93px;
-              padding: 7px;
               font-weight: bold;
+              border: 1px solid $newshop_line;
               border-radius: 3px 3px;
+              text-align: center;
+              a:link {
+                display: block;
+                width: 100%;
+                height: 100%;
+                text-decoration: none;
+                span {
+                  line-height: 30px;
+                }
+              }
             }
-            button.shop-views__wannabtn{
+            .shop-views__wannabtn{
               margin-left: 7px;
-              color: $white;
-              background-color: $shop_wannago_btn;
+              color: $black;
+              background-color: $white;
               width: 93px;
-              padding: 7px;
               font-weight: bold;
               border-radius: 3px 3px;
+              border: 1px solid $newshop_line;
+              text-align: center;
+              a:link {
+                display: block;
+                width: 100%;
+                height: 100%;
+                text-decoration: none;
+                span {
+                  line-height: 30px;
+                }
+              }
             }
-            button.shop-views__post-btn{
+            .shop-views__post-btn{
               margin-left: 7px;
               color: $white;
               background-color: $send_border;
               width: 60px;
-              padding: 7px;
               font-weight: bold;
               border-radius: 3px 3px;
+              border: 1px solid $newshop_line;
+              text-align: center;
+              a:link {
+                display: block;
+                width: 100%;
+                height: 100%;
+                text-decoration: none;
+                span {
+                  line-height: 30px;
+                }
+              }
             }
           }
           button.shop-views__recommend{
@@ -147,6 +177,11 @@
           text-align: center;
           line-height: 45px;
           font-size: 14px;
+          a:link {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+          }
         }
         li.shops-top-shop_lists__image{
           border-right: 1px solid $newshop_line;
@@ -163,6 +198,11 @@
           text-align: center;
           line-height: 45px;
           font-size: 14px;
+          a:link {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+          }
         }
         li.shops-top-shop_lists__map{
           width: 196px;
@@ -261,12 +301,27 @@
         }
         .shop_mainleft-moreimages{
           height: 80px;
-          border-bottom: 1px solid $newshop_line;
           .shop_mainleft-moreimages__link{
             font-size: 13px;
             color: $font_blue;
             font-weight: bold;
             line-height: 70px;
+          }
+        }
+        .shop-mainleft-review-shop-pr-title {
+          p {
+            font-size: 20px;
+            font-weight: bold;
+            color: $black;
+          }
+        }
+        .shop-mainleft-review-shop-pr-text {
+          margin-top: 10px;
+          border-bottom: 1px solid $newshop_line;
+          p {
+            font-size: 13px;
+            height: 120px;
+            overflow: hidden;
           }
         }
         .shop_mainleft-review{
@@ -314,7 +369,7 @@
             margin-left: 65px;
           }
         }
-        ul.pickup_review1{
+        ul.pickup_review{
           height: 180px;
           display: flex;
           margin-top: 20px;
@@ -326,9 +381,11 @@
               img{
                 width: 40px;
                 height: 40px;
+                border-radius: 5px;
               }
             }
             .pickup_review-avatar__nickname{
+              margin-top: 5px;
               font-size: 12px;
             }
             .pickup_review-avatar__count{
@@ -337,118 +394,73 @@
             }
           }
           li.pickup_review-text{
-            padding: 10px;
+            padding: 10px 15px 10px 15px;
             border: 1px solid $newshop_line;
+            border-radius: 6px;
+            position: relative;
+            &:hover {
+              border-color: $main_orange;
+            }
+            &:before{
+              border: 10px solid transparent;
+              border-right-color: #fff;
+              border-left-width: 0;
+              left: -9px;
+              content: "";
+              display: block;
+              top: 20px;
+              position: absolute;
+              width: 0;
+              z-index: 1;
+            }
+            &:after{
+              border: 10px solid transparent;
+              border-right-color: $newshop_line;
+              border-left-width: 0;
+              left: -10px;
+              content: "";
+              display:block;
+              top: 20px;
+              position:absolute;
+              width: 0;
+            }
             .pickup_review-text__title{
               font-weight: bold;
               font-size: 14px;
-              border-bottom: 1px dotted black;
-              width: 50px;
-            }
-            .pickup_review-text__text{
-              font-size: 14px;
-              width: 560px;
-              margin-top: 10px;
-            }
-            .pickup_review-text__continue{
-              font-weight: bold;
-              color: $font_blue;
-              font-size: 13px;
-            }
-            .pickup_review-text__icons{
-              margin-top: 5px;
-            }
-          }
-        }
-        ul.pickup_review2{
-          height: 180px;
-          display: flex;
-          margin-top: 20px;
-          li.pickup_review-avatar{
-            width: 100px;
-            .pickup_review-avatar__icon{
-              text-align: center;
-              margin-top: 10px;
-              img{
-                width: 40px;
-                height: 40px;
+              width: 200px;
+              color: $black;
+              span.review-title-showpage {
+                border-bottom: 1px dotted black;
               }
             }
-            .pickup_review-avatar__nickname{
-              font-size: 12px;
-            }
-            .pickup_review-avatar__count{
-              font-size:  12px;
-              text-align: center;
-            }
-          }
-          li.pickup_review-text{
-            padding: 10px;
-            border: 1px solid $newshop_line;
-            .pickup_review-text__title{
-              font-weight: bold;
-              font-size: 14px;
-              border-bottom: 1px dotted black;
-              width: 50px;
-            }
             .pickup_review-text__text{
-              font-size: 14px;
-              width: 560px;
-              margin-top: 10px;
-            }
-            .pickup_review-text__continue{
-              font-weight: bold;
-              color: $font_blue;
-              font-size: 13px;
-            }
-            .pickup_review-text__icons{
-              margin-top: 5px;
-            }
-          }
-        }
-        ul.pickup_review3{
-          height: 180px;
-          display: flex;
-          margin-top: 20px;
-          li.pickup_review-avatar{
-            width: 100px;
-            .pickup_review-avatar__icon{
-              text-align: center;
-              margin-top: 10px;
-              img{
-                width: 40px;
-                height: 40px;
+              padding-top: 7px;
+              width: 100%;
+              p.js-text-overflow {
+                font-size: 12px;
+                line-height: 16px;
+                height: 80px;
+                width: 560px;
+                overflow: hidden;
               }
             }
-            .pickup_review-avatar__nickname{
-              font-size: 12px;
-            }
-            .pickup_review-avatar__count{
-              font-size:  12px;
-              text-align: center;
-            }
-          }
-          li.pickup_review-text{
-            padding: 10px;
-            border: 1px solid $newshop_line;
-            .pickup_review-text__title{
-              font-weight: bold;
-              font-size: 14px;
-              border-bottom: 1px dotted black;
-              width: 50px;
-            }
-            .pickup_review-text__text{
-              font-size: 14px;
-              width: 560px;
-              margin-top: 10px;
-            }
             .pickup_review-text__continue{
               font-weight: bold;
               color: $font_blue;
               font-size: 13px;
+              margin-top: 10px;
             }
             .pickup_review-text__icons{
               margin-top: 5px;
+              .pickup_review-text__heart {
+              }
+              .pickup_review-text__time {
+                font-size: 10px;
+                margin-left: 15px;
+              }
+              .pickup_review-text__rates {
+                margin-left: 15px;
+              }
             }
           }
         }
@@ -582,365 +594,6 @@
             }
           }
         }
-        .shop_mainleft-shopdetail{
-          height: 50px;
-          .shop_mainleft-shopdetail__title{
-            font-weight: bold;
-            font-size: 15px;
-            line-height: 50px;
-          }
-        }
-        .shop_mainleft-information{
-          height: 30px;
-          border-bottom: 1px solid $newshop_line;
-          .shop_mainleft-information__title{
-            font-size: 14px;
-            font-weight: bold;
-            border-left: solid 3px $main_orange;
-            padding-left: 10px;
-          }
-        }
-        ul.shop_details_lists{
-          display: flex;
-          li.shop_details_lists__shopname{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__shopname-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__genre{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__genre-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__telephone{
-            width: 120px;
-            height: 60px;
-            background-color: $background;
-            line-height: 60px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__telephone-input{
-            height: 60px;
-            width: 600px;
-            line-height: 60px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__canreserve{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__canreserve-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__address{
-            width: 120px;
-            height: 200px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__address-input{
-            height: 200px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__access{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__access-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__time{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__time-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__closed{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__closed-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__money{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__money-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__paying{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__paying-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-        }
-        .shop_mainleft-seat-details{
-          height: 30px;
-          margin-top: 20px;
-          .shop_mainleft-seat-details__title{
-            font-size: 14px;
-            font-weight: bold;
-            border-left: solid 3px $main_orange;
-            padding-left: 10px;
-          }
-        }
-        ul.shop_details_lists{
-          display: flex;
-          font-size: 13px;
-          color: $font_gray;
-          li.shop_details_lists__seat{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-top: 1px solid $newshop_line;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__seat-count{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-top: 1px solid $newshop_line;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__private{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__private-count{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__donate{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__donate-can{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__smoke{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__smoke-shop{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__parking{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__parking-shop{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-        }
-        .shop_mainleft-feature{
-          height: 30px;
-          margin-top: 20px;
-          .shop_mainleft-feature__title{
-            font-size: 14px;
-            font-weight: bold;
-            border-left: solid 3px $main_orange;
-            padding-left: 10px;
-          }
-        }
-        ul.shop_details_lists{
-          display: flex;
-          font-size: 13px;
-          color: $font_gray;
-          li.shop_details_lists__scene{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-top: 1px solid $newshop_line;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__scene-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-top: 1px solid $newshop_line;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__hp{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__hp-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__open{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__open-fanfare{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__firstposter{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__firstposter-name{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-        }
         .shop_mainleft-underbox{
           height: 130px;
           background-color: $background;
@@ -995,164 +648,6 @@
               color: $font_blue;
               font-size: 12px;
             }
-          }
-        }
-        .shop_mainleft-around{
-          height: 60px;
-          .shop_mainleft-around__title{
-            font-weight: bold;
-            font-size: 14px;
-            line-height: 60px;
-            color: #797152;
-          }
-        }
-        .shop_mainleft-aroundrank{
-          height: 205px;
-          .shop_mainleft-aroundranking{
-            display: flex;
-            .shop_mainleft-aroundranking__no1{
-              width: 120px;
-              margin-right: 20px;
-              .shop_mainleft-aroundranking__no1-image{
-                img{
-                  width: 120px;
-                  height: 120px;
-                }
-              }
-              .shop_mainleft-aroundranking__no1-shopname{
-                font-weight: bold;
-                color: $font_blue;
-                margin-top: 5px;
-                font-size: 12px;
-              }
-              .shop_mainleft-aroundranking__no1-count{
-                color: $font_blue;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-genre{
-                color: #797152;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-stars{
-                font-size: 12px;
-              }
-            }
-            .shop_mainleft-aroundranking__no2{
-              width: 120px;
-              margin-right: 20px;
-              .shop_mainleft-aroundranking__no1-image{
-                img{
-                  width: 120px;
-                  height: 120px;
-                }
-              }
-              .shop_mainleft-aroundranking__no1-shopname{
-                font-weight: bold;
-                color: $font_blue;
-                margin-top: 5px;
-                font-size: 12px;
-              }
-              .shop_mainleft-aroundranking__no1-count{
-                color: $font_blue;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-genre{
-                color: #797152;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-stars{
-                font-size: 12px;
-              }
-            }
-            .shop_mainleft-aroundranking__no3{
-              width: 120px;
-              margin-right: 20px;
-              .shop_mainleft-aroundranking__no1-image{
-                img{
-                  width: 120px;
-                  height: 120px;
-                }
-              }
-              .shop_mainleft-aroundranking__no1-shopname{
-                font-weight: bold;
-                color: $font_blue;
-                margin-top: 5px;
-                font-size: 12px;
-              }
-              .shop_mainleft-aroundranking__no1-count{
-                color: $font_blue;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-genre{
-                color: #797152;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-stars{
-                font-size: 12px;
-              }
-            }
-            .shop_mainleft-aroundranking__no4{
-              width: 120px;
-              margin-right: 20px;
-              .shop_mainleft-aroundranking__no1-image{
-                img{
-                  width: 120px;
-                  height: 120px;
-                }
-              }
-              .shop_mainleft-aroundranking__no1-shopname{
-                font-weight: bold;
-                color: $font_blue;
-                margin-top: 5px;
-                font-size: 12px;
-              }
-              .shop_mainleft-aroundranking__no1-count{
-                color: $font_blue;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-genre{
-                color: #797152;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-stars{
-                font-size: 12px;
-              }
-            }
-            .shop_mainleft-aroundranking__no5{
-              width: 120px;
-              margin-right: 20px;
-              .shop_mainleft-aroundranking__no1-image{
-                img{
-                  width: 120px;
-                  height: 120px;
-                }
-              }
-              .shop_mainleft-aroundranking__no1-shopname{
-                font-weight: bold;
-                color: $font_blue;
-                margin-top: 5px;
-                font-size: 12px;
-              }
-              .shop_mainleft-aroundranking__no1-count{
-                color: $font_blue;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-genre{
-                color: #797152;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-stars{
-                font-size: 12px;
-              }
-            }
-          }
-        }
-      .shop_mainleft-moreranking{
-          height: 50px;
-          .shop_mainleft-moreranking-link{
-            float: right;
-            color: $font_blue;
-            line-height: 50px;
           }
         }
       }

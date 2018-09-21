@@ -137,6 +137,11 @@
           text-align: center;
           line-height: 45px;
           font-size: 14px;
+          a:link {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+          }
         }
         li.shop-reviews-page-shop_lists__menu{
           border-right: 1px solid $newshop_line;
@@ -145,6 +150,11 @@
           text-align: center;
           line-height: 45px;
           font-size: 14px;
+          a:link {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+          }
         }
         li.shop-reviews-page-shop_lists__image{
           border-right: 1px solid $newshop_line;
@@ -231,7 +241,6 @@
               .shop_main-left-change-review-list-following {
                 padding-left: 7px;
                 color: $font_blue;
-
               }
             }
           }
@@ -257,17 +266,26 @@
               border-left: 1px solid $border_gray;
               border-bottom: 1px solid white;
               z-index: 2;
-
             }
             li.shop_main-left-change-review-sort-list__dinner {
               padding-top: 15px;
               width: 210px;
               border-left: 1px solid $border_gray;
+              &:hover {
+                color: $font_blue;
+                border-top: 1px solid $font_blue;
+              }
             }
             li.shop_main-left-change-review-sort-list__lunch {
-              margin: 15px 0 15px 0;
-              width: 210px;
-              border-left: 1px solid $border_gray;
+              &:hover {
+                color: #FFCC00;
+                border-top: 1px solid #FFCC00;
+              }
+              .shop_main-left-change-review-sort-list__lunch--inner {
+                margin: 15px 0 15px 0;
+                width: 210px;
+                border-left: 1px solid $border_gray;
+              }
             }
           }
         }
@@ -365,6 +383,9 @@
             border-radius: 5px;
             margin-top: 15px;
             width: 100%;
+            &:hover {
+              border: 1px solid #FFCC00;
+            }
             .shop-review-post__user-info {
               display: flex;
               height: 50px;
@@ -571,9 +592,9 @@
                     img {
                       height: 118px;
                       width: 118px;
-                      &:empty {
-                        display: none;
-                      }
+                      // &:empty {
+                      //   display: none;
+                      // }
                     }
                   }
                 }
@@ -667,569 +688,156 @@
             }
           }
         }
-        .shop_mainleft-shopdetail{
-          height: 50px;
-          margin-top: 20px;
-          .shop_mainleft-shopdetail__title{
-            font-weight: bold;
-            font-size: 16px;
-            line-height: 50px;
-          }
+      .shop_mainleft-around{
+        height: 60px;
+        .shop_mainleft-around__title{
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 60px;
+          color: #797152;
         }
-        .shop_mainleft-information{
-          height: 30px;
-          border-bottom: 1px solid $newshop_line;
-          .shop_mainleft-information__title{
-            font-size: 14px;
-            font-weight: bold;
-            border-left: solid 3px $main_orange;
-            padding-left: 10px;
-          }
-        }
-        ul.shop_details_lists{
+      }
+      .shop_mainleft-aroundrank{
+        height: 205px;
+        .shop_mainleft-aroundranking{
           display: flex;
-          font-size: 13px;
-          color: $font_gray;
-          li.shop_details_lists__shopname{
+          .shop_mainleft-aroundranking__no1{
             width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__shopname-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__genre{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__genre-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__telephone{
-            width: 120px;
-            height: 60px;
-            background-color: $background;
-            line-height: 60px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__telephone-input{
-            height: 60px;
-            width: 600px;
-            line-height: 60px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__canreserve{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__canreserve-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__address{
-            width: 120px;
-            height: 200px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__address-input{
-            height: 200px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__access{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__access-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__time{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__time-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__closed{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__closed-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__money{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__money-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__paying{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__paying-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-        }
-        .shop_mainleft-seat-details{
-          height: 30px;
-          margin-top: 20px;
-          .shop_mainleft-seat-details__title{
-            font-size: 14px;
-            font-weight: bold;
-            border-left: solid 3px $main_orange;
-            padding-left: 10px;
-          }
-        }
-        ul.shop_details_lists{
-          display: flex;
-          li.shop_details_lists__seat{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-top: 1px solid $newshop_line;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__seat-count{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__private{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__private-count{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__donate{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__donate-can{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__smoke{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__smoke-shop{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__parking{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__parking-shop{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-        }
-        .shop_mainleft-feature{
-          height: 30px;
-          margin-top: 20px;
-          .shop_mainleft-feature__title{
-            font-size: 14px;
-            font-weight: bold;
-            border-left: solid 3px $main_orange;
-            padding-left: 10px;
-          }
-        }
-        ul.shop_details_lists{
-          display: flex;
-          li.shop_details_lists__scene{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-top: 1px solid $newshop_line;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__scene-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-top: 1px solid $newshop_line;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__hp{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__hp-input{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__open{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__open-fanfare{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__firstposter{
-            width: 120px;
-            height: 50px;
-            background-color: $background;
-            line-height: 50px;
-            font-weight: bold;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-          li.shop_details_lists__firstposter-name{
-            height: 50px;
-            width: 600px;
-            line-height: 50px;
-            padding-left: 15px;
-            border-bottom: 1px solid $newshop_line;
-          }
-        }
-        .shop_mainleft-underbox{
-          height: 130px;
-          background-color: $background;
-          margin-top: 20px;
-          .shop_mainleft-underbox_upper{
-            display: flex;
-            width: 700px;
-            button.shop_mainleft-underbox__mailbtn{
-              margin-left: 45px;
-              margin-top: 25px;
-              height: 35px;
-              font-weight: bold;
-              background-color: white;
-              border-radius: 3px 3px;
-              border: 1px solid $newshop_line;
-              width: 280px;
+            margin-right: 20px;
+            .shop_mainleft-aroundranking__no1-image{
+              img{
+                width: 120px;
+                height: 120px;
+              }
             }
-            button.shop_mainleft-underbox__copybtn{
-              margin-left: 30px;
-              margin-top: 25px;
-              height: 35px;
-              font-weight: bold;
-              color: white;
-              background-color: $newshop_line;
-              border-radius: 3px 3px;
-              border: 1px solid $newshop_line;
-              width: 280px;
-            }
-          }
-          button.shop_mainleft-underbox__blogbtn{
-            margin-left: 45px;
-            margin-top: 10px;
-            font-weight: bold;
-            color: $font_blue;
-            height: 35px;
-            width: 590px;
-            border-radius: 3px 3px;
-            border: 1px solid $newshop_line;
-            text-align: left;
-          }
-        }
-        .shop_mainleft-notice{
-          height: 60px;
-          border-bottom: 1px solid $newshop_line;
-          .shop_mainleft-notice__text{
-            margin-top: 10px;
-            font-weight: bold;
-            color: #82ad24;
-            font-size: 12px;
-            .shop_mainleft-notice__formlink{
+            .shop_mainleft-aroundranking__no1-shopname{
               font-weight: bold;
               color: $font_blue;
+              margin-top: 5px;
+              font-size: 12px;
+            }
+            .shop_mainleft-aroundranking__no1-count{
+              color: $font_blue;
+              font-size: 11px;
+            }
+            .shop_mainleft-aroundranking__no1-genre{
+              color: #797152;
+              font-size: 11px;
+            }
+            .shop_mainleft-aroundranking__no1-stars{
+              font-size: 12px;
+            }
+          }
+          .shop_mainleft-aroundranking__no2{
+            width: 120px;
+            margin-right: 20px;
+            .shop_mainleft-aroundranking__no1-image{
+              img{
+                width: 120px;
+                height: 120px;
+              }
+            }
+            .shop_mainleft-aroundranking__no1-shopname{
+              font-weight: bold;
+              color: $font_blue;
+              margin-top: 5px;
+              font-size: 12px;
+            }
+            .shop_mainleft-aroundranking__no1-count{
+              color: $font_blue;
+              font-size: 11px;
+            }
+            .shop_mainleft-aroundranking__no1-genre{
+              color: #797152;
+              font-size: 11px;
+            }
+            .shop_mainleft-aroundranking__no1-stars{
+              font-size: 12px;
+            }
+          }
+          .shop_mainleft-aroundranking__no3{
+            width: 120px;
+            margin-right: 20px;
+            .shop_mainleft-aroundranking__no1-image{
+              img{
+                width: 120px;
+                height: 120px;
+              }
+            }
+            .shop_mainleft-aroundranking__no1-shopname{
+              font-weight: bold;
+              color: $font_blue;
+              margin-top: 5px;
+              font-size: 12px;
+            }
+            .shop_mainleft-aroundranking__no1-count{
+              color: $font_blue;
+              font-size: 11px;
+            }
+            .shop_mainleft-aroundranking__no1-genre{
+              color: #797152;
+              font-size: 11px;
+            }
+            .shop_mainleft-aroundranking__no1-stars{
+              font-size: 12px;
+            }
+          }
+          .shop_mainleft-aroundranking__no4{
+            width: 120px;
+            margin-right: 20px;
+            .shop_mainleft-aroundranking__no1-image{
+              img{
+                width: 120px;
+                height: 120px;
+              }
+            }
+            .shop_mainleft-aroundranking__no1-shopname{
+              font-weight: bold;
+              color: $font_blue;
+              margin-top: 5px;
+              font-size: 12px;
+            }
+            .shop_mainleft-aroundranking__no1-count{
+              color: $font_blue;
+              font-size: 11px;
+            }
+            .shop_mainleft-aroundranking__no1-genre{
+              color: #797152;
+              font-size: 11px;
+            }
+            .shop_mainleft-aroundranking__no1-stars{
+              font-size: 12px;
+            }
+          }
+          .shop_mainleft-aroundranking__no5{
+            width: 120px;
+            margin-right: 20px;
+            .shop_mainleft-aroundranking__no1-image{
+              img{
+                width: 120px;
+                height: 120px;
+              }
+            }
+            .shop_mainleft-aroundranking__no1-shopname{
+              font-weight: bold;
+              color: $font_blue;
+              margin-top: 5px;
+              font-size: 12px;
+            }
+            .shop_mainleft-aroundranking__no1-count{
+              color: $font_blue;
+              font-size: 11px;
+            }
+            .shop_mainleft-aroundranking__no1-genre{
+              color: #797152;
+              font-size: 11px;
+            }
+            .shop_mainleft-aroundranking__no1-stars{
               font-size: 12px;
             }
           }
         }
-        .shop_mainleft-around{
-          height: 60px;
-          .shop_mainleft-around__title{
-            font-weight: bold;
-            font-size: 14px;
-            line-height: 60px;
-            color: #797152;
-          }
-        }
-        .shop_mainleft-aroundrank{
-          height: 205px;
-          .shop_mainleft-aroundranking{
-            display: flex;
-            .shop_mainleft-aroundranking__no1{
-              width: 120px;
-              margin-right: 20px;
-              .shop_mainleft-aroundranking__no1-image{
-                img{
-                  width: 120px;
-                  height: 120px;
-                }
-              }
-              .shop_mainleft-aroundranking__no1-shopname{
-                font-weight: bold;
-                color: $font_blue;
-                margin-top: 5px;
-                font-size: 12px;
-              }
-              .shop_mainleft-aroundranking__no1-count{
-                color: $font_blue;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-genre{
-                color: #797152;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-stars{
-                font-size: 12px;
-              }
-            }
-            .shop_mainleft-aroundranking__no2{
-              width: 120px;
-              margin-right: 20px;
-              .shop_mainleft-aroundranking__no1-image{
-                img{
-                  width: 120px;
-                  height: 120px;
-                }
-              }
-              .shop_mainleft-aroundranking__no1-shopname{
-                font-weight: bold;
-                color: $font_blue;
-                margin-top: 5px;
-                font-size: 12px;
-              }
-              .shop_mainleft-aroundranking__no1-count{
-                color: $font_blue;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-genre{
-                color: #797152;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-stars{
-                font-size: 12px;
-              }
-            }
-            .shop_mainleft-aroundranking__no3{
-              width: 120px;
-              margin-right: 20px;
-              .shop_mainleft-aroundranking__no1-image{
-                img{
-                  width: 120px;
-                  height: 120px;
-                }
-              }
-              .shop_mainleft-aroundranking__no1-shopname{
-                font-weight: bold;
-                color: $font_blue;
-                margin-top: 5px;
-                font-size: 12px;
-              }
-              .shop_mainleft-aroundranking__no1-count{
-                color: $font_blue;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-genre{
-                color: #797152;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-stars{
-                font-size: 12px;
-              }
-            }
-            .shop_mainleft-aroundranking__no4{
-              width: 120px;
-              margin-right: 20px;
-              .shop_mainleft-aroundranking__no1-image{
-                img{
-                  width: 120px;
-                  height: 120px;
-                }
-              }
-              .shop_mainleft-aroundranking__no1-shopname{
-                font-weight: bold;
-                color: $font_blue;
-                margin-top: 5px;
-                font-size: 12px;
-              }
-              .shop_mainleft-aroundranking__no1-count{
-                color: $font_blue;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-genre{
-                color: #797152;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-stars{
-                font-size: 12px;
-              }
-            }
-            .shop_mainleft-aroundranking__no5{
-              width: 120px;
-              margin-right: 20px;
-              .shop_mainleft-aroundranking__no1-image{
-                img{
-                  width: 120px;
-                  height: 120px;
-                }
-              }
-              .shop_mainleft-aroundranking__no1-shopname{
-                font-weight: bold;
-                color: $font_blue;
-                margin-top: 5px;
-                font-size: 12px;
-              }
-              .shop_mainleft-aroundranking__no1-count{
-                color: $font_blue;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-genre{
-                color: #797152;
-                font-size: 11px;
-              }
-              .shop_mainleft-aroundranking__no1-stars{
-                font-size: 12px;
-              }
-            }
-          }
-        }
+      }
       .shop_mainleft-moreranking{
         height: 50px;
         .shop_mainleft-moreranking-link{

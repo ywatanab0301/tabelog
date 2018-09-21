@@ -47,12 +47,18 @@
       .shop_subheader-right
         .shop_views-buttons
           .button.shop-views
-            %button.shop-views__gonebtn
-              = link_to "行った", new_user_review_path(current_user.id), method: :get
-            %button.shop-views__wannabtn
-              行きたい
-            %button.shop-views__post-btn
-              = link_to "投稿", new_user_review_path(current_user.id), method: :get
+            .shop-views__gonebtn
+              %a.gonebtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: #595960;"}
+                %span
+                  行った
+            .shop-views__wannabtn
+              %a.wannabtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: #595960;"}
+                %span
+                  行きたい
+            .shop-views__post-btn
+              %a.postbtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: white;"}
+                %span
+                  投稿
           %button.shop-views__recommend
             メモを残そう（例：友達のおすすめカフェ）
     .shop_lists
@@ -60,11 +66,15 @@
         %li.shops-top-shop_lists__top
           店舗トップ
         %li.shops-top-shop_lists__menu
-          メニュー・コース
+          %a.menu-link{ href: "/shops/#{@shop.id}/menu", style: "color: #595960;"}
+            %span
+              メニュー
         %li.shops-top-shop_lists__image
           写真
         %li.shops-top-shop_lists__review
-          口コミ
+          %a.reviews-link{ href: "/shops/#{@shop.id}/reviews", style: "color: #595960;"}
+            %span
+              口コミ
         %li.shops-top-shop_lists__map
           地図
     .shop_main
@@ -93,7 +103,19 @@
             = image_tag "avatar_nophoto.gif"
         .shop_mainleft-moreimages
           .shop_mainleft-moreimages__link
-            もっと見る
+            写真をもっと見る
+        .shop-mainleft-review-shop-pr-title
+          %p
+            = @shop.prtext
+          %p
+
+        .shop-mainleft-review-shop-pr-text
+          %p.js-text-overflow
+            広々とし落ち着いた空間で嗜むワインと、お酒に見合うお料理をご用意致しました。 なんといってもリーズナブルにご提供できます！
+            立食形式での貸切可能、宴会プランも複数取り揃えております！
+            是非皆様でお越しください。
+            これで大丈夫なのか？？？？ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+
         .shop_mainleft-review
           .shop_mainleft-review__title
             口コミ
@@ -104,75 +126,43 @@
             = image_tag "avatar_nophoto.gif"
           .shop_mainleft-friend__text
             好みのあう人をフォローすると、その人のオススメのお店から探せます。
-        %ul.pickup_review1
-          %li.pickup_review-avatar
-            .pickup_review-avatar__icon
-              = image_tag "avatar_nophoto.gif"
-            .pickup_review-avatar__nickname
-              パーカーやっておしまい
-            .pickup_review-avatar__count
-              (724)
-          %li.pickup_review-text
-            .pickup_review-text__title
-              10回目
-            .pickup_review-text__text
-              久しぶりの猪俣。ここしばらく電話が通じず、予約できませんでした。超人気店になっちゃいましたね。握りのお任せのみです。少しずつ値上がりしていて、今は¥2万ぐらいでしょうか。・とり貝・ウニ(青森)・シャコ・金目鯛・赤貝・かっぱ巻き・クジラ・赤身(那智勝浦)
-            .pickup_review-text__continue
-              続きを読む
-            .pickup_review-text__icons
-              %span.pickup_review-text__heart
-                💗300
-              %span.pickup_review-text__time
-                2018/03/23
-              %span.pickup_review-text__rates
-                ⭐️⭐️⭐️3.00
-        %ul.pickup_review2
-          %li.pickup_review-avatar
-            .pickup_review-avatar__icon
-              = image_tag "avatar_nophoto.gif"
-            .pickup_review-avatar__nickname
-              パーカーやっておしまい
-            .pickup_review-avatar__count
-              (724)
-          %li.pickup_review-text
-            .pickup_review-text__title
-              10回目
-            .pickup_review-text__text
-              久しぶりの猪俣。ここしばらく電話が通じず、予約できませんでした。超人気店になっちゃいましたね。握りのお任せのみです。少しずつ値上がりしていて、今は¥2万ぐらいでしょうか。・とり貝・ウニ(青森)・シャコ・金目鯛・赤貝・かっぱ巻き・クジラ・赤身(那智勝浦)
-            .pickup_review-text__continue
-              続きを読む
-            .pickup_review-text__icons
-              %span.pickup_review-text__heart
-                💗300
-              %span.pickup_review-text__time
-                2018/03/23
-              %span.pickup_review-text__rates
-                ⭐️⭐️⭐️3.00
-        %ul.pickup_review3
-          %li.pickup_review-avatar
-            .pickup_review-avatar__icon
-              = image_tag "avatar_nophoto.gif"
-            .pickup_review-avatar__nickname
-              パーカーやっておしまい
-            .pickup_review-avatar__count
-              (724)
-          %li.pickup_review-text
-            .pickup_review-text__title
-              10回目
-            .pickup_review-text__text
-              久しぶりの猪俣。ここしばらく電話が通じず、予約できませんでした。超人気店になっちゃいましたね。握りのお任せのみです。少しずつ値上がりしていて、今は¥2万ぐらいでしょうか。・とり貝・ウニ(青森)・シャコ・金目鯛・赤貝・かっぱ巻き・クジラ・赤身(那智勝浦)
-            .pickup_review-text__continue
-              続きを読む
-            .pickup_review-text__icons
-              %span.pickup_review-text__heart
-                💗300
-              %span.pickup_review-text__time
-                2018/03/23
-              %span.pickup_review-text__rates
-                ⭐️⭐️⭐️3.00
+        -@reviews.each do |review|
+          %ul.pickup_review
+            %li.pickup_review-avatar
+              .pickup_review-avatar__icon
+                -if review.user.avatar?
+                  = image_tag review.user.avatar.url
+                -else
+                  = image_tag "avatar_nophoto.gif"
+              .pickup_review-avatar__nickname
+                = review.user.nickname
+              .pickup_review-avatar__count
+                (
+                = review.user.reviews.length
+                )
+            %li.pickup_review-text
+              .pickup_review-text__title
+                %span.review-title-showpage
+                  = review.title
+              .pickup_review-text__text
+                %p.js-text-overflow
+                  = review.text
+              .pickup_review-text__continue
+                = link_to "続きを読む"
+              .pickup_review-text__icons
+                %span.pickup_review-text__heart
+                  💗300
+                %span.pickup_review-text__time
+                  訪問
+                  = review.visit_day.strftime('%Y/%m')
+                %span.pickup_review-text__rates
+                  ⭐️⭐️⭐️3.00
         .shop_mainleft-morereview
           .shop_mainleft-morereview__link
-            口コミをもっと見る （106件）
+            口コミをもっと見る
+            （全
+            = @reviews.length
+            件）
         .shop_mainleft-aroundshop
           .shop_mainleft-aroundshop__title
             [PR] 近くのお店
@@ -216,190 +206,7 @@
               🌃¥30,000~
             .around_shops__right-lunch
               🌅¥30,000~
-        .shop_mainleft-shopdetail
-          .shop_mainleft-shopdetail__title
-            店舗情報（詳細）
-        .shop_mainleft-information
-          .shop_mainleft-information__title
-            店舗基本情報
-        %ul.shop_details_lists
-          %li.shop_details_lists__shopname
-            店名
-          %li.shop_details_lists__shopname-input
-            鮨 猪股 （スシイノマタ）
-        %ul.shop_details_lists
-          %li.shop_details_lists__genre
-            ジャンル
-          %li.shop_details_lists__genre-input
-            寿司
-        %ul.shop_details_lists
-          %li.shop_details_lists__telephone
-            お問い合わせ
-          %li.shop_details_lists__telephone-input
-            048-211-4175
-        %ul.shop_details_lists
-          %li.shop_details_lists__canreserve
-            予約可否
-          %li.shop_details_lists__canreserve-input
-            完全予約制
-        %ul.shop_details_lists
-          %li.shop_details_lists__address
-            住所
-          %li.shop_details_lists__address-input
-            埼玉県川口市幸町1-12-23 サンリーブ幸町コートハウス
-        %ul.shop_details_lists
-          %li.shop_details_lists__access
-            交通手段
-          %li.shop_details_lists__access-input
-            JR川口駅東口より徒歩1０分
-        %ul.shop_details_lists
-          %li.shop_details_lists__time
-            営業時間
-          %li.shop_details_lists__time-input
-            24時間
-        %ul.shop_details_lists
-          %li.shop_details_lists__closed
-            定休日
-          %li.shop_details_lists__closed-input
-            毎週日曜日、祝日
-        %ul.shop_details_lists
-          %li.shop_details_lists__money
-            予算
-          %li.shop_details_lists__money-input
-            予算
-        %ul.shop_details_lists
-          %li.shop_details_lists__paying
-            支払い方法
-          %li.shop_details_lists__paying-input
-            カード不可・電子マネー不可
-        .shop_mainleft-seat-details
-          .shop_mainleft-seat-details__title
-            席・設備
-        %ul.shop_details_lists
-          %li.shop_details_lists__seat
-            席数
-          %li.shop_details_lists__seat-count
-            8席
-        %ul.shop_details_lists
-          %li.shop_details_lists__private
-            個室
-          %li.shop_details_lists__private-count
-            無
-        %ul.shop_details_lists
-          %li.shop_details_lists__donate
-            貸切
-          %li.shop_details_lists__donate-can
-            不可
-        %ul.shop_details_lists
-          %li.shop_details_lists__smoke
-            禁煙・喫煙
-          %li.shop_details_lists__smoke-shop
-            完全禁煙
-        %ul.shop_details_lists
-          %li.shop_details_lists__parking
-            駐車場
-          %li.shop_details_lists__parking-shop
-            無
-        .shop_mainleft-feature
-          .shop_mainleft-feature__title
-            特徴・関連情報
-        %ul.shop_details_lists
-          %li.shop_details_lists__scene
-            利用シーン
-          %li.shop_details_lists__scene-input
-            知人・友人と
-        %ul.shop_details_lists
-          %li.shop_details_lists__hp
-            ホームページ
-          %li.shop_details_lists__hp-input
-        %ul.shop_details_lists
-          %li.shop_details_lists__open
-            オープン日
-          %li.shop_details_lists__open-fanfare
-            2014年7月
-        %ul.shop_details_lists
-          %li.shop_details_lists__firstposter
-            初投稿者
-          %li.shop_details_lists__firstposter-name
-            chienasiko（80）
-        .shop_mainleft-underbox
-          .shop_mainleft-underbox_upper
-            %button.shop_mainleft-underbox__mailbtn
-              メールで情報を送る
-            %button.shop_mainleft-underbox__copybtn
-              印刷ページを表示
-          %button.shop_mainleft-underbox__blogbtn
-            ブログに店舗情報を貼る
-        .shop_mainleft-notice
-          .shop_mainleft-notice__text
-            このレストランは食べログ店舗会員等に登録しているため、ユーザーの皆様は編集することができません。
-            %br
-              店舗情報に誤りを発見された場合には、ご連絡をお願いいたします。
-              %span.shop_mainleft-notice__formlink
-                お問い合わせフォーム
-        .shop_mainleft-around
-          .shop_mainleft-around__title
-            周辺のお店ランキング
-        .shop_mainleft-aroundrank
-          .shop_mainleft-aroundranking
-            .shop_mainleft-aroundranking__no1
-              .shop_mainleft-aroundranking__no1-image
-                = image_tag "avatar_nophoto.gif"
-              .shop_mainleft-aroundranking__no1-shopname
-                シャンドワゾー
-              .shop_mainleft-aroundranking__no1-count
-                (174)
-              .shop_mainleft-aroundranking__no1-genre
-                (ケーキ)
-              .shop_mainleft-aroundranking__no1-stars
-                ⭐️⭐️⭐️3.00
-            .shop_mainleft-aroundranking__no2
-              .shop_mainleft-aroundranking__no1-image
-                = image_tag "avatar_nophoto.gif"
-              .shop_mainleft-aroundranking__no1-shopname
-                シャンドワゾー
-              .shop_mainleft-aroundranking__no1-count
-                (174)
-              .shop_mainleft-aroundranking__no1-genre
-                (ケーキ)
-              .shop_mainleft-aroundranking__no1-stars
-                ⭐️⭐️⭐️3.00
-            .shop_mainleft-aroundranking__no3
-              .shop_mainleft-aroundranking__no1-image
-                = image_tag "avatar_nophoto.gif"
-              .shop_mainleft-aroundranking__no1-shopname
-                シャンドワゾー
-              .shop_mainleft-aroundranking__no1-count
-                (174)
-              .shop_mainleft-aroundranking__no1-genre
-                (ケーキ)
-              .shop_mainleft-aroundranking__no1-stars
-                ⭐️⭐️⭐️3.00
-            .shop_mainleft-aroundranking__no4
-              .shop_mainleft-aroundranking__no1-image
-                = image_tag "avatar_nophoto.gif"
-              .shop_mainleft-aroundranking__no1-shopname
-                シャンドワゾー
-              .shop_mainleft-aroundranking__no1-count
-                (174)
-              .shop_mainleft-aroundranking__no1-genre
-                (ケーキ)
-              .shop_mainleft-aroundranking__no1-stars
-                ⭐️⭐️⭐️3.00
-            .shop_mainleft-aroundranking__no5
-              .shop_mainleft-aroundranking__no1-image
-                = image_tag "avatar_nophoto.gif"
-              .shop_mainleft-aroundranking__no1-shopname
-                シャンドワゾー
-              .shop_mainleft-aroundranking__no1-count
-                (174)
-              .shop_mainleft-aroundranking__no1-genre
-                (ケーキ)
-              .shop_mainleft-aroundranking__no1-stars
-                ⭐️⭐️⭐️3.00
-        .shop_mainleft-moreranking
-          .shop_mainleft-moreranking-link
-            川口・鳩ヶ谷のレストラン情報を見る
+        = render partial: 'shares/shop-basic-info'
       .shop_main-right
         .shop_mainright-telphone
           .fas.fa-phone.shop_mainright-telephone__number
