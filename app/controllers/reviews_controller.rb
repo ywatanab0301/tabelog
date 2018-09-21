@@ -25,7 +25,6 @@ class ReviewsController < ApplicationController
         :title,
         :text,
         :visit_day,
-        # :user_id,
         :pic1,
         :pic2,
         :pic3,
