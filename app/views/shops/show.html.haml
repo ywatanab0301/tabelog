@@ -79,31 +79,16 @@
           地図
     .shop_main
       .shop_main-left
-        .shop_mainleft-1stimages
-          .shop_mainleft-images__1
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-images__2
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-images__3
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-images__4
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-images__5
-            = image_tag "avatar_nophoto.gif"
-        .shop_mainleft-2ndimages
-          .shop_mainleft-images__6
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-images__7
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-images__8
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-images__9
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-images__10
-            = image_tag "avatar_nophoto.gif"
-        .shop_mainleft-moreimages
-          .shop_mainleft-moreimages__link
-            写真をもっと見る
+        .flexslider
+          %ul.slides
+            %li
+              %img{:src => "image1.jpg"}/
+            %li
+              %img{:src => "image1.jpg"}/
+            %li
+              = image_tag "avatar_nophoto.gif"
+            %li
+              = image_tag "avatar_nophoto.gif"
         .shop-mainleft-review-shop-pr-title
           %p
             = @shop.prtext

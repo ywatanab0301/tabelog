@@ -221,93 +221,21 @@
         padding-right: 10px;
         padding-left: 10px;
         width: 700px;
-        .shop_mainleft-1stimages{
-          height: 120px;
-          display: flex;
-          margin-top: 10px;
-          .shop_mainleft-images__1{
-            margin-right: 14px;
-            img{
-              width: 120px;
-              height: 120px;
-            }
-          }
-          .shop_mainleft-images__2{
-            margin-right: 14px;
-            img{
-              width: 120px;
-              height: 120px;
-            }
-          }
-          .shop_mainleft-images__3{
-            margin-right: 14px;
-            img{
-              width: 120px;
-              height: 120px;
-            }
-          }
-          .shop_mainleft-images__4{
-            margin-right: 14px;
-            img{
-              width: 120px;
-              height: 120px;
-            }
-          }
-          .shop_mainleft-images__5{
-            img{
-              width: 120px;
-              height: 120px;
-            }
-          }
-        }
-        .shop_mainleft-2ndimages{
-          height: 120px;
-          display: flex;
-          margin-top: 10px;
-          .shop_mainleft-images__6{
-            margin-right: 14px;
-            img{
-              width: 120px;
-              height: 120px;
-            }
-          }
-          .shop_mainleft-images__7{
-            margin-right: 14px;
-            img{
-              width: 120px;
-              height: 120px;
-            }
-          }
-          .shop_mainleft-images__8{
-            margin-right: 14px;
-            img{
-              width: 120px;
-              height: 120px;
-            }
-          }
-          .shop_mainleft-images__9{
-            margin-right: 14px;
-            img{
-              width: 120px;
-              height: 120px;
-            }
-          }
-          .shop_mainleft-images__10{
-            img{
-              width: 120px;
-              height: 120px;
-            }
-          }
-        }
-        .shop_mainleft-moreimages{
-          height: 80px;
-          .shop_mainleft-moreimages__link{
-            font-size: 13px;
-            color: $font_blue;
-            font-weight: bold;
-            line-height: 70px;
-          }
-        }
+
+        // ul.shop_mainleft-shop-images{
+          // height: 120px;
+          // display: flex;
+          // margin-top: 10px;
+        // }
+        // .shop_mainleft-moreimages{
+        //   height: 80px;
+        //   .shop_mainleft-moreimages__link{
+        //     font-size: 13px;
+        //     color: $font_blue;
+        //     font-weight: bold;
+        //     line-height: 70px;
+        //   }
+        // }
         .shop-mainleft-review-shop-pr-title {
           p {
             font-size: 20px;
@@ -439,7 +367,7 @@
               p.js-text-overflow {
                 font-size: 12px;
                 line-height: 16px;
-                height: 80px;
+                height: 85px;
                 width: 560px;
                 overflow: hidden;
               }
