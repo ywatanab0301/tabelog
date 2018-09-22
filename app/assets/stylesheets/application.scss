@@ -478,3 +478,20 @@ width: 100%;
   overflow: hidden;
   content: "";
 }
+
+.p-rvwr-cover.p-rvwr-cover--s {
+  height: 90px;
+}
+
+.p-rvwr-cover {
+  position: relative;
+  height: 340px;
+  overflow: hidden;
+}
+
+.follower-rvwr-item__cover.p-rvwr-cover.p-rvwr-cover--s.rvwr-cover-img {
+  top: 50%;
+  left: 50%;
+  margin-top: -55.5102px;
+  margin-left: -160px;
+}

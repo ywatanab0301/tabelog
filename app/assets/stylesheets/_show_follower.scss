@@ -32,66 +32,81 @@
     }
     .js-user-rvwr-contents {
       margin-top: 10px;
-      .follwer-rvw-list__box {
-        display: table-row;
+      .follower-rvwr-list {
+        display: table;
+        border-spacing: 15px 5px;
+        border-collapse: separate;
+        width: 1020px;
         height: 100%;
-        .follwer-rvw-list__item {
-          display: table-cell;
+        overflow: visible;
+        table-layout: fixed;
+        min-height: 21.4rem;
+        .follower-rvwr-list__box {
+          display: table-row;
           height: 100%;
-          vertical-align: top;
-          .follwer-rvw-item {
-            position: relative;
-            cursor: pointer;
-            border: solid 1px #eeece4;
-            border-radius: 5px;
+          .follower-rvwr-list__item {
+            display: table-cell;
             height: 100%;
-            box-sizing: border-box;
-            background: #fff;
-            .follwer-rvwr-item__header {
+            vertical-align: top;
+            width: 320px;
+            height: 250px;
+            float: left;
+            padding-bottom: 15px;
+            padding-right: 10px;
+            .follower-rvwr-item {
               position: relative;
-              .follwer-rvwr-item__cover {
-                height: 90px;
-                .rvwr-cover-img {
-                  top: 50%;
-                  left: 50%;
-                  margin-top: -55.5102px;
-                  margin-left: -160px;
-                  .img-frame {
-                    overflow: hidden;
-                    position: relative;
-                    width: 980px;
-                    height: 340px;
-                    .js-user-image {
-                      position: absolute;
+              cursor: pointer;
+              border: solid 1px #eeece4;
+              border-radius: 5px;
+              height: 100%;
+              box-sizing: border-box;
+              background: #fff;
+              .follower-rvwr-item__header {
+                position: relative;
+                .follower-rvwr-item__cover {
+                  border-top-left-radius: 5px;
+                  border-top-right-radius: 5px;
+                  .rvwr-cover-img {
+                    position: absolute;
+                    top: 50%;
+                    left: 0%;
+                    margin-top: -45px;
+                    margin-left: -150px;
+                    .img-frame {
+                      overflow: hidden;
+                      position: relative;
+                      width: 980px;
+                      height: 340px;
+                      .up-image {
+                        position: absolute;
+                        width: 980px;
+                        left: 0px;
+                        top: 0px;
+                      }
+                    }
+                  }
+                }
+                .follower-rvwr-item__user-img {
+                  position: absolute;
+                  bottom: -10px;
+                  left: 12px;
+                  .rvwr-user-img__box {
+                    padding: 3px;
+                    border-radius: 5px;
+                    .user-image {
+                      border-radius: 5px;
                     }
                   }
                 }
               }
-              .follwer-rvwr-item__user-img {
-                position: absolute;
-                bottom: -10px;
-                left: 12px;
-              }
-              .follwer-rvwr-item__page-name {
-                position: absolute;
-                bottom: 10px;
-                left: 95px;
-                width: 64%;
-                color: #fff;
-                font-weight: bold;
-              }
-            }
-            .follwer-rvwr-item__contents {
-              padding: 10px 12px 12px;
-              .follwer-rvwr-item__contents-head {
-                display: table;
-                border-spacing: 0;
-                width: 100%;
-              }
-              .follwer-rvwr-item__lastupdate {
-                position: absolute;
-                right: 12px;
-                bottom: 12px;
+                .follower-rvwr-item__page-name {
+                  position: absolute;
+                  bottom: 10px;
+                  left: 95px;
+                  width: 64%;
+                  color: #fff;
+                  font-weight: bold;
+                }
               }
             }
           }
@@ -99,4 +114,3 @@
       }
     }
   }
-}

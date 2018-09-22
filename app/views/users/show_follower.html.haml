@@ -65,8 +65,8 @@
     .follower-container
       .follower-contents
         .follower-heading
-          フォロー中
-          = @user.followings.count
+          フォロワー
+          = @user.followers.count
           人
         %ul.follower-grouping
           %li.follower-rvw-newest
@@ -74,65 +74,32 @@
           %li.follower-view-sort
             = link_to "登録日"
         .js-user-rvwr-contents
-          .follwer-rvwr-list__box
-            / ここに三つのユーザを入れる
-            .follwer-rvwr-list__item
-              .follwer-rvwr-item1
-                .follwer-rvwr-item__header
-                  .follwer-rvwr-item__cover
-                    .rvwr-cover-img
-                      .img-frame
-                        %img.js-user-image{ src: ""}
-                  .follwer-rvwr-item__user-img
-                    .rvwr-user-img__box
-                      %img
-                  %p.follwer-rvwr-item__page-name
-                .follwer-rvwr-item__contents
-                  .follwer-rvwr-item__contents-head
-                  %p.follwer-rvwr-item__log-count
-                  %p.follwer-rvwr-item__count
-                  %p.follwer-rvwr-item__lastupdate
-            .follwer-rvwr-list__item
-              .follwer-rvwr-item
-                .follwer-rvwr-item__header
-                  .follwer-rvwr-item__cover
-                    .rvwr-cover-img
-                      .img-frame
-                        %img.js-user-image
-                  .follwer-rvwr-item__user-img
-                    .rvwr-user-img__box
-                      %img
-                  %p.follwer-rvwr-item__page-name
-                .follwer-rvwr-item__contents
-                  .follwer-rvwr-item__contents-head
-                  %p.follwer-rvwr-item__log-count
-                  %p.follwer-rvwr-item__count
-                  %p.follwer-rvwr-item__lastupdate
-            .follwer-rvwr-list__item
-              .follwer-rvwr-item
-                .follwer-rvwr-item__header
-                  .follwer-rvwr-item__cover
-                    .rvwr-cover-img
-                      .img-frame
-                        %img.js-user-image
-                  .follwer-rvwr-item__user-img
-                    .rvwr-user-img__box
-                      %img
-                  %p.follwer-rvwr-item__page-name
-                .follwer-rvwr-item__contents
-                  .follwer-rvwr-item__contents-head
-                  %p.follwer-rvwr-item__log-count
-                  %p.follwer-rvwr-item__count
-                  %p.follwer-rvwr-item__lastupdate
+          .follower-rvwr-list
+            .follower-rvwr-list__box
+              / ここに三つのユーザを入れる
+              - @user.followers.each do |user|
+                .follower-rvwr-list__item{ href: "#{user_path(@user)}"}
+                  .follower-rvwr-item
+                    .follower-rvwr-item__header
+                      .follower-rvwr-item__cover.p-rvwr-cover.p-rvwr-cover--s
+                        .rvwr-cover-img
+                          .img-frame
+                            = image_tag user.background_image.url, width:" 300", height: "80", class: "up-image"
+                      .follower-rvwr-item__user-img
+                        .rvwr-user-img__box
+                          = image_tag user.avatar.url, width:"60", height:"60", class: "user-image"
+                      %p.follower-rvwr-item__page-name
+                        = user.nickname
+                    .follower-rvwr-item__contents
+                      .follower-rvwr-item__contents-head
+                      %p.follower-rvwr-item__log-count
+                      %p.follower-rvwr-item__count
+                      %p.follower-rvwr-item__lastupdate
 
-          .follwer-rvw-list__box
-            .follwer-rvw-list__item
-          .follwer-rvw-list__box
-            .follwer-rvw-list__item
-    - @user.followers.each do |user|
-      %table
-        %tr
-          %td
-            = user.nickname
-          %td= link_to '詳細', user_path(user)
+    / - @user.followers.each do |user|
+    /   %table
+    /     %tr
+    /       %td
+    /         = user.nickname
+    /       %td= link_to '詳細', user_path(user)
     = render partial: 'shares/footer'
