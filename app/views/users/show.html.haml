@@ -80,7 +80,7 @@
                 %dt.status
                   いいね！
                 %dd.status
-                  (Like数表示)
+                  = @user.likes.count
         .mypage-header-navi
           %ul.mypage-header-navi__list
             %li.mypage-header-navi__log
@@ -216,8 +216,7 @@
                       = review.updated_at.strftime('%Y/%m/%d')
                       更新
               .review-post__rst-review--like-button
-                %button
-                  いいね！
+                = render partial:'likes/like_links',locals: { review: review }
 
     .side-column
       .side-column-inner
