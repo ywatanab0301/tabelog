@@ -14,8 +14,12 @@ class Shop < ApplicationRecord
   mount_uploader :pic4, ImageUploader
   mount_uploader :pic5, ImageUploader
 
+  def star_review_average
+    reviews.average(:rate).round if reviews.present?
+  end
+
   def review_average
-    reviews.average(:rate)
+    reviews.average(:rate).round(2) if reviews.present?
   end
 
 end
