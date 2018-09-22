@@ -176,18 +176,16 @@
   font-size: 12px;
 }
 
-$starFull: 16px;
-$starHalf: $starFull / 2;
-
-$rate1: $starFull;
-$rate1-5: $starFull + $starHalf;
-$rate2: $starFull * 2;
-$rate2-5: ($starFull * 2) + $starHalf;
-$rate3: $starFull * 3;
-$rate3-5: ($starFull * 3) + $starHalf;
-$rate4: $starFull * 4;
-$rate4-5: ($starFull * 4) + $starHalf;
-$rate5 :$starFull * 5;
+$starHalf: 16px / 2;
+$rate1: 2*$starHalf;
+$rate1-5: 3*$starHalf;
+$rate2: 4*$starHalf;
+$rate2-5: 5*$starHalf;
+$rate3: 6*$starHalf;
+$rate3-5: 7*$starHalf;
+$rate4: 8*$starHalf;
+$rate4-5: 9*$starHalf;
+$rate5 : 10*$starHalf;
 
 .content__main__shop__each{
   margin: 18px 0;
@@ -261,17 +259,17 @@ $rate5 :$starFull * 5;
         span.star-actived{
           position: relative;
           display: inline-block;
-          width: $starFull * 5;
-          height: $starFull;
-          font-size: $starFull;
+          width: 10*$starHalf;
+          height: 2*$starHalf;
+          font-size: 2*$starHalf;
           &:before,&:after{
             position: absolute;
             top: 0;
             left: 0;
             content: '★★★★★';
             display: inline-block;
-            height: $starFull;
-            line-height: $starFull;
+            height: 2*$starHalf;
+            line-height: 2*$starHalf;
           }
           &:before{
           color: #ddd;
