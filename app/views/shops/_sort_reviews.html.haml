@@ -50,12 +50,18 @@
       .shop_subheader-right
         .shop_views-buttons
           .button.shop-views
-            %button.shop-views__gonebtn
-              行った
-            %button.shop-views__wannabtn
-              行きたい
-            %button.shop-views__post-btn
-              投稿
+            .shop-views__gonebtn
+              %a.gonebtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: #595960;"}
+                %span
+                  行った
+            .shop-views__wannabtn
+              %a.wannabtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: #595960;"}
+                %span
+                  行きたい
+            .shop-views__post-btn
+              %a.postbtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: white;"}
+                %span
+                  投稿
           %button.shop-views__recommend
             メモを残そう（例：友達のおすすめカフェ）
     .shop_lists
