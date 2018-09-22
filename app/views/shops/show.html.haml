@@ -40,11 +40,11 @@
         .shop_views-buttons
           .button.shop-views
             %button.shop-views__gonebtn
-              = link_to "行った", new_shop_review_path(current_user.id)
+              = link_to "行った", new_shop_review_path(@shop.id)
             %button.shop-views__wannabtn
               行きたい
             %button.shop-views__postbtn
-              = link_to "投稿", new_shop_review_path(current_user.id)
+              = link_to "投稿", new_shop_review_path(@shop.id)
           %button.shop-views__recommend
             メモを残そう（例：友達のおすすめカフェ）
     .shop_lists
