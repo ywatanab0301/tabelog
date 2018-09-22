@@ -22,4 +22,28 @@ class Shop < ApplicationRecord
     reviews.average(:rate).round(2) if reviews.present?
   end
 
+  def show_last_review
+    if (last_review = reviews.last).present?
+      last_review.text
+    else
+      'まだ口コミはありません'
+    end
+  end
+
+  def show_last_review_title
+    if (last_review = reviews.last).present?
+      last_review.title
+    else
+      'No Title'
+    end
+  end
+
+  def show_last_review_name
+    if (last_review = reviews.last).present?
+      last_review.user.nickname
+    else
+      'No Name'
+    end
+  end
+
 end

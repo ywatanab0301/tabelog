@@ -97,9 +97,13 @@
                 %a.review{href: "#"}
                   = shop.reviews.count
               .content__main__shop__each__body__right__review
-                %a.title{href: "#"}sss
-                %span.name by.NAME
-                %p.review レビューが表示されるよー。ふぁいと٩( 'ω' )و
+                %a.title{href: "#"}
+                  = shop.show_last_review_title
+                %span.name by.
+                %span.name
+                  = shop.show_last_review_name
+                %p.review
+                  = shop.show_last_review
     .content__main__page
       = paginate @shops
 = render partial: 'shares/footer'
