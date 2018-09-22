@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :searches
   resources :shops do
-    resources :reviews, only: [:new, :create, :edit, :update, :destroy]
+    resources :reviews, only: [:new, :create, :edit, :update, :destroy, :show]
   end
 
   post   '/like/:review_id' => 'likes#like',   as: 'like'
