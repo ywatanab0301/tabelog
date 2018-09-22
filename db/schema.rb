@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20180920160944) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "review_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_likes_on_review_id", using: :btree
+    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
+  end
+
   create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -45,7 +54,7 @@ ActiveRecord::Schema.define(version: 20180920160944) do
     t.float    "rate",         limit: 24,    null: false
     t.float    "food_rate",    limit: 24,    null: false
     t.float    "service_rate", limit: 24,    null: false
-    t.integer  "drink_rate"
+    t.float    "drink_rate",   limit: 24,    null: false
     t.float    "atmosphere",   limit: 24,    null: false
     t.float    "cp_rate",      limit: 24,    null: false
     t.string   "title",                      null: false
@@ -53,12 +62,17 @@ ActiveRecord::Schema.define(version: 20180920160944) do
     t.datetime "visit_day",                  null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.float    "drink_rate",   limit: 24,    null: false
     t.string   "pic1"
     t.string   "pic2"
     t.string   "pic3"
     t.string   "pic4"
     t.string   "pic5"
+    t.datetime "visit_day",                  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "shop_id"
+    t.integer  "likes_count"
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
@@ -149,6 +163,8 @@ ActiveRecord::Schema.define(version: 20180920160944) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "likes", "reviews"
+  add_foreign_key "likes", "users"
   add_foreign_key "review_budgets", "budgets"
   add_foreign_key "review_budgets", "reviews"
   add_foreign_key "reviews", "users"
