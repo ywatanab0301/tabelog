@@ -13,4 +13,37 @@ class Shop < ApplicationRecord
   mount_uploader :pic3, ImageUploader
   mount_uploader :pic4, ImageUploader
   mount_uploader :pic5, ImageUploader
+
+  def star_review_average
+    reviews.average(:rate).round if reviews.present?
+  end
+
+  def review_average
+    reviews.average(:rate).round(2) if reviews.present?
+  end
+
+  def show_last_review
+    if reviews.last.present?
+      reviews.last.text
+    else
+      'まだ口コミはありません'
+    end
+  end
+
+  def show_last_review_title
+    if reviews.last.present?
+      reviews.last.title
+    else
+      'No Title'
+    end
+  end
+
+  def show_last_review_name
+    if reviews.last.present?
+      reviews.last.user.nickname
+    else
+      'No Name'
+    end
+  end
+
 end
