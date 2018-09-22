@@ -2,6 +2,10 @@ class ReviewsController < ApplicationController
     before_action :set_shop, only: [:new, :edit]
     before_action :set_review, only: [:edit, :update, :destroy]
 
+  def index
+    @reviews = Review.includes(:user)
+  end
+
   def new
     @review = Review.new
     @review.review_budgets.build
@@ -32,7 +36,12 @@ class ReviewsController < ApplicationController
     redirect_to controller: 'users', action: 'show', id: current_user.id
   end
 
+  def show
+    @review = Review.find(params[:id])
+  end
+
   private
+
     def review_params
       params.require(:review).permit(
         :lunch_dinner,
