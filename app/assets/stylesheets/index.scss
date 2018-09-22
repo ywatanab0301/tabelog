@@ -207,8 +207,21 @@ $rate5 : 10*$starHalf;
         text-decoration: none;
       }
     }
+    button.btn.btn-outline-secondary{
+      margin-left: 500px;
+      color: red;
     ul.btn{
       float: right;
+    }
+    // &__btn{
+    //   margin-left: 700px;
+    //   color: red;
+    //   button.btn.btn-outline-secondary{
+    //     width: 91px;
+    //     padding-left: 700px;
+    //     color: red;
+    //   }
+    // }
     }
   }
   &__body{

@@ -60,6 +60,16 @@
               %a.rst_name{href: "#"}
                 = shop.shop_name
 
+            .contant__main__shop__each__header__btn
+              %button.btn.btn-outline-secondary{type: "button"}
+                .fa.fa-heart  行った
+              %button.btn.btn-outline-secondary{type: "button"}
+                .fa.fa-map-pin  行きたい
+
+          .content__main__shop__each__body
+
+            .content__main__shop__each__body__left 投稿された写真が表示されるよ　ふぁいと٩(๑❛ᴗ❛๑)۶
+
             %ul.btn
               %button.btn.btn-outline-secondary{type: "button"}
                 .fa.fa-heart
@@ -97,6 +107,7 @@
                 %a.review{href: "#"}
                   = shop.reviews.count
               .content__main__shop__each__body__right__review
+
                 %a.title{href: "#"}
                   = shop.show_last_review_title
                 %span.name by.

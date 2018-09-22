@@ -15,6 +15,16 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @reviews = @shop.reviews.includes(:user).order('visit_day DESC')
+  end
+
+  def show_menu
+    @shop = Shop.find(params[:shop_id])
+  end
+
+  def show_reviews
+    @shop = Shop.find(params[:shop_id])
+    @reviews = @shop.reviews.includes(:user).order('visit_day DESC')
   end
 
   private
