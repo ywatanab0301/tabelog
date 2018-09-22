@@ -1,5 +1,9 @@
 class ReviewsController < ApplicationController
 
+  def index
+    @reviews = Review.includes(:user)
+  end
+
   def new
     @shop = Shop.find params[:shop_id]
     @review = Review.new
@@ -12,7 +16,12 @@ class ReviewsController < ApplicationController
     redirect_to :action => "new"
   end
 
+  def show
+    @review = Review.find(params[:id])
+  end
+
   private
+
     def review_params
       params.require(:review).permit(
         :lunch_dinner,
@@ -35,5 +44,6 @@ class ReviewsController < ApplicationController
         :shop_id
         ).merge(shop_id: params[:shop_id], user_id: current_user.id)
     end
+
 
 end
