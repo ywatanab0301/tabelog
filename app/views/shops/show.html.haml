@@ -40,11 +40,11 @@
         .shop_views-buttons
           .button.shop-views
             %button.shop-views__gonebtn
-              = link_to "行った", new_user_review_path(current_user.id), method: :get
+              = link_to "行った", new_shop_review_path(current_user.id)
             %button.shop-views__wannabtn
               行きたい
             %button.shop-views__postbtn
-              = link_to "投稿", new_user_review_path(current_user.id), method: :get
+              = link_to "投稿", new_shop_review_path(current_user.id)
           %button.shop-views__recommend
             メモを残そう（例：友達のおすすめカフェ）
     .shop_lists
@@ -112,8 +112,8 @@
             .pickup_review-text__continue
               続きを読む
             .pickup_review-text__icons
-              %span.pickup_review-text__heart
-                💗300
+              %label.pickup_review-text__heart
+                LIKE!
               %span.pickup_review-text__time
                 2018/03/23
               %span.pickup_review-text__rates
