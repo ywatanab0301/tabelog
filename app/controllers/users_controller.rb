@@ -5,8 +5,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @reviews = @user.reviews.includes(:shop).order('visit_day DESC')
-    @review_ranks = @user.reviews.includes(:shop).order('rate DESC')
+    @reviews = @user.reviews.order('visit_day DESC')
+    shop = Shop.joins(:prefectures).select('shops.*, prefectures.name')
+    # shop = Shop.includes(:prefectures).where(prefecture: { id: [1...47] })
+    @review_ranks = @user.reviews.order('rate DESC')
   end
 
   def edit
