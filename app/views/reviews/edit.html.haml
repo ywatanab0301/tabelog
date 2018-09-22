@@ -100,6 +100,7 @@
     .photo-select-field
       .photo-select-field__pic1
         %label.fas.fa-camera.btn
+          / = fields_for @image do |i|
           = f.file_field :pic1, style: "display: none;"
       .photo-select-field__pic2
         %label.fas.fa-camera.btn
@@ -120,7 +121,6 @@
         = f.text_field :visit_day, id: "datepicker"
     .reviews__footer--submit
       %btn.reviews__footer--submit--button
-        = f.hidden_field :user_id, value: current_user.id
         = f.submit "投稿する", class: "submit_btn", id:"submitbtn"
     .reviews__footer--draft
 = render partial: 'shares/footer'

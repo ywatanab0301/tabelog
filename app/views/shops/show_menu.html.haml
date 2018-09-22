@@ -23,6 +23,9 @@
         = image_tag 'location_arrow.png'
         %i.fas.fa-utensils
         = @shop.shop_name
+      %span.location-link__shopmenu
+        = image_tag 'location_arrow.png'
+        料理メニュー
     .shop_subheader
       .shop_subheader-left
         .shop_views-namespace
@@ -47,154 +50,99 @@
       .shop_subheader-right
         .shop_views-buttons
           .button.shop-views
-            .shop-views__gonebtn
-              %a.gonebtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: #595960;"}
-                %span
-                  行った
-            .shop-views__wannabtn
-              %a.wannabtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: #595960;"}
-                %span
-                  行きたい
-            .shop-views__post-btn
-              %a.postbtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: white;"}
-                %span
-                  投稿
+            %button.shop-views__gonebtn
+              行った
+            %button.shop-views__wannabtn
+              行きたい
+            %button.shop-views__postbtn
+              投稿
           %button.shop-views__recommend
             メモを残そう（例：友達のおすすめカフェ）
     .shop_lists
-      %ul.shops-show-header_list
-        %li.shops-top-shop_lists__top
-          店舗トップ
-        %li.shops-top-shop_lists__menu
-          %a.menu-link{ href: "/shops/#{@shop.id}/menu", style: "color: #595960;"}
+      %ul.header_list
+        %li.menu-shop_lists__top
+          %a.shop-top-link{ href: "/shops/#{@shop.id}", style: "color: #595960;"}
             %span
-              メニュー
-        %li.shops-top-shop_lists__image
+              店舗トップ
+        %li.menu-shop_lists__menu
+          メニュー
+        %li.menu-shop_lists__image
           写真
-        %li.shops-top-shop_lists__review
+        %li.menu-shop_lists__review
           %a.reviews-link{ href: "/shops/#{@shop.id}/reviews", style: "color: #595960;"}
             %span
               口コミ
-        %li.shops-top-shop_lists__map
+        %li.menu-shop_lists__map
           地図
     .shop_main
       .shop_main-left
-        .flexslider
-          %ul.slides
-            %li
-              %img{:src => "image1.jpg"}/
-            %li
-              %img{:src => "image1.jpg"}/
-            %li
-              = image_tag "avatar_nophoto.gif"
-            %li
-              = image_tag "avatar_nophoto.gif"
-        .shop-mainleft-review-shop-pr-title
-          %p
-            = @shop.prtext
-          %p
-
-        .shop-mainleft-review-shop-pr-text
-          %p.js-text-overflow
-            広々とし落ち着いた空間で嗜むワインと、お酒に見合うお料理をご用意致しました。 なんといってもリーズナブルにご提供できます！
-            立食形式での貸切可能、宴会プランも複数取り揃えております！
-            是非皆様でお越しください。
-            これで大丈夫なのか？？？？ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-
-        .shop_mainleft-review
-          .shop_mainleft-review__title
-            口コミ
-          %button.review-postbtn
-            投稿する
-        .shop_mainleft-friend
-          .shop_mainleft-friend__image
-            = image_tag "avatar_nophoto.gif"
-          .shop_mainleft-friend__text
-            好みのあう人をフォローすると、その人のオススメのお店から探せます。
-        -@reviews.each do |review|
-          %ul.pickup_review
-            %li.pickup_review-avatar
-              .pickup_review-avatar__icon
-                -if review.user.avatar?
-                  = image_tag review.user.avatar.url
-                -else
+        .shop-menu
+          .shop-menu-update-date
+            %p
+              ※2018/09/14 更新
+          .shop-menu-title
+            .shop-menu-title__name
+              料理メニュー
+            .shop-menu-title__display-price
+              (税抜価格)
+          .shop-menu-lists
+            %ul
+              %li.shop-menu-list
+                .shop-menu-image
                   = image_tag "avatar_nophoto.gif"
-              .pickup_review-avatar__nickname
-                = review.user.nickname
-              .pickup_review-avatar__count
-                (
-                = review.user.reviews.length
-                )
-            %li.pickup_review-text
-              .pickup_review-text__title
-                %span.review-title-showpage
-                  = review.title
-              .pickup_review-text__text
-                %p.js-text-overflow
-                  = review.text
-              .pickup_review-text__continue
-                = link_to "続きを読む"
-              .pickup_review-text__icons
-                %span.pickup_review-text__heart
-                  💗300
-                %span.pickup_review-text__time
-                  訪問
-                  = review.visit_day.strftime('%Y/%m')
-                %span.pickup_review-text__rates
-                  ⭐️⭐️⭐️3.00
-        .shop_mainleft-morereview
-          .shop_mainleft-morereview__link
-            口コミをもっと見る
-            （全
-            = @reviews.length
-            件）
-        .shop_mainleft-aroundshop
-          .shop_mainleft-aroundshop__title
-            [PR] 近くのお店
-        %ul.around_shops
-          %li.around_shops__left
-            .around_shops__left-image
-              = image_tag "avatar_nophoto.gif"
-            .around_shops__left-shopname
-              串カツ田中 川口店
-            .around_shops__left-genre
-              串揚げ
-            .around_shops__left-stars
-              ⭐️⭐️⭐️3.00
-            .around_shops__left-denner
-              🌃¥30,000~
-            .around_shops__left-lunch
-              🌅¥30,000~
-          %li.around_shops__center
-            .around_shops__center-image
-              = image_tag "avatar_nophoto.gif"
-            .around_shops__center-shopname
-              串カツ西山 川口店
-            .around_shops__center-genre
-              串揚げ
-            .around_shops__center-stars
-              ⭐️⭐️⭐️3.00
-            .around_shops__center-denner
-              🌃¥30,000~
-            .around_shops__center-lunch
-              🌅¥30,000~
-          %li.around_shops__right
-            .around_shops__right-image
-              = image_tag "avatar_nophoto.gif"
-            .around_shops__right-shopname
-              串カツ中田 川口店
-            .around_shops__right-genre
-              串揚げ
-            .around_shops__right-stars
-              ⭐️⭐️⭐️3.00
-            .around_shops__right-denner
-              🌃¥30,000~
-            .around_shops__right-lunch
-              🌅¥30,000~
+                .shop-menu-content
+                  .shop-menu-content-upper
+                    .shop-menu-name
+                      特上カルビ
+                    .shop-menu-price
+                      %p.shop-menu-price-number
+                        2,990円
+                  .shop-menu-content-bottom
+                    .shop-menu-detail
+                      主な使用部位・ヘッドバラ、三角バラ、カイノミ、ササバラ
+                      Regular 1390円
+                      Small 750円
+                      Family 1890円
+              %li.shop-menu-list
+                .shop-menu-image
+                  = image_tag "avatar_nophoto.gif"
+                .shop-menu-content
+                  .shop-menu-content-upper
+                    .shop-menu-name
+                      とろ肉3秒炙り
+                    .shop-menu-price
+                      %p.shop-menu-price-number
+                        1,390円
+                  .shop-menu-content-bottom
+                    .shop-menu-detail
+                      牛８No1メニュー。極上ロースを薄切りで3秒炙ります
+              %li.shop-menu-list
+                .shop-menu-image
+                .shop-menu-content
+                  .shop-menu-content-upper
+                    .shop-menu-name
+                      ファミリー１ポンド盛り
+                    .shop-menu-price
+                      %p.shop-menu-price-number
+                        3,890円
+                  .shop-menu-content-bottom
+                    .shop-menu-detail
+              %li.shop-menu-list
+                .shop-menu-image
+                .shop-menu-content
+                  .shop-menu-content-upper
+                    .shop-menu-name
+                      女性のためのセレブ盛り
+                    .shop-menu-price
+                      %p.shop-menu-price-number
+                        2,690円
+                  .shop-menu-content-bottom
+                    .shop-menu-detail
         = render partial: 'shares/shop-basic-info'
       .shop_main-right
         .shop_mainright-telphone
-          .fas.fa-phone.shop_mainright-telephone__number
+          .shop_mainright-telephone__number
+            %i.fas.fa-phone
             042-571-5991
           %button.telephone__sendbtn
             送る

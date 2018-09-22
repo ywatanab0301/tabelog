@@ -8,7 +8,7 @@ class User < ApplicationRecord
   mount_uploader :background_image, ImageUploader
 
 # association
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :like_reviews, through: :likes, source: :review
   has_many :likes, dependent: :destroy
   has_many :relationships
@@ -17,4 +17,5 @@ class User < ApplicationRecord
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
   has_many :reservations
+
 end

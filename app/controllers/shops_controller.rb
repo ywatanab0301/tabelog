@@ -10,9 +10,21 @@ class ShopsController < ApplicationController
 
   def create
     @shop = Shop.create(shop_params)
+    redirect_to action: 'index'
   end
 
   def show
+    @shop = Shop.find(params[:id])
+    @reviews = @shop.reviews.includes(:user).order('visit_day DESC')
+  end
+
+  def show_menu
+    @shop = Shop.find(params[:shop_id])
+  end
+
+  def show_reviews
+    @shop = Shop.find(params[:shop_id])
+    @reviews = @shop.reviews.includes(:user).order('visit_day DESC')
   end
 
   private
