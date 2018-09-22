@@ -369,14 +369,18 @@
             }
             .review-post__buttons{
                 padding-right: 5px;
-                display: flex;
                 width: 65px;
-                justify-content:space-between;
-                padding-left: 9px;
+                padding-left: 20px;
                 position: absolute;
                 top: 17px;
                 right: 17px;
+                .delete_alert{
+                  margin-right: 10px;
+                }
                 .review-post__buttons--trash {
+                  .fas.fa-trash-alt{
+                    margin-right: 20px;
+                  }
                   .icon {
                     font-size: 20px;
                     color: $font_gray;
@@ -508,7 +512,6 @@
               button {
                 color: $white;
                 font-weight: bold;
-                background-color: $main_orange;
                 border-radius: 2px;
                 margin-left: 15px;
               }
