@@ -112,9 +112,9 @@
               %i.fas.fa-sort
               標準
             %li.shop_main-left-review-order-change-list2
-              = link_to "訪問月"
+              = link_to "訪問月", shop_sort_visit_path
             %li.shop_main-left-review-order-change-list3
-              = link_to "いいね順"
+              = link_to "いいね順", shop_sort_popular_path
         .shop_main-left-shop-review-notice
           %p.notice-message-1
             これらの口コミは、訪問した当時の主観的なご意見・ご感想です。
@@ -310,9 +310,7 @@
                       = image_tag "avatar_nophoto.gif"
                 .shop-review-post-like-wannago
                   .shop-review-post-like-wannago__buttons
-                    %button.shop-review-post-like-wannago__buttons--like
-                      %i.fas.fa-heart
-                      いいね！
+                    = render partial: 'likes/like_links', locals: {review: review}
                     %button.shop-review-post-like-wannago__buttons--wannago
                       %i.fas.fa-thumbtack
                       行きたい
