@@ -23,24 +23,24 @@ class Shop < ApplicationRecord
   end
 
   def show_last_review
-    if (last_review = reviews.last).present?
-      last_review.text
+    if reviews.last.present?
+      reviews.last.text
     else
       'まだ口コミはありません'
     end
   end
 
   def show_last_review_title
-    if (last_review = reviews.last).present?
-      last_review.title
+    if reviews.last.present?
+      reviews.last.title
     else
       'No Title'
     end
   end
 
   def show_last_review_name
-    if (last_review = reviews.last).present?
-      last_review.user.nickname
+    if reviews.last.present?
+      reviews.last.user.nickname
     else
       'No Name'
     end
