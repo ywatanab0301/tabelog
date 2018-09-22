@@ -9,18 +9,16 @@ Rails.application.routes.draw do
     get 'menu' => 'shops#show_menu'
     get 'reviews' => 'shops#show_reviews'
   end
-<<<<<<< HEAD
+
   resources :searches
   resources :users do
     member do
      get :following, :followers
     end
   end
-  resources :relationships, only: [:create, :destroy]
-=======
 
+  resources :relationships, only: [:create, :destroy]
   post   '/like/:review_id' => 'likes#like',   as: 'like'
   delete '/like/:review_id' => 'likes#unlike', as: 'unlike'
 
->>>>>>> master
 end
