@@ -10,9 +10,11 @@ class ShopsController < ApplicationController
 
   def create
     @shop = Shop.create(shop_params)
+    redirect_to action: 'index'
   end
 
   def show
+    @shop = Shop.find(params[:id])
   end
 
   private
