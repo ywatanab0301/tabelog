@@ -1,0 +1,15 @@
+.like-link{id: "like-link-#{review.id}"}
+  - if current_user.likes.find_by(review_id: review.id)
+    = link_to unlike_path(review.id), method: :delete, remote: true do
+      .likeing
+        %button.fa.fa-heart{id: "heart-#{review.id}"}
+          いいね！を取り消す
+        %span.afterlike_counter
+          = review.likes.count.to_s
+  - else
+    = link_to like_path(review.id), method: :post, remote: true do
+      .likeing
+        %button.far.fa-heart{id: "heart-#{review.id}"}
+          いいね！
+        %span.like_counter
+          = review.likes.count.to_s

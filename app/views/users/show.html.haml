@@ -32,7 +32,7 @@
           #cover-image
             = form_for @user do |f|
               .change-cover-image
-                - if current_user.background_image?
+                - if @user.background_image?
                   = image_tag @user.background_image.url, class: "image"
                 - else
                   = image_tag "61450017_624.gif", class: "image"
@@ -52,7 +52,7 @@
 
         = form_for @user do |f|
           .mypage-header__user-avatar
-            -if current_user.avatar?
+            -if @user.avatar?
               = image_tag @user.avatar.url
             -else
               = image_tag "avatar_nophoto.gif"
@@ -75,7 +75,7 @@
                 %dt.status
                   口コミ数
                 %dd.status
-                  / = @reviews.length
+                  = @reviews.length
                   件
               %dl.status
                 %dt.status
@@ -86,17 +86,17 @@
                 %dt.status
                   いいね！
                 %dd.status
-                  (Like数表示)
+                  = @user.likes.count
         .mypage-header-navi
           %ul.mypage-header-navi__list
             %li.mypage-header-navi__log
               .rvwr_navi__count
-                / = @reviews.length
+                = @reviews.length
               .rvwr-navi__menu
                 ログ
             %li.mypage-header-navi__rvw
               .rvwr_navi__count
-                / = @reviews.uniq.length
+                = @reviews.uniq.length
               .rvwr-navi__menu
                 行ったお店
             %li.mypage-header-navi__interest
@@ -127,77 +127,78 @@
           %p
             👑おすすめレストラン
           .reccomend-edit-link.fas.fa-cog
+        - @review_ranks.first(5).each do |review|
           .recommend-text
             .recommend-text__left
               .review-info
                 .restaurant-name
                   👑
-                  / = review.shop.shop_name
                 .review-prefecture
-                  東京
+                  = review.shop.shop_prefectures.name
                 .review-area
                   渋谷、神泉/カフェ、カフェ・喫茶（その他）、喫茶店
               .review-title
                 %p
                   %a
                     💬
-                    / = review.title
+                    = review.title
             .recommend-text__right
               .review-rate-dinner
                 夜 ☆☆☆☆☆ ???
               .review-rate-lunch
                 昼 ★★★★★ ???
 
+      - @review_ranks.first(5).each do |review|
         .reviews-wrap
           %p.visited-month
-            / = review.visit_day.strftime('%Y/%m')
+            = review.visit_day.strftime('%Y/%m')
             訪問
           .review-post
             .review-post__rst-info
               .review-post__rst-info-wrap
                 .review-post__rst-name
                   %a
-                    / = review.shop.shop_name
+                    = review.shop.shop_name
                   %span.review-post__rst-area
                     (渋谷、神泉 / ダイニングバー、インド料理、インドカレー)
                 .review-post__buttons
-                  .review-post__buttons--trash.fas.fa-trash-alt
-                    = link_to ""
-                  .review-post__buttons--edit.fas.fa-edit
-                    = link_to ""
+                  = link_to shop_review_path(review.shop_id, review.id), method: :delete, class: "delete_alert" do
+                    .review-post__buttons--trash.fas.fa-trash-alt
+                  = link_to edit_shop_review_path(review.shop_id, review.id) do
+                    .review-post__buttons--edit.fas.fa-edit
             .review-post__rst-review
               .review-post__rst-review--score-data
                 .review-score
                   .review-rating-star
                     🌅  🌟🌟🌟⭐⭐
                   .review-rating-point
-                    / = review.rate.round(1) unless review.rate == nil
+                    = review.rate.round(1) unless review.rate == nil
                   %ul.review-rate-detail
                     %li.food-rate
                       %p
                         料理・味
                         %strong
-                          / = review.food_rate.round(1) unless review.food_rate == nil
+                          = review.food_rate.round(1) unless review.food_rate == nil
                     %li.service-rate
                       %p
                         サービス
                         %strong
-                          / = review.service_rate.round(1) unless review.service_rate == nil
+                          = review.service_rate.round(1) unless review.service_rate == nil
                     %li.atmosphere-rate
                       %p
                         雰囲気
                         %strong
-                          / = review.atmosphere.round(1) unless review.atmosphere == nil
+                          = review.atmosphere.round(1) unless review.atmosphere == nil
                     %li.cp-rate
                       %p
                         CP
                         %strong
-                          / = review.cp_rate.round(1) unless review.cp_rate == nil
+                          = review.cp_rate.round(1) unless review.cp_rate == nil
                     %li.drink-rate
                       %p.drink-rate
                         酒・ドリンク
                         %strong
-                          / = review.drink_rate.round(1) unless review.drink_rate == nil
+                          = review.drink_rate.round(1) unless review.drink_rate == nil
                   .review-count
                     1回目
                 .review-price
@@ -210,19 +211,18 @@
                 .review-title
                   %p
                     %a
-                      / = review.title
+                      = review.title
                 .review-text
                   %p
-                    / = review.text
+                    = review.text
                   %span.review-showall
                     もっと見る
                   .review-update-date
                     %h6
-                      / = review.updated_at.strftime('%Y/%m/%d')
+                      = review.updated_at.strftime('%Y/%m/%d')
                       更新
               .review-post__rst-review--like-button
-                %button
-                  いいね！
+                = render partial:'likes/like_links',locals: { review: review }
 
     .side-column
       .side-column-inner
@@ -297,7 +297,7 @@
           .area-ranking
             %h3.area-genre__title
               %p
-                / = @user.nickname
+                = @user.nickname
                 さんのよく行くエリア
             %ul.area-genre__list
               %li
@@ -307,7 +307,7 @@
           .genre-ranking
             %h3.area-genre__title
               %p
-                / = @user.nickname
+                = @user.nickname
                 さんのよく行くジャンル
               %ul.area-genre__list
                 %li

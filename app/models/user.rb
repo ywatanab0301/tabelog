@@ -8,7 +8,7 @@ class User < ApplicationRecord
   mount_uploader :background_image, ImageUploader
 
 # association
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :like_reviews, through: :likes, source: :review
   has_many :likes, dependent: :destroy
   has_many :reservations
@@ -19,6 +19,7 @@ class User < ApplicationRecord
   # こちらが受動的関係、、フォローしているユーザーを取り出す
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
+<<<<<<< HEAD
     def following?(other_user)
       following_relationships.find_by(following_id: other_user.id)
     end
@@ -30,4 +31,8 @@ class User < ApplicationRecord
     def unfollow!(other_user)
       following_relationships.find_by(following_id: other_user.id).destroy
     end
+=======
+  has_many :reservations
+
+>>>>>>> master
 end

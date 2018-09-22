@@ -60,6 +60,16 @@
               %a.rst_name{href: "#"}
                 = shop.shop_name
 
+            .contant__main__shop__each__header__btn
+              %button.btn.btn-outline-secondary{type: "button"}
+                .fa.fa-heart  行った
+              %button.btn.btn-outline-secondary{type: "button"}
+                .fa.fa-map-pin  行きたい
+
+          .content__main__shop__each__body
+
+            .content__main__shop__each__body__left 投稿された写真が表示されるよ　ふぁいと٩(๑❛ᴗ❛๑)۶
+
             %ul.btn
               %button.btn.btn-outline-secondary{type: "button"}
                 .fa.fa-heart
@@ -89,19 +99,22 @@
                 = shop.prtext
 
               .content__main__shop__each__body__right__rate
-                - if shop.reviews.present?
-                  %span.rating-star
-                    %i{:class => "star-actived rate-#{shop.reviews.average(:rate).round}0"}
-                - else
-                  %span.rating-star
-                    %i.star-actived.rate-0
+                %span.rating-star
+                  %span{class: :"star-actived rate-#{shop.star_review_average}0"}
+                %span.num
+                  = shop.review_average
                 .fa.fa-comments
-                %a.review{href: "#"} 25件
-
+                %a.review{href: "#"}
+                  = shop.reviews.count
               .content__main__shop__each__body__right__review
-                %a.title{href: "#"}sss
-                %span.name by.NAME
-                %p.review レビューが表示されるよー。ふぁいと٩( 'ω' )و
+
+                %a.title{href: "#"}
+                  = shop.show_last_review_title
+                %span.name by.
+                %span.name
+                  = shop.show_last_review_name
+                %p.review
+                  = shop.show_last_review
     .content__main__page
       = paginate @shops
 = render partial: 'shares/footer'
