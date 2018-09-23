@@ -1,3 +1,4 @@
+
 .shop_mainleft-shopdetail
   .shop_mainleft-shopdetail__title
     店舗情報（詳細）
@@ -14,11 +15,12 @@
       (
       = @shop.shop_name_f
       )
-%ul.shop_details_lists
-  %li.shop_details_lists__genre
-    ジャンル
-  %li.shop_details_lists__genre-input
-    = @shop.genres.name
+- @genre.each do |genre|
+  %ul.shop_details_lists
+    %li.shop_details_lists__genre
+      ジャンル
+    %li.shop_details_lists__genre-input
+      = genre.name
 %ul.shop_details_lists
   %li.shop_details_lists__telephone
     お問い合わせ
@@ -29,11 +31,12 @@
     予約可否
   %li.shop_details_lists__canreserve-input
     完全予約制
-%ul.shop_details_lists
-  %li.shop_details_lists__address
-    住所
-  %li.shop_details_lists__address-input
-    = @shop.prefectures.name
+- @prefecture.each do |prefecture|
+  %ul.shop_details_lists
+    %li.shop_details_lists__address
+      住所
+    %li.shop_details_lists__address-input
+      = prefecture.name
 %ul.shop_details_lists
   %li.shop_details_lists__access
     交通手段
