@@ -1,5 +1,7 @@
 class ShopsController < ApplicationController
 
+  before_action :set_shop, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit]
+
   def index
     @shops = Shop.order("created_at DESC").page(params[:page]).per(10)
   end
@@ -21,21 +23,17 @@ class ShopsController < ApplicationController
   end
 
   def show_menu
-    @shop = Shop.find(params[:shop_id])
   end
 
   def show_reviews
-    @shop = Shop.find(params[:shop_id])
     @reviews = @shop.reviews.includes(:user).order('created_at DESC')
   end
 
   def sort_popular
-    @shop = Shop.find(params[:shop_id])
     @reviews = @shop.reviews.includes(:user).order('likes_count DESC')
   end
 
   def sort_visit
-    @shop = Shop.find(params[:shop_id])
     @reviews = @shop.reviews.includes(:user).order('visit_day DESC')
   end
 
@@ -58,6 +56,12 @@ class ShopsController < ApplicationController
       :pic3,
       :pic4,
       :pic5)
+  end
+
+  def set_shop
+    @shop = Shop.find(params[:shop_id])
+    @prefecture = @shop.prefectures
+    @genre = @shop.genres
   end
 
 end
