@@ -33,28 +33,31 @@
                   = image_tag @user.background_image.url, class: "image"
                 - else
                   = image_tag "61450017_624.gif", class: "image"
-                %label.change-header-cover.fas.fa-camera
-                  カバー写真を変更
-                  = f.file_field :background_image, style: 'display: none;'
-                  = f.hidden_field :user_id, value: current_user.id
-                = f.submit "変更を保存する", class: "cover-image-submit"
+                - if @user.id == current_user.id
+                  %label.change-header-cover.fas.fa-camera
+                    カバー写真を変更
+                    = f.file_field :background_image, style: 'display: none;'
+                    = f.hidden_field :user_id, value: current_user.id
+                  = f.submit "変更を保存する", class: "cover-image-submit"
           .page-name
             %p
               = @user.nickname
               のレストランガイド
-          .rvwr-page-setting
-            = link_to "レビュアーページ設定", edit_user_path
+          - if @user.id == current_user.id
+            .rvwr-page-setting
+              = link_to "レビュアーページ設定", edit_user_path
         = form_for @user do |f|
           .mypage-header__user-avatar
             -if @user.avatar?
               = image_tag @user.avatar.url
             -else
               = image_tag "avatar_nophoto.gif"
-            %label.change-header-avatar-image.fas.fa-camera
-              変更
-              = f.file_field :avatar, style: 'display: none;'
-              = f.hidden_field :user_id, value: current_user.id
-            = f.submit "保存", class: "mypage-avatar-image-submit"
+            - if @user.id == current_user.id
+              %label.change-header-avatar-image.fas.fa-camera
+                変更
+                = f.file_field :avatar, style: 'display: none;'
+                = f.hidden_field :user_id, value: current_user.id
+              = f.submit "保存", class: "mypage-avatar-image-submit"
         .mypage-header-contents
           .mypage-header-contents__image-wrap
           .mypage-header-contents__info
@@ -155,11 +158,12 @@
                     = review.shop.shop_name
                   %span.review-post__rst-area
                     (渋谷、神泉 / ダイニングバー、インド料理、インドカレー)
-                .review-post__buttons
-                  = link_to shop_review_path(review.shop_id, review.id), method: :delete, class: "delete_alert" do
-                    .review-post__buttons--trash.fas.fa-trash-alt
-                  = link_to edit_shop_review_path(review.shop_id, review.id) do
-                    .review-post__buttons--edit.fas.fa-edit
+                - if review.user_id == current_user.id
+                  .review-post__buttons
+                    = link_to shop_review_path(review.shop_id, review.id), method: :delete, class: "delete_alert" do
+                      .review-post__buttons--trash.fas.fa-trash-alt
+                    = link_to edit_shop_review_path(review.shop_id, review.id) do
+                      .review-post__buttons--edit.fas.fa-edit
             .review-post__rst-review
               .review-post__rst-review--score-data
                 .review-score
