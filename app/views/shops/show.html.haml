@@ -81,20 +81,9 @@
           地図
     .shop_main
       .shop_main-left
-        #slider.flexslider
-          %ul.slides
-            %li
-              = image_tag @shop.pic1.url if @shop.pic1.present?
-            %li
-              = image_tag @shop.pic2.url if @shop.pic2.present?
-            %li
-              = image_tag @shop.pic3.url if @shop.pic3.present?
-            %li
-              = image_tag @shop.pic4.url if @shop.pic4.present?
-            %li
-              = image_tag @shop.pic5.url if @shop.pic5.present?
-          .flexslider-controls
-            %ul.thumb
+        -if @shop.pic1? || @shop.pic2? || @shop.pic3? || @shop.pic4? || @shop.pic5?
+          #slider.flexslider
+            %ul.slides
               %li
                 = image_tag @shop.pic1.url if @shop.pic1.present?
               %li
@@ -105,10 +94,21 @@
                 = image_tag @shop.pic4.url if @shop.pic4.present?
               %li
                 = image_tag @shop.pic5.url if @shop.pic5.present?
+            .flexslider-controls
+              %ul.thumb
+                %li
+                  = image_tag @shop.pic1.url if @shop.pic1.present?
+                %li
+                  = image_tag @shop.pic2.url if @shop.pic2.present?
+                %li
+                  = image_tag @shop.pic3.url if @shop.pic3.present?
+                %li
+                  = image_tag @shop.pic4.url if @shop.pic4.present?
+                %li
+                  = image_tag @shop.pic5.url if @shop.pic5.present?
         .shop-mainleft-review-shop-pr-title
           %p
             = @shop.prtext
-          %p
 
         .shop-mainleft-review-shop-pr-text
           %p.js-text-overflow
