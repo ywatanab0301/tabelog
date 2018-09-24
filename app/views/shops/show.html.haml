@@ -81,27 +81,30 @@
           地図
     .shop_main
       .shop_main-left
-        .flexslider
-          #slider.flexslider
-            %ul.slides
+        #slider.flexslider
+          %ul.slides
+            %li
+              = image_tag @shop.pic1.url if @shop.pic1.present?
+            %li
+              = image_tag @shop.pic2.url if @shop.pic2.present?
+            %li
+              = image_tag @shop.pic3.url if @shop.pic3.present?
+            %li
+              = image_tag @shop.pic4.url if @shop.pic4.present?
+            %li
+              = image_tag @shop.pic5.url if @shop.pic5.present?
+          .flexslider-controls
+            %ul.thumb
               %li
-                = image_tag "61450017_624.gif"
+                = image_tag @shop.pic1.url if @shop.pic1.present?
               %li
-                %img{:src => "slide2.jpg"}
+                = image_tag @shop.pic2.url if @shop.pic2.present?
               %li
-                %img{:src => "slide3.jpg"}
+                = image_tag @shop.pic3.url if @shop.pic3.present?
               %li
-                %img{:src => "slide4.jpg"}
-          #carousel.flexslider
-            %ul.slides
+                = image_tag @shop.pic4.url if @shop.pic4.present?
               %li
-                %img{:src => "slide1.jpg"}
-              %li
-                %img{:src => "slide2.jpg"}
-              %li
-                %img{:src => "slide3.jpg"}
-              %li
-                %img{:src => "slide4.jpg"}
+                = image_tag @shop.pic5.url if @shop.pic5.present?
         .shop-mainleft-review-shop-pr-title
           %p
             = @shop.prtext
