@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  root to: "searches#index"
+  root to: "shops#top_page"
   devise_for :users
   resources :users
 
   resources :searches
   resources :shops do
+    get 'top_page', on: :collection
+    get 'search_result', on: :collection
     resources :reviews, only: [:new, :create, :edit, :update, :destroy, :show]
     get 'menu' => 'shops#show_menu'
     get 'reviews' => 'shops#show_reviews'
