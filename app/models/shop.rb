@@ -46,4 +46,18 @@ class Shop < ApplicationRecord
     end
   end
 
+  def self.search(prefecture_id, genre_id)
+    if prefecture_id && genre_id
+      @shop_p = Prefecture.find(prefecture_id).shops.pluck(:id)
+      @shop_g = Genre.find(genre_id).shops.pluck(:id)
+      @shop_f = []
+      @shop_p.each do |id|
+        @shop_f << @shop_g.grep(id)[0] if @shop_g.grep(id) != []
+      end
+      @shops = @shop_f.map { |id| Shop.find(id) }
+    else
+      Shop.all
+    end
+  end
+
 end
