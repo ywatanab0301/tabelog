@@ -75,9 +75,14 @@
       %tbody
         %tr
           %th
-            = f.label :"見出しのサブタイトル"
+            = f.label :"お店のPRタイトル"
           %td
             = f.text_field :prtext
+        %tr
+          %th
+            = f.label :"見出しのサブタイトル"
+          %td
+            = f.text_field :sub_prtext
         %tr
           %th
             = f.label :"店舗・料理写真1"
@@ -103,6 +108,107 @@
             = f.label :"店舗・料理写真5"
           %td
             = f.file_field :pic5
+        %tr
+          %th
+            = f.label :"メニュー名"
+          %td
+            = f.text_field :menu_name_1
+        %tr
+          %th
+            = f.label :"メニューの詳細情報"
+          %td
+            = f.text_field :menu_detail_1
+        %tr
+          %th
+            = f.label :"メニューの現在の価格"
+          %td
+            = f.text_field :menu_price_1
+        %tr
+          %th
+            = f.label :"メニューの写真"
+          %td
+            = f.file_field :menu_image_1
+        %tr
+          %th
+            = f.label :"メニュー名"
+          %td
+            = f.text_field :menu_name_2
+        %tr
+          %th
+            = f.label :"メニューの詳細情報"
+          %td
+            = f.text_field :menu_detail_2
+        %tr
+          %th
+            = f.label :"メニューの現在の価格"
+          %td
+            = f.text_field :menu_price_2
+        %tr
+          %th
+            = f.label :"メニューの写真"
+          %td
+            = f.file_field :menu_image_2
+        %tr
+          %th
+            = f.label :"メニュー名"
+          %td
+            = f.text_field :menu_name_3
+        %tr
+          %th
+            = f.label :"メニューの詳細情報"
+          %td
+            = f.text_field :menu_detail_3
+        %tr
+          %th
+            = f.label :"メニューの現在の価格"
+          %td
+            = f.text_field :menu_price_3
+        %tr
+          %th
+            = f.label :"メニューの写真"
+          %td
+            = f.file_field :menu_image_3
+        %tr
+          %th
+            = f.label :"メニュー名"
+          %td
+            = f.text_field :menu_name_4
+        %tr
+          %th
+            = f.label :"メニューの詳細情報"
+          %td
+            = f.text_field :menu_detail_4
+        %tr
+          %th
+            = f.label :"メニューの現在の価格"
+          %td
+            = f.text_field :menu_price_4
+        %tr
+          %th
+            = f.label :"メニューの写真"
+          %td
+            = f.file_field :menu_image_4
+        %tr
+          %th
+            = f.label :"メニュー名"
+          %td
+            = f.text_field :menu_name_5
+        %tr
+          %th
+            = f.label :"メニューの詳細情報"
+          %td
+            = f.text_field :menu_detail_5
+        %tr
+          %th
+            = f.label :"メニューの現在の価格"
+          %td
+            = f.text_field :menu_price_5
+        %tr
+          %th
+            = f.label :"メニューの写真"
+          %td
+            = f.file_field :menu_image_5
+
 
     .main__rst-form__title 店舗詳細情報
     %table.input
@@ -112,6 +218,11 @@
             = f.label :"ジャンル"
           %td
             = f.collection_select :genre_ids, Genre.all, :id, :name
+        %tr
+          %th
+            = f.label :"予算"
+          %td
+            = f.collection_select :budget_ids, Budget.all, :id, :name
         %tr
           %th
             = f.label :"営業時間"
@@ -124,6 +235,11 @@
           %td
             .input
               = f.text_field :closed_day
+        %tr
+          %th
+            = f.label :"最寄駅"
+          %td
+            = f.text_field :station
 
     .main__rst-form__footer
       .main__rst-form__footer__btn
