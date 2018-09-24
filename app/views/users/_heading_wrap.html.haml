@@ -1,4 +1,3 @@
-= render partial: 'shares/header'
 .mypage-view
   .mypage-heading-wrap
     #mypage-location-wrap
@@ -28,9 +27,9 @@
           #cover-image
             = form_for @user do |f|
               .change-cover-image
-                - if current_user.background_image.nil?
+                -if current_user.background_image.nil?
                   = image_tag "nature-wallpaper-2.jpg", class:'image'
-                - else
+                -else
                   = image_tag @user.background_image.url, class:'image'
                 %label.change-header-cover.fas.fa-camera
                   カバー写真を変更
@@ -68,8 +67,8 @@
     .follow-container
       .follow-contents
         .follow-heading
-          フォロワー
-          = @user.followers.count
+          フォロー中
+          = @user.followings.count
           人
         %ul.follow-grouping
           %li.follow-rvw-newest
@@ -79,39 +78,3 @@
         .js-user-rvwr-contents
           .follow-rvwr-list
             .follow-rvwr-list__box
-              - @user.followers.each do |user|
-                .follow-rvwr-list__item
-                  .follow-rvwr-item
-                    .follow-rvwr-item__header
-                      .follow-rvwr-item__cover.p-rvwr-cover.p-rvwr-cover--s
-                        .rvwr-cover-img
-                          .img-frame
-                            = image_tag user.background_image.url, width:" 300", height: "80", class: "up-image"
-                      .follow-rvwr-item__user-img
-                        .rvwr-user-img__box
-                          = image_tag user.avatar.url, width:"60", height:"60", class: "user-image"
-                      - @reviews.each do |review|
-                        %p.follow-rvwr-item__page-name
-                          = review.title
-                    .follow-rvwr-item__contents
-                      .follow-rvwr-item__contents-head
-                        .follow-rvwr-item__status
-                          %p.follow-rvwr-item__status-text
-                            %span.rvwr-nickname
-                              = user.nickname
-                              = link_to '詳細', user_path(user)
-                            %span.follow-rvwr-item_attr
-                              フォロワー人数:
-                              = user.followers.count
-                        .follow-rvwr-item__follow
-                      %p.follow-rvwr-item__log-count
-                        = @reviews.count
-                        ログ
-                      %p.follow-rvwr-item__count
-                        = @reviews.count
-                        軒のお店に行きました
-                      %p.follow-rvwr-item__lastupdate
-                        %span.rf-today.today-highlight
-                        = user.followers.count
-                        時に更新
-= render partial: 'shares/footer'

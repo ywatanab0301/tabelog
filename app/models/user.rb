@@ -11,15 +11,15 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :like_reviews, through: :likes, source: :review
   has_many :likes, dependent: :destroy
-  has_many :reservations
-  has_many :relationships
+  has_many :reservations, dependent: :destroy
+  has_many :relationships, dependent: :destroy
   # こちらが能動的関係、フォローしているユーザーを取り出す
   has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
   has_many :followings, through: :following_relationships
   # こちらが受動的関係、、フォローしているユーザーを取り出す
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
-  has_many :reservations
+
     def following?(other_user)
       following_relationships.find_by(following_id: other_user.id)
     end
@@ -29,6 +29,7 @@ class User < ApplicationRecord
     end
 
     def unfollow!(other_user)
-      following_relationships.find_by(following_id: other_user.id).destroy
+      following_relationships.find_by(following_id: other_user.id).destroy!
     end
+
 end

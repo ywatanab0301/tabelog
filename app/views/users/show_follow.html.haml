@@ -79,7 +79,6 @@
         .js-user-rvwr-contents
           .follow-rvwr-list
             .follow-rvwr-list__box
-              / ここに三つのユーザを入れる
               - @user.followings.each do |user|
                 .follow-rvwr-list__item
                   .follow-rvwr-item
@@ -103,7 +102,7 @@
                               = link_to '詳細', user_path(user)
                             %span.follow-rvwr-item_attr
                               フォロワー人数:
-                              = user.followings.count
+                              = user.followers.count
                         .follow-rvwr-item__follow
                       %p.follow-rvwr-item__log-count
                         = @reviews.count

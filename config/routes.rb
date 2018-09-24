@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     get 'sort_popular' => 'shops#sort_popular'
   end
 
-  resources :searches
   resources :users do
     member do
      get :following, :followers
