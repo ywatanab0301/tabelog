@@ -1,6 +1,4 @@
 = render partial: 'shares/header'
-/ = render 'follow_form'
-/ = render 'stats'
 
 .mypage-view
   .mypage-heading-wrap
@@ -47,8 +45,8 @@
               = @user.nickname
               のレストランガイド
           / 下記にフォローボタンのビューファイルをrender
-          - if @user.id == current_user.id
           = render 'follow_form'
+          - if @user.id == current_user.id
             .rvwr-page-setting
               = link_to "レビュアーページ設定", edit_user_path
         = form_for @user do |f|

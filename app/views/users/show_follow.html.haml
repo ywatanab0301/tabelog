@@ -6,15 +6,18 @@
         #location
           %ul.location-bar
             %li
-              %span= image_tag 'home_icon.png'
+              %span
+                = image_tag 'home_icon.png'
             %li.link
-              = link_to "食べログ"
+              = link_to "食べログ", root_path
             %li
-              %span= image_tag 'location_arrow.png'
+              %span
+                = image_tag 'location_arrow.png'
             %li.link
               = link_to "食べログレビュアー"
             %li
-              %span= image_tag 'location_arrow.png'
+              %span
+                = image_tag 'location_arrow.png'
             %li.username
               %p
                 = @user.nickname
@@ -45,9 +48,9 @@
 
         =form_for @user do |f|
           .mypage-header__user-avatar
-            -if current_user.avatar?
+            - if current_user.avatar?
               = image_tag @user.avatar.url
-            -else
+            - else
               = image_tag "avatar_nophoto.gif"
             %label.change-header-avatar-image.fas.fa-camera
               変更
@@ -61,7 +64,7 @@
               .mypage-header-contents__info--nickname
                 = @user.nickname
               .mypage-header-contents__info--prof
-                = link_to "➤ プロフィール詳細"
+                = link_to "➤ プロフィール詳細", user_path(@user.id)
     .follow-container
       .follow-contents
         .follow-heading
@@ -78,7 +81,7 @@
             .follow-rvwr-list__box
               / ここに三つのユーザを入れる
               - @user.followings.each do |user|
-                .follow-rvwr-list__item{ href: "#{user_path}"}
+                .follow-rvwr-list__item
                   .follow-rvwr-item
                     .follow-rvwr-item__header
                       .follow-rvwr-item__cover.p-rvwr-cover.p-rvwr-cover--s
@@ -88,38 +91,28 @@
                       .follow-rvwr-item__user-img
                         .rvwr-user-img__box
                           = image_tag user.avatar.url, width:"60", height:"60", class: "user-image"
-                      %p.follow-rvwr-item__page-name
-                        = user.nickname
+                      - @reviews.each do |review|
+                        %p.follow-rvwr-item__page-name
+                          = review.title
                     .follow-rvwr-item__contents
                       .follow-rvwr-item__contents-head
                         .follow-rvwr-item__status
                           %p.follow-rvwr-item__status-text
                             %span.rvwr-nickname
                               = user.nickname
+                              = link_to '詳細', user_path(user)
                             %span.follow-rvwr-item_attr
                               フォロワー人数:
-                              = user.followers.count
+                              = user.followings.count
                         .follow-rvwr-item__follow
-                        - unless current_user?(@user)
-                          #follow_form
-                            - if current_user.following?(@user)
-                              = render 'unfollow'
-                            - else
-                              = render 'follow'
                       %p.follow-rvwr-item__log-count
-                        = user.followings.count
+                        = @reviews.count
                         ログ
                       %p.follow-rvwr-item__count
-                        = user.followers.count
+                        = @reviews.count
                         軒のお店に行きました
                       %p.follow-rvwr-item__lastupdate
                         %span.rf-today.today-highlight
                         = user.followings.count
                         時に更新
-/ - @user.followings.each do |user|
-/   %table
-/     %tr
-/       %td
-/         = user.nickname
-/       %td= link_to '詳細', user_path(user)
 = render partial: 'shares/footer'
