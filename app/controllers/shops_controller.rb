@@ -1,6 +1,8 @@
 class ShopsController < ApplicationController
   before_action :set_shop, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit]
 
+  before_action :set_shop, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit]
+
   def index
     # @shops = Shop.order("created_at DESC").page(params[:page]).per(10)
     if params[:search].present?
@@ -103,6 +105,11 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:shop_id])
     @prefecture = @shop.prefectures
     @genre = @shop.genres
+<<<<<<< HEAD
     @budget = @shop.budgets
   end
+=======
+  end
+
+>>>>>>> master
 end
