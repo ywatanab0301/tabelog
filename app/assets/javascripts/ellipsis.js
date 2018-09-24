@@ -1,7 +1,6 @@
 $(function() {
   $('.js-text-overflow').each(function() {
     var $target = $(this);
-    console.log(this);
     // オリジナルの文章を取得する
     var html = $target.html();
     // 対象の要素を、高さにautoを指定し非表示で複製する
