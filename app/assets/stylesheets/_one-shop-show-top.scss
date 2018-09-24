@@ -355,7 +355,6 @@
             .pickup_review-text__title{
               font-weight: bold;
               font-size: 14px;
-              width: 200px;
               color: $black;
               span.review-title-showpage {
                 border-bottom: 1px dotted black;
@@ -1308,4 +1307,7 @@
       }
     }
   }
+}
+.highlight{
+  background-color:yellow #色は自由にお決めになって。
 }
