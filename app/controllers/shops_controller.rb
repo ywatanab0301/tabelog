@@ -105,11 +105,7 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:shop_id])
     @prefecture = @shop.prefectures
     @genre = @shop.genres
-<<<<<<< HEAD
     @budget = @shop.budgets
   end
-=======
-  end
 
->>>>>>> master
 end
