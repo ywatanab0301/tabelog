@@ -15,7 +15,9 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    @reviews = @shop.reviews.includes(:user).order('visit_day DESC')
+    @prefecture = @shop.prefectures
+    @genre = @shop.genres
+    @reviews = @shop.reviews.includes(:user).order('created_at DESC')
   end
 
   def show_menu
@@ -23,6 +25,16 @@ class ShopsController < ApplicationController
   end
 
   def show_reviews
+    @shop = Shop.find(params[:shop_id])
+    @reviews = @shop.reviews.includes(:user).order('created_at DESC')
+  end
+
+  def sort_popular
+    @shop = Shop.find(params[:shop_id])
+    @reviews = @shop.reviews.includes(:user).order('likes_count DESC')
+  end
+
+  def sort_visit
     @shop = Shop.find(params[:shop_id])
     @reviews = @shop.reviews.includes(:user).order('visit_day DESC')
   end

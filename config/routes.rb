@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create, :edit, :update, :destroy, :show]
     get 'menu' => 'shops#show_menu'
     get 'reviews' => 'shops#show_reviews'
+    get 'sort_visit' => 'shops#sort_visit'
+    get 'sort_popular' => 'shops#sort_popular'
   end
 
   resources :searches
