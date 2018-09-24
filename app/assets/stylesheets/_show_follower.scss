@@ -1,14 +1,14 @@
-.follower-container {
+.follow-container {
   height: 800px;
   margin: 0 auto;
   border-top: 1px solid #595960;
   display: block;
   border-bottom: 1px solid #595960;
-  .follower-contents {
+  .follow-contents {
     margin: 0 auto;
     width: 980px;
     height: 800px;
-    .follower-heading {
+    .follow-heading {
       font-weight: bold;
       font-size: 25px;
       color: black;
@@ -17,22 +17,22 @@
       padding-bottom: 15px;
       border-bottom: 1px solid #e0dccc;
     }
-    .follower-grouping {
+    .follow-grouping {
       border-bottom: 1px solid #e0dccc;
-      .follower-rvw-newest{
+      .follow-rvw-newest{
         padding-top: 10px;
         padding-bottom: 10px;
         padding-right: 10px;
         float: left;
       }
-      .follower-view-sort {
+      .follow-view-sort {
         padding-top: 10px;
         padding-bottom: 10px;
       }
     }
     .js-user-rvwr-contents {
       margin-top: 10px;
-      .follower-rvwr-list {
+      .follow-rvwr-list {
         display: table;
         border-spacing: 15px 5px;
         border-collapse: separate;
@@ -41,19 +41,19 @@
         overflow: visible;
         table-layout: fixed;
         min-height: 21.4rem;
-        .follower-rvwr-list__box {
+        .follow-rvwr-list__box {
           display: table-row;
           height: 100%;
-          .follower-rvwr-list__item {
+          .follow-rvwr-list__item {
             display: table-cell;
             height: 100%;
             vertical-align: top;
             width: 320px;
-            height: 250px;
+            height: 225px;
             float: left;
             padding-bottom: 15px;
             padding-right: 10px;
-            .follower-rvwr-item {
+            .follow-rvwr-item {
               position: relative;
               cursor: pointer;
               border: solid 1px #eeece4;
@@ -61,9 +61,9 @@
               height: 100%;
               box-sizing: border-box;
               background: #fff;
-              .follower-rvwr-item__header {
+              .follow-rvwr-item__header {
                 position: relative;
-                .follower-rvwr-item__cover {
+                .follow-rvwr-item__cover {
                   border-top-left-radius: 5px;
                   border-top-right-radius: 5px;
                   .rvwr-cover-img {
@@ -86,7 +86,7 @@
                     }
                   }
                 }
-                .follower-rvwr-item__user-img {
+                .follow-rvwr-item__user-img {
                   position: absolute;
                   bottom: -10px;
                   left: 12px;
@@ -98,14 +98,66 @@
                     }
                   }
                 }
-              }
-                .follower-rvwr-item__page-name {
+                .follow-rvwr-item__page-name {
                   position: absolute;
                   bottom: 10px;
                   left: 95px;
                   width: 64%;
                   color: #fff;
                   font-weight: bold;
+                }
+              }
+              .follow-rvwr-item__contents {
+                padding: 10px 12px 12px;
+                .follow-rvwr-item__contents-head {
+                  display: table;
+                  border-spacing: 0;
+                  width: 100%;
+                  .follow-rvwr-item__status {
+                    display: table-cell;
+                    vertical-align: middle;
+                    word-break: break-all;
+                    .follow-rvwr-item__status-text {
+                      padding: 0.8em 0 0.5em;
+                      border-bottom: solid 1px #eeece4;
+                      line-height: 1.2;
+                      margin-bottom: 0.8rem;
+                      .rvwr-nickname {
+                        color: #13131e;
+                        font-weight: bold;
+                        line-height: 1.3;
+                      }
+                      .follow-rvwr-item_attr {
+                        color: #949499;
+                        font-size: 1rem;
+                      }
+                    }
+                  }
+                  .follow-rvwr-item__follow {
+                    display: table-cell;
+                    padding-left: 14px;
+                    width: 1%;
+                    text-align: right;
+                    vertical-align: middle;
+                  }
+                }
+                .follow-rvwr-item__log-count {
+
+                }
+                .follow-rvwr-item__lastupdate {
+                  position: absolute;
+                  right: 12px;
+                  bottom: 12px;
+                  color: #e64c30;
+                  .follow-rvwr-item__lastupdate.rf-today {
+                    color: #e64c30;
+                  }
+                  .follow-rvwr-item__lastupdate.today-highlight {
+                    padding: 3px 3px 2px;
+                    background-color: #fcf4ce;
+                    font-size: 1rem;
+                  }
+                }
                 }
               }
             }
