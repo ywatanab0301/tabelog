@@ -41,22 +41,24 @@
   %li.shop_details_lists__access
     交通手段
   %li.shop_details_lists__access-input
-    JR川口駅東口より徒歩1０分
+    = @shop.station
+    近く
 %ul.shop_details_lists
   %li.shop_details_lists__time
     営業時間
   %li.shop_details_lists__time-input
-    24時間
+    = @shop.hours
 %ul.shop_details_lists
   %li.shop_details_lists__closed
     定休日
   %li.shop_details_lists__closed-input
-    毎週日曜日、祝日
+    = @shop.closed_day
 %ul.shop_details_lists
   %li.shop_details_lists__money
     予算
-  %li.shop_details_lists__money-input
-    予算
+  - @budget.each do |budget|
+    %li.shop_details_lists__money-input
+      = budget.name
 %ul.shop_details_lists
   %li.shop_details_lists__paying
     支払い方法

@@ -1,0 +1,1030 @@
+.top-body-wrapper
+  .containe.top-container.top-container--header
+    .top-header-wrap
+      %header.top-headline
+        .top-headline__inner
+          %h1.top-headline__logo
+            %span.top-headline__logo-img
+              全国のグルメ・レストランガイド 食べログ
+          .top-headline__usermenu
+            #welcome.js-welcome-wrapper
+            - if user_signed_in?
+              %ul.user-menu.js-exec-welcome
+                %li.user-menu__item
+                  %a#open-message-notification.user-menu__target.user-menu__target--dropdown{ href: "#"}
+                    %span.user-menu__text
+                      メッセージ
+                    %span#messages.user-menu__badge{ style: "display:none;"} 0
+                  / #message-notification.user-menu__popup.user-menu__popup--notification.js-exec-notification-box
+                  /   .balloon.balloon--top
+                  /     #message-notification-list.notification-list
+                  /     .notification-bottom
+                  /       %a#message-link.c-link-circle{href: "#"}
+                  /         %span
+                  /           %strong> 受信メッセージ一覧
+                  /           を見る
+                %li.user-menu__item
+                  %a#open-information-notification.user-menu__target.user-menu__target--dropdown{ href: "#"}
+                    %span.user-menu__text
+                      お知らせ
+                    %span#informations.user-menu__badge{ style: "display:none;"} 0
+                  / #information-notification.user-menu__popup.user-menu__popup--notification.js-exec-notification-box
+                  /   .balloon.balloon--top
+                  /     .notification-sort
+                  /       %ul.notification-sort__box
+                  /         %li#selector-comment.notification-sort__tab.notification-sort__tab--comment.gly-b-conversation
+                  /           %span.notification-sort__text コメント
+                  /         %li#selector-other.notification-sort__tab.notification-sort__tab--other.gly-b-tabelike.is-selected
+                  /           %span.notification-sort__text いいね！ほか
+                  /     #information-notification-list.notification-list
+                  /     .notification-bottom
+                  /       %a#information-link.icon-b-circle-orange{"data-comment-url" => "#", "data-other-url" => "#", href: "#"}
+                  /         %strong> いいね！ほか
+                  /         の通知をもっと見る
+                %li.user-menu__item
+                  %a.user-menu__target{ href: "#"}
+                    %span.c-badge-tpoint.c-badge-tpoint--s
+                      %i
+                        Tpoint
+                    %em.user-menu__text.user-menu__text--tpoint
+                      150
+                    pt
+                %li.user-menu__item
+                  %a.user-menu__target{ href: "#"}
+                    %span.user-menu__text
+                      予約確認
+                %li.user-menu__item
+                  %a.user-menu__target{ href: "#"}
+                    行った・行きたい
+                %li.user-menu__item
+                  %a.user-menu__target{ href: "/users/#{current_user.id}"}
+                    マイページ
+                %li.user-menu__item.user-menu__item--setting
+                  %a#open-user-setting.user-menu__target.user-menu__target--dropdown.user-menu__target--user-image{href: "#"}
+                    %img{ alt: "", height: "27" ,src: "#{current_user.avatar}", width: "27"}/
+                  / #user-setting.p-user-menu__popup.user-menu__popup--setting.js-exec-user-setting-box
+                  /   .balloon.balloon--top
+                  /     %ul.setting-list
+                  /       %li.setting-list__item
+                  /         %a.setting-list__target{href: "#"} フォロー中一覧
+                  /       %li.setting-list__item
+                  /         %a.setting-list__target{href: "#"} 下書き一覧
+                  /       %li.setting-list__item
+                  /         %a.setting-list__target{href: "#"} 設定
+                  /       %li.setting-list__item.setting-list__item--logout
+                  /         %a.setting-list__target{href: "#"} ログアウト
+
+            - else
+              %ul.user-menu.js-exec-welcome
+                %li.user-menu__item
+                  %a.user-menu__target{ href: "#"}
+                    食べログの特長と便利な使い方
+                %li.user-menu__item
+                  %a.user-menu__target{ href: "/users/sign_up"}
+                    無料会員登録
+                %li.user-menu__item
+                  %a.user-menu__target{ href: "#"}
+                    %span.c-badge-tpoint.c-badge-tpoint--s>
+                      %i
+                        Tpoint
+                        保有Tポイント
+                %li.user-menu__item
+                  %a.user-menu__target{ href: "#"}
+                    予約確認
+                %li.user-menu__item
+                  %a.user-menu__target{ href: "#"}
+                    行った・行きたい
+                %li.user-menu__item
+                  %a.js-open-login-modal.p-user-menu__target{ href: "/users/sign_in"}
+                    ログイン
+
+      .top-header
+        .top-header__visual.js-top-main-visual-image
+          .top-header__overlay
+            .bx-wrapper
+              .bx-viewport
+                %ul#js-top-slide-img.top-header__images
+                  %li.top-header__image.top-header__image--slide01
+                  %li.top-header__image.top-header__image--slide02
+                  %li.top-header__image.top-header__image--slide03
+                  %li.top-header__image.top-header__image--slide04
+                  %li.top-header__image.top-header__image--slide05
+                  %li.top-header__image.top-header__image--slide06
+            .top-header__slide-box
+        #js-top-main-visual.top-header__inner
+          .top-header__lead
+            %p.top-header__main-lead
+              おいしいを見つけよう
+            %p.top-header__sub-lead
+              気のおけない仲間との乾杯も、特別な日のごちそうも。
+              %br>/
+              食べログであなたの思い出をより「おいしく」。
+
+          .top-header__search
+            = form_tag shops_path, method: :get do
+              = text_field_tag :search, params[:search], { placeholder: "検索する"}
+              = submit_tag "検索"
+              / ここからメインコンテンツ
+  .containe.top-container.top-container--maincontents
+    .contents.contents--fixed.topcontents--fixed
+      .content-index-data{"data-type" => "top_announcements"}
+        #top_announcements.top-annoucement
+          .tabelog-info
+            %p.tabelog-info__item
+              %span.tabelog-info__label.tabelog-info__label--news
+                お知らせ
+              %a.tablog_announcement.tabelog-info__title.js-tablog_announcement{ href: "#", target: "tablog_announcement"}
+                全国ラーメンTOP100 「食べログ ラーメン 百名店 2018」を発表しました。
+        .colum2.top-colum
+          .colum2__left.top-colum__left
+            .top-search
+              %section.top-search__colum
+                .top-search__heading
+                  %h2.top-heading1.top-search__title
+                    お店、レストランを探す
+                  .top-search__data-count
+                    .navi-count
+                      123456 店舗  26,666,123 口コミ
+                .top-search__contents
+                  .top-search__contents-title
+                    都道府県から探す
+                  .js-hotarea-icon.top-search__hotarea
+                    %span.top-search__hotarea-link
+                      %span
+                        注目エリア
+                    .top-search__hotarea-list
+                      / ここに非同期で表示する要素を追加
+                  %ul.top-search__mainarea-list
+                    %li.top-search__mainarea-item.top-search__mainarea-item--tokyo
+                      %a{ href: "#"}
+                        %span.top-search__mainarea-text
+                          東京
+                    %li.top-search__mainarea-item.top-search__mainarea-item--osaka
+                      %a{ href: "#"}
+                        %span.top-search__mainarea-text
+                          大阪
+                    %li.top-search__mainarea-item.top-search__mainarea-item--kyoto
+                      %a{ href: "#"}
+                        %span.top-search__mainarea-text
+                          京都
+                    %li.top-search__mainarea-item.top-search__mainarea-item--aichi
+                      %a{ href: "#"}
+                        %span.top-search__mainarea-text
+                          愛知
+                    %li.top-search__mainarea-item.top-search__mainarea-item--fukuoka
+                      %a{ href: "#"}
+                        %span.top-search__mainarea-text
+                          福岡
+                  .top-search__place-all
+                    .top-search__place-column
+                      %dl.top-search__place-set
+                        %dt.top-search__place-title
+                          北海道・東北
+                        %dd.top-search__place-list-box
+                          %ul.top-search__place-list
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                北海道
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                青森
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                秋田
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                山形
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                岩手
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                宮城
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                福島
+                      %dl.top-search__place-set
+                        %dt.top-search__place-title
+                          関東
+                        %dd.top-search__place-list-box
+                          %ul.top-search__place-list
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                東京
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                神奈川
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                埼玉
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                千葉
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                栃木
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                茨城
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                群馬
+                      %dl.top-search__place-set
+                        %dt.top-search__place-title
+                          中部
+                        %dd.top-search__place-list-box
+                          %ul.top-search__place-list
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                愛知
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                岐阜
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                静岡
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                三重
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                新潟
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                山梨
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                長野
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                石川
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                富山
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                福井
+                    .top-search__place-column.top-search__place-column--right
+                      %dl.top-search__place-set
+                        %dt.top-search__place-title
+                          関西
+                        %dd.top-search__place-list-box
+                          %ul.top-search__place-list
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                大阪
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                兵庫
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                京都
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                滋賀
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                奈良
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                和歌山
+                      %dl.top-search__place-set
+                        %dt.top-search__place-title
+                          中国・四国
+                        %dd.top-search__place-list-box
+                          %ul.top-search__place-list
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                岡山
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                広島
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                鳥取
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                島根
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                山口
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                香川
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                徳島
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                愛媛
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                高知
+                      %dl.top-search__place-set
+                        %dt.top-search__place-title
+                          九州・沖縄
+                        %dd.top-search__place-list-box
+                          %ul.top-search__place-list
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                福岡
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                佐賀
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                長崎
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                熊本
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                大分
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                宮崎
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                鹿児島
+                            %li.top-search__place-list-link
+                              %a{ href: "#"}
+                                沖縄
+                  .top-search__morelink
+                    %ul
+                      %li.top-search__morelink-item
+                        %a.c-link-circle{ href:"#"}
+                          %span
+                            海外のお店を探す
+                      %li.top-search__morelink-item
+                        %a.c-link-circle{ href:"#"}
+                          %span
+                            全国のお店を探す
+            %section#js-timeline.top-timeline
+              #timeline-header.top-timeline__heading
+                %h3.top-text.top-text.js-text-title
+                  %span
+                    新着口コミ
+                .top-timeline__actions
+                  / js処理
+              .js-follow-banner
+                %p.js-follow-analysts
+                  / 要js処理
+                  %span.follow-banner-contents
+                    %span.follow-banner-icons
+                      %img{alt: "", height: "42", src: "#", width: "106"}/
+                    %span.follow-banner-title
+                      好みのあう人をフォローすると、その人のオススメのお店から探せます。
+              #js-timeline-contents.timeline-contents
+                .timeline.timeline-body.js-timeline-box.is-visible
+                  .timeline-inner
+                    %p.timeline-date
+                      %span.text-num.timeline__entry-date
+                        2018/9/12
+                    .timeline-post
+                      .timeline__post-data
+                        %span.timeline__post-img
+                          %img{alt: "食べログマガジン", height: "50", src: "https://tblg.k-img.com/images/tabelog_magazine_logo.svg", width: "50"}/
+                        %span.timeline__post-name
+                          食べログマガジン
+                      .timeline__post-item.timeline-matome
+                        .timeline-matome__contents.js-magazine-area{"data-magazine-link-url" => "https://magazine.tabelog.com/articles/50291"}
+                          .timeline-matome__photo
+                            %a.timeline-matome__photo-link{href: "#", target: "_blank"}
+                              %img.timeline-matome__photo-img{alt: "食べログマガジン", height: "140", src: "https://upload.wikimedia.org/wikipedia/ja/thumb/d/df/ZaruSoba2.jpg/300px-ZaruSoba2.jpg", width: "140"}/
+                          .timeline-matome__info
+                            .timeline-matome__text
+                              %p.timeline-matome__title
+                                %a.timeline-matome__title-link{href: "#", target: "_blank"}
+                                  %strong
+                                    〈出世ごはん〉英国貴族のような“余裕”を身につけるなら、創業100年以上の老舗そば屋へ
+                              .timeline-matome__desc
+                                %p
+                                  肩の力が抜けていながら品がある、日本橋の老舗そば屋で、鴨そばを食べながら貴族的ムードの極意を学ぶ。
+                                %p.timeline-matome__desc-target
+                                  %a{href: "#{}", target: "_blank"}
+                                    マガジンを見る
+                .timeline.timeline-body.js-timeline-box.is-visible
+                  .timeline-inner
+                    %p.timeline-date
+                      %span.timeline__visit-date
+                        %span.text-num
+                          2018/09  "訪問"
+                    .timeline-post
+                      .timeline__post-data
+                        %a.timeline__post-target.js-timeline-rvwr-name{href: "/rvwr/008486420/", target: "_blank"}
+                          %span.timeline__post-img
+                            %img{alt: "Naoto", height: "50", src: "#", width: "50"}/
+                          %span.timeline__post-name
+                        .c-balloon.c-balloon--top.timeline__post-balloon.is-hidden
+                          / ここからjs要素を追加
+                          / %p
+                          /   %span.timeline__post-balloon-dtl 275ログ
+                          /   %span 行ったお店 215件
+                          /   %span.timeline__post-balloon-dtl
+                          /     フォロー 3人
+                          /   %strong
+                          /     フォロワー 25人
+                      .timeline__post-item.rvw-item.is-rvw-notitle.js-timeline-content-wrap.js-bookmark.js-done{"data-interested-review-id" => "90145454", "data-rst-id" => "13095101"}
+                        .rvw-item__rst-data
+                          %p.rvw-item__rst-info
+                            %a.rvw-item__rst-name{href: "https://tabelog.com/rvwr/008486420/rvwdtl/B381585265/", target: "_blank"}
+                              蒙古タンメン中本 渋谷店
+                            %span.rvw-item__rst-area-catg
+                              (渋谷、神泉/ラーメン、つけ麺、丼もの（その他）)
+                        .rvw-item__inner.js-clickable-area{"data-detail-url" => "https://tabelog.com/rvwr/008486420/rvwdtl/B381585265/"}
+                          .rvw-item__rvw-info
+                            .rvw-item__score-data
+                              .rvw-item__score
+                                .rvw-item__score-lunch
+                                  %p.c-rating.c-rating--val0.rvw-item__score-total
+                                    %span.c-rating__time.c-rating__time--lunch
+
+          .colum2__right.top-colum__right
+            - if user_signed_in?
+              .js-right-user-info
+                .userdata
+                  .userdata-box
+                    .userdata-box__header
+                      .userdata-box__img.userdata-box__img--nologin
+                        .userdata-box__img
+                          %img{alt: "", height: "40", src: "#{current_user.avatar}", width: "40"}/
+                      .userdata__info
+                        %p.userdata__name
+                          %strong.userdata__rvwr-name
+                            = @user.nickname
+                            さん
+                        %p.userdata__profile
+                    %ul.userdata__data-list
+                      %li.userdata__data-item
+                        .userdata__data-row
+                          %a{href: "/users/#{@user.id}"}
+                            .userdata__data-subject
+                              ログ
+                            .userdata__data-count
+                              = @user.reviews.count
+                      %li.userdata__data-item
+                        .userdata__data-row
+                          %a{href: "#"}
+                            .userdata__data-subject
+                              行ったお店
+                            .userdata__data-count
+                              = @user.reviews.count
+                      %li.userdata__data-item
+                        .userdata__data-row.is-disabled
+                          %a{href: "#"}
+                            .userdata__data-subject
+                              行きたいお店
+                            .userdata__data-count
+                              0
+                      %li.userdata__data-item
+                        .userdata__data-row
+                          %a{href: "#"}
+                            .userdata__data-subject
+                              フォロー中
+                            .userdata__data-count
+                              1
+                      %li.userdata__data-item
+                        .userdata__data-row.is-disabled
+                          %a{href: "#"}
+                            .userdata__data-subject
+                              フォロワー
+                            .userdata__data-count
+                              0
+                      %li.userdata__data-item
+                        .userdata__data-row.is-disabled
+                          %a{href: "#"}
+                            .userdata__data-subject
+                              下書き一覧
+                            .userdata__data-count
+                              0
+                      %li.userdata__data-item
+                        .userdata__data-row
+                          %a{href: "#"}
+                            .userdata__data-subject
+                              公開中口コミ一覧
+                            .userdata__data-count
+                              = @user.reviews.count
+                    .premium-style.premium-box
+                      %p.userdata-text
+                        クレジットカードで初月無料
+                      %a.p-mark.premium-btn{href: "#"}
+                        プレミアムサービスについて
+                .userdata-search
+                  %p.userdata-search__title
+                    レビュアーを探す
+                  %form#FreeWord.js-free-word-user.userdata__user-search-form{"accept-charset" => "UTF-8", action: "#", method: "get", name: "FreeWord"}
+                    %input{name: "utf8", type: "hidden", value: "✓"}/
+                    %input#PG{name: "PG", type: "hidden", value: "1"}/
+                    %input#pcd{name: "pcd", type: "hidden", value: "0"}/
+                    %input#LstPrf{name: "LstPrf", type: "hidden"}/
+                    %input#LstAre{name: "LstAre", type: "hidden"}/
+                    .userdata__user-search-rvwr
+                    %input#sw.c-textfield.c-textfield--full.userdata__user-search-textfield.js-search-reviewer-name{name: "sw", placeholder: "レビュアー名", type: "text", value: ""}/
+                    %input.btn-detail.userdata__user-search-btn{"data-disable-with" => "検索", name: "commit", type: "submit", value: "検索"}/
+                  .userdata-search-link
+                    %a.link-arrow{ href: "#"}
+                      %i.fas.fa-angle-right
+                      %span
+                        全国のレビュアーから探す
+
+            - else
+              .js-right-user-info
+                .userdata
+                  .userdata-box
+                    .userdata-box__header
+                      .userdata-box__img.userdata-box__img--nologin
+                        .userdata-box__img
+                          %img{ width: "40", height: "40", alt: "", src: "https://tblg.k-img.com/images/user2/nophoto/rvwr_nophoto_70x70.gif"}
+                      .userdata-box__status.userdata-box__status--nologin
+                        %p.userdata-box__name.userdata-box__name--nologin
+                          会員未登録
+                    %p.userdata-nologin-notice
+                      ログインすると、「行ったお店」「行きたいお店」を食べログ上で管理できるようになります。
+                    %p.userdata-loginbtn
+                      %a.btn-size.btn-detail.btn-sucess.js-login-window{ href: "users/sign_in"}
+                        ログイン
+                    .premium-style.premium-box
+                      %p.userdata-text
+                        クレジットカードで初月無料
+                      %a.p-mark.premium-btn{href: "#"}
+                        プレミアムサービスについて
+                .userdata-search
+                  %p.userdata-search__title
+                    レビュアーを探す
+                  %form#FreeWord.js-free-word-user.userdata__user-search-form{"accept-charset" => "UTF-8", action: "#", method: "get", name: "FreeWord"}
+                    %input{name: "utf8", type: "hidden", value: "✓"}/
+                    %input#PG{name: "PG", type: "hidden", value: "1"}/
+                    %input#pcd{name: "pcd", type: "hidden", value: "0"}/
+                    %input#LstPrf{name: "LstPrf", type: "hidden"}/
+                    %input#LstAre{name: "LstAre", type: "hidden"}/
+                    .userdata__user-search-rvwr
+                    %input#sw.c-textfield.c-textfield--full.userdata__user-search-textfield.js-search-reviewer-name{name: "sw", placeholder: "レビュアー名", type: "text", value: ""}/
+                    %input.btn-detail.userdata__user-search-btn{"data-disable-with" => "検索", name: "commit", type: "submit", value: "検索"}/
+                  .userdata-search-link
+                    %a.link-arrow{ href: "#"}
+                      %i.fas.fa-angle-right
+                      %span
+                        全国のレビュアーから探す
+              .userdata-start__action
+                %a.btn-size.btn-detail
+                  初めての方へ
+            .feature-wrap
+              .js-right-feature
+                %section.feature-all
+                  %h3.feature-name
+                    特集
+                  .feature-area
+                    #ads-iframe
+                      %iframe#ads-iframe
+                    .feature-banner
+                    .feature-info
+                      %p.add-title
+                        ⭐️3.5以上の居酒屋特集
+                      %p.add-resume
+                        全国のオススメ店ご紹介！
+                    .feature
+        %section.top-condition
+          %h3.top-heading1.top-condition__heading
+            条件・目的からお店を探す
+          %section.top-genre-search
+            %h4.c-heading3.top-heading2
+              料理ジャンルからお店を探す
+            .top-genre-search__list-box
+              %ul.top-genre-search__popular-list
+                %li.top-genre-search__popular-item.top-genre-search__popular-item--yakiniku
+                  %a{ href:"https://epark.jp/uploads/portal_images/shop_photo/00009619_20170324_07_atsu.jpg"}
+                    %span.top-genre-search__popular-item-text
+                      焼肉
+                %li.top-genre-search__popular-item.top-genre-search__popular-item--sushi
+                  %a{ href:"https://epark.jp/uploads/portal_images/shop_photo/00009619_20170324_07_atsu.jpg"}
+                    %span.top-genre-search__popular-item-text
+                      寿司
+                %li.top-genre-search__popular-item.top-genre-search__popular-item--izakaya
+                  %a{ href:"https://epark.jp/uploads/portal_images/shop_photo/00009619_20170324_07_atsu.jpg"}
+                    %span.top-genre-search__popular-item-text
+                      居酒屋
+                %li.top-genre-search__popular-item.top-genre-search__popular-item--italian
+                  %a{ href:"https://epark.jp/uploads/portal_images/shop_photo/00009619_20170324_07_atsu.jpg"}
+                    %span.top-genre-search__popular-item-text
+                      イタリアン
+                %li.top-genre-search__popular-item.top-genre-search__popular-item--ramen
+                  %a{ href:"https://epark.jp/uploads/portal_images/shop_photo/00009619_20170324_07_atsu.jpg"}
+                    %span.top-genre-search__popular-item-text
+                      ラーメン
+                %li.top-genre-search__popular-item.top-genre-search__popular-item--cafe
+                  %a{ href:"https://epark.jp/uploads/portal_images/shop_photo/00009619_20170324_07_atsu.jpg"}
+                    %span.top-genre-search__popular-item-text
+                      カフェ
+              .top-genre-search__other
+                %p.top-genre-search__other-title
+                  その他のジャンル
+                %ul.top-genre-search__other-list
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} 和食
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} 日本料理
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} 魚介・海鮮料理
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} そば（蕎麦）
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} うどん
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} うなぎ
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} 焼き鳥
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} とんかつ
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} 串揚げ
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} 天ぷら
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} お好み焼き
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} もんじゃ焼き
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} しゃぶしゃぶ
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} 沖縄料理
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} 洋食
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} フレンチ
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} スペイン料理
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} パスタ
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} ピザ
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} ステーキ
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} ハンバーグ
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} ハンバーガー
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} 中華料理
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} 餃子
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} 韓国料理
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} タイ料理
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} カレー
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} ホルモン
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} 鍋
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} もつ鍋
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} バイキング
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} パン
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} スイーツ
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} ケーキ
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} バー・お酒
+                  %li.top-genre-search__other-item
+                    %a{ href:"#"} 旅館
+            .top-genre-search__morelink
+              %a.c-link-circle{ href:"#"} もっと詳しいジャンル一覧から探す
+
+          %section.top-lunch-search
+            %h4.c-heading3.top-heading2 ランチのお店を探す
+            %ul.top-lunch-search__list
+              %li.top-lunch-search__item
+                %a{ href:"#"} 全国のランキング
+              %li.top-lunch-search__item
+                %a{ href:"#"} 〜1,000円のランチ
+              %li.top-lunch-search__item
+                %a{ href:"#"} 1,000円〜2,000円のランチ
+              %li.top-lunch-search__item
+                %a{ href:"#"} 2,000円〜のランチ
+
+          %section.top-kodawari-search
+            %h4.c-heading3.top-heading2 こだわり・目的からお店を探す
+            %ul.top-kodawari-search__data-list
+              %li.top-kodawari-search__data-item
+                %dl
+                  %dt.top-kodawari-search__data-subject 利用シーン
+                  %dd.top-kodawari-search__list-box
+                    %ul.top-kodawari-search__list
+                      %li
+                        %a{ href:"#"} 一人で入りやすい
+                      %li
+                        %a{ href:"#"} 接待
+                      %li
+                        %a{ href:"#"} デート
+                      %li
+                        %a{ href:"#"} 家族・子供と
+                      %li
+                        %a{ href:"#"} 大人数の宴会
+                      %li
+                        %a{ href:"#"} 女子会
+                      %li
+                        %a{ href:"#"} 合コン
+                      %li
+                        %a{ href:"#"} 友人・知人と
+              %li.top-kodawari-search__data-item
+                %dl
+                  %dt.top-kodawari-search__data-subject 営業日・時間
+                  %dd.top-kodawari-search__list-box
+                    %ul.top-kodawari-search__list
+                      %li
+                        %a{ href:"#"} 朝食
+                      %li
+                        %a{ href:"#"} ランチ
+                      %li
+                        %a{ href:"#"} 夜10時以降入店可
+                      %li
+                        %a{ href:"#"} 夜12時以降入店可
+                      %li
+                        %a{ href:"#"} 始発まで営業
+                      %li
+                        %a{ href:"#"} 日曜営業あり
+              %li.top-kodawari-search__data-item
+                %dl
+                  %dt.top-kodawari-search__data-subject 空間・設備
+                  %dd.top-kodawari-search__list-box
+                    %ul.top-kodawari-search__list.wide
+                      %li
+                        %a{ href:"#"} 個室
+                      %li
+                        %a{ href:"#"} オシャレな空間
+                      %li
+                        %a{ href:"#"} 駐車場
+                      %li
+                        %a{ href:"#"} 座敷
+                      %li
+                        %a{ href:"#"} 禁煙
+                      %li
+                        %a{ href:"#"} カップルシート
+                      %li
+                        %a{ href:"#"} 喫煙可
+                      %li
+                        %a{ href:"#"} カウンター席
+                      %li
+                        %a{ href:"#"} ソファー席
+                      %li
+                        %a{ href:"#"} 落ち着いた空間
+                      %li
+                        %a{ href:"#"} 掘りごたつ
+                      %li
+                        %a{ href:"#"} オープンテラス
+                      %li
+                        %a{ href:"#"} ライブ・生演奏
+                      %li
+                        %a{ href:"#"} カラオケ
+              %li.top-kodawari-search__data-item
+                %dl
+                  %dt.top-kodawari-search__data-subject ロケーション
+                  %dd.top-kodawari-search__list-box
+                    %ul.top-kodawari-search__list
+                      %li
+                        %a{ href:"#"} 隠れ家レストラン
+                      %li
+                        %a{ href:"#"} 夜景が見える
+                      %li
+                        %a{ href:"#"} 景色がきれい
+                      %li
+                        %a{ href:"#"} 海が見える
+                      %li
+                        %a{ href:"#"} 一軒家レストラン
+                      %li
+                        %a{ href:"#"} ホテルのレストラン
+              %li.top-kodawari-search__data-item
+                %dl
+                  %dt.top-kodawari-search__data-subject 料理・ドリンク
+                  %dd.top-kodawari-search__list-box
+                    %ul.top-kodawari-search__list
+                      %li
+                        %a{ href:"#"} 飲み放題
+                      %li
+                        %a{ href:"#"} 食べ放題
+                      %li
+                        %a{ href:"#"} ワインあり
+                      %li
+                        %a{ href:"#"} 日本酒あり
+                      %li
+                        %a{ href:"#"} カクテルあり
+                      %li
+                        %a{ href:"#"} 焼酎あり
+                      %li
+                        %a{ href:"#"} 野菜料理にこだわる
+                      %li
+                        %a{ href:"#"} 魚料理にこだわる
+                      %li
+                        %a{ href:"#"} 健康・美容メニューあり
+                      %li
+                        %a{ href:"#"} ベジタリアンメニューあり
+              %li.top-kodawari-search__data-item
+                %dl
+                  %dt.top-kodawari-search__data-subject サービス
+                  %dd.top-kodawari-search__list-box
+                    %ul.top-kodawari-search__list
+                      %li
+                        %a{ href:"#"} テイクアウト
+                      %li
+                        %a{ href:"#"} 子供可
+                      %li
+                        %a{ href:"#"} カード可
+                      %li
+                        %a{ href:"#"} ペット可
+                      %li
+                        %a{ href:"#"} クーポン
+                      %li
+                        %a{ href:"#"} 貸切可
+                      %li
+                        %a{ href:"#"} 3時間以上の飲み放題コース
+                      %li
+                        %a{ href:"#"} 予約可
+                      %li
+                        %a{ href:"#"} ネット予約可
+                      %li
+                        %a{ href:"#"} ドリンク持ち込み可
+                      %li
+                        %a{ href:"#"} お祝い・サプライズ可
+          .top-kodawari-search__bottom-link
+            %ul.top-kodawari-search__bottom-list
+              %li.top-kodawari-search__link
+                %a{ href:"#"} グルメ情報まとめ
+              %li.top-kodawari-search__link
+                %a{ href:"#"} 飲食チェーン・ブランド
+              %li.top-kodawari-search__link
+                %a{ href:"#"} 全国のニューオープン・レストラン
+        %section.top-genre-rank
+          .top-genre-rank__head-box
+            %h3.top-heading1.top-genre-rank__heading 全国ジャンル別ランキング
+            %p.top-genre-rank__update-day 2018年9月14日更新
+          %section.top-genre-rank__ranking-box
+            .top-genre-rank__ranking-wrap
+              %h4.top-genre-rank__sub-heading 全国ハンバーガーランキング
+              %ol.top-genre-rank__ranking-list
+                %li.top-genre-rank__ranking-list-item
+                  %a{ href: "#"}
+                    %span.top-genre-rank__crown.rating-crown.crown-no1
+                      %span.rating-crown__inner
+                        %i.rating-crown__gly
+                        %span.rating-crown__rank 1
+                    %img{alt: "ミート矢澤 - 料理写真:デミグラスチーズハンバーグL size 目玉焼きトッピング", height: "210", src: "https://tblg.k-img.com/restaurant/images/Rvw/72731/200x200_square_72731367.jpg", width: "209"}/
+                    .top-genre-rank__info
+                      .top-genre-rank__name ミート矢澤 (1451)
+                      .top-genre-rank__area-genre 東京都/ハンバーグ
+                      .top-genre-rank__rating
+                        .c-rating.c-rating--val40
+                          %i.c-rating__star.top-genre-rank__rating-star
+                          %strong.c-rating__val.c-rating__val--strong.top-genre-rank__rating-score 4.12
+                %li.top-genre-rank__ranking-list-item
+                  %a{ href: "#"}
+                    %span.top-genre-rank__crown.rating-crown.crown-no2
+                      %span.rating-crown__inner
+                        %i.rating-crown__gly
+                        %span.rating-crown__rank 2
+                    %img{alt: "ハンバーグ ウィル - 料理写真:●デミグラスソース 仔牛の骨と筋と野菜をじっくり煮込んだソースです。", height: "210", src: "https://tblg.k-img.com/restaurant/images/Rvw/3680/200x200_square_3680362.jpg", width: "209"}/
+                    .top-genre-rank__info
+                      .top-genre-rank__name ハンバーグ ウィル (455)
+                      .top-genre-rank__area-genre 東京都/ハンバーグ
+                      .top-genre-rank__rating
+                        .c-rating.c-rating--val40
+                          %i.c-rating__star.top-genre-rank__rating-star
+                          %strong.c-rating__val.c-rating__val--strong.top-genre-rank__rating-score 4.12
+                %li.top-genre-rank__ranking-list-item
+                  %a{ href: "#"}
+                    %span.top-genre-rank__crown.rating-crown.crown-no3
+                      %span.rating-crown__inner
+                        %i.rating-crown__gly
+                        %span.rating-crown__rank 3
+                    %img{alt: "グリル アラベル - 料理写真:黒毛和牛ハンバーグ・テンゴ（２１０ｇ）", height: "210", src: "https://tblg.k-img.com/restaurant/images/Rvw/35891/200x200_square_35891119.jpg", width: "209"}/
+                    .top-genre-rank__info
+                      .top-genre-rank__name グリル アラベル 名古屋分店 (117)
+                      .top-genre-rank__area-genre 愛知県/ハンバーグ
+                      .top-genre-rank__rating
+                        .c-rating.c-rating--val40
+                          %i.c-rating__star.top-genre-rank__rating-star
+                          %strong.c-rating__val.c-rating__val--strong.top-genre-rank__rating-score 4.12
+                %li.top-genre-rank__ranking-list-item
+                  %a{ href: "#"}
+                    %span.top-genre-rank__crown.rating-crown.crown-no4
+                      %span.rating-crown__inner
+                        %i.rating-crown__gly
+                        %span.rating-crown__rank 4
+                    %img{alt: "グリルK - 料理写真:炭火焼ハンバーグクイーン（260g）", height: "209", src: "https://tblg.k-img.com/restaurant/images/Rvw/72012/200x200_square_72012074.jpg", width: "210"}/
+                    .top-genre-rank__info
+                      .top-genre-rank__name グリルK (255)
+                      .top-genre-rank__area-genre 東京都/ハンバーグ
+                      .top-genre-rank__rating
+                        .c-rating.c-rating--val40
+                          %i.c-rating__star.top-genre-rank__rating-star
+                          %strong.c-rating__val.c-rating__val--strong.top-genre-rank__rating-score 4.12
+                %li.top-genre-rank__ranking-list-item
+                  %a{ href: "#"}
+                    %span.top-genre-rank__crown.rating-crown.crown-no5
+                      %span.rating-crown__inner
+                        %i.rating-crown__gly
+                        %span.rating-crown__rank 5
+                    %img{alt: "キッチン たか - 料理写真:バーグカレー", height: "209", src: "https://tblg.k-img.com/restaurant/images/Rvw/10113/200x200_square_10113688.jpg", width: "195"}/
+                    .top-genre-rank__info
+                      .top-genre-rank__name キッチン たか (181)
+                      .top-genre-rank__area-genre 東京都/ハンバーグ
+                      .top-genre-rank__rating
+                        .c-rating.c-rating--val40
+                          %i.c-rating__star.top-genre-rank__rating-star
+                          %strong.c-rating__val.c-rating__val--strong.top-genre-rank__rating-score 4.12
+            .top-genre-rank__morelink
+              %a{ href:"#"}
+                .c-link-circle.top-genre-rank__morelink-text
+                  %span 全国ハンバーグランキング TOP20をもっと見る
+          %ul.top-genre-rank__genre-list
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} 和食
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} 日本料理
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} 寿司
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} 魚介・海鮮料理
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} そば（蕎麦）
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} うどん
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} うなぎ
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} 焼き鳥
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} とんかつ
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} 串揚げ
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} 天ぷら
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} お好み焼き
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} もんじゃ焼き
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} しゃぶしゃぶ
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} 沖縄料理
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} 洋食
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} フレンチ
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} イタリアン
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} スペイン料理
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} パスタ
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} ピザ
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} ステーキ
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} ハンバーグ
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} ハンバーガー
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} 中華料理
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} 餃子
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} 韓国料理
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} タイ料理
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} ラーメン
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} カレー
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} 焼肉
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} ホルモン
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} 鍋
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} もつ鍋
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} 居酒屋
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} バイキング
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} カフェ
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} パン屋
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} スイーツ
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} ケーキ
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} バー・お酒
+            %li.top-genre-rank__genre-item
+              %a{ href: "#"} 旅館
+          .top-genre-rank__more-link
+            %a.c-link-circle{ href: "#"}
+              %span 全国 グルメランキング TOP20（総合ランキングTOP20）を見る
+= render partial: 'shares/footer'

@@ -38,15 +38,21 @@
           .shop_views-namespace__aword
         .shop_views-detailspace
           .shop_views-detailspace__station
-            最寄り駅: 六本木一丁目
-          .shop_views-detailspace__genre
-            ジャンル: 割烹・小料理
-          .shop_views-detailspace__average
-            予算🌃¥30,000~ 🌅¥30,000~
-            %span.shop_views-detailspace__schedule
-              定休日: 日曜・祝日
-            %span.shop_views-detailspace__moredetail
-              店舗詳細(詳細)
+            最寄り駅:
+            = @shop.station
+          - @genre.each do |genre|
+            .shop_views-detailspace__genre
+              ジャンル :
+              = genre.name
+          - @budget.each do |budget|
+            .shop_views-detailspace__average
+              予算
+              = budget.name
+              %span.shop_views-detailspace__schedule
+                定休日 :
+                = @shop.closed_day
+              %span.shop_views-detailspace__moredetail
+                店舗詳細(詳細)
       .shop_subheader-right
         .shop_views-buttons
           .button.shop-views
@@ -104,14 +110,14 @@
           %ul.shop_main-left-change-review-sort-list-ul
             %li.shop_main-left-change-review-sort-list__all
               %i.fas.fa-comments
-              すべての口コミ
+                すべての口コミ
             %li.shop_main-left-change-review-sort-list__dinner
               %i.fas.fa-moon
-              夜の口コミ
+                夜の口コミ
             %li.shop_main-left-change-review-sort-list__lunch
               .shop_main-left-change-review-sort-list__lunch--inner
                 %i.fas.fa-sun
-                昼の口コミ
+                  昼の口コミ
         .shop_main-left-review-order-change
           %ul.shop_main-left-review-order-change-list-ul
             %li.shop_main-left-review-order-change-list1
@@ -157,7 +163,7 @@
               .fas.fa-list-ul
               = link_to "簡易リスト"
 
-        -@reviews.each do |review|
+        - @reviews.each do |review|
           .shops-reviews-wrap
             .shops-review-post
               .shop-review-post__user-info
@@ -248,8 +254,9 @@
                   .shop-review-used-price
                     %p
                       使った金額（1人）：
-                    .shop-price-range
-                      🌃 ~￥999
+                    - review.budgets.each do |budget|
+                      .shop-price-range
+                        = budget.name
               .shop-review-post-contents
                 .shop-review-one-time
                   %p.shops-shop-review-visited-month
@@ -290,8 +297,9 @@
                         .shop-review-used-price
                           %p
                             使った金額（1人）：
-                          .shop-price-range
-                            🌃 ~￥999
+                          - review.budgets.each do |budget|
+                            .shop-price-range
+                              = budget.name
                   .shop-review-count
                     1回目
                 .shop-review-post__rst-review--content
