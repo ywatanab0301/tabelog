@@ -41,9 +41,10 @@
               = @user.nickname
               のレストランガイド
           / 下記にフォローボタンのビューファイルをrender
-          = render 'follow_form'
-          .rvwr-page-setting
-            = link_to "レビュアーページ設定", edit_user_path
+          = render 'users/follow_form'
+          - if @user.id == current_user.id
+            .rvwr-page-setting
+              = link_to "レビュアーページ設定", edit_user_path
 
         =form_for @user do |f|
           .mypage-header__user-avatar

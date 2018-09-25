@@ -108,12 +108,12 @@
               .rvwr-navi__menu
                 まとめ
             %li.mypage-header-navi__follow
-              %a.rvwr_navi__count{href: "#{following_user_path(@user)}"}
+              %a.rvwr_navi__count{href: "#{following_path(@user)}"}
                 = @user.followings.count
                 .rvwr-navi__menu
                   フォロー中
             %li.mypage-header-navi__follower
-              %a.rvwr_navi__count{ href: "#{followers_user_path(@user)}"}
+              %a.rvwr_navi__count{ href: "#{follower_path(@user)}"}
                 = @user.followers.count
                 .rvwr-navi__menu
                   フォロワー
