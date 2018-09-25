@@ -237,6 +237,8 @@
         //   }
         // }
         .shop-mainleft-review-shop-pr-title {
+          margin-top: 20px;
+          padding: 5px;
           p {
             font-size: 20px;
             font-weight: bold;
@@ -245,6 +247,7 @@
         }
         .shop-mainleft-review-shop-pr-text {
           margin-top: 10px;
+          padding: 0 5px 5px 5px;
           border-bottom: 1px solid $newshop_line;
           p {
             font-size: 13px;
@@ -355,7 +358,7 @@
             .pickup_review-text__title{
               font-weight: bold;
               font-size: 14px;
-              width: 200px;
+              width: 560px;
               color: $black;
               span.review-title-showpage {
                 border-bottom: 1px dotted black;
