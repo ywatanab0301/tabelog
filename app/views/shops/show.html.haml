@@ -49,10 +49,12 @@
           .button.shop-views
             .shop-views__gonebtn
               %a.gonebtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: #595960;"}
+                %i.fas.fa-heart
                 %span
                   行った
             .shop-views__wannabtn
               %a.wannabtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: #595960;"}
+                %i.fas.fa-thumbtack
                 %span
                   行きたい
             .shop-views__post-btn
@@ -79,20 +81,34 @@
           地図
     .shop_main
       .shop_main-left
-        .flexslider
-          %ul.slides
-            %li
-              %img{:src => "image1.jpg"}/
-            %li
-              %img{:src => "image1.jpg"}/
-            %li
-              = image_tag "avatar_nophoto.gif"
-            %li
-              = image_tag "avatar_nophoto.gif"
+        -if @shop.pic1? || @shop.pic2? || @shop.pic3? || @shop.pic4? || @shop.pic5?
+          #slider.flexslider
+            %ul.slides
+              %li
+                = image_tag @shop.pic1.url if @shop.pic1.present?
+              %li
+                = image_tag @shop.pic2.url if @shop.pic2.present?
+              %li
+                = image_tag @shop.pic3.url if @shop.pic3.present?
+              %li
+                = image_tag @shop.pic4.url if @shop.pic4.present?
+              %li
+                = image_tag @shop.pic5.url if @shop.pic5.present?
+            .flexslider-controls
+              %ul.thumb
+                %li
+                  = image_tag @shop.pic1.url if @shop.pic1.present?
+                %li
+                  = image_tag @shop.pic2.url if @shop.pic2.present?
+                %li
+                  = image_tag @shop.pic3.url if @shop.pic3.present?
+                %li
+                  = image_tag @shop.pic4.url if @shop.pic4.present?
+                %li
+                  = image_tag @shop.pic5.url if @shop.pic5.present?
         .shop-mainleft-review-shop-pr-title
           %p
             = @shop.prtext
-          %p
 
         .shop-mainleft-review-shop-pr-text
           %p.js-text-overflow
