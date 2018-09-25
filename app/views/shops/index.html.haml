@@ -16,27 +16,27 @@
 .content
   .content__side
     .content__side__top
-    = form_tag( shops_path, method: :get) do
-      .content__side__top__area
-        .content__side__top__area__header エリアから探す
-        .content__side__top__area__main 全国
-        .content__side__top__area__box
-          %p.title 都道府県から探す
-          - Prefecture.all.each do |option|
-            = radio_button_tag :prefecture_id, option.id, option.id.to_s == @prefecture_id
-            = label_tag "prefecture_id_#{option.id}", option.name
-        .content__side__top__area__footer
-          %a.target{href: "#"} このエリアを地図で見る
-      .content__side__top__genre
-        .content__side__top__genre__header ジャンルから探す
-        .content__side__top__genre__main すべて
-        .content__side__top__genre__box
-          %p.title ジャンルから探す
-          - Genre.all.each do |option|
-            = radio_button_tag :genre_id, option.id, option.id.to_s == @genre_id
-            = label_tag "genre_id_#{option.id}", option.name
+      = form_tag( shops_path, method: :get) do
+        .content__side__top__area
+          .content__side__top__area__header エリアから探す
+          .content__side__top__area__main 全国
+          .content__side__top__area__box
+            %p.title 都道府県から探す
+            - Prefecture.all.each do |option|
+              = radio_button_tag :prefecture_id, option.id, option.id.to_s == @prefecture_id
+              = label_tag "prefecture_id_#{option.id}", option.name
+          .content__side__top__area__footer
+            %a.target{href: "#"} このエリアを地図で見る
+        .content__side__top__genre
+          .content__side__top__genre__header ジャンルから探す
+          .content__side__top__genre__main すべて
+          .content__side__top__genre__box
+            %p.title ジャンルから探す
+            - Genre.all.each do |option|
+              = radio_button_tag :genre_id, option.id, option.id.to_s == @genre_id
+              = label_tag "genre_id_#{option.id}", option.name
 
-      %button.btn-search{title: "検索する", type: "submit"} 検索する
+        %button.btn-search{title: "検索する", type: "submit"} 検索する
 
 
   .content__main
