@@ -22,7 +22,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def following
+    @users = @user.followings
+    @reviews = @user.reviews
+    render 'show_follow'
+  end
+
+  def followers
+    @users = @user.followers
+    @reviews = @user.reviews
+    render 'show_follower'
+  end
+
   private
+
   def user_params
     params.require(:user).permit(:nickname, :avatar, :background_image)
   end
