@@ -17,8 +17,8 @@ Rails.application.routes.draw do
      get :following, :followers
     end
   end
-
   resources :relationships, only: [:create, :destroy]
+
   post   '/like/:review_id' => 'likes#like',   as: 'like'
   delete '/like/:review_id' => 'likes#unlike', as: 'unlike'
 

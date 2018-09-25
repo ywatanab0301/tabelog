@@ -64,17 +64,3 @@
                 = @user.nickname
               .mypage-header-contents__info--prof
                 = link_to "➤ プロフィール詳細", user_path(@user.id)
-    .follow-container
-      .follow-contents
-        .follow-heading
-          フォロー中
-          = @user.followings.count
-          人
-        %ul.follow-grouping
-          %li.follow-rvw-newest
-            = link_to "口コミ最新更新日"
-          %li.follow-view-sort
-            = link_to "登録日"
-        .js-user-rvwr-contents
-          .follow-rvwr-list
-            .follow-rvwr-list__box
