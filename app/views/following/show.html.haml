@@ -1,5 +1,5 @@
 = render partial: 'shares/header'
-= render partial: 'heading_wrap'
+= render partial: 'users/heading_wrap'
 .follow-container
   .follow-contents
     .follow-heading
@@ -14,7 +14,7 @@
     .js-user-rvwr-contents
       .follow-rvwr-list
         .follow-rvwr-list__box
-          - @user.followers.each do |user|
+          - @user.followings.each do |user|
             .follow-rvwr-list__item
               .follow-rvwr-item
                 .follow-rvwr-item__header
@@ -47,6 +47,6 @@
                     軒のお店に行きました
                   %p.follow-rvwr-item__lastupdate
                     %span.rf-today.today-highlight
-                    = user.followers.count
+                    = user.followings.count
                     時に更新
 = render partial: 'shares/footer'

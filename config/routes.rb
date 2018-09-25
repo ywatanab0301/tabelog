@@ -12,11 +12,8 @@ Rails.application.routes.draw do
     get 'sort_popular' => 'shops#sort_popular'
   end
 
-  resources :users do
-    member do
-     get :following, :followers
-    end
-  end
+  resources :following, only: [:show]
+  resources :followers, only: [:show]
   resources :relationships, only: [:create, :destroy]
 
   post   '/like/:review_id' => 'likes#like',   as: 'like'
