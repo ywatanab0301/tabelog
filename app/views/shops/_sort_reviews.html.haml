@@ -85,9 +85,10 @@
         .review-search-box
           .review-search-label
             口コミ検索
-          %input.review-search-box-input{:placeholder => "キーワード"}
-          %button.review-search-box-submit-btn
-            検索
+          .review-search-box-input
+          = form_tag "/shops/#{@shop.id}/reviews", method: :get, id: "search", remote: true do
+            = text_field_tag :search, params[:search], class: "form"
+            = submit_tag "検索", :name => nil, id: "search_btn", disabled: false
         .shop_main-left-change-review-list
           .shop_main-left-change-review-list-inner
             .shop_main-left-change-review-list-text
