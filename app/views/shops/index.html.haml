@@ -1,4 +1,5 @@
 = render partial: 'shares/header'
+
 .location
   .location__left
     %ul
@@ -54,22 +55,21 @@
 
     .content__main__shop
       - @shops.each do |shop|
-        .content__main__shop__each
-          .content__main__shop__each__header
-            .content__main__shop__each__header__inner
-              %a.rst_name{href: "#"}
-                = shop.shop_name
-
-            .contant__main__shop__each__header__btn
-              %button.btn.btn-outline-secondary{type: "button"}
-                .fa.fa-heart  行った
-              %button.btn.btn-outline-secondary{type: "button"}
-                .fa.fa-map-pin  行きたい
+      .content__main__shop__each
+        .content__main__shop__each__header
+          .content__main__shop__each__header__inner
+            %a.rst_name{href: "#"}
+            = shop.shop_name
+          .content__main__shop__each__header__buttons
+            %button.shops_index_gone{type: "button"}
+            .fa.fa-heart
+              = link_to "行った", new_shop_review_path(shop.id), method: :get
+            %button.shops_index_wannago{type: "button"}
+            .fa.fa-map-pin
+              = link_to "行きたい", new_shop_review_path(shop.id), method: :get
 
           .content__main__shop__each__body
-
             .content__main__shop__each__body__left 投稿された写真が表示されるよ　ふぁいと٩(๑❛ᴗ❛๑)۶
-
             %ul.btn
               %button.btn.btn-outline-secondary{type: "button"}
                 .fa.fa-heart
@@ -78,7 +78,6 @@
                 .fa.fa-map-pin  行きたい
 
           .content__main__shop__each__body
-
             .content__main__shop__each__body__left
               .content__main__shop__each__body__left__frame
                 = image_tag shop.pic1.url, class: "photo1" if shop.pic1.present?
@@ -107,7 +106,6 @@
                 %a.review{href: "#"}
                   = shop.reviews.count
               .content__main__shop__each__body__right__review
-
                 %a.title{href: "#"}
                   = shop.show_last_review_title
                 %span.name by.
@@ -117,4 +115,5 @@
                   = shop.show_last_review
     .content__main__page
       = paginate @shops
+
 = render partial: 'shares/footer'
