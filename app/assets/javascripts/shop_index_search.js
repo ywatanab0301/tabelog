@@ -29,6 +29,26 @@ $(function() {
   });
 });
 
+$(function(){
+  $("li.nav-item.rank").on('click', function(){
+    $('.content__main__shop').html(
+      $('.content__main__shop__each').sort(function(a, b){
+        return $(b).find(".content__main__shop__each__body__right__rate span.num").html() - $(a).find(".content__main__shop__each__body__right__rate span.num").html();
+      })
+    );
+  });
+});
+
+$(function(){
+  $("li.nav-item.review").on('click', function(){
+    $('.content__main__shop').html(
+      $('.content__main__shop__each').sort(function(a, b){
+        return $(b).find(".content__main__shop__each__body__right__rate  a.review").html() - $(a).find(".content__main__shop__each__body__right__rate  a.review").html();
+      })
+    );
+  });
+});
+
 $(function() {
   $("li.nav-item.review").on('mouseover', function(){
     $('li.nav-item.review').css('borderTopColor', '#88bd2a');
