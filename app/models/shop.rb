@@ -55,6 +55,10 @@ class Shop < ApplicationRecord
         @shop_f << @shop_g.grep(id)[0] if @shop_g.grep(id) != []
       end
       @shops = @shop_f.map { |id| Shop.find(id) }
+    elsif prefecture_id
+      @shops = Prefecture.find(prefecture_id).shops
+    elsif genre_id
+      @shops = Genre.find(genre_id).shops
     else
       Shop.all
     end
