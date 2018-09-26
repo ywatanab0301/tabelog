@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users do
     get 'show_all' => 'users#show_all'
     get 'show_gone' => 'users#show_gone'
+    get 'show_wannago' => 'users#show_wannago'
   end
 
   resources :searches

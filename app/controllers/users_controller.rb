@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, except: [:show_all, :show_gone]
+  before_action :set_user, except: [:show_all, :show_gone, :show_wannago]
 
   def index
   end
@@ -16,6 +16,10 @@ class UsersController < ApplicationController
   end
 
   def show_gone
+    @user = User.find(params[:user_id])
+  end
+
+  def show_wannago
     @user = User.find(params[:user_id])
   end
 

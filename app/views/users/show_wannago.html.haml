@@ -26,7 +26,7 @@
                 = image_tag 'location_arrow.png'
             %li.gone-wannago-all
               %p
-                行った(口コミ)一覧
+                行きたい一覧
 
     .user-mypage-header-wrap
       .user-mypage-header
@@ -113,22 +113,22 @@
         %i.fas.fa-search
         %p
           検索条件が指定されていません。
-      .shop_main-left-change-review-sort-list-gone
-        %ul.shop_main-left-change-review-sort-list-gone-ul
-          %li.shop_main-left-change-review-sort-list-gone__all
-            %a.shop_main-left-change-review-sort-list-gone__all--inner{ href: "/users/#{@user.id}/show_all", style: "color: #595960;"}
+      .shop_main-left-change-review-sort-list-wannago
+        %ul.shop_main-left-change-review-sort-list-wannago-ul
+          %li.shop_main-left-change-review-sort-list-wannago__all
+            %a.shop_main-left-change-review-sort-list-wannago__all--inner{ href: "/users/#{@user.id}/show_all", style: "color: #595960;"}
               %i.far.fa-check-circle
               %span
                 すべて
-          %li.shop_main-left-change-review-sort-list-gone__gone
-            %i.fas.fa-heart
-            行った（口コミ）
-          %li.shop_main-left-change-review-sort-list-gone__wannago
-            %a.shop_main-left-change-review-sort-list-gone__wannago--inner{ href: "/users/#{@user.id}/show_wannago", style: "color: #595960;"}
-              %i.fas.fa-thumbtack
+          %li.shop_main-left-change-review-sort-list-wannago__gone
+            %a.shop_main-left-change-review-sort-list-wannago__gone--inner{ href: "/users/#{@user.id}/show_gone", style: "color: #595960;"}
+              %i.fas.fa-heart
                 %span
-                  行きたい
-      .shop_main-left-review-order-change-gone
+                  行った（口コミ）
+          %li.shop_main-left-change-review-sort-list-wannago__wannago
+            %i.fas.fa-thumbtack
+            行きたい
+      .shop_main-left-review-order-change-wannago
         %ul.shop_main-left-review-order-change-list-ul
           %li.shop_main-left-review-order-change-list1
             %i.fas.fa-sort
@@ -138,10 +138,6 @@
             = link_to "行ったの点数／期待度"
           %li.shop_main-left-review-order-change-list3
             = link_to "ランキング"
-          %li.shop_main-left-review-order-change-list4
-            = link_to "訪問日"
-          %li.shop_main-left-review-order-change-list5
-            = link_to "行った回数"
       .shop-main-left-shop-review-sorting
         %p.review-counting
           1～
