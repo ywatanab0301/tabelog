@@ -1,69 +1,47 @@
-.fa.fa-heart {
-  font-weight: bold;
-  font-size: 92%;
-  background-color: #c4c4c4;
-  color: $white;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.2) inset;
-  text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
-  vertical-align: middle;
-  line-height: 2em;
-  border-radius: 3px 3px;
-  width: 12.3em;
-  height: 2em;
-  text-align: center;
-  border: none;
-}
-.far.fa-heart {
-  font-weight: bold;
-  font-size: 92%;
-  background-color: #ff9600;
-  color: $white;
-  box-shadow: 0 1px 1px rgba(0,0,0,0.2) inset;
-  text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
-  vertical-align: middle;
-  line-height: 2em;
-  border-radius: 3px 3px;
-  width: 7.3em;
-  height: 2em;
-  text-align: center;
-  border: none;
-  position: relative;
-}
-.like_counter{
-  display: inline-block;
-  bottom: 22px;
-  left: 120px;
-  font-size: 14px;
-}
-.afterlike_counter{
-  display: inline-block;
-  bottom: 22px;
-  left: 172px;
-  font-size: 14px;
-}
-// .like_counter {
-//   position: relative;
-//   display: inline-block;
-//   margin: 1.5em 0;
-//   padding: 3px 10px;
-//   min-width: 20px;
-//   max-width: 100%;
-//   color: #ffffff;
-//   font-size: 7px;
-//   background: #e64c30;
-//   text-align: center;
-//   font-weight: bold;
-//   border-radius: 5px;
-//   left: 90px;
-//   bottom: 65px;
-// }
-
-// .like_counter:before {
-//   content: "";
-//   position: absolute;
-//   top: 100%;
-//   left: 50%;
-//   margin-left: -5px;
-//   border: 5px solid transparent;
-//   border-top: 5px solid #e64c30;
-// }
+  .like-link{
+    .likeing{
+      .fa.fa-heart {
+        font-weight: bold;
+        font-size: 92%;
+        background-color: #c4c4c4;
+        color: $white;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.2) inset;
+        text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+        vertical-align: middle;
+        line-height: 2em;
+        border-radius: 3px 3px;
+        width: 12.3em;
+        height: 2em;
+        text-align: center;
+        border: none;
+      }
+      .far.fa-heart {
+        font-weight: bold;
+        font-size: 92%;
+        background-color: #ff9600;
+        color: $white;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.2) inset;
+        text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+        vertical-align: middle;
+        line-height: 2em;
+        border-radius: 3px 3px;
+        width: 7.3em;
+        height: 2em;
+        text-align: center;
+        border: none;
+        position: relative;
+      }
+      .like_counter{
+        display: inline-block;
+        bottom: 22px;
+        left: 120px;
+        font-size: 14px;
+      }
+      .afterlike_counter{
+        display: inline-block;
+        bottom: 22px;
+        left: 172px;
+        font-size: 14px;
+      }
+    }
+  }
