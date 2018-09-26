@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users do
     get 'show_all' => 'users#show_all'
+    get 'show_gone' => 'users#show_gone'
   end
 
   resources :searches

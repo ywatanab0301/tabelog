@@ -88,25 +88,25 @@
         .mypage-header-navi
           %ul.mypage-header-navi__list
             %li.mypage-header-navi__log
-              .rvwr_navi__count
+              %a.rvwr_navi__count{ href: "/users/#{@user.id}"}
                 = @reviews.length
-              .rvwr-navi__menu
-                ログ
+                .rvwr-navi__menu
+                  ログ
             %li.mypage-header-navi__rvw
-              .rvwr_navi__count
+              %a.rvwr_navi__count{ href: "/users/#{@user.id}/show_gone"}
                 = @reviews.uniq.length
-              .rvwr-navi__menu
-                行ったお店
+                .rvwr-navi__menu
+                  行ったお店
             %li.mypage-header-navi__interest
-              .rvwr_navi__count
+              %a.rvwr_navi__count{ href: "/users/#{@user.id}/show_wannago"}
                 0
-              .rvwr-navi__menu
-                行きたいお店
+                .rvwr-navi__menu
+                  行きたいお店
             %li.mypage-header-navi__matome
-              .rvwr_navi__count
+              %a.rvwr_navi__count{ href: "#"}
                 0
-              .rvwr-navi__menu
-                まとめ
+                .rvwr-navi__menu
+                  まとめ
             %li.mypage-header-navi__follow
               %a.rvwr_navi__count{href: "#{following_path(@user)}"}
                 = @user.followings.count

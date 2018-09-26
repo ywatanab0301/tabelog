@@ -26,7 +26,7 @@
                 = image_tag 'location_arrow.png'
             %li.gone-wannago-all
               %p
-                行った・行きたい一覧
+                行った(口コミ)一覧
 
     .user-mypage-header-wrap
       .user-mypage-header
@@ -60,10 +60,8 @@
                 %a.top-page-link{ href: "/users/#{@user.id}", style: "color: #595960;"}
                   %span
                     トップ
-              %li.gone-shop-link
-                %a.top-page-link{ href: "/users/#{@user.id}/show_gone", style: "color: #595960;"}
-                  %span
-                    行ったお店
+              %li.gone-page-gone-shop-link
+                行ったお店
               %li.wannago-shop-link
                 %a.top-page-link{ href: "#", style: "color: #595960;"}
                   %span
@@ -113,22 +111,21 @@
         %i.fas.fa-search
         %p
           検索条件が指定されていません。
-      .shop_main-left-change-review-sort-list
-        %ul.shop_main-left-change-review-sort-list-ul
-          %li.shop_main-left-change-review-sort-list__all
-            %i.far.fa-check-circle
-            すべて
-          %li.shop_main-left-change-review-sort-list__gone
-            %a.shop_main-left-change-review-sort-list__gone{ href: "/users/#{@user.id}/show_gone", style: "color: #595960;"}
-              %i.fas.fa-heart
-                %span
-                  行った（口コミ）
-          %li.shop_main-left-change-review-sort-list__wannago
-            %a.shop_main-left-change-review-sort-list__wannago--inner{ href: "/users/#{@user.id}/show_wannago", style: "color: #595960;"}
+      .shop_main-left-change-review-sort-list-gone
+        %ul.shop_main-left-change-review-sort-list-gone-ul
+          %li.shop_main-left-change-review-sort-list-gone__all
+            %a.shop_main-left-change-review-sort-list-gone__all--inner{ href: "/users/#{@user.id}/show_all", style: "color: #595960;"}
+              %i.far.fa-check-circle
+              %span
+                すべて
+          %li.shop_main-left-change-review-sort-list-gone__gone
+            %i.fas.fa-heart
+            行った（口コミ）
+          %li.shop_main-left-change-review-sort-list-gone__wannago
+            .shop_main-left-change-review-sort-list-gone__wannago--inner{ href: "#", style: "color: #595960;"}
               %i.fas.fa-thumbtack
-                %span
-                  行きたい
-      .shop_main-left-review-order-change
+              行きたい
+      .shop_main-left-review-order-change-gone
         %ul.shop_main-left-review-order-change-list-ul
           %li.shop_main-left-review-order-change-list1
             %i.fas.fa-sort
@@ -138,6 +135,10 @@
             = link_to "行ったの点数／期待度"
           %li.shop_main-left-review-order-change-list3
             = link_to "ランキング"
+          %li.shop_main-left-review-order-change-list4
+            = link_to "訪問日"
+          %li.shop_main-left-review-order-change-list5
+            = link_to "行った回数"
       .shop-main-left-shop-review-sorting
         %p.review-counting
           1～
