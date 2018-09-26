@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get 'reviews' => 'shops#show_reviews'
     get 'sort_visit' => 'shops#sort_visit'
     get 'sort_popular' => 'shops#sort_popular'
+    get 'sort_lunch' => 'shops#sort_lunch'
+    get 'sort_dinner' => 'shops#sort_dinner'
   end
 
   post   '/like/:review_id' => 'likes#like',   as: 'like'
