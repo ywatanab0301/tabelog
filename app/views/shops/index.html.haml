@@ -49,15 +49,15 @@
 
     %ul.nav.nav-tabs
       %li.nav-item.origin
-        %a.nav-link{href: "#"}
+        %a.nav-link.origin{href: "#"}
           .fa.fa-utensils
           %span 標準【会員店舗優先】
       %li.nav-item.rank
-        %a.nav-link{href: "#"}
+        %a.nav-link.rank{href: "#"}
           .fa.fa-chess-king
           %span ランキング
       %li.nav-item.review
-        %a.nav-link{href: "#"}
+        %a.nav-link.review{href: "#"}
           .fa.fa-comment
           %span 口コミ数
 
@@ -85,7 +85,7 @@
 
             .content__main__shop__each__body__left
               .content__main__shop__each__body__left__frame
-                = image_tag shop.pic1.url, class: "photo1" if shop.pic1.present?
+                = image_tag shop.pic1.url, class: "photo" if shop.pic1.present?
                 %ul.photolist
                   %li.photolist
                     = image_tag shop.pic1.url, class: "photo1" if shop.pic1.present?

@@ -203,7 +203,7 @@
     li.nav-item.origin{
       background-color: $white;
       border-top: 1px solid $index_red;
-      a.nav-link{
+      a.nav-link.origin{
         color: $index_red;
         font-weight: bold;
         text-align: center;
@@ -212,7 +212,7 @@
     li.nav-item.rank{
       border-top: 1px solid $shopindex_border;
       width: 180px;
-      a.nav-link{
+      a.nav-link.rank{
         color: $black;
         text-align: center;
       }
@@ -221,7 +221,7 @@
       border-top: 1px solid $shopindex_border;
       border-right: 1px solid $shopindex_border;
       width: 180px;
-      a.nav-link{
+      a.nav-link.review{
         color: $black;
         text-align: center;
       }
@@ -283,7 +283,7 @@ $rate5 : 10*$starHalf;
         width: 160px;
         height: 160px;
         background-color: $white;
-        img.photo1{
+        img.photo{
           width: 150px;
           height: 150px;
         }
