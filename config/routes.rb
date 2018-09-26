@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root to: "searches#index"
   devise_for :users
-  resources :users
+  resources :users do
+    get 'show_all' => 'users#show_all'
+  end
 
   resources :searches
   resources :shops do

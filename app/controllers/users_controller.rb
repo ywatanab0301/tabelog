@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user
+  before_action :set_user, except: [:show_all]
 
   def index
   end
@@ -9,6 +9,10 @@ class UsersController < ApplicationController
     # shop = Shop.joins(:prefectures).where(prefectures: { id: [1...47]}).select('shops.*, prefectures.name').attributes
     # shop = Shop.includes(:prefectures).select('shops.*, prefectures.name').first.attributes
     @review_ranks = @user.reviews.order('rate DESC')
+  end
+
+  def show_all
+    @user = User.find(params[:user_id])
   end
 
   def edit
