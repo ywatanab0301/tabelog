@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     get 'sort_dinner' => 'shops#sort_dinner'
   end
 
+  resources :following, only: [:show]
+  resources :followers, only: [:show]
+  resources :relationships, only: [:create, :destroy]
+
   post   '/like/:review_id' => 'likes#like',   as: 'like'
   delete '/like/:review_id' => 'likes#unlike', as: 'unlike'
 

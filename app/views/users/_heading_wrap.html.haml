@@ -1,0 +1,67 @@
+.mypage-view
+  .mypage-heading-wrap
+    #mypage-location-wrap
+      #location-wrap
+        #location
+          %ul.location-bar
+            %li
+              %span
+                = image_tag 'home_icon.png'
+            %li.link
+              = link_to "食べログ", root_path
+            %li
+              %span
+                = image_tag 'location_arrow.png'
+            %li.link
+              = link_to "食べログレビュアー"
+            %li
+              %span
+                = image_tag 'location_arrow.png'
+            %li.username
+              %p
+                = @user.nickname
+                さん
+    .mypage-header-wrap
+      .mypage-header
+        .mypage-header__cover-image
+          #cover-image
+            = form_for @user do |f|
+              .change-cover-image
+                -if current_user.background_image.nil?
+                  = image_tag "nature-wallpaper-2.jpg", class:'image'
+                -else
+                  = image_tag @user.background_image.url, class:'image'
+                %label.change-header-cover.fas.fa-camera
+                  カバー写真を変更
+                  = f.file_field :background_image, style: 'display: none;'
+                  = f.hidden_field :user_id, value: current_user.id
+                = f.submit "変更を保存する", class: "cover-image-submit"
+          .page-name
+            %p
+              = @user.nickname
+              のレストランガイド
+          / 下記にフォローボタンのビューファイルをrender
+          = render 'users/follow_form'
+          - if @user.id == current_user.id
+            .rvwr-page-setting
+              = link_to "レビュアーページ設定", edit_user_path
+
+        =form_for @user do |f|
+          .mypage-header__user-avatar
+            - if current_user.avatar?
+              = image_tag @user.avatar.url
+            - else
+              = image_tag "avatar_nophoto.gif"
+            %label.change-header-avatar-image.fas.fa-camera
+              変更
+              = f.file_field :avatar, style: 'display: none;'
+              = f.hidden_field :user_id, value: current_user.id
+            = f.submit "保存", class: "mypage-avatar-image-submit"
+        .mypage-header-contents
+          .mypage-header-contents__image-wrap
+          .mypage-header-contents__info
+            .mypage-header-contents__userinfo
+              .mypage-header-contents__info--nickname
+                = @user.nickname
+              .mypage-header-contents__info--prof
+                = link_to "➤ プロフィール詳細", user_path(@user.id)

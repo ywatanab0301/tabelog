@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(version: 20180920160944) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "follower_id"
+    t.integer  "following_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true, using: :btree
+    t.index ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
+    t.index ["following_id"], name: "index_relationships_on_following_id", using: :btree
+  end
+
   create_table "review_budgets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "review_id"
     t.integer  "budget_id"
@@ -54,14 +64,15 @@ ActiveRecord::Schema.define(version: 20180920160944) do
     t.float    "rate",         limit: 24,    null: false
     t.float    "food_rate",    limit: 24,    null: false
     t.float    "service_rate", limit: 24,    null: false
+    t.integer  "drink_rate"
     t.float    "atmosphere",   limit: 24,    null: false
     t.float    "cp_rate",      limit: 24,    null: false
-    t.float    "drink_rate",   limit: 24,    null: false
     t.string   "title",                      null: false
     t.text     "text",         limit: 65535, null: false
     t.datetime "visit_day",                  null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.float    "drink_rate",   limit: 24,    null: false
     t.string   "pic1"
     t.string   "pic2"
     t.string   "pic3"

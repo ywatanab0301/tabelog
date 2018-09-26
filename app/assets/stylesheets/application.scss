@@ -25,6 +25,9 @@
 @import "./header" ;
 @import "./footer" ;
 @import "./like";
+@import "./show_follower";
+@import "./flexslider" ;
+
 
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, output, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, section, main, summary, time, mark, audio, video, embed {
   outline: 0;
@@ -482,4 +485,21 @@ width: 100%;
   display: block;
   overflow: hidden;
   content: "";
+}
+
+.p-rvwr-cover.p-rvwr-cover--s {
+  height: 90px;
+}
+
+.p-rvwr-cover {
+  position: relative;
+  height: 340px;
+  overflow: hidden;
+}
+
+.follow-rvwr-item__cover.p-rvwr-cover.p-rvwr-cover--s.rvwr-cover-img {
+  top: 50%;
+  left: 50%;
+  margin-top: -55.5102px;
+  margin-left: -160px;
 }

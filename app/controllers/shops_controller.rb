@@ -1,6 +1,8 @@
 class ShopsController < ApplicationController
   before_action :set_shop, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit, :search_reviews, :sort_dinner, :sort_lunch]
 
+  before_action :set_shop, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit]
+
   def index
     @shops = Shop.order("created_at DESC").page(params[:page]).per(10)
   end
@@ -25,12 +27,14 @@ class ShopsController < ApplicationController
   end
 
   def show_reviews
+
     if params[:search].present?
       @reviews = Review.where('text LIKE(?)', "%#{params[:search]}%").where(shop_id: params[:shop_id])
 
     else
       @reviews = @shop.reviews.includes(:user).order('created_at DESC')
     end
+
   end
 
   def sort_popular
@@ -75,4 +79,5 @@ class ShopsController < ApplicationController
     @prefecture = @shop.prefectures
     @genre = @shop.genres
   end
+
 end
