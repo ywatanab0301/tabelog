@@ -190,7 +190,7 @@ $rate5 : 10*$starHalf;
 .content__main__shop__each{
   margin: 18px 0;
   border-top: solid 2px $shop_border;
-  height: 280px;
+  height: 260px;
   &__header{
     padding: 13px 10px 13px 10px;
     width: 770px;
@@ -207,26 +207,33 @@ $rate5 : 10*$starHalf;
         text-decoration: none;
       }
     }
-    button.btn.btn-outline-secondary{
+    .content__main__shop__each__header__buttons{
       margin-left: 500px;
-      color: red;
-    ul.btn{
-      float: right;
-    }
-    // &__btn{
-    //   margin-left: 700px;
-    //   color: red;
-    //   button.btn.btn-outline-secondary{
-    //     width: 91px;
-    //     padding-left: 700px;
-    //     color: red;
-    //   }
-    // }
+      button.shops_index_gone{
+        border-radius: 3px 3px;
+        width: 100px;
+        font-weight: bold;
+        font-size: 12px;
+        color: $black;
+        .fa.fa-heart{
+          color: $background-gray;
+        }
+      }
+      button.shops_index_wannago{
+        border-radius: 3px 3px;
+        width: 100px;
+        font-weight: bold;
+        font-size: 12px;
+        color: $black;
+        .fa.fa-map-pin{
+          color: $background-gray;
+        }
+      }
     }
   }
   &__body{
+    display: flex;
     &__left{
-      float: left;
       width: 160px;
       height: 193px;
       margin-top: 10px;
@@ -259,7 +266,184 @@ $rate5 : 10*$starHalf;
       }
     }
     &__right{
-       float: left;
+       padding-left: 22px;
+      p.pr{
+        margin-top: 1.4rem;
+        color: $shop_font;
+        font-weight: bold;
+        font-size: 12px;
+      }
+      &__rate{
+        margin-top: 1rem;
+        span.star-actived{
+          position: relative;
+          display: inline-block;
+          width: 10*$starHalf;
+          height: 2*$starHalf;
+          font-size: 2*$starHalf;
+          &:before,&:after{
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '★★★★★';
+            display: inline-block;
+            height: 2*$starHalf;
+            line-height: 2*$starHalf;
+          }
+          &:before{
+          color: #ddd;
+          }
+          &:after{
+          color: #ffa500;
+          overflow: hidden;
+          white-space: nowrap;}
+        }
+        .rate-0:after{
+          width: 0;
+        }
+        .rate-5:after{
+          width: $starHalf
+        }
+        .rate-10:after{
+          width: $rate1;
+        }
+        .rate-15:after{
+          width: $rate1-5;
+        }
+        .rate-20:after{
+          width: $rate2;
+        }
+        .rate-25:after{
+          width: $rate2-5;
+        }
+        .rate-30:after{
+          width: $rate3;
+        }
+        .rate-35:after{
+          width: $rate3-5;
+        }
+        .rate-40:after{
+          width: $rate4;
+        }
+        .rate-45:after{
+          width: $rate4-5;
+        }
+        .rate-50:after{
+          width: $rate5;
+        }
+        span.num{
+          font-size: 19px;
+          font-weight: bold;
+        }
+        a.review{
+          font-size: 12px;
+          color: $black;
+          text-decoration: underline;
+        }
+      }
+      &__review{
+        border-radius: 3px;
+        background-color: $newshop_background;
+        margin-top: 1rem;
+        padding: 1.1rem 1.2rem 1.3rem;
+        a.title{
+          border-bottom: dotted 1px;
+          font-weight: bold;
+          font-size: 12px;
+          color: $black;
+        }
+        span.name{
+          font-size: 10px;
+          padding-left: 5px;
+        }
+        p.review{
+          font-size: 1.1rem;
+          margin-top: 0.6rem;
+        }
+      }
+    }
+  }
+}
+
+.content__main__shop__each{
+  margin: 18px 0;
+  border-top: solid 2px $shop_border;
+  height: 260px;
+  &__header{
+    padding: 13px 10px 13px 10px;
+    width: 770px;
+    border-bottom: 1px solid $shopindex_back;
+    display: inline-block;
+    &__inner{
+      border-left: 3px solid #e1e1e1;
+      padding-left: 1em;
+      float: left;
+      a.rst_name{
+        color: $link_blue;
+        font-weight: bold;
+        font-size: 16px;
+        text-decoration: none;
+      }
+    }
+    .content__main__shop__each__header__buttons{
+      margin-left: 500px;
+      button.shops_index_gone{
+        border-radius: 3px 3px;
+        width: 100px;
+        font-weight: bold;
+        font-size: 12px;
+        color: $black;
+        .fa.fa-heart{
+          color: $background-gray;
+        }
+      }
+      button.shops_index_wannago{
+        border-radius: 3px 3px;
+        width: 100px;
+        font-weight: bold;
+        font-size: 12px;
+        color: $black;
+        .fa.fa-map-pin{
+          color: $background-gray;
+        }
+      }
+    }
+  }
+  &__body{
+    display: flex;
+    &__left{
+      width: 160px;
+      height: 193px;
+      margin-top: 10px;
+      margin-left: 10px;
+      &__frame{
+        padding: 4px;
+        border: 1px solid $shop_border;
+        width: 160px;
+        height: 160px;
+        background-color: $white;
+        img.photo1{
+          width: 150px;
+          height: 150px;
+        }
+      }
+      ul.photolist{
+        margin-top: 10px;
+        list-style: none;
+        li.photolist{
+          float: left;
+          margin-right: 3px;
+          width: 27px;
+          height: 27px;
+          overflow: hidden;
+          img.photo1,img.photo2, img.photo3, img.photo4, img.photo5{
+            width: 27px;
+            height: 27px;
+          }
+        }
+      }
+    }
+    &__right{
        padding-left: 22px;
       p.pr{
         margin-top: 1.4rem;
