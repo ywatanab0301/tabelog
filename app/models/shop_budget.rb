@@ -1,4 +1,4 @@
 class ShopBudget < ApplicationRecord
-  belongs_to :shop
-  belongs_to :budget
+  belongs_to :shop, optional: true
+  belongs_to :budget, optional: true
 end
