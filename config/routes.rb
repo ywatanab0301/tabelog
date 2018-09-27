@@ -5,13 +5,15 @@ Rails.application.routes.draw do
 
   resources :searches
   resources :shops do
+    member do
+      get :show_menu
+      get :show_reviews
+      get :sort_visit
+      get :sort_popular
+      get :sort_lunch
+      get :sort_dinner
+    end
     resources :reviews, only: [:new, :create, :edit, :update, :destroy, :show]
-    get 'menu' => 'shops#show_menu'
-    get 'reviews' => 'shops#show_reviews'
-    get 'sort_visit' => 'shops#sort_visit'
-    get 'sort_popular' => 'shops#sort_popular'
-    get 'sort_lunch' => 'shops#sort_lunch'
-    get 'sort_dinner' => 'shops#sort_dinner'
   end
 
   resources :following, only: [:show]
