@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180920160944) do
+ActiveRecord::Schema.define(version: 20180924074100) do
 
   create_table "budgets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20180920160944) do
     t.float    "rate",         limit: 24,    null: false
     t.float    "food_rate",    limit: 24,    null: false
     t.float    "service_rate", limit: 24,    null: false
-    t.integer  "drink_rate"
+    t.float    "drink_rate",   limit: 24,    null: false
     t.float    "atmosphere",   limit: 24,    null: false
     t.float    "cp_rate",      limit: 24,    null: false
     t.string   "title",                      null: false
@@ -119,28 +119,6 @@ ActiveRecord::Schema.define(version: 20180920160944) do
     t.text     "map",                 limit: 65535
     t.text     "hours",               limit: 65535
     t.string   "closed_day"
-    t.integer  "reservation"
-    t.integer  "payment"
-    t.integer  "private_room"
-    t.integer  "capacity"
-    t.integer  "chartered"
-    t.integer  "parking"
-    t.integer  "smorking"
-    t.integer  "dish"
-    t.integer  "drink"
-    t.integer  "nomiho"
-    t.integer  "course"
-    t.string   "service_charge"
-    t.integer  "location"
-    t.integer  "facility_atmosphere"
-    t.integer  "kids"
-    t.string   "homepage"
-    t.string   "official_account1"
-    t.string   "official_account2"
-    t.string   "official_account3"
-    t.integer  "open_date"
-    t.string   "others"
-    t.string   "dress_code"
     t.integer  "confirmation_method"
     t.text     "comment",             limit: 65535
     t.datetime "created_at",                        null: false
@@ -151,6 +129,28 @@ ActiveRecord::Schema.define(version: 20180920160944) do
     t.string   "pic3"
     t.string   "pic4"
     t.string   "pic5"
+    t.string   "menu_name_1"
+    t.string   "menu_name_2"
+    t.string   "menu_name_3"
+    t.string   "menu_name_4"
+    t.string   "menu_name_5"
+    t.string   "menu_image_1"
+    t.string   "menu_image_2"
+    t.string   "menu_image_3"
+    t.string   "menu_image_4"
+    t.string   "menu_image_5"
+    t.integer  "menu_price_1"
+    t.integer  "menu_price_2"
+    t.integer  "menu_price_3"
+    t.integer  "menu_price_4"
+    t.integer  "menu_price_5"
+    t.string   "menu_detail_1"
+    t.string   "menu_detail_2"
+    t.string   "menu_detail_3"
+    t.string   "menu_detail_4"
+    t.string   "menu_detail_5"
+    t.text     "sub_prtext",          limit: 65535
+    t.string   "station"
     t.index ["shop_name"], name: "index_shops_on_shop_name", using: :btree
   end
 
