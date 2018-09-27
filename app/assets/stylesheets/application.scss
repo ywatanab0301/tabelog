@@ -182,15 +182,6 @@ article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, 
   padding-right: 20px;
 }
 
-.balloon {
-  display: block;
-  position: relative;
-  border: 1px solid #d2d2d2;
-  border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  background-color: $white;
-}
-
 .user-menu__target.user-menu__target--dropdown {
   padding-right: 1px;
 }
@@ -223,6 +214,15 @@ article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, 
   right: 10px;
   border-width: 0 6px 6px;
   border-bottom-color: #d2d2d2;
+}
+
+.notification-sort__box {
+  display: none;
+}
+
+
+.setting-list {
+  display: none;
 }
 
 

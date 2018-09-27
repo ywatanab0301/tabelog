@@ -25,12 +25,12 @@
                 %li.user-menu__item
                   %a#open-information-notification.user-menu__target.user-menu__target--dropdown{ href: "#"}
                     %span.user-menu__text お知らせ
-                    %i.fas.fa-sort-down
-                      / %ul.notification-sort__box
-                      /   %li#selector-comment.notification-sort__tab.notification-sort__tab--comment.gly-b-conversation
-                      /     %span.notification-sort__text コメント
-                      /   %li#selector-other.notification-sort__tab.notification-sort__tab--other.gly-b-tabelike.is-selected
-                      /     %span.notification-sort__text いいね！ほかの通知をもっと見る
+                  %i.fas.fa-sort-down
+                    %ul.notification-sort__box
+                      %li#selector-comment.notification-sort__tab.notification-sort__tab--comment.gly-b-conversation
+                        %span.notification-sort__text コメント
+                      %li#selector-other.notification-sort__tab.notification-sort__tab--other.gly-b-tabelike.is-selected
+                        %span.notification-sort__text いいね！ほかの通知をもっと見る
                 %li.user-menu__item
                   %a.user-menu__target{ href: "#"}
                     %span.user-menu__text Tpoint
@@ -55,7 +55,7 @@
                         %a.setting-list__target{href: "#"} 下書き一覧
                       %li.setting-list__item
                         %a.setting-list__target{href: "#"} 設定
-                      %li.setting-list__item.setting-list__item--logout
+                      %li.setting-list__item
                         %a.setting-list__target{href: "#"} ログアウト
 
             - else
@@ -95,18 +95,13 @@
               %br>/
               食べログであなたの思い出をより「おいしく」。
 
+
           .top-header__search
-            #js-global-header-search.global-header-search
-              .container.header-wrapper.header-wrapper--bottom
-                .contents.contents--fixed
-                  #suggest_datas{"data-area_datatype" => "", "data-area_id" => "", "data-lat" => "", "data-lng" => "", "data-multiple-suggest-flg" => "0", "data-no_suggest_flg" => "", style: "display:none;"}
-                  #multi-suggest{ style: "display:none;"}
-                  #js-sa-user-input{"data-value" => "", style: "display:none;"}
-                  .search-header
-                    %p.search-header__logo
-                      %a.search-header__logo-img{ href: "#", title: "食べログ トップへ"} 食べログ
-                    .header-search
-                      / ここからメインコンテンツ
+            = form_tag shops_path, method: :get do
+              = text_field_tag :search, params[:search], { placeholder: "キーワード[例:お肉、立川]"}
+              = submit_tag "検索する", class: "searchbtn"
+          %ul#hitlist
+            / ここからメインコンテンツ
   .containe.top-container.top-container--maincontents
     .contents.contents--fixed.topcontents--fixed
       .content-index-data{"data-type" => "top_announcements"}

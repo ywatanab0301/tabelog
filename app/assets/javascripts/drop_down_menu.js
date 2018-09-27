@@ -1,16 +1,18 @@
 $(function(){
   $(".fas.fa-sort-down").click(function(){
-    $("#information-notification:not(:animated)", this).slideDown();
-  }, function(){
+    $(".notification-sort__box").hide();
+    $(".notification-sort__box",this).slideDown("fast");
+  },function(){
     console.log("over！！！！");
-    $("#information-notification",this).slideUp();
+    $(".notification-sort__box",this).slideUp();
   });
 });
 
 $(function(){
   $(".fas.fa-sort-down").click(function(){
-    $(".setting-list:not(:animated)", this).slideDown();
-  }, function(){
+    $(".setting-list").hide();
+    $(".setting-list",this).slideDown("fast");
+  },function(){
     console.log("over！！！！");
     $(".setting-list",this).slideUp();
   });

@@ -50,7 +50,6 @@ class ShopsController < ApplicationController
       format.html
       format.json
     end
-    @user = User.find(current_user.id)
   end
 
   private
