@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   resources :searches
   resources :shops do
-    get 'top_page', on: :collection
+    collection do
+      get :top_page
+    end
     resources :reviews, only: [:new, :create, :edit, :update, :destroy, :show]
     get 'menu' => 'shops#show_menu'
     get 'reviews' => 'shops#show_reviews'
