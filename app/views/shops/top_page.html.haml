@@ -122,9 +122,10 @@
 
           .top-header__search
             = form_tag shops_path, method: :get do
-              = text_field_tag :search, params[:search], { placeholder: "検索する"}
-              = submit_tag "検索"
-              / ここからメインコンテンツ
+              = text_field_tag :search, params[:search], { placeholder: "キーワード[例:お肉、立川]"}
+              = submit_tag "検索する", class: "searchbtn"
+          %ul#hitlist
+            / ここからメインコンテンツ
   .containe.top-container.top-container--maincontents
     .contents.contents--fixed.topcontents--fixed
       .content-index-data{"data-type" => "top_announcements"}
