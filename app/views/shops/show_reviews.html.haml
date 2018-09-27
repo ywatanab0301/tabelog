@@ -79,7 +79,7 @@
             %span
               店舗トップ
         %li.shop-reviews-page-shop_lists__menu
-          %a.menu-link{ href: "/shops/#{@shop.id}/menu", style: "color: #595960;"}
+          %a.menu-link{ href: "/shops/#{@shop.id}/show_menu", style: "color: #595960;"}
             %span
               メニュー
         %li.shop-reviews-page-shop_lists__image
@@ -126,9 +126,9 @@
               %i.fas.fa-sort
               標準
             %li.shop_main-left-review-order-change-list2
-              = link_to "訪問月", shop_sort_visit_path
+              = link_to "訪問月", sort_visit_shop_path
             %li.shop_main-left-review-order-change-list3
-              = link_to "いいね順", shop_sort_popular_path
+              = link_to "いいね順", sort_popular_shop_path
         .shop_main-left-shop-review-notice
           %p.notice-message-1
             これらの口コミは、訪問した当時の主観的なご意見・ご感想です。
