@@ -13,10 +13,14 @@ class UsersController < ApplicationController
 
   def show_all
     @user = User.find(params[:user_id])
+    @reviews = @user.reviews.includes(:shop).order('updated_at DESC')
   end
 
   def show_gone
     @user = User.find(params[:user_id])
+    @reviews = @user.reviews.includes(:shop).order('updated_at DESC')
+    # hash = @reviews.group(:shop_name).having('count(*) >= 2')
+    # binding.pry
   end
 
   def show_wannago

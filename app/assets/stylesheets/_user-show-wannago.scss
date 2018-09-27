@@ -1,5 +1,11 @@
-li.gone-page-gone-shop-link {
+li.wannago-page-wannago-shop-link {
   color: $black;
+  a:link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+  }
 }
 
 .user-page-content-main {
@@ -439,7 +445,6 @@ li.gone-page-gone-shop-link {
               width: 22px;
               margin-left: 3px;
               border-radius: 3px;
-              border: solid 1px black;
             }
           }
         }

@@ -41,19 +41,22 @@
               = @user.nickname
               のレストランガイド
           - if @user.id == current_user.id
-            .rvwr-mypage-setting
-              = link_to "レビュアーページ設定", edit_user_path(current_user.id)
+            %a.rvwr-mypage-setting{ href: "/users/#{current_user.id}/edit", style: "color: black;"}
+              %span
+                レビュアーページ設定
         .user-mypage-header__user-avatar
-          -if @user.avatar?
-            = image_tag @user.avatar.url
-          -else
-            = image_tag "avatar_nophoto.gif"
+          = link_to user_path(@user.id) do
+            -if @user.avatar?
+              = image_tag @user.avatar.url
+            -else
+              = image_tag "avatar_nophoto.gif"
         .user-mypage-header-contents
           .user-mypage-header-contents__image-wrap
           .user-mypage-header-contents__info
             .user-mypage-header-contents__userinfo
               .user-mypage-header-contents__info--nickname
-                = @user.nickname
+                %a.username-mypage-link{ href:"/users/#{@user.id}", style:"color: black"}
+                  = @user.nickname
           .mypage-header-contents__headline
             %ul.mypage-header-contents__headline-ul
               %li.top-page-link
@@ -143,12 +146,16 @@
           %li.shop_main-left-review-order-change-list5
             = link_to "行った回数"
       .shop-main-left-shop-review-sorting
-        %p.review-counting
-          1～
-          5
-          件を表示 ／ 全
-          5
-          件
+        - if @reviews.length == 0
+          %p.review-counting
+            0件
+        - else
+          %p.review-counting
+            1～
+            = @reviews.length
+            件を表示 ／ 全
+            = @reviews.length
+            件
         .review-sorting-by-number
           表示件数：
           .review-sorting-by-number__select-box
@@ -168,170 +175,164 @@
             .fas.fa-list-ul
             = link_to "店舗表示"
 
-      .user-shop-reviews-wrap
-        .user-shops-review-post
-          .user-shop-review-post__shop-info
-            .user-shop-review-post__shop-info--shop-name
-              %p.review-shop-name
-                トムボーイ 106 モアイカフェ 渋谷道玄坂店
-              .review-shop-info
-                （
-                %p.review-shop-prefecture
-                  東京都、
-                %p.review-shop-genre
-                  カレー
-                ）
-            .review-post__buttons
-              .review-post__buttons--trash.fas.fa-trash-alt
-                / = link_to edit_shop_review_path(review.shop_id, review.id) do
-              .review-post__buttons--edit.fas.fa-edit
-          .shop-review-post__rst-review
-            .shop-review-post__rst-review--score-data
-              .shop-review-score
-                .shop-review-rating-star
-                  🌃  🌟🌟🌟⭐⭐
-                .shop-review-rating-point
-                  3.0
-                  / = review.rate.round(1) unless review.rate == nil
-                %ul.shop-review-rate-detail
-                  %li.food-rate
+      - if @reviews.length == 0
+        .message-no-shop-gone
+          %p
+            まだ行ったお店がありません。
+      - else
+        - @reviews.each do |review|
+          .user-shop-reviews-wrap
+            .user-shops-review-post
+              .user-shop-review-post__shop-info
+                .user-shop-review-post__shop-info--shop-name
+                  %a.review-shop-name{ href: "/shops/#{review.shop.id}"}
+                    = review.shop.shop_name
+                  .review-shop-info
+                    （
+                    - review.shop.prefectures.each do |prefecture|
+                      %p.review-shop-prefecture
+                        = prefecture.name
+                        、
+                    - review.shop.genres.each do |genre|
+                      %p.review-shop-genre
+                        = genre.name
+                        ）
+              .shop-review-post__rst-review
+                .shop-review-post__rst-review--score-data
+                  .shop-review-score
+                    .shop-review-rating-star
+                      🌃  🌟🌟🌟⭐⭐
+                    .shop-review-rating-point
+                      = review.rate.round(1) unless review.rate == nil
+                    %ul.shop-review-rate-detail
+                      %li.food-rate
+                        %p
+                          料理・味
+                          %strong
+                            = review.food_rate.round(1) unless review.food_rate == nil
+                      %li.service-rate
+                        %p
+                          サービス
+                          %strong
+                            = review.service_rate.round(1) unless review.service_rate == nil
+                      %li.atmosphere-rate
+                        %p
+                          雰囲気
+                          %strong
+                            = review.atmosphere.round(1) unless review.atmosphere == nil
+                      %li.cp-rate
+                        %p
+                          CP
+                          %strong
+                            = review.cp_rate.round(1) unless review.cp_rate == nil
+                      %li.drink-rate
+                        %p.drink-rate
+                          酒・ドリンク
+                          %strong
+                            = review.drink_rate.round(1) unless review.drink_rate == nil
+                .shop-review-price
+                  .shop-review-used-price
                     %p
-                      料理・味
-                      %strong
-                        3.0
-                        / = review.food_rate.round(1) unless review.food_rate == nil
-                  %li.service-rate
-                    %p
-                      サービス
-                      %strong
-                        3.0
-                        / = review.service_rate.round(1) unless review.service_rate == nil
-                  %li.atmosphere-rate
-                    %p
-                      雰囲気
-                      %strong
-                        3.0
-                        / = review.atmosphere.round(1) unless review.atmosphere == nil
-                  %li.cp-rate
-                    %p
-                      CP
-                      %strong
-                        3.0
-                        / = review.cp_rate.round(1) unless review.cp_rate == nil
-                  %li.drink-rate
-                    %p.drink-rate
-                      酒・ドリンク
-                      %strong
-                        0.0
-                        / = review.drink_rate.round(1) unless review.drink_rate == nil
-            .shop-review-price
-              .shop-review-used-price
-                %p
-                  使った金額（1人）：
-                .shop-price-range
-                  🌃 ~￥999
-          .shop-review-post-contents
-            .shop-review-one-time
-              %p.shops-shop-review-visited-month
-                / = review.visit_day.strftime('%Y/%m/%d')
-                2018/09/11 訪問
-              .shop-review-post__rst-review--score-data
-                .shop-review-score
-                  .shop-review-rating-point
-                    🌅 3.0
-                    / = review.rate.round(1) unless review.rate == nil
-                  %ul.shop-review-rate-detail
-                    %li.food-rate
-                      %p
-                        料理・味
-                        %strong
-                          3.0
-                          / = review.food_rate.round(1) unless review.food_rate == nil
-                    %li.service-rate
-                      %p
-                        サービス
-                        %strong
-                          3.0
-                          / = review.service_rate.round(1) unless review.service_rate == nil
-                    %li.atmosphere-rate
-                      %p
-                        雰囲気
-                        %strong
-                          3.0
-                          / = review.atmosphere.round(1) unless review.atmosphere == nil
-                    %li.cp-rate
-                      %p
-                        CP
-                        %strong
-                          3.0
-                          / = review.cp_rate.round(1) unless review.cp_rate == nil
-                    %li.drink-rate
-                      %p.drink-rate
-                        酒・ドリンク
-                        %strong
-                          0.0
-                          / = review.drink_rate.round(1) unless review.drink_rate == nil
-                  .shop-review-price
-                    .shop-review-used-price
-                      %p
-                        使った金額（1人）：
+                      使った金額（1人）：
+                    - review.budgets.each do |budget|
                       .shop-price-range
-                        🌃 ~￥999
-              .shop-review-count
-                1回目
-            .shop-review-post__rst-review--content
-              .shop-review-title
-                %p
-                  %a
-                    美味しいインドカレー屋さん
-                    / = review.title
-              .shop-review-text
-                %p
-                  友人と二人で利用しました。料理が出てくる順番が前後していたり、出てきた料理の内容が友人のものと自分のものがごちゃ混ぜになっていたりと、インドクオリティなのかなと言う感じでそれはそれで楽しめました。笑　料理自体はとても美味しかったです！　チキンバターカレーのランチをいただきました。ごちそうさまでした。
-                  / = simple_format(review.text)
-            .shop-review-post-contents-images
-              %ul.shop-review-post-contents-images.ul
-                %li.shop-review-post-contents-image1
-                  = image_tag "avatar_nophoto.gif"
-                %li.shop-review-post-contents-image2
-                  = image_tag "avatar_nophoto.gif"
-                %li.shop-review-post-contents-image3
-                  = image_tag "avatar_nophoto.gif"
-                %li.shop-review-post-contents-image4
-                  = image_tag "avatar_nophoto.gif"
-                %li.shop-review-post-contents-image5
-                  = image_tag "avatar_nophoto.gif"
-            .shop-review-post-update-date
-              2018/09/18 更新
-            .shop-review-post-like-wannago
-              .shop-review-post-like-wannago__buttons
-                / = render partial: 'likes/like_links', locals: {review: review}
-                %button.shop-review-post-like-wannago__buttons--wannago
-                  %i.fas.fa-thumbtack
-                  行きたい
-              .shop-review-post-who-likes
-                .shop-review-post-who-likes__count
-                  %p.number-who-likes
-                    76
-                  %p
-                    人が「いいね！」しています。
-                .shop-review-post-who-likes__icons
-                  = image_tag "avatar_nophoto.gif"
-                  = image_tag "avatar_nophoto.gif"
-                  = image_tag "avatar_nophoto.gif"
-                  = image_tag "avatar_nophoto.gif"
-                  = image_tag "avatar_nophoto.gif"
-                  = image_tag "avatar_nophoto.gif"
-                  = image_tag "avatar_nophoto.gif"
-                  = image_tag "avatar_nophoto.gif"
-                  = image_tag "avatar_nophoto.gif"
-                  = image_tag "avatar_nophoto.gif"
-              .shop-review-post-who-wannago
-                .shop-review-post-who-wannago__count
-                  %p.number-who-wannago
-                    1
-                  %p
-                    人が「行きたい」しています。
-                .shop-review-post-who-wannago__icons
-                  = image_tag "avatar_nophoto.gif"
+                        🌃
+                        = budget.name
+              .user-shop-review-post-contents
+                - if review.user_id == current_user.id
+                  .user-review-post__buttons
+                    = link_to shop_review_path(review.shop_id, review.id), method: :delete, class: "delete_alert" do
+                      .review-post__buttons--trash.fas.fa-trash-alt
+                    = link_to edit_shop_review_path(review.shop_id, review.id) do
+                      .user-review-post__buttons--edit.fas.fa-edit
+                .shop-review-one-time
+                  %p.shops-shop-review-visited-month
+                    = review.visit_day.strftime('%Y/%m/%d')
+                    訪問
+                  .shop-review-post__rst-review--score-data
+                    .shop-review-score
+                      .shop-review-rating-point
+                        🌅
+                        = review.rate.round(1) unless review.rate == nil
+                      %ul.shop-review-rate-detail
+                        %li.food-rate
+                          %p
+                            料理・味
+                            %strong
+                              = review.food_rate.round(1) unless review.food_rate == nil
+                        %li.service-rate
+                          %p
+                            サービス
+                            %strong
+                              = review.service_rate.round(1) unless review.service_rate == nil
+                        %li.atmosphere-rate
+                          %p
+                            雰囲気
+                            %strong
+                              = review.atmosphere.round(1) unless review.atmosphere == nil
+                        %li.cp-rate
+                          %p
+                            CP
+                            %strong
+                              = review.cp_rate.round(1) unless review.cp_rate == nil
+                        %li.drink-rate
+                          %p.drink-rate
+                            酒・ドリンク
+                            %strong
+                              = review.drink_rate.round(1) unless review.drink_rate == nil
+                      .shop-review-price
+                        .shop-review-used-price
+                          %p
+                            使った金額（1人）：
+                          .shop-price-range
+                            🌃 ~￥999
+                  .shop-review-count
+                    1回目
+                .shop-review-post__rst-review--content
+                  .shop-review-title
+                    %p
+                      %a
+                        = review.title
+                  .shop-review-text
+                    %p
+                      = simple_format(review.text)
+                .shop-review-post-contents-images
+                  %ul.shop-review-post-contents-images.ul
+                    %li.shop-review-post-contents-image1
+                      = image_tag review.pic1
+                    %li.shop-review-post-contents-image2
+                      = image_tag review.pic2
+                    %li.shop-review-post-contents-image3
+                      = image_tag review.pic3
+                    %li.shop-review-post-contents-image4
+                      = image_tag review.pic4
+                    %li.shop-review-post-contents-image5
+                      = image_tag review.pic5
+                .shop-review-post-update-date
+                  = review.updated_at.strftime('%Y/%m/%d')
+                  更新
+                .shop-review-post-like-wannago
+                  .shop-review-post-like-wannago__buttons
+                    = render partial: 'likes/like_links', locals: {review: review}
+                    %button.shop-review-post-like-wannago__buttons--wannago
+                      %i.fas.fa-thumbtack
+                      行きたい
+                  .shop-review-post-who-likes
+                    .shop-review-post-who-likes__count
+                      %p.number-who-likes
+                        = review.likes_count
+                      %p
+                        人が「いいね！」しています。
+                    - review.likes.each do |like|
+                      .shop-review-post-who-likes__icons
+                        = link_to user_path(like.user.id) do
+                          = image_tag "#{like.user.avatar}"
+                  .shop-review-post-who-wannago
+                    .shop-review-post-who-wannago__count
+                      %p.number-who-wannago
+                        1
+                      %p
+                        人が「行きたい」しています。
+                    .shop-review-post-who-wannago__icons
+                      = image_tag "avatar_nophoto.gif"
 = render partial: 'shares/footer'
