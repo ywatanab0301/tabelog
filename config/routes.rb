@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
 
-  resources :searches
   resources :shops do
     collection do
       get :top_page
