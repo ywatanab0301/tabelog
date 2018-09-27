@@ -67,20 +67,20 @@
           %button.shop-views__recommend
             メモを残そう（例：友達のおすすめカフェ）
     .shop_lists
-      %ul.header_list
-        %li.shop-reviews-page-shop_lists__top
-          %a.shop-top-link{ href: "/shops/#{@shop.id}", style: "color: #595960;"}
-            %span
-              店舗トップ
-        %li.shop-reviews-page-shop_lists__menu
-          %a.menu-link{ href: "/shops/#{@shop.id}/menu", style: "color: #595960;"}
+      %ul.shops-show-header_list
+        %li.shops-top-shop_lists__top
+          店舗トップ
+        %li.shops-top-shop_lists__menu
+          %a.menu-link{ href: "/shops/#{@shop.id}/show_menu", style: "color: #595960;"}
             %span
               メニュー
-        %li.shop-reviews-page-shop_lists__image
+        %li.shops-top-shop_lists__image
           写真
-        %li.shop-reviews-page-shop_lists__review
-          口コミ
-        %li.shop-reviews-page-shop_lists__map
+        %li.shops-top-shop_lists__review
+          %a.reviews-link{ href: "/shops/#{@shop.id}/show_reviews", style: "color: #595960;"}
+            %span
+              口コミ
+        %li.shops-top-shop_lists__map
           地図
     .shop_main
       .shop_main-left
@@ -88,7 +88,7 @@
           .review-search-label
             口コミ検索
           .review-search-box-input
-          = form_tag "/shops/#{@shop.id}/reviews", method: :get, id: "search", remote: true do
+          = form_tag "/shops/#{@shop.id}/show_reviews", method: :get, id: "search", remote: true do
             = text_field_tag :search, params[:search], class: "form"
             = submit_tag "検索", :name => nil, id: "search_btn"
         .shop_main-left-change-review-list
@@ -110,20 +110,20 @@
               すべての口コミ
             %li.shop_main-left-change-review-sort-list__dinner
               %i.fas.fa-moon
-              = link_to "夜の口コミ", shop_sort_dinner_path, id: "sort_dinner", remote: true
+              = link_to "夜の口コミ", sort_dinner_shop_path, id: "sort_dinner", remote: true
             %li.shop_main-left-change-review-sort-list__lunch
               .shop_main-left-change-review-sort-list__lunch--inner
                 %i.fas.fa-sun
-                = link_to "昼の口コミ", shop_sort_lunch_path, id: "sort_lunch", remote: true
+                = link_to "昼の口コミ", sort_lunch_shop_path, id: "sort_lunch", remote: true
         .shop_main-left-review-order-change
           %ul.shop_main-left-review-order-change-list-ul
             %li.shop_main-left-review-order-change-list1
               %i.fas.fa-sort
               標準
             %li.shop_main-left-review-order-change-list2
-              = link_to "訪問月", shop_sort_visit_path
+              = link_to "訪問月", sort_visit_shop_path
             %li.shop_main-left-review-order-change-list3
-              = link_to "いいね順", shop_sort_popular_path
+              = link_to "いいね順", sort_popular_shop_path
         .shop_main-left-shop-review-notice
           %p.notice-message-1
             これらの口コミは、訪問した当時の主観的なご意見・ご感想です。
