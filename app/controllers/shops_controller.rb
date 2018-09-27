@@ -27,8 +27,8 @@ class ShopsController < ApplicationController
   def show_reviews
 
     if params[:search].present?
-      # @reviews = Review.where('shop_id = ? AND text LIKE = ?', params[:shop_id], params[:search])
-      @reviews = Review.where(shop_id: params[:shop_id]).where('text LIKE(?)', "%#{params[:search]}%")
+      @reviews = @shop.reviews.where('text LIKE(?)', "%#{params[:search]}%")
+
     else
       @reviews = @shop.reviews.includes(:user).order('created_at DESC')
     end
@@ -73,7 +73,7 @@ class ShopsController < ApplicationController
   end
 
   def set_shop
-    @shop = Shop.find(params[:shop_id])
+    @shop = Shop.find(params[:id])
     @prefecture = @shop.prefectures
     @genre = @shop.genres
   end
