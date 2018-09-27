@@ -18,7 +18,6 @@ $(function(){
       dataType: 'json'
     })
     .done(function(data){
-      console.log(data);
       $("#hitlist").empty();
       var counter = 0;
       $(data).each(function(i, shop){
@@ -26,8 +25,11 @@ $(function(){
         counter++;
         appendShop(shop);
         }
-      });
-    });
+      })
+    })
+    .fail(function(){
+      alert('error');
+    })
   });
 
   $("#hitlist").on("click",".add", function(){
