@@ -27,7 +27,7 @@ $(function(){
 });
 
 $(function(){
-  $('.top-headline',).on('mouseout',function(){
+  $('.top-headline').on('mouseout',function(){
      // console.log("over！！！！");
     $('.user-menu__text').css({
       color: '#fff'
@@ -41,7 +41,7 @@ $(function(){
 });
 
 $(function(){
-  $('.top-headline',).on('mouseout',function(){
+  $('.top-headline').on('mouseout',function(){
      // console.log("over！！！！");
     $('.fas.fa-sort-down').css({
       color: '#fff'
