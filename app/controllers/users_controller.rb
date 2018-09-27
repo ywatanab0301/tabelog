@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, except: [:show_all, :show_gone, :show_wannago]
+  before_action :set_user
 
   def index
   end
@@ -12,19 +12,16 @@ class UsersController < ApplicationController
   end
 
   def show_all
-    @user = User.find(params[:user_id])
     @reviews = @user.reviews.includes(:shop).order('updated_at DESC')
   end
 
   def show_gone
-    @user = User.find(params[:user_id])
     @reviews = @user.reviews.includes(:shop).order('updated_at DESC')
     # hash = @reviews.group(:shop_name).having('count(*) >= 2')
     # binding.pry
   end
 
   def show_wannago
-    @user = User.find(params[:user_id])
   end
 
   def edit

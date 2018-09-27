@@ -173,8 +173,39 @@ li.gone-page-gone-shop-link {
     margin: 15px 0 30px 0;
     padding-top: 5px;
     width: 100%;
+    position: relative;
     &:hover {
       border: 1px solid #FFCC00;
+    }
+    .user-shops-revie-post-gone-wannago-buttons {
+      display: flex;
+      justify-content: right;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 180px;
+      font-size: 11px;
+      .button-gone {
+        margin-right: 5px;
+        button.shop-review-post-like-wannago__buttons--gone {
+          background-color: $font_blue;
+          color: $white;
+          padding: 2px 15px 2px 15px;
+          font-weight: bold;
+          border-radius: 3px;
+          i.fas.fa-heart {
+            color: $sub_orange;
+          }
+        }
+      }
+      .button-wannago {
+        button.shop-review-post-like-wannago__buttons--wannago {
+          color: $font_gray;
+          padding: 2px 10px 2px 10px;
+          font-weight: bold;
+          border-radius: 3px;
+        }
+      }
     }
     .user-shop-review-post__shop-info {
       display: flex;

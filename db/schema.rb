@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20180924074100) do
     t.float    "rate",         limit: 24,    null: false
     t.float    "food_rate",    limit: 24,    null: false
     t.float    "service_rate", limit: 24,    null: false
-    t.float    "drink_rate",   limit: 24,    null: false
+    t.integer  "drink_rate"
     t.float    "atmosphere",   limit: 24,    null: false
     t.float    "cp_rate",      limit: 24,    null: false
     t.string   "title",                      null: false

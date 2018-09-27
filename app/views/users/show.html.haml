@@ -131,6 +131,8 @@
               .review-info
                 .restaurant-name
                   👑
+                  = link_to shop_path(review.shop.id) do
+                    = review.shop.shop_name
                 - review.shop.prefectures.each do |prefecture|
                   .review-prefecture
                     = prefecture.name

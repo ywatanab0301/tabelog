@@ -76,11 +76,11 @@
                   %span
                     まとめ
               %li.following-link
-                %a.top-page-link{ href: "#", style: "color: #595960;"}
+                %a.top-page-link{ href: "/following/#{@user.id}", style: "color: #595960;"}
                   %span
                     フォロー中
               %li.followers-link
-                %a.top-page-link{ href: "#", style: "color: #595960;"}
+                %a.top-page-link{ href: "/followers/#{@user.id}", style: "color: #595960;"}
                   %span
                     フォロワー
   .user-page-content
@@ -183,6 +183,15 @@
         - @reviews.each do |review|
           .user-shop-reviews-wrap
             .user-shops-review-post
+              .user-shops-revie-post-gone-wannago-buttons
+                .button-gone
+                  %button.shop-review-post-like-wannago__buttons--gone
+                    %i.fas.fa-heart
+                    行った
+                .button-wannago
+                  %button.shop-review-post-like-wannago__buttons--wannago
+                    %i.fas.fa-thumbtack
+                    行きたい
               .user-shop-review-post__shop-info
                 .user-shop-review-post__shop-info--shop-name
                   %a.review-shop-name{ href: "/shops/#{review.shop.id}"}
@@ -314,9 +323,9 @@
                 .shop-review-post-like-wannago
                   .shop-review-post-like-wannago__buttons
                     = render partial: 'likes/like_links', locals: {review: review}
-                    %button.shop-review-post-like-wannago__buttons--wannago
-                      %i.fas.fa-thumbtack
-                      行きたい
+                    / %button.shop-review-post-like-wannago__buttons--wannago
+                    /   %i.fas.fa-thumbtack
+                    /   行きたい
                   .shop-review-post-who-likes
                     .shop-review-post-who-likes__count
                       %p.number-who-likes

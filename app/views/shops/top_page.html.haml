@@ -54,7 +54,7 @@
                     %span.user-menu__text
                       予約確認
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "#"}
+                  %a.user-menu__target{ href: "/users/#{current_user.id}/show_all"}
                     行った・行きたい
                 %li.user-menu__item
                   %a.user-menu__target{ href: "/users/#{current_user.id}"}
@@ -458,21 +458,21 @@
                     %ul.userdata__data-list
                       %li.userdata__data-item
                         .userdata__data-row
-                          %a{href: "/users/#{@user.id}"}
+                          %a{href: "/users/#{current_user.id}"}
                             .userdata__data-subject
                               ログ
                             .userdata__data-count
                               = @user.reviews.count
                       %li.userdata__data-item
                         .userdata__data-row
-                          %a{href: "#"}
+                          %a{href: "/users/#{current_user.id}/show_gone"}
                             .userdata__data-subject
                               行ったお店
                             .userdata__data-count
                               = @user.reviews.count
                       %li.userdata__data-item
                         .userdata__data-row.is-disabled
-                          %a{href: "#"}
+                          %a{href: "/users/#{current_user.id}/show_wannago"}
                             .userdata__data-subject
                               行きたいお店
                             .userdata__data-count
