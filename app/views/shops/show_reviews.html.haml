@@ -38,15 +38,21 @@
           .shop_views-namespace__aword
         .shop_views-detailspace
           .shop_views-detailspace__station
-            最寄り駅: 六本木一丁目
-          .shop_views-detailspace__genre
-            ジャンル: 割烹・小料理
-          .shop_views-detailspace__average
-            予算🌃¥30,000~ 🌅¥30,000~
-            %span.shop_views-detailspace__schedule
-              定休日: 日曜・祝日
-            %span.shop_views-detailspace__moredetail
-              店舗詳細(詳細)
+            最寄り駅:
+            = @shop.station
+          - @genre.each do |genre|
+            .shop_views-detailspace__genre
+              ジャンル :
+              = genre.name
+          - @budget.each do |budget|
+            .shop_views-detailspace__average
+              予算
+              = budget.name
+              %span.shop_views-detailspace__schedule
+                定休日 :
+                = @shop.closed_day
+              %span.shop_views-detailspace__moredetail
+                店舗詳細(詳細)
       .shop_subheader-right
         .shop_views-buttons
           .button.shop-views
@@ -73,7 +79,7 @@
             %span
               店舗トップ
         %li.shop-reviews-page-shop_lists__menu
-          %a.menu-link{ href: "/shops/#{@shop.id}/menu", style: "color: #595960;"}
+          %a.menu-link{ href: "/shops/#{@shop.id}/show_menu", style: "color: #595960;"}
             %span
               メニュー
         %li.shop-reviews-page-shop_lists__image
@@ -107,7 +113,7 @@
           %ul.shop_main-left-change-review-sort-list-ul
             %li.shop_main-left-change-review-sort-list__all
               %i.fas.fa-comments
-              すべての口コミ
+                すべての口コミ
             %li.shop_main-left-change-review-sort-list__dinner
               %i.fas.fa-moon
               = link_to "夜の口コミ", shop_sort_dinner_path, id: "sort_dinner", remote: true
@@ -115,15 +121,16 @@
               .shop_main-left-change-review-sort-list__lunch--inner
                 %i.fas.fa-sun
                 = link_to "昼の口コミ", shop_sort_lunch_path, id: "sort_lunch", remote: true
+
         .shop_main-left-review-order-change
           %ul.shop_main-left-review-order-change-list-ul
             %li.shop_main-left-review-order-change-list1
               %i.fas.fa-sort
               標準
             %li.shop_main-left-review-order-change-list2
-              = link_to "訪問月", shop_sort_visit_path
+              = link_to "訪問月", sort_visit_shop_path
             %li.shop_main-left-review-order-change-list3
-              = link_to "いいね順", shop_sort_popular_path
+              = link_to "いいね順", sort_popular_shop_path
         .shop_main-left-shop-review-notice
           %p.notice-message-1
             これらの口コミは、訪問した当時の主観的なご意見・ご感想です。

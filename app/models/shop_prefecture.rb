@@ -1,4 +1,4 @@
 class ShopPrefecture < ApplicationRecord
-  belongs_to :shop
-  belongs_to :prefecture
+  belongs_to :shop, optional: true
+  belongs_to :prefecture, optional: true
 end

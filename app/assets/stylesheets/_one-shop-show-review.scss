@@ -434,7 +434,6 @@
               padding: 10px 0;
               margin: 0 10px;
               border-bottom: 1px solid $background-lightgray;
-
               .shop-review-post__user-info--avatar {
                 img{
                   height: 30px;
@@ -591,7 +590,7 @@
                     }
                     .shop-review-price {
                       padding-top: 6px;
-                      margin: 0 0 0 15px;
+                      margin: 0 0 0 5px;
                       .shop-review-used-price {
                         display: flex;
                         font-size: 10px;
@@ -662,7 +661,53 @@
                   padding: 10px 15px;
                   display: flex;
                   justify-content: space-between;
-
+                    .like-link{
+                        .likeing{
+                      .fa.fa-heart {
+                          font-weight: bold;
+                          font-size: 92%;
+                          background-color: #c4c4c4;
+                          color: $white;
+                          box-shadow: 0 1px 1px rgba(0,0,0,0.2) inset;
+                          text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+                          vertical-align: middle;
+                          line-height: 2em;
+                          border-radius: 3px 3px;
+                          width: 12.3em;
+                          height: 2em;
+                          text-align: center;
+                          border: none;
+                        }
+                        .far.fa-heart {
+                          font-weight: bold;
+                          font-size: 92%;
+                          background-color: #ff9600;
+                          color: $white;
+                          box-shadow: 0 1px 1px rgba(0,0,0,0.2) inset;
+                          text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+                          vertical-align: middle;
+                          line-height: 2em;
+                          border-radius: 3px 3px;
+                          width: 7.3em;
+                          height: 2em;
+                          text-align: center;
+                          border: none;
+                          position: relative;
+                        }
+                        .like_counter{
+                          display: inline-block;
+                          bottom: 22px;
+                          left: 120px;
+                          font-size: 14px;
+                        }
+                        .afterlike_counter{
+                          display: inline-block;
+                          bottom: 22px;
+                          left: 172px;
+                          font-size: 14px;
+                        }
+                      }
+                    }
                   button.shop-review-post-like-wannago__buttons--like {
                     background-color: $sub_orange;
                     color: $white;

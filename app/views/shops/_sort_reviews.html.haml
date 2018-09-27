@@ -39,12 +39,15 @@
         .shop_views-detailspace
           .shop_views-detailspace__station
             最寄り駅: 六本木一丁目
-          .shop_views-detailspace__genre
-            ジャンル: 割烹・小料理
+          - @genre.each do |genre|
+            .shop_views-detailspace__genre
+              ジャンル :
+              = genre.name
           .shop_views-detailspace__average
             予算🌃¥30,000~ 🌅¥30,000~
             %span.shop_views-detailspace__schedule
-              定休日: 日曜・祝日
+              定休日 :
+              = @shop.closed_day
             %span.shop_views-detailspace__moredetail
               店舗詳細(詳細)
       .shop_subheader-right
@@ -71,7 +74,7 @@
             %span
               店舗トップ
         %li.shop-reviews-page-shop_lists__menu
-          %a.menu-link{ href: "/shops/#{@shop.id}/menu", style: "color: #595960;"}
+          %a.menu-link{ href: "/shops/#{@shop.id}/show_menu", style: "color: #595960;"}
             %span
               メニュー
         %li.shop-reviews-page-shop_lists__image
@@ -119,9 +122,9 @@
               %i.fas.fa-sort
               標準
             %li.shop_main-left-review-order-change-list2
-              = link_to "訪問月", shop_sort_visit_path
+              = link_to "訪問月", sort_visit_shop_path
             %li.shop_main-left-review-order-change-list3
-              = link_to "いいね順", shop_sort_popular_path
+              = link_to "いいね順", sort_popular_shop_path
         .shop_main-left-shop-review-notice
           %p.notice-message-1
             これらの口コミは、訪問した当時の主観的なご意見・ご感想です。
@@ -176,8 +179,9 @@
                     %p
                       さんの口コミ
                   .shop-review-post__user-info--moreinfo
-                    %p
-                      男性・千葉県
+                    - @prefecture.each do |prefecture|
+                      %p
+                        = prefecture.name
               .shop-review-post__rst-review
                 .shop-review-post__rst-review--score-data
                   .shop-review-score
@@ -249,8 +253,9 @@
                   .shop-review-used-price
                     %p
                       使った金額（1人）：
-                    .shop-price-range
-                      🌃 ~￥999
+                    - review.budgets.each do |budget|
+                      .shop-price-range
+                        = budget.name
               .shop-review-post-contents
                 .shop-review-one-time
                   %p.shops-shop-review-visited-month
@@ -291,8 +296,9 @@
                         .shop-review-used-price
                           %p
                             使った金額（1人）：
-                          .shop-price-range
-                            🌃 ~￥999
+                          - review.budgets.each do |budget|
+                            .shop-price-range
+                              = budget.name
                   .shop-review-count
                     1回目
                 .shop-review-post__rst-review--content
@@ -324,7 +330,7 @@
                   .shop-review-post-who-likes
                     .shop-review-post-who-likes__count
                       %p.number-who-likes
-                        76
+                        = review.likes.count
                       %p
                         人が「いいね！」しています。
                     .shop-review-post-who-likes__icons

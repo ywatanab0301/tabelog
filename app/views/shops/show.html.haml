@@ -35,15 +35,29 @@
           .shop_views-namespace__aword
         .shop_views-detailspace
           .shop_views-detailspace__station
-            最寄り駅: 六本木一丁目
-          .shop_views-detailspace__genre
-            ジャンル: 割烹・小料理
-          .shop_views-detailspace__average
-            予算🌃¥30,000~ 🌅¥30,000~
-            %span.shop_views-detailspace__schedule
-              定休日: 日曜・祝日
-            %span.shop_views-detailspace__moredetail
-              店舗詳細(詳細)
+            最寄り駅:
+            = @shop.station
+          - @genre.each do |genre|
+            .shop_views-detailspace__genre
+              ジャンル :
+              = genre.name
+          - if @budget.present?
+            - @budget.each do |budget|
+              .shop_views-detailspace__average
+                予算
+                = budget.name
+                %span.shop_views-detailspace__schedule
+                  定休日 :
+                  = @shop.closed_day
+                %span.shop_views-detailspace__moredetail
+          - else
+            .shop_views-detailspace__average
+              予算:???
+              %span.shop_views-detailspace__schedule
+                定休日 :
+                = @shop.closed_day
+              %span.shop_views-detailspace__moredetail
+                = link_to "店舗詳細(詳細)", "/shops/#{@shop.id}", method: :delete
       .shop_subheader-right
         .shop_views-buttons
           .button.shop-views
@@ -68,13 +82,13 @@
         %li.shops-top-shop_lists__top
           店舗トップ
         %li.shops-top-shop_lists__menu
-          %a.menu-link{ href: "/shops/#{@shop.id}/menu", style: "color: #595960;"}
+          %a.menu-link{ href: "/shops/#{@shop.id}/show_menu", style: "color: #595960;"}
             %span
               メニュー
         %li.shops-top-shop_lists__image
           写真
         %li.shops-top-shop_lists__review
-          %a.reviews-link{ href: "/shops/#{@shop.id}/reviews", style: "color: #595960;"}
+          %a.reviews-link{ href: "/shops/#{@shop.id}/show_reviews", style: "color: #595960;"}
             %span
               口コミ
         %li.shops-top-shop_lists__map
@@ -112,11 +126,7 @@
 
         .shop-mainleft-review-shop-pr-text
           %p.js-text-overflow
-            広々とし落ち着いた空間で嗜むワインと、お酒に見合うお料理をご用意致しました。 なんといってもリーズナブルにご提供できます！
-            立食形式での貸切可能、宴会プランも複数取り揃えております！
-            是非皆様でお越しください。
-            これで大丈夫なのか？？？？ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-
+            = @shop.sub_prtext
         .shop_mainleft-review
           .shop_mainleft-review__title
             口コミ
@@ -127,7 +137,7 @@
             = image_tag "avatar_nophoto.gif"
           .shop_mainleft-friend__text
             好みのあう人をフォローすると、その人のオススメのお店から探せます。
-        -@reviews.each do |review|
+        - @reviews.each do |review|
           %ul.pickup_review
             %li.pickup_review-avatar
               .pickup_review-avatar__icon

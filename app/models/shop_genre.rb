@@ -1,4 +1,4 @@
 class ShopGenre < ApplicationRecord
-  belongs_to :shop
-  belongs_to :genre
+  belongs_to :shop, optional: true
+  belongs_to :genre, optional: true
 end
