@@ -203,6 +203,11 @@
           background-color: $shop_views_navbar;
           color: white;
           font-size: 14px;
+          a:link {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+          }
         }
         li.shop-reviews-page-shop_lists__map{
           width: 196px;
@@ -743,7 +748,6 @@
                       width: 22px;
                       margin-left: 3px;
                       border-radius: 3px;
-                      border: solid 1px black;
                     }
                   }
                 }
@@ -768,7 +772,6 @@
                       width: 22px;
                       margin-left: 3px;
                       border-radius: 3px;
-                      border: solid 1px black;
                     }
                   }
                 }
