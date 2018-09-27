@@ -1,12 +1,10 @@
 class ShopsController < ApplicationController
   before_action :set_shop, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit]
 
-  before_action :set_shop, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit]
-
   def index
-    # @shops = Shop.order("created_at DESC").page(params[:page]).per(10)
     if params[:search].present?
       @shops = Shop.search(params[:search]).order("created_at DESC").page(params[:page]).per(10)
+      @search_result = params[:search]
     else
       @shops = Shop.order("created_at DESC").page(params[:page]).per(10)
     end
@@ -45,8 +43,12 @@ class ShopsController < ApplicationController
   end
 
   def top_page
+    @shops = Shop.where('shop_name LIKE(?)', "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.html
+      format.json
+    end
     @user = User.find(current_user.id)
-    @review = @user.reviews
   end
 
   def search_result

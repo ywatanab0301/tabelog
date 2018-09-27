@@ -53,7 +53,7 @@ class Shop < ApplicationRecord
 
   def self.search(search) #self.でクラスメソッドとしている
     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
-      Shop.where(['shop_name LIKE ?', "%#{search}%"])
+      Shop.where(['shop_name LIKE ? OR station LIKE ? OR prtext LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
     else
       Shop.all #全て表示。
     end
