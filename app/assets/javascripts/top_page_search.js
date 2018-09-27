@@ -25,11 +25,8 @@ $(function(){
         counter++;
         appendShop(shop);
         }
-      })
-    })
-    .fail(function(){
-      alert('error');
-    })
+      });
+    });
   });
 
   $("#hitlist").on("click",".add", function(){

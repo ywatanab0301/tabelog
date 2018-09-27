@@ -97,11 +97,11 @@
                       = shop.review_average
                     .fa.fa-comments
                     %a.review
-                    = link_to "/shops/#{shop.id}/reviews" do
+                    = link_to "/shops/#{shop.id}/show_reviews" do
                       = shop.reviews.count
                   .content__main__shop__each__body__right__review
                     %a.title
-                    = link_to "/shops/#{shop.id}/reviews" do
+                    = link_to "/shops/#{shop.id}/show_reviews" do
                       = shop.show_last_review_title
                     %span.name by.
                     %span.name

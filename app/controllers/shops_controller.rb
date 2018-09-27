@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit, :sort_dinner, :sort_lunch]
+  before_action :set_shop_info, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit, :sort_dinner, :sort_lunch, :show]
 
   def index
     if params[:search].present?
