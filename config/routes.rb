@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   root to: "shops#top_page"
   devise_for :users
   resources :users do
-    get 'show_all' => 'users#show_all'
-    get 'show_gone' => 'users#show_gone'
-    get 'show_wannago' => 'users#show_wannago'
+    member do
+      get :show_all
+      get :show_gone
+      get :show_wannago
+    end
   end
 
   resources :searches
