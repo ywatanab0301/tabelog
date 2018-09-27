@@ -82,20 +82,23 @@
           %a.menu-link{ href: "/shops/#{@shop.id}/show_menu", style: "color: #595960;"}
             %span
               メニュー
-        %li.shop-reviews-page-shop_lists__image
+        %li.shops-top-shop_lists__image
           写真
-        %li.shop-reviews-page-shop_lists__review
-          口コミ
-        %li.shop-reviews-page-shop_lists__map
+        %li.shops-top-shop_lists__review
+          %a.reviews-link{ href: "/shops/#{@shop.id}/show_reviews", style: "color: #595960;"}
+            %span
+              口コミ
+        %li.shops-top-shop_lists__map
           地図
     .shop_main
       .shop_main-left
         .review-search-box
           .review-search-label
             口コミ検索
-          %input.review-search-box-input{:placeholder => "キーワード"}
-          %button.review-search-box-submit-btn
-            検索
+          .review-search-box-input
+          = form_tag "/shops/#{@shop.id}/show_reviews", method: :get, id: "search", remote: true do
+            = text_field_tag :search, params[:search], class: "form"
+            = submit_tag "検索", :name => nil, id: "search_btn"
         .shop_main-left-change-review-list
           .shop_main-left-change-review-list-inner
             .shop_main-left-change-review-list-text
@@ -115,11 +118,12 @@
                 すべての口コミ
             %li.shop_main-left-change-review-sort-list__dinner
               %i.fas.fa-moon
-                夜の口コミ
+              = link_to "夜の口コミ", sort_dinner_shop_path, id: "sort_dinner", remote: true
             %li.shop_main-left-change-review-sort-list__lunch
               .shop_main-left-change-review-sort-list__lunch--inner
                 %i.fas.fa-sun
-                  昼の口コミ
+                = link_to "昼の口コミ", sort_lunch_shop_path, id: "sort_lunch", remote: true
+
         .shop_main-left-review-order-change
           %ul.shop_main-left-review-order-change-list-ul
             %li.shop_main-left-review-order-change-list1
@@ -141,11 +145,14 @@
                 = link_to "詳しくはこちら"
         .shop-main-left-shop-review-sorting
           %p.review-counting
-            1～
-            = @reviews.length
-            件を表示 ／ 全
-            = @reviews.length
-            件
+            - if @reviews
+              1～
+              = @reviews.length
+              件を表示 ／ 全
+              = @reviews.length
+              件
+            -else
+              0件
           .review-sorting-by-number
             表示件数：
             .review-sorting-by-number__select-box
@@ -164,202 +171,16 @@
             .display-list-type-simple
               .fas.fa-list-ul
               = link_to "簡易リスト"
+        .shop-review-list
 
-        - @reviews.each do |review|
-          .shops-reviews-wrap
-            .shops-review-post
-              .shop-review-post__user-info
-                .shop-review-post__user-info--avatar
-                  -if review.user.avatar?
-                    = image_tag review.user.avatar.url
-                  -else
-                    = image_tag "avatar_nophoto.gif"
-                .shop-review-post__user-info--right
-                  .shop-review-post__user-info--username
-                    %p.review-user-name
-                      = review.user.nickname
-                    %p.reviewer-follower-number
-                      (278)
-                    %p
-                      さんの口コミ
-                  .shop-review-post__user-info--moreinfo
-                    %p
-                      男性・千葉県
-              .shop-review-post__rst-review
-                .shop-review-post__rst-review--score-data
-                  .shop-review-score
-                    .shop-review-rating-star
-                      🌃  🌟🌟🌟⭐⭐
-                    .shop-review-rating-point
-                      = review.rate.round(1) unless review.rate == nil
-                    %ul.shop-review-rate-detail
-                      %li.food-rate
-                        %p
-                          料理・味
-                          %strong
-                            = review.food_rate.round(1) unless review.food_rate == nil
-                      %li.service-rate
-                        %p
-                          サービス
-                          %strong
-                            = review.service_rate.round(1) unless review.service_rate == nil
-                      %li.atmosphere-rate
-                        %p
-                          雰囲気
-                          %strong
-                            = review.atmosphere.round(1) unless review.atmosphere == nil
-                      %li.cp-rate
-                        %p
-                          CP
-                          %strong
-                            = review.cp_rate.round(1) unless review.cp_rate == nil
-                      %li.drink-rate
-                        %p.drink-rate
-                          酒・ドリンク
-                          %strong
-                            = review.drink_rate.round(1) unless review.drink_rate == nil
-                .shop-review-post__rst-review--score-data
-                  .shop-review-score
-                    .shop-review-rating-star
-                      🌅  🌟🌟🌟⭐⭐
-                    .shop-review-rating-point
-                      = review.rate.round(1) unless review.rate == nil
-                    %ul.shop-review-rate-detail
-                      %li.food-rate
-                        %p
-                          料理・味
-                          %strong
-                            = review.food_rate.round(1) unless review.food_rate == nil
-                      %li.service-rate
-                        %p
-                          サービス
-                          %strong
-                            = review.service_rate.round(1) unless review.service_rate == nil
-                      %li.atmosphere-rate
-                        %p
-                          雰囲気
-                          %strong
-                            = review.atmosphere.round(1) unless review.atmosphere == nil
-                      %li.cp-rate
-                        %p
-                          CP
-                          %strong
-                            = review.cp_rate.round(1) unless review.cp_rate == nil
-                      %li.drink-rate
-                        %p.drink-rate
-                          酒・ドリンク
-                          %strong
-                            = review.drink_rate.round(1) unless review.drink_rate == nil
-                .shop-review-count
-                  1回
-                .shop-review-price
-                  .shop-review-used-price
-                    %p
-                      使った金額（1人）：
-                    - review.budgets.each do |budget|
-                      .shop-price-range
-                        = budget.name
-              .shop-review-post-contents
-                .shop-review-one-time
-                  %p.shops-shop-review-visited-month
-                    = review.visit_day.strftime('%Y/%m')
-                    訪問
-                  .shop-review-post__rst-review--score-data
-                    .shop-review-score
-                      .shop-review-rating-point
-                        🌅
-                        = review.rate.round(1) unless review.rate == nil
-                      %ul.shop-review-rate-detail
-                        %li.food-rate
-                          %p
-                            料理・味
-                            %strong
-                              = review.food_rate.round(1) unless review.food_rate == nil
-                        %li.service-rate
-                          %p
-                            サービス
-                            %strong
-                              = review.service_rate.round(1) unless review.service_rate == nil
-                        %li.atmosphere-rate
-                          %p
-                            雰囲気
-                            %strong
-                              = review.atmosphere.round(1) unless review.atmosphere == nil
-                        %li.cp-rate
-                          %p
-                            CP
-                            %strong
-                              = review.cp_rate.round(1) unless review.cp_rate == nil
-                        %li.drink-rate
-                          %p.drink-rate
-                            酒・ドリンク
-                            %strong
-                              = review.drink_rate.round(1) unless review.drink_rate == nil
-                      .shop-review-price
-                        .shop-review-used-price
-                          %p
-                            使った金額（1人）：
-                          - review.budgets.each do |budget|
-                            .shop-price-range
-                              = budget.name
-                  .shop-review-count
-                    1回目
-                .shop-review-post__rst-review--content
-                  .shop-review-title
-                    %p
-                      %a
-                        = review.title
-                  .shop-review-text
-                    %p
-                      = simple_format(review.text)
-                .shop-review-post-contents-images
-                  %ul.shop-review-post-contents-images.ul
-                    %li.shop-review-post-contents-image1
-                      = image_tag "avatar_nophoto.gif"
-                    %li.shop-review-post-contents-image2
-                      = image_tag "avatar_nophoto.gif"
-                    %li.shop-review-post-contents-image3
-                      = image_tag "avatar_nophoto.gif"
-                    %li.shop-review-post-contents-image4
-                      = image_tag "avatar_nophoto.gif"
-                    %li.shop-review-post-contents-image5
-                      = image_tag "avatar_nophoto.gif"
-                .shop-review-post-like-wannago
-                  .shop-review-post-like-wannago__buttons
-                    = render partial: 'likes/like_links', locals: {review: review}
-                    %button.shop-review-post-like-wannago__buttons--wannago
-                      %i.fas.fa-thumbtack
-                      行きたい
-                  .shop-review-post-who-likes
-                    .shop-review-post-who-likes__count
-                      %p.number-who-likes
-                        76
-                      %p
-                        人が「いいね！」しています。
-                    .shop-review-post-who-likes__icons
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                  .shop-review-post-who-wannago
-                    .shop-review-post-who-wannago__count
-                      %p.number-who-wannago
-                        1
-                      %p
-                        人が「行きたい」しています。
-                    .shop-review-post-who-wannago__icons
-                      = image_tag "avatar_nophoto.gif"
-                .shop-review-post-contents-notice
-                  %p.shop-notice-message1
-                    利用規約に違反している口コミは、右のリンクから報告することができます。
-                  %p.shop-notice-message2
-                    = link_to "➤ 問題のある口コミを連絡する"
+        - if @reviews.present?
+          = render @reviews
+        -else
+          .rvwlst-notfound
+            .rvwlst-notfound__attention
+              %p.rvwlst-notfound__text
+                %strong ご指定の条件に該当する口コミは見つかりませんでした。
+              %p.rvwlst-notfound__text2 検索条件を変更して、再度検索してください。
 
         = render partial: 'shares/shop-basic-info'
       .shop_main-right

@@ -10,14 +10,14 @@ Rails.application.routes.draw do
   end
 
   resources :shops do
-    collection do
-      get :top_page
-    end
-    member  do
+<<<<<<< HEAD
+    member do
       get :show_menu
       get :show_reviews
       get :sort_visit
       get :sort_popular
+      get :sort_lunch
+      get :sort_dinner
     end
     resources :reviews, only: [:new, :create, :edit, :update, :destroy, :show]
   end

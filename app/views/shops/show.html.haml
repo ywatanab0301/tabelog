@@ -136,18 +136,14 @@
                 投稿する
         .shop_mainleft-friend
           .shop_mainleft-friend__image
-            = image_tag "avatar_nophoto.gif"
+            = image_tag current_user.avatar.url
           .shop_mainleft-friend__text
             好みのあう人をフォローすると、その人のオススメのお店から探せます。
         - @reviews.each do |review|
           %ul.pickup_review
             %li.pickup_review-avatar
               .pickup_review-avatar__icon
-                = link_to user_path(review.user.id) do
-                  -if review.user.avatar?
-                    = image_tag review.user.avatar.url
-                  -else
-                    = image_tag "avatar_nophoto.gif"
+                = image_tag review.user.avatar.url
               .pickup_review-avatar__nickname
                 = review.user.nickname
               .pickup_review-avatar__count

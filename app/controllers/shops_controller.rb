@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :set_shop_info, only: [:show, :show_menu, :show_reviews, :sort_popular, :sort_visit]
+  before_action :set_shop, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit, :sort_dinner, :sort_lunch]
 
   def index
     if params[:search].present?
@@ -33,7 +33,12 @@ class ShopsController < ApplicationController
   end
 
   def show_reviews
-    @reviews = @shop.reviews.includes(:budgets, :user).order('created_at DESC')
+    if params[:search].present?
+      @reviews = @shop.reviews.where('text LIKE(?)', "%#{params[:search]}%")
+
+    else
+      @reviews = @shop.reviews.includes(:user).order('created_at DESC')
+    end
   end
 
   def sort_popular
@@ -51,6 +56,14 @@ class ShopsController < ApplicationController
       format.html
       format.json
     end
+  end
+
+  def sort_dinner
+    @reviews = @shop.reviews.includes(:user).order('visit_day DESC').where(lunch_dinner: "1")
+  end
+
+  def sort_lunch
+    @reviews = @shop.reviews.includes(:user).order('visit_day DESC').where(lunch_dinner: "2")
   end
 
   private
