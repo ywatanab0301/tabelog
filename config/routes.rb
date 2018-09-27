@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  root to: "searches#index"
+  root to: "shops#top_page"
   devise_for :users
   resources :users
 
-  resources :searches
   resources :shops do
+<<<<<<< HEAD
     member do
       get :show_menu
       get :show_reviews

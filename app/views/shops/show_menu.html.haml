@@ -38,15 +38,21 @@
           .shop_views-namespace__aword
         .shop_views-detailspace
           .shop_views-detailspace__station
-            最寄り駅: 六本木一丁目
-          .shop_views-detailspace__genre
-            ジャンル: 割烹・小料理
-          .shop_views-detailspace__average
-            予算🌃¥30,000~ 🌅¥30,000~
-            %span.shop_views-detailspace__schedule
-              定休日: 日曜・祝日
-            %span.shop_views-detailspace__moredetail
-              店舗詳細(詳細)
+            最寄り駅:
+            = @shop.station
+          - @genre.each do |genre|
+            .shop_views-detailspace__genre
+              ジャンル :
+              = genre.name
+          - @budget.each do |budget|
+            .shop_views-detailspace__average
+              予算
+              = budget.name
+              %span.shop_views-detailspace__schedule
+                定休日 :
+                = @shop.closed_day
+              %span.shop_views-detailspace__moredetail
+                店舗詳細(詳細)
       .shop_subheader-right
         .shop_views-buttons
           .button.shop-views
@@ -96,56 +102,80 @@
           .shop-menu-lists
             %ul
               %li.shop-menu-list
-                .shop-menu-image
-                  = image_tag "avatar_nophoto.gif"
+                - if @shop.menu_image_1?
+                  .shop-menu-image
+                    = image_tag @shop.menu_image_1
                 .shop-menu-content
                   .shop-menu-content-upper
                     .shop-menu-name
-                      特上カルビ
+                      = @shop.menu_name_1
                     .shop-menu-price
                       %p.shop-menu-price-number
-                        2,990円
+                        = @shop.menu_price_1
+                        円
                   .shop-menu-content-bottom
                     .shop-menu-detail
-                      主な使用部位・ヘッドバラ、三角バラ、カイノミ、ササバラ
-                      Regular 1390円
-                      Small 750円
-                      Family 1890円
+                      = @shop.menu_detail_1
               %li.shop-menu-list
-                .shop-menu-image
-                  = image_tag "avatar_nophoto.gif"
+                - if @shop.menu_image_2?
+                  .shop-menu-image
+                    = image_tag @shop.menu_image_2
                 .shop-menu-content
                   .shop-menu-content-upper
                     .shop-menu-name
-                      とろ肉3秒炙り
+                      = @shop.menu_name_2
                     .shop-menu-price
                       %p.shop-menu-price-number
-                        1,390円
+                        = @shop.menu_price_2
+                        円
                   .shop-menu-content-bottom
                     .shop-menu-detail
-                      牛８No1メニュー。極上ロースを薄切りで3秒炙ります
+                      = @shop.menu_detail_2
               %li.shop-menu-list
-                .shop-menu-image
+                - if @shop.menu_image_3?
+                  .shop-menu-image
+                    = image_tag @shop.menu_image_3
                 .shop-menu-content
                   .shop-menu-content-upper
                     .shop-menu-name
-                      ファミリー１ポンド盛り
+                      = @shop.menu_name_3
                     .shop-menu-price
                       %p.shop-menu-price-number
-                        3,890円
+                        = @shop.menu_price_3
+                        円
                   .shop-menu-content-bottom
                     .shop-menu-detail
+                      = @shop.menu_detail_3
               %li.shop-menu-list
-                .shop-menu-image
+                - if @shop.menu_image_4?
+                  .shop-menu-image
+                    = image_tag @shop.menu_image_4
                 .shop-menu-content
                   .shop-menu-content-upper
                     .shop-menu-name
-                      女性のためのセレブ盛り
+                      = @shop.menu_name_4
                     .shop-menu-price
                       %p.shop-menu-price-number
-                        2,690円
+                        = @shop.menu_price_4
+                        円
                   .shop-menu-content-bottom
                     .shop-menu-detail
+                      = @shop.menu_detail_4
+              %li.shop-menu-list
+                - if @shop.menu_image_5?
+                  .shop-menu-image
+                    = image_tag @shop.menu_image_5
+                .shop-menu-content
+                  .shop-menu-content-upper
+                    .shop-menu-name
+                      = @shop.menu_name_5
+                    .shop-menu-price
+                      %p.shop-menu-price-number
+                        = @shop.menu_price_5
+                        円
+                  .shop-menu-content-bottom
+                    .shop-menu-detail
+                      = @shop.menu_detail_5
         = render partial: 'shares/shop-basic-info'
       .shop_main-right
         .shop_mainright-telphone
