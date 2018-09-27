@@ -74,23 +74,13 @@
                 display: inline-block;
                 white-space: nowrap;
                 color: white;
-                .rsttop-headline__usermenu .user-menu__item {
+
+                .top-headline__usermenu.user-menu__item {
                   margin-top: -5px;
-                  }
+                }
 
                   .user-menu__target.user-menu__target--dropdown {
                     padding-right: 1px;
-
-                      // .user-menu__badge::after {
-                      //   margin-left: 3px;
-                      //   padding: 0 4px;
-                      //   border-radius: 8px;
-                      //   color: #fff;
-                      //   font-family: Arial,sans-serif;
-                      //   font-weight: bold;
-                      //   background: #e64c30;
-                      //   font-size: 1.1rem;
-                      // }
                   }
                 }
               }

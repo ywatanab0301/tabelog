@@ -13,7 +13,6 @@
                 %li.user-menu__item
                   %a#open-message-notification.user-menu__target.user-menu__target--dropdown{ href: "#"}
                     %span.user-menu__text メッセージ
-                    %span#messages.user-menu__badge{ style: "display:none;"} 0
                   / #message-notification.user-menu__popup.user-menu__popup--notification.js-exec-notification-box
                   /   .balloon.balloon--top
                   /     #message-notification-list.notification-list
@@ -25,20 +24,12 @@
                 %li.user-menu__item
                   %a#open-information-notification.user-menu__target.user-menu__target--dropdown{ href: "#"}
                     %span.user-menu__text お知らせ
-                    %span#informations.user-menu__badge{ style: "display:none;"} 0
-                  / #information-notification.user-menu__popup.user-menu__popup--notification.js-exec-notification-box
-                  /   .balloon.balloon--top
-                  /     .notification-sort
-                  /       %ul.notification-sort__box
-                  /         %li#selector-comment.notification-sort__tab.notification-sort__tab--comment.gly-b-conversation
-                  /           %span.notification-sort__text コメント
-                  /         %li#selector-other.notification-sort__tab.notification-sort__tab--other.gly-b-tabelike.is-selected
-                  /           %span.notification-sort__text いいね！ほか
-                  /     #information-notification-list.notification-list
-                  /     .notification-bottom
-                  /       %a#information-link.icon-b-circle-orange{"data-comment-url" => "#", "data-other-url" => "#", href: "#"}
-                  /         %strong> いいね！ほか
-                  /         の通知をもっと見る
+                    %i.fas.fa-sort-down
+                      / %ul.notification-sort__box
+                      /   %li#selector-comment.notification-sort__tab.notification-sort__tab--comment.gly-b-conversation
+                      /     %span.notification-sort__text コメント
+                      /   %li#selector-other.notification-sort__tab.notification-sort__tab--other.gly-b-tabelike.is-selected
+                      /     %span.notification-sort__text いいね！ほかの通知をもっと見る
                 %li.user-menu__item
                   %a.user-menu__target{ href: "#"}
                     %span.user-menu__text Tpoint
@@ -53,19 +44,18 @@
                   %a.user-menu__target{ href: "/users/#{current_user.id}"}
                     %span.user-menu__text マイページ
                 %li.user-menu__item.user-menu__item--setting
-                  %a#open-user-setting.user-menu__target.user-menu__target--dropdown.user-menu__target--user-image{href: "#"}
-                    %img{ alt: "", height: "27" ,src: "#{current_user.avatar}", width: "27"}/
-                    #user-setting.p-user-menu__popup.user-menu__popup--setting.js-exec-user-setting-box
-                      .balloon.balloon--top
-                        %ul.setting-list
-                          %li.setting-list__item
-                            %a.setting-list__target{href: "#"} フォロー中一覧
-                          %li.setting-list__item
-                            %a.setting-list__target{href: "#"} 下書き一覧
-                          %li.setting-list__item
-                            %a.setting-list__target{href: "#"} 設定
-                          %li.setting-list__item.setting-list__item--logout
-                            %a.setting-list__target{href: "#"} ログアウト
+                  %a#open-user-setting.user-menu__target.user-menu__target--dropdown.user-menu__target--user-image{href: "/users/#{current_user.id}"}
+                    %img{ alt: "", height: "27" ,src: "#{current_user.avatar}", width: "27"}
+                  %i.fas.fa-sort-down
+                    %ul.setting-list
+                      %li.setting-list__item
+                        %a.setting-list__target{href: "#"} フォロー中一覧
+                      %li.setting-list__item
+                        %a.setting-list__target{href: "#"} 下書き一覧
+                      %li.setting-list__item
+                        %a.setting-list__target{href: "#"} 設定
+                      %li.setting-list__item.setting-list__item--logout
+                        %a.setting-list__target{href: "#"} ログアウト
 
             - else
               %ul.user-menu.js-exec-welcome

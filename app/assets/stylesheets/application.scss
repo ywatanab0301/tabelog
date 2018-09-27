@@ -179,6 +179,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, 
   display: inline-block;
   position: relative;
   font-size: 1.2rem;
+  padding-right: 20px;
 }
 
 .balloon {
@@ -224,23 +225,17 @@ article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, 
   border-bottom-color: #d2d2d2;
 }
 
-.user-menu__target {
-  padding: 0 8px;
+
+.fas.fa-sort-down {
+  padding-bottom: 10px;
+  margin-left: 5px;
+  color: white;
 }
 
-// .user-menu__target.user-menu__target--dropdown:after {
-//   display: inline-block;
-//   color: #999;
-//   font-size: 1rem;
-//   font-family: "メイリオ";
-//   font-style: normal;
-//   font-weight: normal;
-//   font-variant: normal;
-//   -webkit-font-smoothing: antialiased;
-//   text-transform: none;
-//   speak: none;
-//   content: "\f633";
-// }
+.user-menu__popup.user-menu__popup--notification {
+  right: -10px;
+  width: 350px;
+}
 
 
 .top-header__inner.top-header__search {

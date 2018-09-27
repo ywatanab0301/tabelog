@@ -40,3 +40,17 @@ $(function(){
   });
 });
 
+$(function(){
+  $('.top-headline',).on('mouseout',function(){
+     // console.log("over！！！！");
+    $('.fas.fa-sort-down').css({
+      color: '#fff'
+    });
+  });
+  $('.top-headline').on('mouseover',function(){
+    $('.fas.fa-sort-down').css({
+      color: '#06c'
+    });
+  });
+});
+
