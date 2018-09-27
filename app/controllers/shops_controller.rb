@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :get_shop_info, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit]
+  before_action :set_get_shop_info, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit]
 
   def index
     if params[:search].present?
@@ -101,7 +101,7 @@ class ShopsController < ApplicationController
       :station)
   end
 
-  def get_shop_info
+  def set_get_shop_info
     @shop = Shop.find(params[:shop_id])
     @prefecture = @shop.prefectures
     @genre = @shop.genres
