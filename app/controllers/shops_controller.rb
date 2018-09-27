@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :set_get_shop_info, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit]
+  before_action :set_get_shop_info, only: [:show, :show_menu, :show_reviews, :sort_popular, :sort_visit]
 
   def index
     if params[:search].present?
@@ -20,10 +20,6 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shop = Shop.find(params[:id])
-    @prefecture = @shop.prefectures
-    @genre = @shop.genres
-    @budget = @shop.budgets
     @reviews = @shop.reviews.includes(:budgets, :user).order('created_at DESC')
   end
 
@@ -102,7 +98,7 @@ class ShopsController < ApplicationController
   end
 
   def set_get_shop_info
-    @shop = Shop.find(params[:shop_id])
+    @shop = Shop.find(params[:id])
     @prefecture = @shop.prefectures
     @genre = @shop.genres
     @budget = @shop.budgets
