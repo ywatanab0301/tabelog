@@ -22,7 +22,6 @@
               %p
                 = @user.nickname
                 さん
-
     .mypage-header-wrap
       .mypage-header
         .mypage-header__cover-image
@@ -43,6 +42,8 @@
             %p
               = @user.nickname
               のレストランガイド
+          / 下記にフォローボタンのビューファイルをrender
+          = render 'follow_form'
           - if @user.id == current_user.id
             .rvwr-page-setting
               = link_to "レビュアーページ設定", edit_user_path
@@ -65,7 +66,7 @@
               .mypage-header-contents__info--nickname
                 = @user.nickname
               .mypage-header-contents__info--prof
-                = link_to "➤ プロフィール詳細"
+                = link_to "➤ プロフィール詳細", user_path(@user.id)
           .mypage-header-contents__counts
             .rvwr-counter
               %dl.status
@@ -107,15 +108,15 @@
               .rvwr-navi__menu
                 まとめ
             %li.mypage-header-navi__follow
-              .rvwr_navi__count
-                0
-              .rvwr-navi__menu
-                フォロー中
+              %a.rvwr_navi__count{href: "#{following_path(@user)}"}
+                = @user.followings.count
+                .rvwr-navi__menu
+                  フォロー中
             %li.mypage-header-navi__follower
-              .rvwr_navi__count
-                0
-              .rvwr-navi__menu
-                フォロワー
+              %a.rvwr_navi__count{ href: "#{follower_path(@user)}"}
+                = @user.followers.count
+                .rvwr-navi__menu
+                  フォロワー
 
   .container
     .main-column
