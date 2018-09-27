@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit]
+  before_action :get_shop_info, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit]
 
   def index
     if params[:search].present?
@@ -27,6 +27,12 @@ class ShopsController < ApplicationController
     @reviews = @shop.reviews.includes(:budgets, :user).order('created_at DESC')
   end
 
+  def destroy
+    @shop = Shop.find(params[:id])
+    @shop.destroy
+    redirect_to action: 'index'
+  end
+
   def show_menu
   end
 
@@ -51,11 +57,6 @@ class ShopsController < ApplicationController
     @user = User.find(current_user.id)
   end
 
-  def destroy
-    @shop = Shop.find(params[:id])
-    @shop.destroy
-    redirect_to action: 'index'
-  end
   private
 
   def shop_params
@@ -100,7 +101,7 @@ class ShopsController < ApplicationController
       :station)
   end
 
-  def set_shop
+  def get_shop_info
     @shop = Shop.find(params[:shop_id])
     @prefecture = @shop.prefectures
     @genre = @shop.genres
