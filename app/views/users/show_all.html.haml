@@ -1,0 +1,365 @@
+= render partial: 'shares/header'
+.user-mypage-view
+  .user-mypage-heading-wrap
+    .user-mypage-location-wrap
+      .user-location-wrap
+        .user-location
+          %ul.location-bar
+            %li
+              %span
+                = image_tag 'home_icon.png'
+            %li.link
+              = link_to "食べログ", root_path, method: :get
+            %li
+              %span
+                = image_tag 'location_arrow.png'
+            %li.link
+              = link_to "食べログレビュアー"
+            %li
+              %span
+                = image_tag 'location_arrow.png'
+            %li.username
+              %p
+                =link_to "#{@user.nickname}さん", user_path(@user.id)
+            %li
+              %span
+                = image_tag 'location_arrow.png'
+            %li.gone-wannago-all
+              %p
+                行った・行きたい一覧
+
+    .user-mypage-header-wrap
+      .user-mypage-header
+        .user-mypage-header__cover-image
+          .user-cover-image
+            - if @user.background_image?
+              = image_tag @user.background_image.url, class: "image"
+            - else
+              = image_tag "61450017_624.gif", class: "image"
+          .user-page-name
+            %p
+              = @user.nickname
+              のレストランガイド
+          - if @user.id == current_user.id
+            %a.rvwr-mypage-setting{ href: "/users/#{current_user.id}/edit", style: "color: black;"}
+              %span
+                レビュアーページ設定
+        .user-mypage-header__user-avatar
+          = link_to user_path(@user.id) do
+            -if @user.avatar?
+              = image_tag @user.avatar.url
+            -else
+              = image_tag "avatar_nophoto.gif"
+        .user-mypage-header-contents
+          .user-mypage-header-contents__image-wrap
+          .user-mypage-header-contents__info
+            .user-mypage-header-contents__userinfo
+              .user-mypage-header-contents__info--nickname
+                %a.username-mypage-link{ href:"/users/#{@user.id}", style:"color: black"}
+                  = @user.nickname
+          .mypage-header-contents__headline
+            %ul.mypage-header-contents__headline-ul
+              %li.top-page-link
+                %a.top-page-link{ href: "/users/#{@user.id}", style: "color: #595960;"}
+                  %span
+                    トップ
+              %li.gone-shop-link
+                %a.top-page-link{ href: "/users/#{@user.id}/show_gone", style: "color: #595960;"}
+                  %span
+                    行ったお店
+              %li.wannago-shop-link
+                %a.top-page-link{ href: "/users/#{@user.id}/show_wannago", style: "color: #595960;"}
+                  %span
+                    行きたいお店
+              %li.matome-link
+                %a.top-page-link{ href: "#", style: "color: #595960;"}
+                  %span
+                    まとめ
+              %li.following-link
+                %a.top-page-link{ href: "/following/#{@user.id}", style: "color: #595960;"}
+                  %span
+                    フォロー中
+              %li.followers-link
+                %a.top-page-link{ href: "/followers/#{@user.id}", style: "color: #595960;"}
+                  %span
+                    フォロワー
+  .user-page-content
+    .user-page-content__side
+      .user-page-content__side__top
+        .user-page-content__side__top__area
+          .user-page-content__side__top__area__header
+            %p.upper
+              エリア
+            %p
+              から探す
+            %i.fas.fa-map-marker-alt
+          .user-page-content__side__top__area__main
+            %p
+              すべて
+            %i.fas.fa-angle-right
+          .user-page-content__side__top__area__footer
+            = link_to "このエリアを地図で見る"
+            %i.fas.fa-map
+        .user-page-content__side__top__genre
+          .user-page-content__side__top__genre__header
+            %p.upper
+              ジャンル
+            %p
+              から探す
+            %i.fas.fa-utensils
+          .user-page-content__side__top__genre__main
+            %p
+              すべて
+            %i.fas.fa-angle-right
+    .user-page-content-main
+      .review-search-word
+        %i.fas.fa-search
+        %p
+          検索条件が指定されていません。
+      .shop_main-left-change-review-sort-list
+        %ul.shop_main-left-change-review-sort-list-ul
+          %li.shop_main-left-change-review-sort-list__all
+            %i.far.fa-check-circle
+            すべて
+          %li.shop_main-left-change-review-sort-list__gone
+            %a.shop_main-left-change-review-sort-list__gone{ href: "/users/#{@user.id}/show_gone", style: "color: #595960;"}
+              %i.fas.fa-heart
+                %span
+                  行った（口コミ）
+          %li.shop_main-left-change-review-sort-list__wannago
+            %a.shop_main-left-change-review-sort-list__wannago--inner{ href: "/users/#{@user.id}/show_wannago", style: "color: #595960;"}
+              %i.fas.fa-thumbtack
+                %span
+                  行きたい
+      .shop_main-left-review-order-change
+        %ul.shop_main-left-review-order-change-list-ul
+          %li.shop_main-left-review-order-change-list1
+            %i.fas.fa-sort
+            %i.fas.fa-chevron-circle-down
+            更新日
+          %li.shop_main-left-review-order-change-list2
+            = link_to "行ったの点数／期待度"
+          %li.shop_main-left-review-order-change-list3
+            = link_to "ランキング"
+      .shop-main-left-shop-review-sorting
+        %p.review-counting
+          1～
+          = @reviews.length
+          件を表示 ／ 全
+          = @reviews.length
+          件
+        .review-sorting-by-number
+          表示件数：
+          .review-sorting-by-number__select-box
+            %select.select-box
+              %option
+                20
+              %option
+                50
+              %option
+                100
+        .review-change-display-list-type
+          表示形式：
+          .display-list-type-reviews
+            .fas.fa-align-justify
+            口コミ表示
+          .display-list-type-shops
+            .fas.fa-list-ul
+            = link_to "店舗表示"
+
+      .user-mypage-wannago-shops
+        .gone-wannago-buttons
+          .button-gone
+            %button.shop-review-post-like-wannago__buttons--gone
+              %i.fas.fa-heart
+              行った
+          .button-wannago
+            %button.shop-review-post-like-wannago__buttons--wannago
+              %i.fas.fa-thumbtack
+              行きたい
+        .user-mypage-wannago-shops-left
+          .user-mypage-wannago-shops__image
+            = image_tag "avatar_nophoto.gif"
+        .user-mypage-wannago-shops-right
+          .user-mypage-wannago-shops__shop-name
+            %p
+              みやび屋
+          .user-mypage-wannago-shops__info1
+            .user-mypage-wannago-shops__info--station
+              小伝馬町、
+            .user-mypage-wannago-shops__info--genre
+              スープカレー
+          .user-mypage-wannago-shops__rate
+            .user-mypage-wannago-shops__rate--star
+              ⭐⭐⭐⭐⭐
+            .user-mypage-wannago-shops__rate--score
+              3.13
+          .user-mypage-wannago-shops__info2
+            .user-mypage-wannago-shops__info2--budget-dinner
+              🌃 ¥4,000〜¥4,999
+            .user-mypage-wannago-shops__info2--budget-lunch
+              🌅 〜¥999
+            .user-mypage-wannago-shops__info2--budget-off
+              ㉁ 日曜日、祝日
+
+      - if @reviews.length == 0
+        .message-no-shop-gone
+          %p
+            まだ行ったお店がありません。
+      - else
+        - @reviews.each do |review|
+          .user-shop-reviews-wrap
+            .user-shops-review-post
+              .user-shop-review-post__shop-info
+                .user-shop-review-post__shop-info--shop-name
+                  %a.review-shop-name{ href: "/shops/#{review.shop.id}"}
+                    = review.shop.shop_name
+                  .review-shop-info
+                    （
+                    - review.shop.prefectures.each do |prefecture|
+                      %p.review-shop-prefecture
+                        = prefecture.name
+                        、
+                    - review.shop.genres.each do |genre|
+                      %p.review-shop-genre
+                        = genre.name
+                        ）
+              .shop-review-post__rst-review
+                .shop-review-post__rst-review--score-data
+                  .shop-review-score
+                    .shop-review-rating-star
+                      🌃  🌟🌟🌟⭐⭐
+                    .shop-review-rating-point
+                      = review.rate.round(1) unless review.rate == nil
+                    %ul.shop-review-rate-detail
+                      %li.food-rate
+                        %p
+                          料理・味
+                          %strong
+                            = review.food_rate.round(1) unless review.food_rate == nil
+                      %li.service-rate
+                        %p
+                          サービス
+                          %strong
+                            = review.service_rate.round(1) unless review.service_rate == nil
+                      %li.atmosphere-rate
+                        %p
+                          雰囲気
+                          %strong
+                            = review.atmosphere.round(1) unless review.atmosphere == nil
+                      %li.cp-rate
+                        %p
+                          CP
+                          %strong
+                            = review.cp_rate.round(1) unless review.cp_rate == nil
+                      %li.drink-rate
+                        %p.drink-rate
+                          酒・ドリンク
+                          %strong
+                            = review.drink_rate.round(1) unless review.drink_rate == nil
+                .shop-review-price
+                  .shop-review-used-price
+                    %p
+                      使った金額（1人）：
+                    - review.budgets.each do |budget|
+                      .shop-price-range
+                        🌃
+                        = budget.name
+              .user-shop-review-post-contents
+                - if review.user_id == current_user.id
+                  .user-review-post__buttons
+                    = link_to shop_review_path(review.shop_id, review.id), method: :delete, class: "delete_alert" do
+                      .review-post__buttons--trash.fas.fa-trash-alt
+                    = link_to edit_shop_review_path(review.shop_id, review.id) do
+                      .user-review-post__buttons--edit.fas.fa-edit
+                .shop-review-one-time
+                  %p.shops-shop-review-visited-month
+                    = review.visit_day.strftime('%Y/%m/%d')
+                    訪問
+                  .shop-review-post__rst-review--score-data
+                    .shop-review-score
+                      .shop-review-rating-point
+                        🌅
+                        = review.rate.round(1) unless review.rate == nil
+                      %ul.shop-review-rate-detail
+                        %li.food-rate
+                          %p
+                            料理・味
+                            %strong
+                              = review.food_rate.round(1) unless review.food_rate == nil
+                        %li.service-rate
+                          %p
+                            サービス
+                            %strong
+                              = review.service_rate.round(1) unless review.service_rate == nil
+                        %li.atmosphere-rate
+                          %p
+                            雰囲気
+                            %strong
+                              = review.atmosphere.round(1) unless review.atmosphere == nil
+                        %li.cp-rate
+                          %p
+                            CP
+                            %strong
+                              = review.cp_rate.round(1) unless review.cp_rate == nil
+                        %li.drink-rate
+                          %p.drink-rate
+                            酒・ドリンク
+                            %strong
+                              = review.drink_rate.round(1) unless review.drink_rate == nil
+                      .shop-review-price
+                        .shop-review-used-price
+                          %p
+                            使った金額（1人）：
+                          .shop-price-range
+                            🌃 ~￥999
+                  .shop-review-count
+                    1回目
+                .shop-review-post__rst-review--content
+                  .shop-review-title
+                    %p
+                      %a
+                        = review.title
+                  .shop-review-text
+                    %p
+                      = simple_format(review.text)
+                .shop-review-post-contents-images
+                  %ul.shop-review-post-contents-images.ul
+                    %li.shop-review-post-contents-image1
+                      = image_tag review.pic1
+                    %li.shop-review-post-contents-image2
+                      = image_tag review.pic2
+                    %li.shop-review-post-contents-image3
+                      = image_tag review.pic3
+                    %li.shop-review-post-contents-image4
+                      = image_tag review.pic4
+                    %li.shop-review-post-contents-image5
+                      = image_tag review.pic5
+                .shop-review-post-update-date
+                  = review.updated_at.strftime('%Y/%m/%d')
+                  更新
+                .shop-review-post-like-wannago
+                  .shop-review-post-like-wannago__buttons
+                    = render partial: 'likes/like_links', locals: {review: review}
+                    / %button.shop-review-post-like-wannago__buttons--wannago
+                    /   %i.fas.fa-thumbtack
+                    /   行きたい
+                  .shop-review-post-who-likes
+                    .shop-review-post-who-likes__count
+                      %p.number-who-likes
+                        = review.likes_count
+                      %p
+                        人が「いいね！」しています。
+                    - review.likes.each do |like|
+                      .shop-review-post-who-likes__icons
+                        = link_to user_path(like.user.id) do
+                          = image_tag "#{like.user.avatar}"
+                  .shop-review-post-who-wannago
+                    .shop-review-post-who-wannago__count
+                      %p.number-who-wannago
+                        1
+                      %p
+                        人が「行きたい」しています。
+                    .shop-review-post-who-wannago__icons
+                      = image_tag "avatar_nophoto.gif"
+= render partial: 'shares/footer'

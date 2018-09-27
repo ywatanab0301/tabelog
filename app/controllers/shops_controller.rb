@@ -51,11 +51,11 @@ class ShopsController < ApplicationController
 
   def top_page
     @shops = Shop.where('shop_name LIKE(?)', "%#{params[:keyword]}%")
+    @reviews = Review.count
     respond_to do |format|
       format.html
       format.json
     end
-    @user = User.find(current_user.id)
   end
 
   def sort_dinner
