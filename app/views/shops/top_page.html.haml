@@ -14,7 +14,6 @@
                   %a#open-message-notification.user-menu__target.user-menu__target--dropdown{ href: "#"}
                     %span.user-menu__text
                       メッセージ
-                    %span#messages.user-menu__badge{ style: "display:none;"} 0
                   / #message-notification.user-menu__popup.user-menu__popup--notification.js-exec-notification-box
                   /   .balloon.balloon--top
                   /     #message-notification-list.notification-list
@@ -25,92 +24,68 @@
                   /           を見る
                 %li.user-menu__item
                   %a#open-information-notification.user-menu__target.user-menu__target--dropdown{ href: "#"}
-                    %span.user-menu__text
-                      お知らせ
-                    %span#informations.user-menu__badge{ style: "display:none;"} 0
-                  / #information-notification.user-menu__popup.user-menu__popup--notification.js-exec-notification-box
-                  /   .balloon.balloon--top
-                  /     .notification-sort
-                  /       %ul.notification-sort__box
-                  /         %li#selector-comment.notification-sort__tab.notification-sort__tab--comment.gly-b-conversation
-                  /           %span.notification-sort__text コメント
-                  /         %li#selector-other.notification-sort__tab.notification-sort__tab--other.gly-b-tabelike.is-selected
-                  /           %span.notification-sort__text いいね！ほか
-                  /     #information-notification-list.notification-list
-                  /     .notification-bottom
-                  /       %a#information-link.icon-b-circle-orange{"data-comment-url" => "#", "data-other-url" => "#", href: "#"}
-                  /         %strong> いいね！ほか
-                  /         の通知をもっと見る
+                    %span.user-menu__text お知らせ
+                  %i.fas.fa-sort-down
+                    %ul.notification-sort__box
+                      %li#selector-comment.notification-sort__tab.notification-sort__tab--comment.gly-b-conversation
+                        %span.notification-sort__text コメント
+                      %li#selector-other.notification-sort__tab.notification-sort__tab--other.gly-b-tabelike.is-selected
+                        %span.notification-sort__text いいね！ほかの通知をもっと見る
                 %li.user-menu__item
                   %a.user-menu__target{ href: "#"}
-                    %span.c-badge-tpoint.c-badge-tpoint--s
-                      %i
-                        Tpoint
-                    %em.user-menu__text.user-menu__text--tpoint
-                      150
-                    pt
+                    %span.user-menu__text Tpoint
+                    %span.user-menu__text 0pt
                 %li.user-menu__item
                   %a.user-menu__target{ href: "#"}
-                    %span.user-menu__text
-                      予約確認
+                    %span.user-menu__text 予約確認
                 %li.user-menu__item
                   %a.user-menu__target{ href: "/users/#{current_user.id}/show_all"}
                     行った・行きたい
                 %li.user-menu__item
                   %a.user-menu__target{ href: "/users/#{current_user.id}"}
-                    マイページ
+                    %span.user-menu__text マイページ
                 %li.user-menu__item.user-menu__item--setting
-                  %a#open-user-setting.user-menu__target.user-menu__target--dropdown.user-menu__target--user-image{href: "#"}
-                    %img{ alt: "", height: "27" ,src: "#{current_user.avatar}", width: "27"}/
-                  / #user-setting.p-user-menu__popup.user-menu__popup--setting.js-exec-user-setting-box
-                  /   .balloon.balloon--top
-                  /     %ul.setting-list
-                  /       %li.setting-list__item
-                  /         %a.setting-list__target{href: "#"} フォロー中一覧
-                  /       %li.setting-list__item
-                  /         %a.setting-list__target{href: "#"} 下書き一覧
-                  /       %li.setting-list__item
-                  /         %a.setting-list__target{href: "#"} 設定
-                  /       %li.setting-list__item.setting-list__item--logout
-                  /         %a.setting-list__target{href: "#"} ログアウト
+                  %a#open-user-setting.user-menu__target.user-menu__target--dropdown.user-menu__target--user-image{href: "/users/#{current_user.id}"}
+                    %img{ alt: "", height: "27" ,src: "#{current_user.avatar}", width: "27"}
+                  %i.fas.fa-sort-down
+                    %ul.setting-list
+                      %li.setting-list__item
+                        %a.setting-list__target{href: "#"} フォロー中一覧
+                      %li.setting-list__item
+                        %a.setting-list__target{href: "#"} 下書き一覧
+                      %li.setting-list__item
+                        %a.setting-list__target{href: "#"} 設定
+                      %li.setting-list__item
+                        %a.setting-list__target{href: "#"} ログアウト
 
             - else
               %ul.user-menu.js-exec-welcome
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "#"}
-                    食べログの特長と便利な使い方
+                  %a.user-menu__text{ href: "#"} 食べログの特長と便利な使い方
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "/users/sign_up"}
-                    無料会員登録
+                  %a.user-menu__text{ href: "/users/sign_up"} 無料会員登録
                 %li.user-menu__item
                   %a.user-menu__target{ href: "#"}
-                    %span.c-badge-tpoint.c-badge-tpoint--s>
-                      %i
-                        Tpoint
-                        保有Tポイント
+                    %span.user-menu__text>
+                      %i Tpoint   保有Tポイント
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "#"}
-                    予約確認
+                  %a.user-menu__text{ href: "#"} 予約確認
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "#"}
-                    行った・行きたい
+                  %a.user-menu__text{ href: "#"} 行った・行きたい
                 %li.user-menu__item
-                  %a.js-open-login-modal.p-user-menu__target{ href: "/users/sign_in"}
-                    ログイン
+                  %a.user-menu__text{ href: "/users/sign_in"} ログイン
 
       .top-header
         .top-header__visual.js-top-main-visual-image
-          .top-header__overlay
-            .bx-wrapper
-              .bx-viewport
-                %ul#js-top-slide-img.top-header__images
-                  %li.top-header__image.top-header__image--slide01
-                  %li.top-header__image.top-header__image--slide02
-                  %li.top-header__image.top-header__image--slide03
-                  %li.top-header__image.top-header__image--slide04
-                  %li.top-header__image.top-header__image--slide05
-                  %li.top-header__image.top-header__image--slide06
-            .top-header__slide-box
+          .top-header__image
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic1/2/a4b140c8-9fe7-44db-a035-e78636eada8c.jpg' }
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic4/3/08ceb3ee-dbdb-4e33-88f4-5453825991f4.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic2/2/2cf68ee0-c7a1-4942-962d-71446a5448a8.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic3/3/902de97c-7c88-4a83-bdb5-536ee25a5052.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic1/3/7e98267e-b00f-4712-a10c-681d32ef0f81.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic3/2/b0debf87-d0dd-4e01-92b2-afb057b27bd4.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic2/3/12f399d0-c560-4f27-aa84-9a6beff6bbe1.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic4/2/04e605e7-7fe6-4ec6-ac34-982c90d62925.jpg'}
         #js-top-main-visual.top-header__inner
           .top-header__lead
             %p.top-header__main-lead
@@ -119,6 +94,7 @@
               気のおけない仲間との乾杯も、特別な日のごちそうも。
               %br>/
               食べログであなたの思い出をより「おいしく」。
+
 
           .top-header__search
             = form_tag shops_path, method: :get do
@@ -132,8 +108,7 @@
         #top_announcements.top-annoucement
           .tabelog-info
             %p.tabelog-info__item
-              %span.tabelog-info__label.tabelog-info__label--news
-                お知らせ
+              %span.tabelog-info__label.tabelog-info__label--news お知らせ
               %a.tablog_announcement.tabelog-info__title.js-tablog_announcement{ href: "#", target: "tablog_announcement"}
                 全国ラーメンTOP100 「食べログ ラーメン 百名店 2018」を発表しました。
         .colum2.top-colum
@@ -141,233 +116,171 @@
             .top-search
               %section.top-search__colum
                 .top-search__heading
-                  %h2.top-heading1.top-search__title
-                    お店、レストランを探す
+                  %h2.top-heading1.top-search__title お店、レストランを探す
                   .top-search__data-count
+
                     .navi-count
                       = @shops.count
                       店舗
                       = @reviews
                       口コミ
+
                 .top-search__contents
-                  .top-search__contents-title
-                    都道府県から探す
+                  .top-search__contents-title 都道府県から探す
                   .js-hotarea-icon.top-search__hotarea
                     %span.top-search__hotarea-link
-                      %span
-                        注目エリア
+                      %span 注目エリア
                     .top-search__hotarea-list
                       / ここに非同期で表示する要素を追加
                   %ul.top-search__mainarea-list
                     %li.top-search__mainarea-item.top-search__mainarea-item--tokyo
                       %a{ href: "#"}
-                        %span.top-search__mainarea-text
-                          東京
+                        %span.top-search__mainarea-text 東京
                     %li.top-search__mainarea-item.top-search__mainarea-item--osaka
                       %a{ href: "#"}
-                        %span.top-search__mainarea-text
-                          大阪
+                        %span.top-search__mainarea-text 大阪
                     %li.top-search__mainarea-item.top-search__mainarea-item--kyoto
                       %a{ href: "#"}
-                        %span.top-search__mainarea-text
-                          京都
+                        %span.top-search__mainarea-text 京都
                     %li.top-search__mainarea-item.top-search__mainarea-item--aichi
                       %a{ href: "#"}
-                        %span.top-search__mainarea-text
-                          愛知
+                        %span.top-search__mainarea-text 愛知
                     %li.top-search__mainarea-item.top-search__mainarea-item--fukuoka
                       %a{ href: "#"}
-                        %span.top-search__mainarea-text
-                          福岡
+                        %span.top-search__mainarea-text 福岡
                   .top-search__place-all
                     .top-search__place-column
                       %dl.top-search__place-set
-                        %dt.top-search__place-title
-                          北海道・東北
+                        %dt.top-search__place-title 北海道・東北
                         %dd.top-search__place-list-box
                           %ul.top-search__place-list
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                北海道
+                              %a{ href: "#"} 北海道
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                青森
+                              %a{ href: "#"} 青森
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                秋田
+                              %a{ href: "#"} 秋田
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                山形
+                              %a{ href: "#"} 山形
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                岩手
+                              %a{ href: "#"} 岩手
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                宮城
+                              %a{ href: "#"} 宮城
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                福島
+                              %a{ href: "#"} 福島
                       %dl.top-search__place-set
-                        %dt.top-search__place-title
-                          関東
+                        %dt.top-search__place-title 関東
                         %dd.top-search__place-list-box
                           %ul.top-search__place-list
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                東京
+                              %a{ href: "#"} 東京
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                神奈川
+                              %a{ href: "#"} 神奈川
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                埼玉
+                              %a{ href: "#"} 埼玉
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                千葉
+                              %a{ href: "#"} 千葉
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                栃木
+                              %a{ href: "#"} 栃木
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                茨城
+                              %a{ href: "#"} 茨城
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                群馬
+                              %a{ href: "#"} 群馬
                       %dl.top-search__place-set
-                        %dt.top-search__place-title
-                          中部
+                        %dt.top-search__place-title 中部
                         %dd.top-search__place-list-box
                           %ul.top-search__place-list
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                愛知
+                              %a{ href: "#"} 愛知
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                岐阜
+                              %a{ href: "#"} 岐阜
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                静岡
+                              %a{ href: "#"} 静岡
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                三重
+                              %a{ href: "#"} 三重
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                新潟
+                              %a{ href: "#"} 新潟
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                山梨
+                              %a{ href: "#"} 山梨
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                長野
+                              %a{ href: "#"} 長野
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                石川
+                              %a{ href: "#"} 石川
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                富山
+                              %a{ href: "#"} 富山
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                福井
+                              %a{ href: "#"} 福井
                     .top-search__place-column.top-search__place-column--right
                       %dl.top-search__place-set
-                        %dt.top-search__place-title
-                          関西
+                        %dt.top-search__place-title 関西
                         %dd.top-search__place-list-box
                           %ul.top-search__place-list
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                大阪
+                              %a{ href: "#"} 大阪
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                兵庫
+                              %a{ href: "#"} 兵庫
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                京都
+                              %a{ href: "#"} 京都
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                滋賀
+                              %a{ href: "#"} 滋賀
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                奈良
+                              %a{ href: "#"} 奈良
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                和歌山
+                              %a{ href: "#"} 和歌山
                       %dl.top-search__place-set
-                        %dt.top-search__place-title
-                          中国・四国
+                        %dt.top-search__place-title 中国・四国
                         %dd.top-search__place-list-box
                           %ul.top-search__place-list
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                岡山
+                              %a{ href: "#"} 岡山
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                広島
+                              %a{ href: "#"} 広島
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                鳥取
+                              %a{ href: "#"} 鳥取
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                島根
+                              %a{ href: "#"} 島根
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                山口
+                              %a{ href: "#"} 山口
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                香川
+                              %a{ href: "#"} 香川
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                徳島
+                              %a{ href: "#"} 徳島
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                愛媛
+                              %a{ href: "#"} 愛媛
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                高知
+                              %a{ href: "#"} 高知
                       %dl.top-search__place-set
-                        %dt.top-search__place-title
-                          九州・沖縄
+                        %dt.top-search__place-title 九州・沖縄
                         %dd.top-search__place-list-box
                           %ul.top-search__place-list
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                福岡
+                              %a{ href: "#"} 福岡
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                佐賀
+                              %a{ href: "#"} 佐賀
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                長崎
+                              %a{ href: "#"} 長崎
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                熊本
+                              %a{ href: "#"} 熊本
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                大分
+                              %a{ href: "#"} 大分
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                宮崎
+                              %a{ href: "#"} 宮崎
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                鹿児島
+                              %a{ href: "#"} 鹿児島
                             %li.top-search__place-list-link
-                              %a{ href: "#"}
-                                沖縄
+                              %a{ href: "#"} 沖縄
                   .top-search__morelink
                     %ul
                       %li.top-search__morelink-item
                         %a.c-link-circle{ href:"#"}
-                          %span
-                            海外のお店を探す
+                          %span 海外のお店を探す
                       %li.top-search__morelink-item
                         %a.c-link-circle{ href:"#"}
-                          %span
-                            全国のお店を探す
+                          %span 全国のお店を探す
             %section#js-timeline.top-timeline
               #timeline-header.top-timeline__heading
                 %h3.top-text.top-text.js-text-title
-                  %span
-                    新着口コミ
+                  %span 新着口コミ
                 .top-timeline__actions
                   / js処理
               .js-follow-banner
@@ -399,7 +312,8 @@
                                 .timeline-matome__contents.js-magazine-area{"data-magazine-link-url" => "https://magazine.tabelog.com/articles/50291"}
                                   .timeline-matome__photo
                                     %a.timeline-matome__photo-link{href: "#", target: "_blank"}
-                                      %img.timeline-matome__photo-img{alt: "食べログマガジン", height: "140", src: "https://upload.wikimedia.org/wikipedia/ja/thumb/d/df/ZaruSoba2.jpg/300px-ZaruSoba2.jpg", width: "140"}/
+                                      %img.timeline-matome__photo-img
+                                        = image_tag review.pic1.url, height: "140", width: "140"
                                   .timeline-matome__info
                                     .timeline-matome__text
                                       %p.timeline-matome__title
@@ -410,7 +324,7 @@
                                         %p.overrap.js-text-overflow
                                           = review.text
                                         %p.timeline-matome__desc-target
-                                          %a{href: "/users/#{current_user.id}"}
+                                          %a{href: "/shops/#{shop.id}/show_reviews"}
                                             レビューの詳細を見る
           .colum2__right.top-colum__right
             - if user_signed_in?
@@ -451,16 +365,16 @@
                               0
                       %li.userdata__data-item
                         .userdata__data-row
-                          %a{href: "#"}
+                          %a{href: "#{following_path(current_user.id)}"}
                             .userdata__data-subject
-                            = link_to "フォロー中", following_path(current_user.id)
-                            .userdata__data-count
+                            フォロー中
+                            %span.userdata__data-count
                               = current_user.followings.count
                       %li.userdata__data-item
                         .userdata__data-row.is-disabled
-                          %a{href: "#"}
+                          %a{href: "#{follower_path(current_user.id)}"}
                             .userdata__data-subject
-                            = link_to "フォロワー", follower_path(current_user.id)
+                            フォロワー
                             .userdata__data-count
                               = current_user.followers.count
                       %li.userdata__data-item
@@ -480,11 +394,9 @@
                     .premium-style.premium-box
                       %p.userdata-text
                         クレジットカードで初月無料
-                      %a.p-mark.premium-btn{href: "#"}
-                        プレミアムサービスについて
+                      %a.p-mark.premium-btn{href: "#"} プレミアムサービスについて
                 .userdata-search
-                  %p.userdata-search__title
-                    レビュアーを探す
+                  %p.userdata-search__title レビュアーを探す
                   %form#FreeWord.js-free-word-user.userdata__user-search-form{"accept-charset" => "UTF-8", action: "#", method: "get", name: "FreeWord"}
                     %input{name: "utf8", type: "hidden", value: "✓"}/
                     %input#PG{name: "PG", type: "hidden", value: "1"}/
@@ -497,8 +409,7 @@
                   .userdata-search-link
                     %a.link-arrow{ href: "#"}
                       %i.fas.fa-angle-right
-                      %span
-                        全国のレビュアーから探す
+                      %span 全国のレビュアーから探す
 
             - else
               .js-right-user-info
@@ -509,21 +420,15 @@
                         .userdata-box__img
                           %img{ width: "40", height: "40", alt: "", src: "https://tblg.k-img.com/images/user2/nophoto/rvwr_nophoto_70x70.gif"}
                       .userdata-box__status.userdata-box__status--nologin
-                        %p.userdata-box__name.userdata-box__name--nologin
-                          会員未登録
-                    %p.userdata-nologin-notice
-                      ログインすると、「行ったお店」「行きたいお店」を食べログ上で管理できるようになります。
+                        %p.userdata-box__name.userdata-box__name--nologin 会員未登録
+                    %p.userdata-nologin-notice ログインすると、「行ったお店」「行きたいお店」を食べログ上で管理できるようになります。
                     %p.userdata-loginbtn
-                      %a.btn-size.btn-detail.btn-sucess.js-login-window{ href: "users/sign_in"}
-                        ログイン
+                      %a.btn-size.btn-detail.btn-sucess.js-login-window{ href: "users/sign_in"} ログイン
                     .premium-style.premium-box
-                      %p.userdata-text
-                        クレジットカードで初月無料
-                      %a.p-mark.premium-btn{href: "#"}
-                        プレミアムサービスについて
+                      %p.userdata-text クレジットカードで初月無料
+                      %a.p-mark.premium-btn{href: "#"} プレミアムサービスについて
                 .userdata-search
-                  %p.userdata-search__title
-                    レビュアーを探す
+                  %p.userdata-search__title レビュアーを探す
                   %form#FreeWord.js-free-word-user.userdata__user-search-form{"accept-charset" => "UTF-8", action: "#", method: "get", name: "FreeWord"}
                     %input{name: "utf8", type: "hidden", value: "✓"}/
                     %input#PG{name: "PG", type: "hidden", value: "1"}/
@@ -536,61 +441,47 @@
                   .userdata-search-link
                     %a.link-arrow{ href: "#"}
                       %i.fas.fa-angle-right
-                      %span
-                        全国のレビュアーから探す
+                      %span 全国のレビュアーから探す
               .userdata-start__action
-                %a.btn-size.btn-detail
-                  初めての方へ
+                %a.btn-size.btn-detail 初めての方へ
             .feature-wrap
               .js-right-feature
                 %section.feature-all
-                  %h3.feature-name
-                    特集
+                  %h3.feature-name 特集
                   .feature-area
                     #ads-iframe
                       %iframe#ads-iframe
                     .feature-banner
                     .feature-info
-                      %p.add-title
-                        ⭐️3.5以上の居酒屋特集
-                      %p.add-resume
-                        全国のオススメ店ご紹介！
+                      %p.add-title ⭐️3.5以上の居酒屋特集
+                      %p.add-resume 全国のオススメ店ご紹介！
                     .feature
         %section.top-condition
-          %h3.top-heading1.top-condition__heading
-            条件・目的からお店を探す
+          %h3.top-heading1.top-condition__heading 条件・目的からお店を探す
           %section.top-genre-search
-            %h4.c-heading3.top-heading2
-              料理ジャンルからお店を探す
+            %h4.c-heading3.top-heading2 料理ジャンルからお店を探す
             .top-genre-search__list-box
               %ul.top-genre-search__popular-list
                 %li.top-genre-search__popular-item.top-genre-search__popular-item--yakiniku
                   %a{ href:"https://epark.jp/uploads/portal_images/shop_photo/00009619_20170324_07_atsu.jpg"}
-                    %span.top-genre-search__popular-item-text
-                      焼肉
+                    %span.top-genre-search__popular-item-text 焼肉
                 %li.top-genre-search__popular-item.top-genre-search__popular-item--sushi
                   %a{ href:"https://epark.jp/uploads/portal_images/shop_photo/00009619_20170324_07_atsu.jpg"}
-                    %span.top-genre-search__popular-item-text
-                      寿司
+                    %span.top-genre-search__popular-item-text 寿司
                 %li.top-genre-search__popular-item.top-genre-search__popular-item--izakaya
                   %a{ href:"https://epark.jp/uploads/portal_images/shop_photo/00009619_20170324_07_atsu.jpg"}
-                    %span.top-genre-search__popular-item-text
-                      居酒屋
+                    %span.top-genre-search__popular-item-text 居酒屋
                 %li.top-genre-search__popular-item.top-genre-search__popular-item--italian
                   %a{ href:"https://epark.jp/uploads/portal_images/shop_photo/00009619_20170324_07_atsu.jpg"}
-                    %span.top-genre-search__popular-item-text
-                      イタリアン
+                    %span.top-genre-search__popular-item-text イタリアン
                 %li.top-genre-search__popular-item.top-genre-search__popular-item--ramen
                   %a{ href:"https://epark.jp/uploads/portal_images/shop_photo/00009619_20170324_07_atsu.jpg"}
-                    %span.top-genre-search__popular-item-text
-                      ラーメン
+                    %span.top-genre-search__popular-item-text ラーメン
                 %li.top-genre-search__popular-item.top-genre-search__popular-item--cafe
                   %a{ href:"https://epark.jp/uploads/portal_images/shop_photo/00009619_20170324_07_atsu.jpg"}
-                    %span.top-genre-search__popular-item-text
-                      カフェ
+                    %span.top-genre-search__popular-item-text カフェ
               .top-genre-search__other
-                %p.top-genre-search__other-title
-                  その他のジャンル
+                %p.top-genre-search__other-title その他のジャンル
                 %ul.top-genre-search__other-list
                   %li.top-genre-search__other-item
                     %a{ href:"#"} 和食

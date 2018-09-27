@@ -11,8 +11,10 @@
   .location__right
     %ul
     = link_to '#' do
-      %li (店舗数)店舗
-    %li (口コミ数)
+      %li
+      = @shops.count
+      店舗
+
 
 .pre
   .code
