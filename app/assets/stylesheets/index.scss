@@ -201,11 +201,24 @@ $rate5 : 10*$starHalf;
       font-size: 15px;
       font-weight: bold;
       float: left;
+      display: flex;
       a.rst_name{
         color: $link_blue;
         font-weight: bold;
         font-size: 16px;
         text-decoration: none;
+      }
+      p.shop_station{
+        color: #949499;
+        font-size: 12px;
+        margin-left: 20px;
+        line-height: 22px;
+      }
+      p.shop_genre{
+        color: #949499;
+        font-size: 12px;
+        margin-left: 5px;
+        line-height: 22px;
       }
     }
     .content__main__shop__each__header__buttons{
@@ -425,4 +438,8 @@ $rate5 : 10*$starHalf;
       }
     }
   }
+}
+
+.highlight{
+  background-color:yellow #色は自由にお決めになって。
 }

@@ -41,10 +41,18 @@
             .shop_views-detailspace__genre
               ジャンル :
               = genre.name
-          - @budget.each do |budget|
+          - if @budget.present?
+            - @budget.each do |budget|
+              .shop_views-detailspace__average
+                予算
+                = budget.name
+                %span.shop_views-detailspace__schedule
+                  定休日 :
+                  = @shop.closed_day
+                %span.shop_views-detailspace__moredetail
+          - else
             .shop_views-detailspace__average
-              予算
-              = budget.name
+              予算:???
               %span.shop_views-detailspace__schedule
                 定休日 :
                 = @shop.closed_day
