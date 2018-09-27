@@ -8,11 +8,14 @@ Rails.application.routes.draw do
     collection do
       get :top_page
     end
-    resources :reviews, only: [:new, :create, :edit, :update, :destroy, :show]
-    get 'menu' => 'shops#show_menu'
-    get 'reviews' => 'shops#show_reviews'
-    get 'sort_visit' => 'shops#sort_visit'
-    get 'sort_popular' => 'shops#sort_popular'
+    resources :reviews, only: [:new, :create, :edit, :update, :destroy, :show] do
+      collection  do
+        get :menu
+        get :reviews
+        get :sort_visit
+        get :sort_popular
+      end
+    end
   end
 
   resources :following, only: [:show]
