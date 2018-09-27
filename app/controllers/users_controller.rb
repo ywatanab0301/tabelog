@@ -11,6 +11,19 @@ class UsersController < ApplicationController
     @review_ranks = @user.reviews.order('rate DESC')
   end
 
+  def show_all
+    @reviews = @user.reviews.includes(:shop).order('updated_at DESC')
+  end
+
+  def show_gone
+    @reviews = @user.reviews.includes(:shop).order('updated_at DESC')
+    # hash = @reviews.group(:shop_name).having('count(*) >= 2')
+    # binding.pry
+  end
+
+  def show_wannago
+  end
+
   def edit
   end
 

@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   root to: "shops#top_page"
   devise_for :users
-  resources :users
+  resources :users do
+    member do
+      get :show_all
+      get :show_gone
+      get :show_wannago
+    end
+  end
 
   resources :shops do
     collection do

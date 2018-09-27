@@ -130,8 +130,10 @@
         .shop_mainleft-review
           .shop_mainleft-review__title
             口コミ
-          %button.review-postbtn
-            投稿する
+          .review-postbtn
+            %a.postbtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: white;"}
+              %span
+                投稿する
         .shop_mainleft-friend
           .shop_mainleft-friend__image
             = image_tag "avatar_nophoto.gif"
@@ -141,10 +143,11 @@
           %ul.pickup_review
             %li.pickup_review-avatar
               .pickup_review-avatar__icon
-                -if review.user.avatar?
-                  = image_tag review.user.avatar.url
-                -else
-                  = image_tag "avatar_nophoto.gif"
+                = link_to user_path(review.user.id) do
+                  -if review.user.avatar?
+                    = image_tag review.user.avatar.url
+                  -else
+                    = image_tag "avatar_nophoto.gif"
               .pickup_review-avatar__nickname
                 = review.user.nickname
               .pickup_review-avatar__count
