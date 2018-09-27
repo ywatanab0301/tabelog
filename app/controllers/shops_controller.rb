@@ -1,8 +1,6 @@
 class ShopsController < ApplicationController
   before_action :set_shop, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit, :sort_dinner, :sort_lunch]
 
-  before_action :set_shop, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit]
-
   def index
     @shops = Shop.order("created_at DESC").page(params[:page]).per(10)
   end
@@ -29,6 +27,7 @@ class ShopsController < ApplicationController
   def show_reviews
 
     if params[:search].present?
+      # @reviews = Review.where('shop_id = ? AND text LIKE = ?', params[:shop_id], params[:search])
       @reviews = Review.where(shop_id: params[:shop_id]).where('text LIKE(?)', "%#{params[:search]}%")
     else
       @reviews = @shop.reviews.includes(:user).order('created_at DESC')
