@@ -51,9 +51,6 @@ class ShopsController < ApplicationController
     @user = User.find(current_user.id)
   end
 
-  def search_result
-  end
-
   def destroy
     @shop = Shop.find(params[:id])
     @shop.destroy
