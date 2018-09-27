@@ -1,0 +1,245 @@
+li.wannago-page-wannago-shop-link {
+  color: $black;
+  a:link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+  }
+}
+
+.user-page-content-main {
+  width: 775px;
+  margin-left: 15px;
+  .review-search-word {
+    border-top: solid 3px $newshop_line;
+    width: 100%;
+    background-color: $newshop_background;
+    display: flex;
+    height: 60px;
+    padding-left: 15px;
+    i.fas.fa-search {
+      line-height: 60px;
+    }
+    p {
+      padding-left: 5px;
+      line-height: 60px;
+      font-size: 11px;
+    }
+  }
+  .shop_main-left-change-review-sort-list-wannago {
+    height: 51px;
+    background-color: $newshop_background;
+    border-top: 1px solid $border_gray;
+    ul.shop_main-left-change-review-sort-list-wannago-ul {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      font-size: 15px;
+      border-bottom: 1px solid $border_gray;
+      z-index: 1;
+      li.shop_main-left-change-review-sort-list-wannago__all {
+        width: 240px;
+        &:hover {
+          color: $sub_orange;
+          border-top: 1px solid $sub_orange;
+        }
+        a:link {
+          display: block;
+          width: 100%;
+          text-decoration: none;
+          span {
+            line-height: 15px;
+          }
+        }
+        .shop_main-left-change-review-sort-list-wannago__all--inner {
+          margin: 15px 0 15px;
+          border-left: 1px solid $border_gray;
+          border-right: 1px solid $border_gray;
+        }
+      }
+      li.shop_main-left-change-review-sort-list-wannago__gone {
+        padding-top: 15px;
+        width: 240px;
+        &:hover {
+          color: $sub_orange;
+          border-top: 1px solid $sub_orange;
+        }
+        a:link {
+          display: block;
+          width: 100%;
+          text-decoration: none;
+          span {
+            line-height: 15px;
+          }
+        }
+      }
+      li.shop_main-left-change-review-sort-list-wannago__wannago {
+        padding-top: 15px;
+        width: 240px;
+        background-color: $white;
+        color: $sub_orange;
+        font-weight: bold;
+        border-top: $sub_orange 1px solid;
+        border-left: 1px solid $border_gray;
+        border-right: 1px solid $border_gray;
+        border-bottom: 1px solid white;
+        z-index: 2;
+      }
+    }
+  }
+  .shop_main-left-review-order-change-wannago {
+    height: 50px;
+    background-color: $white;
+    border-top: 1px solid $border_gray;
+    width: 100%;
+    border-bottom: 1px solid $border_gray;
+    ul.shop_main-left-review-order-change-list-ul {
+      display: flex;
+      justify-content: space-between;
+      width: 300px;
+      padding: 16px 0 0 15px;
+      li.shop_main-left-review-order-change-list1 {
+        border-right: 1px solid $border_gray;
+        font-weight: bold;
+        padding: 0 7px 0 0;
+        i.fas.fa-sort {
+          color: #bcb08a;
+        }
+        i.fas.fa-chevron-circle-down {
+          color: #bcb08a;
+        }
+      }
+      li.shop_main-left-review-order-change-list2 {
+        border-right: 1px solid $border_gray;
+        padding: 0 7px 0 0;
+      }
+      li.shop_main-left-review-order-change-list3 {
+      }
+    }
+  }
+  .shop-main-left-shop-review-sorting {
+    display: flex;
+    margin-top: 10px;
+    line-height: 33px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $border_gray;
+    position: relative;
+    p.review-counting {
+      font-size: 13px;
+      color: $font_gray;
+    }
+    .review-sorting-by-number {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      display: flex;
+      margin-left: 220px;
+      .review-sorting-by-number__select-box {
+        border: 1px solid $background-lightgray;
+        padding: 0 14px;
+        select.select-box {
+          height: 30px;
+          border: none;
+          background-color: $white;
+        }
+      }
+    }
+  }
+}
+
+.user-mypage-wannago-shops {
+  display: flex;
+  border: 1px solid $border_gray;
+  border-radius: 5px;
+  margin: 15px 0 0 0;
+  padding-top: 5px;
+  height: 120px;
+  width: 100%;
+  position: relative;
+  &:hover {
+    border: 1px solid #FFCC00;
+  }
+
+  .gone-wannago-buttons {
+    display: flex;
+    justify-content: right;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 180px;
+    font-size: 11px;
+    .button-gone {
+      margin-right: 5px;
+      button.shop-review-post-like-wannago__buttons--gone {
+        color: $font_gray;
+        padding: 2px 15px 2px 15px;
+        font-weight: bold;
+        border-radius: 3px;
+      }
+    }
+    .button-wannago {
+      button.shop-review-post-like-wannago__buttons--wannago {
+        color: $white;
+        background-color: $font_blue;
+        padding: 2px 10px 2px 10px;
+        font-weight: bold;
+        border-radius: 3px;
+        i.fas.fa-thumbtack {
+          color: $sub_orange;
+        }
+      }
+    }
+  }
+  .user-mypage-wannago-shops-left {
+    .user-mypage-wannago-shops__image {
+      margin: 10px 0 0 10px;
+      img {
+        height: 90px;
+        width: 90px;
+      }
+    }
+  }
+  .user-mypage-wannago-shops-right {
+    margin: 13px 0 0 15px;
+    .user-mypage-wannago-shops__shop-name {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .user-mypage-wannago-shops__info1 {
+      display: flex;
+      font-size: 11px;
+      padding-top: 5px;
+      .user-mypage-wannago-shops__info--station {
+        padding-right: 15px;
+      }
+      .user-mypage-wannago-shops__info--genre {
+        padding-right: 15px;
+      }
+    }
+    .user-mypage-wannago-shops__rate {
+      display: flex;
+      padding-top: 5px;
+      .user-mypage-wannago-shops__rate--star {
+        padding-right: 15px;
+      }
+      .user-mypage-wannago-shops__rate--score {
+        font-weight: bold;
+      }
+    }
+    .user-mypage-wannago-shops__info2 {
+      display: flex;
+      padding-top: 5px;
+      font-size: 11px;
+      .user-mypage-wannago-shops__info2--budget-dinner {
+        padding-right: 15px;
+      }
+      .user-mypage-wannago-shops__info2--budget-lunch {
+        padding-right: 15px;
+      }
+      .user-mypage-wannago-shops__info2--budget-off {
+        padding-right: 15px;
+      }
+    }
+  }
+}

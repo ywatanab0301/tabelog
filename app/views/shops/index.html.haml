@@ -1,4 +1,5 @@
 = render partial: 'shares/header'
+
 .location.search_result{'data-search-result': @search_result}
   .location__left
     %ul
@@ -12,6 +13,7 @@
     = link_to '#' do
       %li (店舗数)店舗
     %li (口コミ数)
+
 .pre
   .code
     .content
@@ -95,11 +97,11 @@
                       = shop.review_average
                     .fa.fa-comments
                     %a.review
-                    = link_to "/shops/#{shop.id}/reviews" do
+                    = link_to "/shops/#{shop.id}/show_reviews" do
                       = shop.reviews.count
                   .content__main__shop__each__body__right__review
                     %a.title
-                    = link_to "/shops/#{shop.id}/reviews" do
+                    = link_to "/shops/#{shop.id}/show_reviews" do
                       = shop.show_last_review_title
                     %span.name by.
                     %span.name
@@ -108,4 +110,5 @@
                       = shop.show_last_review
         .content__main__page
           = paginate @shops
+
 = render partial: 'shares/footer'

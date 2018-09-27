@@ -77,20 +77,23 @@
           %a.menu-link{ href: "/shops/#{@shop.id}/show_menu", style: "color: #595960;"}
             %span
               メニュー
-        %li.shop-reviews-page-shop_lists__image
+        %li.shops-top-shop_lists__image
           写真
-        %li.shop-reviews-page-shop_lists__review
-          口コミ
-        %li.shop-reviews-page-shop_lists__map
+        %li.shops-top-shop_lists__review
+          %a.reviews-link{ href: "/shops/#{@shop.id}/show_reviews", style: "color: #595960;"}
+            %span
+              口コミ
+        %li.shops-top-shop_lists__map
           地図
     .shop_main
       .shop_main-left
         .review-search-box
           .review-search-label
             口コミ検索
-          %input.review-search-box-input{:placeholder => "キーワード"}
-          %button.review-search-box-submit-btn
-            検索
+          .review-search-box-input
+          = form_tag "/shops/#{@shop.id}/show_reviews", method: :get, id: "search", remote: true do
+            = text_field_tag :search, params[:search], class: "form"
+            = submit_tag "検索", :name => nil, id: "search_btn", disabled: false
         .shop_main-left-change-review-list
           .shop_main-left-change-review-list-inner
             .shop_main-left-change-review-list-text
@@ -110,11 +113,11 @@
               すべての口コミ
             %li.shop_main-left-change-review-sort-list__dinner
               %i.fas.fa-moon
-              夜の口コミ
+              = link_to "夜の口コミ", sort_dinner_shop_path, id: "sort_dinner", remote: true
             %li.shop_main-left-change-review-sort-list__lunch
               .shop_main-left-change-review-sort-list__lunch--inner
                 %i.fas.fa-sun
-                昼の口コミ
+                = link_to "昼の口コミ", sort_lunch_shop_path, id: "sort_lunch", remote: true
         .shop_main-left-review-order-change
           %ul.shop_main-left-review-order-change-list-ul
             %li.shop_main-left-review-order-change-list1
@@ -165,10 +168,7 @@
             .shops-review-post
               .shop-review-post__user-info
                 .shop-review-post__user-info--avatar
-                  -if review.user.avatar?
-                    = image_tag review.user.avatar.url
-                  -else
-                    = image_tag "avatar_nophoto.gif"
+                  = image_tag review.user.avatar.url
                 .shop-review-post__user-info--right
                   .shop-review-post__user-info--username
                     %p.review-user-name
@@ -311,15 +311,15 @@
                 .shop-review-post-contents-images
                   %ul.shop-review-post-contents-images.ul
                     %li.shop-review-post-contents-image1
-                      = image_tag "avatar_nophoto.gif"
+                      = image_tag review.pic1
                     %li.shop-review-post-contents-image2
-                      = image_tag "avatar_nophoto.gif"
+                      = image_tag review.pic2
                     %li.shop-review-post-contents-image3
-                      = image_tag "avatar_nophoto.gif"
+                      = image_tag review.pic3
                     %li.shop-review-post-contents-image4
-                      = image_tag "avatar_nophoto.gif"
+                      = image_tag review.pic4
                     %li.shop-review-post-contents-image5
-                      = image_tag "avatar_nophoto.gif"
+                      = image_tag review.pic5
                 .shop-review-post-like-wannago
                   .shop-review-post-like-wannago__buttons
                     = render partial: 'likes/like_links', locals: {review: review}
@@ -333,16 +333,8 @@
                       %p
                         人が「いいね！」しています。
                     .shop-review-post-who-likes__icons
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
-                      = image_tag "avatar_nophoto.gif"
+                      = image_tag current_user.avatar.url
+
                   .shop-review-post-who-wannago
                     .shop-review-post-who-wannago__count
                       %p.number-who-wannago
@@ -350,7 +342,7 @@
                       %p
                         人が「行きたい」しています。
                     .shop-review-post-who-wannago__icons
-                      = image_tag "avatar_nophoto.gif"
+                      = image_tag current_user.avatar.url
                 .shop-review-post-contents-notice
                   %p.shop-notice-message1
                     利用規約に違反している口コミは、右のリンクから報告することができます。

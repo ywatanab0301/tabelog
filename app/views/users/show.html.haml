@@ -9,7 +9,7 @@
               %span
                 = image_tag 'home_icon.png'
             %li.link
-              = link_to "食べログ"
+              = link_to "食べログ", root_path
             %li
               %span
                 = image_tag 'location_arrow.png'
@@ -88,25 +88,25 @@
         .mypage-header-navi
           %ul.mypage-header-navi__list
             %li.mypage-header-navi__log
-              .rvwr_navi__count
+              %a.rvwr_navi__count{ href: "/users/#{@user.id}"}
                 = @reviews.length
-              .rvwr-navi__menu
-                ログ
+                .rvwr-navi__menu
+                  ログ
             %li.mypage-header-navi__rvw
-              .rvwr_navi__count
+              %a.rvwr_navi__count{ href: "/users/#{@user.id}/show_gone"}
                 = @reviews.uniq.length
-              .rvwr-navi__menu
-                行ったお店
+                .rvwr-navi__menu
+                  行ったお店
             %li.mypage-header-navi__interest
-              .rvwr_navi__count
+              %a.rvwr_navi__count{ href: "/users/#{@user.id}/show_wannago"}
                 0
-              .rvwr-navi__menu
-                行きたいお店
+                .rvwr-navi__menu
+                  行きたいお店
             %li.mypage-header-navi__matome
-              .rvwr_navi__count
+              %a.rvwr_navi__count{ href: "#"}
                 0
-              .rvwr-navi__menu
-                まとめ
+                .rvwr-navi__menu
+                  まとめ
             %li.mypage-header-navi__follow
               %a.rvwr_navi__count{href: "#{following_path(@user)}"}
                 = @user.followings.count
@@ -131,11 +131,16 @@
               .review-info
                 .restaurant-name
                   👑
+                  = link_to shop_path(review.shop.id) do
+                    = review.shop.shop_name
                 - review.shop.prefectures.each do |prefecture|
                   .review-prefecture
                     = prefecture.name
-                .review-area
-                  渋谷、神泉/カフェ、カフェ・喫茶（その他）、喫茶店
+                - review.shop.genres.each do |genre|
+                  .review-area
+                    = genre.name
+                    = review.shop.station
+                    付近
               .review-title
                 %p
                   %a

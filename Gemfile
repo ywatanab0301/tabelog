@@ -26,7 +26,7 @@ gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 
 # --------------------------------------
-# いいね機能非同期化の為にtubolinks削除
+# いいね機能非同期化の為にturbolinks削除
 # gem 'turbolinks', '~> 5'
 # ----------------------------------------
 
