@@ -136,8 +136,11 @@
                 - review.shop.prefectures.each do |prefecture|
                   .review-prefecture
                     = prefecture.name
-                .review-area
-                  渋谷、神泉/カフェ、カフェ・喫茶（その他）、喫茶店
+                - review.shop.genres.each do |genre|
+                  .review-area
+                    = genre.name
+                    = review.shop.station
+                    付近
               .review-title
                 %p
                   %a

@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :searches
   resources :shops do
     collection do
       get :top_page
