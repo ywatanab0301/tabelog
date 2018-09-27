@@ -399,7 +399,8 @@
                                 .timeline-matome__contents.js-magazine-area{"data-magazine-link-url" => "https://magazine.tabelog.com/articles/50291"}
                                   .timeline-matome__photo
                                     %a.timeline-matome__photo-link{href: "#", target: "_blank"}
-                                      %img.timeline-matome__photo-img{alt: "食べログマガジン", height: "140", src: "https://upload.wikimedia.org/wikipedia/ja/thumb/d/df/ZaruSoba2.jpg/300px-ZaruSoba2.jpg", width: "140"}/
+                                      %img.timeline-matome__photo-img
+                                        = image_tag review.pic1.url, height: "140", width: "140"
                                   .timeline-matome__info
                                     .timeline-matome__text
                                       %p.timeline-matome__title
@@ -410,7 +411,7 @@
                                         %p.overrap.js-text-overflow
                                           = review.text
                                         %p.timeline-matome__desc-target
-                                          %a{href: "/users/#{current_user.id}"}
+                                          %a{href: "/shops/#{shop.id}/show_reviews"}
                                             レビューの詳細を見る
           .colum2__right.top-colum__right
             - if user_signed_in?
@@ -451,16 +452,16 @@
                               0
                       %li.userdata__data-item
                         .userdata__data-row
-                          %a{href: "#"}
+                          %a{href: "#{following_path(current_user.id)}"}
                             .userdata__data-subject
-                            = link_to "フォロー中", following_path(current_user.id)
-                            .userdata__data-count
+                            フォロー中
+                            %span.userdata__data-count
                               = current_user.followings.count
                       %li.userdata__data-item
                         .userdata__data-row.is-disabled
-                          %a{href: "#"}
+                          %a{href: "#{follower_path(current_user.id)}"}
                             .userdata__data-subject
-                            = link_to "フォロワー", follower_path(current_user.id)
+                            フォロワー
                             .userdata__data-count
                               = current_user.followers.count
                       %li.userdata__data-item

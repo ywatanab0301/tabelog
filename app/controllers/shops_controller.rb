@@ -5,8 +5,10 @@ class ShopsController < ApplicationController
     if params[:search].present?
       @shops = Shop.search(params[:search]).order("created_at DESC").page(params[:page]).per(10)
       @search_result = params[:search]
+      @reviews = Review.count
     else
       @shops = Shop.order("created_at DESC").page(params[:page]).per(10)
+      @reviews = Review.count
     end
   end
 
