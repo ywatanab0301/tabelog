@@ -77,13 +77,13 @@
           %a.menu-link{ href: "/shops/#{@shop.id}/show_menu", style: "color: #595960;"}
             %span
               メニュー
-        %li.shops-top-shop_lists__image
+        %li.shop-reviews-page-shop_lists__image
           写真
-        %li.shops-top-shop_lists__review
-          %a.reviews-link{ href: "/shops/#{@shop.id}/show_reviews", style: "color: #595960;"}
+        %li.shop-reviews-page-shop_lists__review
+          %a.reviews-link{ href: "/shops/#{@shop.id}/show_reviews", style: "color: white;"}
             %span
               口コミ
-        %li.shops-top-shop_lists__map
+        %li.shop-reviews-page-shop_lists__map
           地図
     .shop_main
       .shop_main-left
@@ -174,7 +174,9 @@
                     %p.review-user-name
                       = review.user.nickname
                     %p.reviewer-follower-number
-                      (278)
+                      (
+                      = review.user.followers.count
+                      )
                     %p
                       さんの口コミ
                   .shop-review-post__user-info--moreinfo
@@ -246,8 +248,8 @@
                           酒・ドリンク
                           %strong
                             = review.drink_rate.round(1) unless review.drink_rate == nil
-                .shop-review-count
-                  1回
+                / .shop-review-count
+                /   1回
                 .shop-review-price
                   .shop-review-used-price
                     %p
@@ -298,8 +300,8 @@
                           - review.budgets.each do |budget|
                             .shop-price-range
                               = budget.name
-                  .shop-review-count
-                    1回目
+                  / .shop-review-count
+                  /   1回目
                 .shop-review-post__rst-review--content
                   .shop-review-title
                     %p
@@ -332,8 +334,10 @@
                         = review.likes.count
                       %p
                         人が「いいね！」しています。
-                    .shop-review-post-who-likes__icons
-                      = image_tag current_user.avatar.url
+                    - review.likes.each do |like|
+                      .shop-review-post-who-likes__icons
+                        = link_to user_path(like.user.id) do
+                          = image_tag "#{like.user.avatar}"
 
                   .shop-review-post-who-wannago
                     .shop-review-post-who-wannago__count
@@ -342,7 +346,7 @@
                       %p
                         人が「行きたい」しています。
                     .shop-review-post-who-wannago__icons
-                      = image_tag current_user.avatar.url
+                      = image_tag "avatar_nophoto.gif"
                 .shop-review-post-contents-notice
                   %p.shop-notice-message1
                     利用規約に違反している口コミは、右のリンクから報告することができます。
