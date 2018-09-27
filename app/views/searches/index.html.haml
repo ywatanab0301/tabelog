@@ -41,63 +41,60 @@
                   /         の通知をもっと見る
                 %li.user-menu__item
                   %a.user-menu__target{ href: "#"}
-                    %span.c-badge-tpoint.c-badge-tpoint--s
-                      %i Tpoint
-                    %em.user-menu__text.user-menu__text--tpoint 150
-                    pt
+                    %span.user-menu__text Tpoint
+                    %span.user-menu__text 0pt
                 %li.user-menu__item
                   %a.user-menu__target{ href: "#"}
                     %span.user-menu__text 予約確認
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "#"} 行った・行きたい
+                  %a.user-menu__target{ href: "#"}
+                    %span.user-menu__text 行った・行きたい
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "/users/#{current_user.id}"} マイページ
+                  %a.user-menu__target{ href: "/users/#{current_user.id}"}
+                    %span.user-menu__text マイページ
                 %li.user-menu__item.user-menu__item--setting
                   %a#open-user-setting.user-menu__target.user-menu__target--dropdown.user-menu__target--user-image{href: "#"}
                     %img{ alt: "", height: "27" ,src: "#{current_user.avatar}", width: "27"}/
-                  / #user-setting.p-user-menu__popup.user-menu__popup--setting.js-exec-user-setting-box
-                  /   .balloon.balloon--top
-                  /     %ul.setting-list
-                  /       %li.setting-list__item
-                  /         %a.setting-list__target{href: "#"} フォロー中一覧
-                  /       %li.setting-list__item
-                  /         %a.setting-list__target{href: "#"} 下書き一覧
-                  /       %li.setting-list__item
-                  /         %a.setting-list__target{href: "#"} 設定
-                  /       %li.setting-list__item.setting-list__item--logout
-                  /         %a.setting-list__target{href: "#"} ログアウト
+                    #user-setting.p-user-menu__popup.user-menu__popup--setting.js-exec-user-setting-box
+                      .balloon.balloon--top
+                        %ul.setting-list
+                          %li.setting-list__item
+                            %a.setting-list__target{href: "#"} フォロー中一覧
+                          %li.setting-list__item
+                            %a.setting-list__target{href: "#"} 下書き一覧
+                          %li.setting-list__item
+                            %a.setting-list__target{href: "#"} 設定
+                          %li.setting-list__item.setting-list__item--logout
+                            %a.setting-list__target{href: "#"} ログアウト
 
             - else
               %ul.user-menu.js-exec-welcome
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "#"} 食べログの特長と便利な使い方
+                  %a.user-menu__text{ href: "#"} 食べログの特長と便利な使い方
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "/users/sign_up"} 無料会員登録
+                  %a.user-menu__text{ href: "/users/sign_up"} 無料会員登録
                 %li.user-menu__item
                   %a.user-menu__target{ href: "#"}
-                    %span.c-badge-tpoint.c-badge-tpoint--s>
-                      %i Tpoint
-                    保有Tポイント
+                    %span.user-menu__text>
+                      %i Tpoint   保有Tポイント
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "#"} 予約確認
+                  %a.user-menu__text{ href: "#"} 予約確認
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "#"} 行った・行きたい
+                  %a.user-menu__text{ href: "#"} 行った・行きたい
                 %li.user-menu__item
-                  %a.js-open-login-modal.p-user-menu__target{ href: "/users/sign_in"} ログイン
+                  %a.user-menu__text{ href: "/users/sign_in"} ログイン
 
       .top-header
         .top-header__visual.js-top-main-visual-image
-          .top-header__overlay
-            .bx-wrapper
-              .bx-viewport
-                %ul#js-top-slide-img.top-header__images
-                  %li.top-header__image.top-header__image--slide01
-                  %li.top-header__image.top-header__image--slide02
-                  %li.top-header__image.top-header__image--slide03
-                  %li.top-header__image.top-header__image--slide04
-                  %li.top-header__image.top-header__image--slide05
-                  %li.top-header__image.top-header__image--slide06
-            .top-header__slide-box
+          .top-header__image
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic1/2/a4b140c8-9fe7-44db-a035-e78636eada8c.jpg' }
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic4/3/08ceb3ee-dbdb-4e33-88f4-5453825991f4.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic2/2/2cf68ee0-c7a1-4942-962d-71446a5448a8.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic3/3/902de97c-7c88-4a83-bdb5-536ee25a5052.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic1/3/7e98267e-b00f-4712-a10c-681d32ef0f81.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic3/2/b0debf87-d0dd-4e01-92b2-afb057b27bd4.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic2/3/12f399d0-c560-4f27-aa84-9a6beff6bbe1.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic4/2/04e605e7-7fe6-4ec6-ac34-982c90d62925.jpg'}
         #js-top-main-visual.top-header__inner
           .top-header__lead
             %p.top-header__main-lead

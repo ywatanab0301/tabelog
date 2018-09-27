@@ -102,6 +102,11 @@ a {
   text-decoration: none;
 }
 
+.user-menu__item a{
+  color: white;
+}
+
+
 img {
   vertical-align: bottom;
 }
@@ -189,6 +194,36 @@ article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, 
   padding-right: 1px;
 }
 
+.p-user-menu__popup {
+  display: none;
+  position: absolute;
+  top: 20px;
+  text-align: left;
+  white-space: normal;
+}
+
+.p-user-menu__popup.user-menu__popup--setting {
+  top: 26px;
+  right: -14px;
+  width: 140px;
+}
+
+.balloon {
+  display: block;
+  position: relative;
+  border: 1px solid #d2d2d2;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  background-color: #ffffff;
+}
+
+.balloon--top:before {
+  top: -7px;
+  right: 10px;
+  border-width: 0 6px 6px;
+  border-bottom-color: #d2d2d2;
+}
+
 .user-menu__target {
   padding: 0 8px;
 }
@@ -217,7 +252,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, 
 
 .contents.contents--fixed {
   padding-right: 0;
-  padding-left: 270px;
+  padding-left: 155px;
   width: 980px;
 }
 
