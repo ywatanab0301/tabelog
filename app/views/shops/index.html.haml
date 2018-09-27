@@ -46,10 +46,9 @@
         %span.count 1000
         %span.unit 件
       %a.search_form 検索条件を変更
-
     %ul.nav.nav-tabs
       %li.nav-item.origin
-        %a.nav-link.origin{href: "#"}
+        = link_to shops_path do
           .fa.fa-utensils
           %span 標準【会員店舗優先】
       %li.nav-item.rank
@@ -57,7 +56,7 @@
           .fa.fa-chess-king
           %span ランキング
       %li.nav-item.review
-        %a.nav-link.review{href: "#"}
+        %a.nav-link.review
           .fa.fa-comment
           %span 口コミ数
 
