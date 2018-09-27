@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit, :search_reviews, :sort_dinner, :sort_lunch]
+  before_action :set_shop, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit, :sort_dinner, :sort_lunch]
 
   before_action :set_shop, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit]
 
@@ -29,8 +29,7 @@ class ShopsController < ApplicationController
   def show_reviews
 
     if params[:search].present?
-      @reviews = Review.where('text LIKE(?)', "%#{params[:search]}%").where(shop_id: params[:shop_id])
-
+      @reviews = Review.where(shop_id: params[:shop_id]).where('text LIKE(?)', "%#{params[:search]}%")
     else
       @reviews = @shop.reviews.includes(:user).order('created_at DESC')
     end
@@ -49,7 +48,7 @@ class ShopsController < ApplicationController
     @reviews = @shop.reviews.includes(:user).order('visit_day DESC').where(lunch_dinner: "1")
   end
 
-    def sort_lunch
+  def sort_lunch
     @reviews = @shop.reviews.includes(:user).order('visit_day DESC').where(lunch_dinner: "2")
   end
 
