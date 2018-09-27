@@ -1,0 +1,49 @@
+class AddColumnToShops < ActiveRecord::Migration[5.0]
+  def change
+    add_column :shops, :menu_name_1, :string
+    add_column :shops, :menu_name_2, :string
+    add_column :shops, :menu_name_3, :string
+    add_column :shops, :menu_name_4, :string
+    add_column :shops, :menu_name_5, :string
+    add_column :shops, :menu_image_1, :string
+    add_column :shops, :menu_image_2, :string
+    add_column :shops, :menu_image_3, :string
+    add_column :shops, :menu_image_4, :string
+    add_column :shops, :menu_image_5, :string
+    add_column :shops, :menu_price_1, :integer
+    add_column :shops, :menu_price_2, :integer
+    add_column :shops, :menu_price_3, :integer
+    add_column :shops, :menu_price_4, :integer
+    add_column :shops, :menu_price_5, :integer
+    add_column :shops, :menu_detail_1, :string
+    add_column :shops, :menu_detail_2, :string
+    add_column :shops, :menu_detail_3, :string
+    add_column :shops, :menu_detail_4, :string
+    add_column :shops, :menu_detail_5, :string
+    add_column :shops, :sub_prtext, :text
+    add_column :shops, :station, :string
+
+    remove_column :shops, :reservation, :integer
+    remove_column :shops, :payment, :integer
+    remove_column :shops, :private_room, :integer
+    remove_column :shops, :capacity, :integer
+    remove_column :shops, :chartered, :integer
+    remove_column :shops, :parking, :integer
+    remove_column :shops, :smorking, :integer
+    remove_column :shops, :dish, :integer
+    remove_column :shops, :drink, :integer
+    remove_column :shops, :nomiho, :integer
+    remove_column :shops, :course, :integer
+    remove_column :shops, :service_charge, :string
+    remove_column :shops, :location, :integer
+    remove_column :shops, :facility_atmosphere, :integer
+    remove_column :shops, :kids, :integer
+    remove_column :shops, :homepage, :string
+    remove_column :shops, :official_account1, :string
+    remove_column :shops, :official_account2, :string
+    remove_column :shops, :official_account3, :string
+    remove_column :shops, :open_date, :integer
+    remove_column :shops, :others, :string
+    remove_column :shops, :dress_code, :string
+  end
+end

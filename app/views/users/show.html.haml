@@ -131,8 +131,9 @@
               .review-info
                 .restaurant-name
                   👑
-                .review-prefecture
-                  = review.shop.shop_prefectures.name
+                - review.shop.prefectures.each do |prefecture|
+                  .review-prefecture
+                    = prefecture.name
                 .review-area
                   渋谷、神泉/カフェ、カフェ・喫茶（その他）、喫茶店
               .review-title
@@ -204,7 +205,8 @@
                   .review-used-price
                     %p
                       使った金額（1人）：
-                      夜 ~￥999
+                      - review.budgets.each do |budget|
+                        = budget.name
                   .price-range
               .review-post__rst-review--content
                 .review-title

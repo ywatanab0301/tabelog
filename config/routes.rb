@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "searches#index"
+  root to: "shops#top_page"
   devise_for :users
   resources :users do
     get 'show_all' => 'users#show_all'
@@ -9,11 +9,16 @@ Rails.application.routes.draw do
 
   resources :searches
   resources :shops do
+    collection do
+      get :top_page
+    end
+    member  do
+      get :show_menu
+      get :show_reviews
+      get :sort_visit
+      get :sort_popular
+    end
     resources :reviews, only: [:new, :create, :edit, :update, :destroy, :show]
-    get 'menu' => 'shops#show_menu'
-    get 'reviews' => 'shops#show_reviews'
-    get 'sort_visit' => 'shops#sort_visit'
-    get 'sort_popular' => 'shops#sort_popular'
   end
 
   resources :following, only: [:show]
