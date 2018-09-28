@@ -11,11 +11,11 @@
         = image_tag 'location_arrow.png'
         - @genre.each do |genre|
           = genre.name
-      %span.location-link__shopname{href: "#{shop_path(@shop.id)}"}
+      %a.span.location-link__shopname{href: "#{shop_path(@shop.id)}"}
         = image_tag 'location_arrow.png'
         %i.fas.fa-utensils
         = @shop.shop_name
-      %span.location-link__shopreviews{href: "#{show_reviews_shop_path(@shop.id)}"}
+      %a.span.location-link__shopreviews{href: "#{show_reviews_shop_path(@shop.id)}"}
         = image_tag 'location_arrow.png'
         口コミ一覧
     = render partial: 'shares/shop_subheader'
@@ -29,13 +29,13 @@
           %a.menu-link{ href: "/shops/#{@shop.id}/show_menu", style: "color: #595960;"}
             %span
               メニュー
-        %li.shop-reviews-page-shop_lists__image
+        %li.shops-top-shop_lists__image
           写真
-        %li.shop-reviews-page-shop_lists__review
-          %a.reviews-link{ href: "/shops/#{@shop.id}/show_reviews", style: "color: white;"}
+        %li.shops-top-shop_lists__review
+          %a.reviews-link{ href: "/shops/#{@shop.id}/show_reviews", style: "color: #595960;"}
             %span
               口コミ
-        %li.shop-reviews-page-shop_lists__map
+        %li.shops-top-shop_lists__map
           地図
     .shop_main
       .shop_main-left
@@ -45,7 +45,7 @@
           .review-search-box-input
           = form_tag "/shops/#{@shop.id}/show_reviews", method: :get, id: "search", remote: true do
             = text_field_tag :search, params[:search], class: "form"
-            = submit_tag "検索", :name => nil, id: "search_btn"
+            = submit_tag "検索", :name => nil, id: "search_btn", disabled: false
         .shop_main-left-change-review-list
           .shop_main-left-change-review-list-inner
             .shop_main-left-change-review-list-text
@@ -62,7 +62,7 @@
           %ul.shop_main-left-change-review-sort-list-ul
             %li.shop_main-left-change-review-sort-list__all
               %i.fas.fa-comments
-                すべての口コミ
+              すべての口コミ
             %li.shop_main-left-change-review-sort-list__dinner
               %i.fas.fa-moon
               = link_to "夜の口コミ", sort_dinner_shop_path, id: "sort_dinner", remote: true
@@ -70,7 +70,6 @@
               .shop_main-left-change-review-sort-list__lunch--inner
                 %i.fas.fa-sun
                 = link_to "昼の口コミ", sort_lunch_shop_path, id: "sort_lunch", remote: true
-
         .shop_main-left-review-order-change
           %ul.shop_main-left-review-order-change-list-ul
             %li.shop_main-left-review-order-change-list1
@@ -92,14 +91,11 @@
                 = link_to "詳しくはこちら"
         .shop-main-left-shop-review-sorting
           %p.review-counting
-            - if @reviews
-              1～
-              = @reviews.length
-              件を表示 ／ 全
-              = @reviews.length
-              件
-            -else
-              0件
+            1～
+            = @reviews.length
+            件を表示 ／ 全
+            = @reviews.length
+            件
           .review-sorting-by-number
             表示件数：
             .review-sorting-by-number__select-box
@@ -118,7 +114,6 @@
             .display-list-type-simple
               .fas.fa-list-ul
               = link_to "簡易リスト"
-        .shop-review-list
 
         - if @reviews.present?
           = render @reviews

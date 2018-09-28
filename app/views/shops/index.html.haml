@@ -1,5 +1,4 @@
 = render partial: 'shares/header'
-
 .location.search_result{'data-search-result': @search_result}
   .location__left
     %ul
@@ -7,110 +6,115 @@
       = link_to shops_path do
         %li 食べログ
       %li
-      = link_to " > レストラン新規登録", new_shop_path
+      = link_to " > レストラン一覧", shops_path
   .location__right
     %ul
     = link_to '#' do
       %li
       = @shops.count
       店舗
-
-
-.pre
-  .code
-    .content
-      .content__side
-        .content__side__top
-          .content__side__top__area
-            .content__side__top__area__header エリアから探す
-            .content__side__top__area__main 全国
-            .content__side__top__area__footer
-              %a.target{href: "#"} このエリアを地図で見る
-          .content__side__top__genre
-            .content__side__top__genre__header ジャンルから探す
-            .content__side__top__genre__main すべて
-      .content__main
-        .content__main__header
-          .content__main__header__title
-            %span.title 全国のお店、レストラン
-            %span.count 1000
-            %span.unit 件
-          %a.search_form 検索条件を変更
-        %ul.nav.nav-tabs
-          %li.nav-item.origin
-            %a.nav-link{href: "#"}
-              .fa.fa-utensils
-              %span 標準【会員店舗優先】
-          %li.nav-item.rank
-            %a.nav-link{href: "#"}
-              .fa.fa-chess-king
-              %span ランキング
-          %li.nav-item.review
-            %a.nav-link{href: "#"}
-              .fa.fa-comment
-              %span 口コミ数
-        .content__main__list
-          %span.page-count 1~20 件を表示
-          %span ／
-          %span.shop.count 全 100 件
-        .content__main__shop
-          - @shops.each do |shop|
-            .content__main__shop__each
-              .content__main__shop__each__header
-                .content__main__shop__each__header__inner
-                  %a.rst_name
-                  = link_to shop_path(shop.id), class: "shop_name" do
-                    = shop.shop_name
-                  - if shop.station?
-                    %p.shop_station
-                      = shop.station
-                  - shop.genres.each do |genre|
-                    %p.shop_genre
-                      = genre.name
-                .content__main__shop__each__header__buttons
-                  %button.shops_index_gone
-                    .fa.fa-heart
-                    = link_to "行った", new_shop_review_path(shop.id), method: :get
-                  %button.shops_index_wannago
-                    .fa.fa-map-pin
-                    = link_to "行きたい", new_shop_review_path(shop.id), method: :get
-              .content__main__shop__each__body
-                .content__main__shop__each__body__left
-                  .content__main__shop__each__body__left__frame
+.content
+  .content__side
+    .content__side__top
+      .content__side__top__area
+        .content__side__top__area__header エリアから探す
+        .content__side__top__area__main 全国
+        .content__side__top__area__footer
+          %a.target{href: "#"} このエリアを地図で見る
+      .content__side__top__genre
+        .content__side__top__genre__header ジャンルから探す
+        .content__side__top__genre__main すべて
+  .content__main
+    .content__main__header
+      .content__main__header__title
+        %span.title 全国のお店、レストラン
+        %span.count
+          = @shops.count
+        %span.unit 件
+      %a.search_form{href: "#{new_shop_path}"}
+        検索条件を変更
+    %ul.nav.nav-tabs
+      %li.nav-item.origin
+        %a.nav-link{href: "#"}
+          .fa.fa-utensils
+          %span 標準【会員店舗優先】
+      %li.nav-item.rank
+        %a.nav-link{href: "#"}
+          .fa.fa-chess-king
+          %span ランキング
+      %li.nav-item.review
+        %a.nav-link{href: "#"}
+          .fa.fa-comment
+          %span 口コミ数
+    .content__main__list
+      %span.page-count
+      1 ~
+      = @shops.count
+      件を表示
+      %span ／
+      %span.shop.count
+      全
+      = @shops.count
+      件
+    .content__main__shop
+      - @shops.each do |shop|
+        .content__main__shop__each
+          .content__main__shop__each__header
+            .content__main__shop__each__header__inner
+              %a.rst_name
+              = link_to shop_path(shop.id), class: "shop_name" do
+                = shop.shop_name
+              - if shop.station?
+                %p.shop_station
+                  = shop.station
+              - shop.genres.each do |genre|
+                %p.shop_genre
+                  = genre.name
+            .content__main__shop__each__header__buttons
+              %a{href: "#{new_shop_review_path(shop.id)}"}
+                %button.shops_index_gone
+                  .fa.fa-heart
+                  行った
+              %a{href: "#{new_shop_review_path(shop.id)}"}
+                %button.shops_index_wannago
+                  .fa.fa-map-pin
+                  行きたい
+          .content__main__shop__each__body
+            .content__main__shop__each__body__left
+              .content__main__shop__each__body__left__frame
+                = image_tag shop.pic1.url, class: "photo1" if shop.pic1.present?
+                %ul.photolist
+                  %li.photolist
                     = image_tag shop.pic1.url, class: "photo1" if shop.pic1.present?
-                    %ul.photolist
-                      %li.photolist
-                        = image_tag shop.pic1.url, class: "photo1" if shop.pic1.present?
-                      %li.photolist
-                        = image_tag shop.pic2.url, class: "photo2" if shop.pic2.present?
-                      %li.photolist
-                        = image_tag shop.pic3.url, class: "photo3" if shop.pic3.present?
-                      %li.photolist
-                        = image_tag shop.pic4.url, class: "photo4" if shop.pic4.present?
-                      %li.photolist
-                        = image_tag shop.pic5.url, class: "photo5" if shop.pic5.present?
-                .content__main__shop__each__body__right
-                  %p.pr
-                    = shop.prtext
-                  .content__main__shop__each__body__right__rate
-                    %span.rating-star
-                      %span{class: :"star-actived rate-#{shop.star_review_average}0"}
-                    %span.num
-                      = shop.review_average
-                    .fa.fa-comments
-                    %a.review
-                    = link_to "/shops/#{shop.id}/show_reviews" do
-                      = shop.reviews.count
-                  .content__main__shop__each__body__right__review
-                    %a.title
-                    = link_to "/shops/#{shop.id}/show_reviews" do
-                      = shop.show_last_review_title
-                    %span.name by.
-                    %span.name
-                      = shop.show_last_review_name
-                    %p.review.js-text-overflow
-                      = shop.show_last_review
-        .content__main__page
-          = paginate @shops
-
+                  %li.photolist
+                    = image_tag shop.pic2.url, class: "photo2" if shop.pic2.present?
+                  %li.photolist
+                    = image_tag shop.pic3.url, class: "photo3" if shop.pic3.present?
+                  %li.photolist
+                    = image_tag shop.pic4.url, class: "photo4" if shop.pic4.present?
+                  %li.photolist
+                    = image_tag shop.pic5.url, class: "photo5" if shop.pic5.present?
+            .content__main__shop__each__body__right
+              %p.pr
+                = shop.prtext
+              .content__main__shop__each__body__right__rate
+                %span.rating-star
+                  %span{class: :"star-actived rate-#{shop.star_review_average}0"}
+                %span.num
+                  = shop.review_average
+                .fa.fa-comments
+                %a.review
+                = link_to "/shops/#{shop.id}/show_reviews" do
+                  = shop.reviews.count
+              .content__main__shop__each__body__right__review
+                %a.title
+                = link_to "/shops/#{shop.id}/show_reviews" do
+                  = shop.show_last_review_title
+                %span.name by.
+                %span.name
+                  = shop.show_last_review_name
+                %p.review.js-text-overflow
+                  = shop.show_last_review
+    .content__main__page
+      = paginate @shops
 = render partial: 'shares/footer'

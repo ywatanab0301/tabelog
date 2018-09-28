@@ -33,6 +33,71 @@
             font-size: 24px;
             width: 190px;
             float: left;
+            span.star-actived{
+          position: relative;
+          display: inline-block;
+          width: 15*$starHalf;
+          height: 2*$starHalf;
+          &:before,&:after{
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '★★★★★';
+            display: inline-block;
+            height: 2*$starHalf;
+            line-height: 2*$starHalf;
+          }
+          &:before{
+          color: #ddd;
+          }
+          &:after{
+          color: #ffa500;
+          overflow: hidden;
+          white-space: nowrap;}
+        }
+        .rate-0:after{
+          width: 0;
+        }
+        .rate-05:after{
+          width: $starHalf
+        }
+        .rate-10:after{
+          width: $rate1;
+        }
+        .rate-15:after{
+          width: $rate1-5;
+        }
+        .rate-20:after{
+          width: $rate2;
+        }
+        .rate-25:after{
+          width: $rate2-5;
+        }
+        .rate-30:after{
+          width: $rate3;
+        }
+        .rate-35:after{
+          width: $rate3-5;
+        }
+        .rate-40:after{
+          width: $rate4;
+        }
+        .rate-45:after{
+          width: $rate4-5;
+        }
+        .rate-50:after{
+          width: $rate5;
+        }
+        span.num{
+          font-size: 24px;
+          font-weight: bold;
+          color: red;
+        }
+        a.review{
+          font-size: 12px;
+          color: $black;
+          text-decoration: underline;
+        }
           }
           &__icons{
             font-size: 13px;
@@ -397,8 +462,69 @@
                 font-size: 10px;
                 margin-left: 15px;
               }
-              .pickup_review-text__rates {
+              .pickup_review-text__ratestar {
                 margin-left: 15px;
+                margin-top: 1rem;
+                  span.star-actived{
+                    position: relative;
+                    display: inline-block;
+                    width: 10*$starHalf;
+                    height: 1.6*$starHalf;
+                    font-size: 1.8*$starHalf;
+                    &:before,&:after{
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      content: '★★★★★';
+                      display: inline-block;
+                      height: 1.6*$starHalf;
+                      line-height: 1.8*$starHalf;
+                    }
+                    &:before{
+                    color: #ddd;
+                    }
+                    &:after{
+                    color: #ffa500;
+                    overflow: hidden;
+                    white-space: nowrap;}
+                  }
+                  .rate-0:after{
+                    width: 0;
+                  }
+                  .rate-05:after{
+                    width: $starHalf
+                  }
+                  .rate-10:after{
+                    width: $rate1;
+                  }
+                  .rate-15:after{
+                    width: $rate1-5;
+                  }
+                  .rate-20:after{
+                    width: $rate2;
+                  }
+                  .rate-25:after{
+                    width: $rate2-5;
+                  }
+                  .rate-30:after{
+                    width: $rate3;
+                  }
+                  .rate-35:after{
+                    width: $rate3-5;
+                  }
+                  .rate-40:after{
+                    width: $rate4;
+                  }
+                  .rate-45:after{
+                    width: $rate4-5;
+                  }
+                  .rate-50:after{
+                    width: $rate5;
+                  }
+                  span.num{
+                    font-size: 12px;
+                    font-weight: bold;
+                }
               }
             }
           }
