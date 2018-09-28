@@ -1,5 +1,5 @@
 = render partial: 'shares/header'
-.location
+.location.search_result{'data-search-result': @search_result}
   .location__left
     %ul
       %li.fa.fa-home
@@ -39,7 +39,8 @@
         %span.area 全国
         %span.no の
         %span.genre お店、レストラン
-      %a.search_form 検索条件を変更
+      %a.search_form{href: "#{new_shop_path}"}
+        検索条件を変更
     %ul.nav.nav-tabs
       %li.nav-item.origin
         = link_to shops_path do
@@ -53,7 +54,6 @@
         %a.nav-link.review
           .fa.fa-comment
           %span 口コミ数
-
     .content__main__list
       %span.page-count
       = @shops.count
@@ -64,18 +64,25 @@
         .content__main__shop__each
           .content__main__shop__each__header
             .content__main__shop__each__header__inner
-              %a.rst_name{href: "#"}
+              %a.rst_name
+              = link_to shop_path(shop.id), class: "shop_name" do
                 = shop.shop_name
-
-            %ul.btn
-              %button.btn.btn-outline-secondary{type: "button"}
-                .fa.fa-heart
-                  = link_to "行った", new_shop_review_path(shop.id), method: :get
-              %button.btn.btn-outline-secondary{type: "button"}
-                .fa.fa-map-pin  行きたい
-
+              - if shop.station?
+                %p.shop_station
+                  = shop.station
+              - shop.genres.each do |genre|
+                %p.shop_genre
+                  = genre.name
+            .content__main__shop__each__header__buttons
+              %a{href: "#{new_shop_review_path(shop.id)}"}
+                %button.shops_index_gone
+                  .fa.fa-heart
+                  行った
+              %a{href: "#{new_shop_review_path(shop.id)}"}
+                %button.shops_index_wannago
+                  .fa.fa-map-pin
+                  行きたい
           .content__main__shop__each__body
-
             .content__main__shop__each__body__left
               .content__main__shop__each__body__left__frame
                 = image_tag shop.pic1.url, class: "photo" if shop.pic1.present?
@@ -90,26 +97,26 @@
                     = image_tag shop.pic4.url, class: "photo4" if shop.pic4.present?
                   %li.photolist
                     = image_tag shop.pic5.url, class: "photo5" if shop.pic5.present?
-
             .content__main__shop__each__body__right
               %p.pr
                 = shop.prtext
-
               .content__main__shop__each__body__right__rate
                 %span.rating-star
                   %span{class: :"star-actived rate-#{shop.star_review_average}0"}
                 %span.num
                   = shop.review_average
                 .fa.fa-comments
-                %a.review{href: "#"}
+                %a.review
+                = link_to "/shops/#{shop.id}/show_reviews" do
                   = shop.reviews.count
               .content__main__shop__each__body__right__review
-                %a.title{href: "#"}
+                %a.title
+                = link_to "/shops/#{shop.id}/show_reviews" do
                   = shop.show_last_review_title
                 %span.name by.
                 %span.name
                   = shop.show_last_review_name
-                %p.review
+                %p.review.js-text-overflow
                   = shop.show_last_review
     .content__main__page
       = paginate @shops

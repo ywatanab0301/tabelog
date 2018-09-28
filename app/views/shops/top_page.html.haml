@@ -12,8 +12,8 @@
               %ul.user-menu.js-exec-welcome
                 %li.user-menu__item
                   %a#open-message-notification.user-menu__target.user-menu__target--dropdown{ href: "#"}
-                    %span.user-menu__text メッセージ
-                    %span#messages.user-menu__badge{ style: "display:none;"} 0
+                    %span.user-menu__text
+                      メッセージ
                   / #message-notification.user-menu__popup.user-menu__popup--notification.js-exec-notification-box
                   /   .balloon.balloon--top
                   /     #message-notification-list.notification-list
@@ -25,79 +25,67 @@
                 %li.user-menu__item
                   %a#open-information-notification.user-menu__target.user-menu__target--dropdown{ href: "#"}
                     %span.user-menu__text お知らせ
-                    %span#informations.user-menu__badge{ style: "display:none;"} 0
-                  / #information-notification.user-menu__popup.user-menu__popup--notification.js-exec-notification-box
-                  /   .balloon.balloon--top
-                  /     .notification-sort
-                  /       %ul.notification-sort__box
-                  /         %li#selector-comment.notification-sort__tab.notification-sort__tab--comment.gly-b-conversation
-                  /           %span.notification-sort__text コメント
-                  /         %li#selector-other.notification-sort__tab.notification-sort__tab--other.gly-b-tabelike.is-selected
-                  /           %span.notification-sort__text いいね！ほか
-                  /     #information-notification-list.notification-list
-                  /     .notification-bottom
-                  /       %a#information-link.icon-b-circle-orange{"data-comment-url" => "#", "data-other-url" => "#", href: "#"}
-                  /         %strong> いいね！ほか
-                  /         の通知をもっと見る
+                  %i.fas.fa-sort-down
+                    %ul.notification-sort__box
+                      %li#selector-comment.notification-sort__tab.notification-sort__tab--comment.gly-b-conversation
+                        %span.notification-sort__text コメント
+                      %li#selector-other.notification-sort__tab.notification-sort__tab--other.gly-b-tabelike.is-selected
+                        %span.notification-sort__text いいね！ほかの通知をもっと見る
                 %li.user-menu__item
                   %a.user-menu__target{ href: "#"}
-                    %span.c-badge-tpoint.c-badge-tpoint--s
-                      %i Tpoint
-                    %em.user-menu__text.user-menu__text--tpoint 150
-                    pt
+                    %span.user-menu__text Tpoint
+                    %span.user-menu__text 0pt
                 %li.user-menu__item
                   %a.user-menu__target{ href: "#"}
                     %span.user-menu__text 予約確認
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "#"} 行った・行きたい
+                  %a.user-menu__text{ href: "/users/#{current_user.id}/show_all"}
+                    行った・行きたい
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "/users/#{current_user.id}"} マイページ
+                  %a.user-menu__target{ href: "/users/#{current_user.id}"}
+                    %span.user-menu__text マイページ
                 %li.user-menu__item.user-menu__item--setting
-                  %a#open-user-setting.user-menu__target.user-menu__target--dropdown.user-menu__target--user-image{href: "#"}
-                    %img{ alt: "", height: "27" ,src: "#{current_user.avatar}", width: "27"}/
-                  / #user-setting.p-user-menu__popup.user-menu__popup--setting.js-exec-user-setting-box
-                  /   .balloon.balloon--top
-                  /     %ul.setting-list
-                  /       %li.setting-list__item
-                  /         %a.setting-list__target{href: "#"} フォロー中一覧
-                  /       %li.setting-list__item
-                  /         %a.setting-list__target{href: "#"} 下書き一覧
-                  /       %li.setting-list__item
-                  /         %a.setting-list__target{href: "#"} 設定
-                  /       %li.setting-list__item.setting-list__item--logout
-                  /         %a.setting-list__target{href: "#"} ログアウト
+                  %a#open-user-setting.user-menu__target.user-menu__target--dropdown.user-menu__target--user-image{href: "/users/#{current_user.id}"}
+                    %img{ alt: "", height: "27" ,src: "#{current_user.avatar}", width: "27"}
+                  %i.fas.fa-sort-down
+                    %ul.setting-list
+                      %li.setting-list__item
+                        %a.setting-list__target{href: "#"} フォロー中一覧
+                      %li.setting-list__item
+                        %a.setting-list__target{href: "#"} 下書き一覧
+                      %li.setting-list__item
+                        %a.setting-list__target{href: "#"} 設定
+                      %li.setting-list__item
+                        %a.setting-list__target{href: "#"} ログアウト
 
             - else
               %ul.user-menu.js-exec-welcome
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "#"} 食べログの特長と便利な使い方
+                  %a.user-menu__text{ href: "#"} 食べログの特長と便利な使い方
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "/users/sign_up"} 無料会員登録
+                  %a.user-menu__text{ href: "/users/sign_up"} 無料会員登録
                 %li.user-menu__item
                   %a.user-menu__target{ href: "#"}
-                    %span.c-badge-tpoint.c-badge-tpoint--s>
-                      %i Tpoint
-                    保有Tポイント
+                    %span.user-menu__text>
+                      %i Tpoint   保有Tポイント
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "#"} 予約確認
+                  %a.user-menu__text{ href: "#"} 予約確認
                 %li.user-menu__item
-                  %a.user-menu__target{ href: "#"} 行った・行きたい
+                  %a.user-menu__text{ href: "#"} 行った・行きたい
                 %li.user-menu__item
-                  %a.js-open-login-modal.p-user-menu__target{ href: "/users/sign_in"} ログイン
+                  %a.user-menu__text{ href: "/users/sign_in"} ログイン
 
       .top-header
         .top-header__visual.js-top-main-visual-image
-          .top-header__overlay
-            .bx-wrapper
-              .bx-viewport
-                %ul#js-top-slide-img.top-header__images
-                  %li.top-header__image.top-header__image--slide01
-                  %li.top-header__image.top-header__image--slide02
-                  %li.top-header__image.top-header__image--slide03
-                  %li.top-header__image.top-header__image--slide04
-                  %li.top-header__image.top-header__image--slide05
-                  %li.top-header__image.top-header__image--slide06
-            .top-header__slide-box
+          .top-header__image
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic1/2/a4b140c8-9fe7-44db-a035-e78636eada8c.jpg' }
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic4/3/08ceb3ee-dbdb-4e33-88f4-5453825991f4.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic2/2/2cf68ee0-c7a1-4942-962d-71446a5448a8.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic3/3/902de97c-7c88-4a83-bdb5-536ee25a5052.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic1/3/7e98267e-b00f-4712-a10c-681d32ef0f81.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic3/2/b0debf87-d0dd-4e01-92b2-afb057b27bd4.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic2/3/12f399d0-c560-4f27-aa84-9a6beff6bbe1.jpg'}
+            %img.top-header__image.top-header__image--slide{ src: 'https://s3-ap-northeast-1.amazonaws.com/34tabelog/uploads/shop/pic4/2/04e605e7-7fe6-4ec6-ac34-982c90d62925.jpg'}
         #js-top-main-visual.top-header__inner
           .top-header__lead
             %p.top-header__main-lead
@@ -107,18 +95,13 @@
               %br>/
               食べログであなたの思い出をより「おいしく」。
 
+
           .top-header__search
-            #js-global-header-search.global-header-search
-              .container.header-wrapper.header-wrapper--bottom
-                .contents.contents--fixed
-                  #suggest_datas{"data-area_datatype" => "", "data-area_id" => "", "data-lat" => "", "data-lng" => "", "data-multiple-suggest-flg" => "0", "data-no_suggest_flg" => "", style: "display:none;"}
-                  #multi-suggest{ style: "display:none;"}
-                  #js-sa-user-input{"data-value" => "", style: "display:none;"}
-                  .search-header
-                    %p.search-header__logo
-                      %a.search-header__logo-img{ href: "#", title: "食べログ トップへ"} 食べログ
-                    .header-search
-                      / ここからメインコンテンツ
+            = form_tag shops_path, method: :get do
+              = text_field_tag :search, params[:search], { placeholder: "キーワード[例:お肉、立川]"}
+              = submit_tag "検索する", class: "searchbtn"
+          %ul#hitlist
+            / ここからメインコンテンツ
   .containe.top-container.top-container--maincontents
     .contents.contents--fixed.topcontents--fixed
       .content-index-data{"data-type" => "top_announcements"}
@@ -135,7 +118,13 @@
                 .top-search__heading
                   %h2.top-heading1.top-search__title お店、レストランを探す
                   .top-search__data-count
-                    .navi-count 123456 店舗  26,666,123 口コミ
+
+                    .navi-count
+                      = @shops.count
+                      店舗
+                      = @reviews
+                      口コミ
+
                 .top-search__contents
                   .top-search__contents-title 都道府県から探す
                   .js-hotarea-icon.top-search__hotarea
@@ -300,64 +289,43 @@
                   %span.follow-banner-contents
                     %span.follow-banner-icons
                       %img{alt: "", height: "42", src: "#", width: "106"}/
-                    %span.follow-banner-title 好みのあう人をフォローすると、その人のオススメのお店から探せます。
-              #js-timeline-contents.timeline-contents
-                .timeline.timeline-body.js-timeline-box.is-visible
-                  .timeline-inner
-                    %p.timeline-date
-                      %span.text-num.timeline__entry-date 2018/9/12
-                    .timeline-post
-                      .timeline__post-data
-                        %span.timeline__post-img
-                          %img{alt: "食べログマガジン", height: "50", src: "https://tblg.k-img.com/images/tabelog_magazine_logo.svg", width: "50"}/
-                        %span.timeline__post-name 食べログマガジン
-                      .timeline__post-item.timeline-matome
-                        .timeline-matome__contents.js-magazine-area{"data-magazine-link-url" => "https://magazine.tabelog.com/articles/50291"}
-                          .timeline-matome__photo
-                            %a.timeline-matome__photo-link{href: "#", target: "_blank"}
-                              %img.timeline-matome__photo-img{alt: "食べログマガジン", height: "140", src: "https://upload.wikimedia.org/wikipedia/ja/thumb/d/df/ZaruSoba2.jpg/300px-ZaruSoba2.jpg", width: "140"}/
-                          .timeline-matome__info
-                            .timeline-matome__text
-                              %p.timeline-matome__title
-                                %a.timeline-matome__title-link{href: "#", target: "_blank"}
-                                  %strong 〈出世ごはん〉英国貴族のような“余裕”を身につけるなら、創業100年以上の老舗そば屋へ
-                              .timeline-matome__desc
-                                %p 肩の力が抜けていながら品がある、日本橋の老舗そば屋で、鴨そばを食べながら貴族的ムードの極意を学ぶ。
-                                %p.timeline-matome__desc-target
-                                  %a{href: "#{}", target: "_blank"} マガジンを見る
-                .timeline.timeline-body.js-timeline-box.is-visible
-                  .timeline-inner
-                    %p.timeline-date
-                      %span.timeline__visit-date
-                        %span.text-num 2018/09  "訪問"
-                    .timeline-post
-                      .timeline__post-data
-                        %a.timeline__post-target.js-timeline-rvwr-name{href: "/rvwr/008486420/", target: "_blank"}
-                          %span.timeline__post-img
-                            %img{alt: "Naoto", height: "50", src: "#", width: "50"}/
-                          %span.timeline__post-name
-                        .c-balloon.c-balloon--top.timeline__post-balloon.is-hidden
-                          / ここからjs要素を追加
-                          / %p
-                          /   %span.timeline__post-balloon-dtl 275ログ
-                          /   %span 行ったお店 215件
-                          /   %span.timeline__post-balloon-dtl
-                          /     フォロー 3人
-                          /   %strong
-                          /     フォロワー 25人
-                      .timeline__post-item.rvw-item.is-rvw-notitle.js-timeline-content-wrap.js-bookmark.js-done{"data-interested-review-id" => "90145454", "data-rst-id" => "13095101"}
-                        .rvw-item__rst-data
-                          %p.rvw-item__rst-info
-                            %a.rvw-item__rst-name{href: "https://tabelog.com/rvwr/008486420/rvwdtl/B381585265/", target: "_blank"} 蒙古タンメン中本 渋谷店
-                            %span.rvw-item__rst-area-catg (渋谷、神泉/ラーメン、つけ麺、丼もの（その他）)
-                        .rvw-item__inner.js-clickable-area{"data-detail-url" => "https://tabelog.com/rvwr/008486420/rvwdtl/B381585265/"}
-                          .rvw-item__rvw-info
-                            .rvw-item__score-data
-                              .rvw-item__score
-                                .rvw-item__score-lunch
-                                  %p.c-rating.c-rating--val0.rvw-item__score-total
-                                    %span.c-rating__time.c-rating__time--lunch
-
+                    %span.follow-banner-title
+                      好みのあう人をフォローすると、その人のオススメのお店から探せます。
+              - if user_signed_in?
+                #js-timeline-contents.timeline-contents
+                  .timeline.timeline-body.js-timeline-box.is-visible
+                    - @shops.each do |shop|
+                      - shop.reviews.first(5).each do |review|
+                        - if review.user_id == current_user.id
+                          .timeline-inner
+                            %p.timeline-date
+                              %span.text-num.timeline__entry-date
+                                = review.visit_day.strftime('%Y/%m')
+                                訪問
+                            .timeline-post
+                              .timeline__post-data
+                                %span.timeline__post-img
+                                  = image_tag current_user.avatar.url, height: "50", width: "50"
+                                %span.timeline__post-name
+                                  = link_to current_user.nickname, user_path(current_user.id)
+                              .timeline__post-item.timeline-matome
+                                .timeline-matome__contents.js-magazine-area{"data-magazine-link-url" => "https://magazine.tabelog.com/articles/50291"}
+                                  .timeline-matome__photo
+                                    %a.timeline-matome__photo-link{href: "#", target: "_blank"}
+                                      %img.timeline-matome__photo-img
+                                        = image_tag review.pic1.url, height: "140", width: "140"
+                                  .timeline-matome__info
+                                    .timeline-matome__text
+                                      %p.timeline-matome__title
+                                        %a.timeline-matome__title-link{href: "shops/#{shop.id}"}
+                                          %strong
+                                            = review.title
+                                      .timeline-matome__desc
+                                        %p.overrap.js-text-overflow
+                                          = review.text
+                                        %p.timeline-matome__desc-target
+                                          %a{href: "/shops/#{shop.id}/show_reviews"}
+                                            レビューの詳細を見る
           .colum2__right.top-colum__right
             - if user_signed_in?
               .js-right-user-info
@@ -376,39 +344,39 @@
                     %ul.userdata__data-list
                       %li.userdata__data-item
                         .userdata__data-row
-                          %a{href: "#"}
+                          %a{href: "/users/#{current_user.id}"}
                             .userdata__data-subject
                               ログ
                             .userdata__data-count
-                              1
+                              = current_user.reviews.count
                       %li.userdata__data-item
                         .userdata__data-row
-                          %a{href: "#"}
+                          %a{href: "/users/#{current_user.id}/show_gone"}
                             .userdata__data-subject
                               行ったお店
                             .userdata__data-count
-                              1
+                              = current_user.reviews.count
                       %li.userdata__data-item
                         .userdata__data-row.is-disabled
-                          %a{href: "#"}
+                          %a{href: "/users/#{current_user.id}/show_wannago"}
                             .userdata__data-subject
                               行きたいお店
                             .userdata__data-count
                               0
                       %li.userdata__data-item
                         .userdata__data-row
-                          %a{href: "#"}
+                          %a{href: "#{following_path(current_user.id)}"}
                             .userdata__data-subject
-                              フォロー中
-                            .userdata__data-count
-                              1
+                            フォロー中
+                            %span.userdata__data-count
+                              = current_user.followings.count
                       %li.userdata__data-item
                         .userdata__data-row.is-disabled
-                          %a{href: "#"}
+                          %a{href: "#{follower_path(current_user.id)}"}
                             .userdata__data-subject
-                              フォロワー
+                            フォロワー
                             .userdata__data-count
-                              0
+                              = current_user.followers.count
                       %li.userdata__data-item
                         .userdata__data-row.is-disabled
                           %a{href: "#"}
@@ -422,7 +390,7 @@
                             .userdata__data-subject
                               公開中口コミ一覧
                             .userdata__data-count
-                              1
+                              = current_user.reviews.count
                     .premium-style.premium-box
                       %p.userdata-text
                         クレジットカードで初月無料

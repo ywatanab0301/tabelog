@@ -1,0 +1,1451 @@
+.shop_view{
+  width: 100vw;
+  .shop_views{
+    width: 980px;
+    margin: 0 auto;
+    .location-link{
+      font-size: 12px;
+      color: $font_blue;
+      height: 50px;
+      line-height: 50px;
+      img {
+        vertical-align: middle;
+      }
+    }
+    .shop_subheader{
+      border-top: 1px solid $newshop_line;
+      height: 170px;
+      display: flex;
+      .shop_subheader-left{
+        width: 700px;
+        height: 170px;
+        .shop_views-namespace{
+          height: 100px;
+          border-bottom: 1px solid $newshop_line;
+          &__shopname{
+            font-size: 24px;
+            color: $black;
+            font-weight: bold;
+            text-align: left;
+            padding: 15px 0 5px 0 ;
+          }
+          &__ratestar{
+            font-size: 24px;
+            width: 190px;
+            float: left;
+            span.star-actived{
+          position: relative;
+          display: inline-block;
+          width: 15*$starHalf;
+          height: 2*$starHalf;
+          &:before,&:after{
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '★★★★★';
+            display: inline-block;
+            height: 2*$starHalf;
+            line-height: 2*$starHalf;
+          }
+          &:before{
+          color: #ddd;
+          }
+          &:after{
+          color: #ffa500;
+          overflow: hidden;
+          white-space: nowrap;}
+        }
+        .rate-0:after{
+          width: 0;
+        }
+        .rate-05:after{
+          width: $starHalf
+        }
+        .rate-10:after{
+          width: $rate1;
+        }
+        .rate-15:after{
+          width: $rate1-5;
+        }
+        .rate-20:after{
+          width: $rate2;
+        }
+        .rate-25:after{
+          width: $rate2-5;
+        }
+        .rate-30:after{
+          width: $rate3;
+        }
+        .rate-35:after{
+          width: $rate3-5;
+        }
+        .rate-40:after{
+          width: $rate4;
+        }
+        .rate-45:after{
+          width: $rate4-5;
+        }
+        .rate-50:after{
+          width: $rate5;
+        }
+        span.num{
+          font-size: 24px;
+          font-weight: bold;
+          color: red;
+        }
+        a.review{
+          font-size: 12px;
+          color: $black;
+          text-decoration: underline;
+        }
+          }
+          &__icons{
+            font-size: 13px;
+            margin-top: 7px;
+            float: left;
+            padding-left: 5px;
+            font-weight: bold;
+          }
+        }
+        .shop_views-detailspace{
+          height: 70px;
+          &__station{
+            width: 130px;
+            padding: 10px 0 5px 0;
+            font-size: 12px;
+            float: left;
+          }
+          &__genre{
+            margin-left: 10px;
+            padding: 10px 0 5px 0;
+            font-size: 12px;
+            float: left;
+          }
+          &__average{
+            clear: both;
+            padding: 5px 0 10px 0;
+            font-size: 12px;
+          }
+          &__schedule{
+            margin-left: 10px;
+            margin-top: 5px;
+            padding: 5px 0 10px 0;
+            font-size: 12px;
+          }
+          &__moredetail{
+            text-align: right;
+            float: right;
+            margin-right: 10px;
+          }
+        }
+      }
+      .shop_subheader-right{
+        width: 280px;
+        .shop_views-buttons{
+          padding: 4px 0px 5px 5px;
+          background-color: $shopindex_back;
+          width: 270px;
+          margin-top: 13px;
+          border-radius: 3px 3px;
+          .button.shop-views{
+            display: flex;
+            .shop-views__gonebtn{
+              color: $black;
+              background-color: $white;
+              width: 93px;
+              font-weight: bold;
+              border: 1px solid $newshop_line;
+              border-radius: 3px 3px;
+              text-align: center;
+              a:link {
+                display: block;
+                width: 100%;
+                height: 100%;
+                text-decoration: none;
+                span {
+                  line-height: 30px;
+                }
+              }
+            }
+            .shop-views__wannabtn{
+              margin-left: 7px;
+              color: $black;
+              background-color: $white;
+              width: 93px;
+              font-weight: bold;
+              border-radius: 3px 3px;
+              border: 1px solid $newshop_line;
+              text-align: center;
+              a:link {
+                display: block;
+                width: 100%;
+                height: 100%;
+                text-decoration: none;
+                span {
+                  line-height: 30px;
+                }
+              }
+            }
+            .shop-views__post-btn{
+              margin-left: 7px;
+              color: $white;
+              background-color: $send_border;
+              width: 60px;
+              font-weight: bold;
+              border-radius: 3px 3px;
+              border: 1px solid $newshop_line;
+              text-align: center;
+              a:link {
+                display: block;
+                width: 100%;
+                height: 100%;
+                text-decoration: none;
+                span {
+                  line-height: 30px;
+                }
+              }
+            }
+          }
+          button.shop-views__recommend{
+            color: $background-gray;
+            background-color: white;
+            padding: 7px;
+            margin-top: 5px;
+            width: 260px;
+            font-weight: bold;
+            border-radius: 3px 3px;
+          }
+        }
+      }
+    }
+    .shop_lists{
+      height: 45px;
+      ul.shops-show-header_list{
+        height: 45px;
+        border: 1px solid $newshop_line;
+        border-bottom: 3px solid $shop_views_navbar;
+        display: flex;
+        li.shops-top-shop_lists__top{
+          border-right: 1px solid $newshop_line;
+          width: 196px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 45px;
+          background-color: $shop_views_navbar;
+          color: white;
+          font-size: 14px;
+        }
+        li.shops-top-shop_lists__menu{
+          border-right: 1px solid $newshop_line;
+          width: 196px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 45px;
+          font-size: 14px;
+          a:link {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+          }
+        }
+        li.shops-top-shop_lists__image{
+          border-right: 1px solid $newshop_line;
+          width: 196px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 45px;
+          font-size: 14px;
+        }
+        li.shops-top-shop_lists__review{
+          border-right: 1px solid $newshop_line;
+          width: 196px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 45px;
+          font-size: 14px;
+          a:link {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+          }
+        }
+        li.shops-top-shop_lists__map{
+          width: 196px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 45px;
+          font-size: 14px;
+        }
+      }
+    }
+    .shop_main{
+      display: flex;
+      width: 100%;
+      margin-top: 10px;
+      .shop_main-left{
+        padding-right: 10px;
+        padding-left: 10px;
+        width: 700px;
+
+        // ul.shop_mainleft-shop-images{
+          // height: 120px;
+          // display: flex;
+          // margin-top: 10px;
+        // }
+        // .shop_mainleft-moreimages{
+        //   height: 80px;
+        //   .shop_mainleft-moreimages__link{
+        //     font-size: 13px;
+        //     color: $font_blue;
+        //     font-weight: bold;
+        //     line-height: 70px;
+        //   }
+        // }
+        .shop-mainleft-review-shop-pr-title {
+          margin-top: 20px;
+          padding: 5px;
+          p {
+            font-size: 20px;
+            font-weight: bold;
+            color: $black;
+          }
+        }
+        .shop-mainleft-review-shop-pr-text {
+          margin-top: 10px;
+          padding: 0 5px 5px 5px;
+          border-bottom: 1px solid $newshop_line;
+          p {
+            font-size: 13px;
+            height: 120px;
+            overflow: hidden;
+          }
+        }
+        .shop_mainleft-review{
+          height: 80px;
+          display: flex;
+          .shop_mainleft-review__title{
+            font-weight: bold;
+            line-height: 80px;
+            font-size: 16px;
+            width: 620px;
+          }
+          .review-postbtn{
+            height: 26px;
+            font-weight: bold;
+            border-radius: 3px 3px;
+            background-color: $font_green;
+            color: $white;
+            border: 1px solid $font_green;
+            margin-top: 28px;
+            width: 80px;
+            padding: 2px 5px;
+            a:link {
+              display: block;
+              padding-top: 2px;
+              text-align: center;
+              width: 100%;
+              height: 100%;
+              text-decoration: none;
+            }
+          }
+        }
+        .shop_mainleft-friend{
+          height: 65px;
+          border: 1px solid $newshop_line;
+          background-color: $background-lightgray;
+          .shop_mainleft-friend__image{
+            margin-top: 5px;
+            margin-left: 5px;
+            float: left;
+            img{
+              width: 50px;
+              height: 50px;
+              border-radius: 25px;
+            }
+          }
+          .shop_mainleft-friend__text{
+            width: 400px;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 35px;
+            color: $font_blue;
+            margin-top: 14px;
+            margin-left: 65px;
+          }
+        }
+        ul.pickup_review{
+          height: 180px;
+          display: flex;
+          margin-top: 20px;
+          li.pickup_review-avatar{
+            width: 100px;
+            .pickup_review-avatar__icon{
+              text-align: center;
+              margin-top: 10px;
+              img{
+                width: 40px;
+                height: 40px;
+                border-radius: 5px;
+              }
+            }
+            .pickup_review-avatar__nickname{
+              margin-top: 5px;
+              font-size: 12px;
+            }
+            .pickup_review-avatar__count{
+              font-size:  12px;
+              text-align: center;
+            }
+          }
+          li.pickup_review-text{
+            padding: 10px 15px 10px 15px;
+            border: 1px solid $newshop_line;
+            border-radius: 6px;
+            position: relative;
+            &:hover {
+              border-color: $main_orange;
+            }
+            &:before{
+              border: 10px solid transparent;
+              border-right-color: #fff;
+              border-left-width: 0;
+              left: -9px;
+              content: "";
+              display: block;
+              top: 20px;
+              position: absolute;
+              width: 0;
+              z-index: 1;
+            }
+            &:after{
+              border: 10px solid transparent;
+              border-right-color: $newshop_line;
+              border-left-width: 0;
+              left: -10px;
+              content: "";
+              display:block;
+              top: 20px;
+              position:absolute;
+              width: 0;
+            }
+            .pickup_review-text__title{
+              font-weight: bold;
+              font-size: 14px;
+              width: 560px;
+              color: $black;
+              span.review-title-showpage {
+                border-bottom: 1px dotted black;
+              }
+            }
+            .pickup_review-text__text{
+              padding-top: 7px;
+              width: 100%;
+              p.js-text-overflow {
+                font-size: 12px;
+                line-height: 16px;
+                height: 85px;
+                width: 560px;
+                overflow: hidden;
+              }
+            }
+            .pickup_review-text__continue{
+              font-weight: bold;
+              color: $font_blue;
+              font-size: 13px;
+              margin-top: 10px;
+            }
+            .pickup_review-text__icons{
+              margin-top: 5px;
+              .pickup_review-text__heart {
+              }
+              .pickup_review-text__time {
+                font-size: 10px;
+                margin-left: 15px;
+              }
+              .pickup_review-text__ratestar {
+                margin-left: 15px;
+                margin-top: 1rem;
+                  span.star-actived{
+                    position: relative;
+                    display: inline-block;
+                    width: 10*$starHalf;
+                    height: 1.6*$starHalf;
+                    font-size: 1.8*$starHalf;
+                    &:before,&:after{
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      content: '★★★★★';
+                      display: inline-block;
+                      height: 1.6*$starHalf;
+                      line-height: 1.8*$starHalf;
+                    }
+                    &:before{
+                    color: #ddd;
+                    }
+                    &:after{
+                    color: #ffa500;
+                    overflow: hidden;
+                    white-space: nowrap;}
+                  }
+                  .rate-0:after{
+                    width: 0;
+                  }
+                  .rate-05:after{
+                    width: $starHalf
+                  }
+                  .rate-10:after{
+                    width: $rate1;
+                  }
+                  .rate-15:after{
+                    width: $rate1-5;
+                  }
+                  .rate-20:after{
+                    width: $rate2;
+                  }
+                  .rate-25:after{
+                    width: $rate2-5;
+                  }
+                  .rate-30:after{
+                    width: $rate3;
+                  }
+                  .rate-35:after{
+                    width: $rate3-5;
+                  }
+                  .rate-40:after{
+                    width: $rate4;
+                  }
+                  .rate-45:after{
+                    width: $rate4-5;
+                  }
+                  .rate-50:after{
+                    width: $rate5;
+                  }
+                  span.num{
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+              }
+            }
+          }
+        }
+        .shop_mainleft-morereview{
+          height: 35px;
+          .shop_mainleft-morereview__link{
+            font-weight: bold;
+            color: $font_blue;
+            font-size: 12px;
+            line-height: 35px;
+            float: right;
+          }
+        }
+        .shop_mainleft-aroundshop{
+          height: 35px;
+          .shop_mainleft-aroundshop__title{
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 35px;
+          }
+        }
+        ul.around_shops{
+          height: 300px;
+          display: flex;
+          li.around_shops__left{
+            border: 1px solid $newshop_line;
+            width: 210px;
+            height: 300px;
+            margin-left: 5px;
+            .around_shops__left-image{
+              img{
+                width: 208px;
+                height: 160px;
+              }
+            }
+            .around_shops__left-shopname{
+              margin-top: 10px;
+              margin-left: 10px;
+              font-size: 14px;
+              color: $font_blue;
+              font-weight: bold;
+            }
+            .around_shops__left-genre{
+              margin-left: 10px;
+              font-size: 12px;
+            }
+            .around_shops__left-stars{
+              margin-left: 10px;
+              font-size: 14px;
+              font-weight: bold;
+            }
+            .around_shops__left-denner{
+              margin-left: 10px;
+              font-size: 12px;
+            }
+            .around_shops__left-lunch{
+              margin-left: 10px;
+              font-size: 12px;
+            }
+          }
+          li.around_shops__center{
+            border: 1px solid $newshop_line;
+            width: 210px;
+            height: 300px;
+            margin-left: 15px;
+            .around_shops__center-image{
+              img{
+                width: 208px;
+                height: 160px;
+              }
+            }
+            .around_shops__center-shopname{
+              margin-top: 10px;
+              margin-left: 10px;
+              font-size: 14px;
+              color: $font_blue;
+              font-weight: bold;
+            }
+            .around_shops__center-genre{
+              margin-left: 10px;
+              font-size: 12px;
+            }
+            .around_shops__center-stars{
+              margin-left: 10px;
+              font-size: 14px;
+              font-weight: bold;
+            }
+            .around_shops__center-denner{
+              margin-left: 10px;
+              font-size: 12px;
+            }
+            .around_shops__center-lunch{
+              margin-left: 10px;
+              font-size: 12px;
+            }
+          }
+          li.around_shops__right{
+            border: 1px solid $newshop_line;
+            width: 210px;
+            height: 300px;
+            margin-left: 15px;
+            .around_shops__right-image{
+              img{
+                width: 208px;
+                height: 160px;
+              }
+            }
+            .around_shops__right-shopname{
+              margin-top: 10px;
+              margin-left: 10px;
+              font-size: 14px;
+              color: $font_blue;
+              font-weight: bold;
+            }
+            .around_shops__right-genre{
+              margin-left: 10px;
+              font-size: 12px;
+            }
+            .around_shops__right-stars{
+              margin-left: 10px;
+              font-size: 14px;
+              font-weight: bold;
+            }
+            .around_shops__right-denner{
+              margin-left: 10px;
+              font-size: 12px;
+            }
+            .around_shops__right-lunch{
+              margin-left: 10px;
+              font-size: 12px;
+            }
+          }
+        }
+        .shop_mainleft-underbox{
+          height: 130px;
+          background-color: $background;
+          margin-top: 20px;
+          .shop_mainleft-underbox_upper{
+            display: flex;
+            width: 700px;
+            button.shop_mainleft-underbox__mailbtn{
+              margin-left: 45px;
+              margin-top: 25px;
+              height: 35px;
+              font-weight: bold;
+              background-color: white;
+              border-radius: 3px 3px;
+              border: 1px solid $newshop_line;
+              width: 280px;
+            }
+            button.shop_mainleft-underbox__copybtn{
+              margin-left: 30px;
+              margin-top: 25px;
+              height: 35px;
+              font-weight: bold;
+              color: white;
+              background-color: $newshop_line;
+              border-radius: 3px 3px;
+              border: 1px solid $newshop_line;
+              width: 280px;
+            }
+          }
+          button.shop_mainleft-underbox__blogbtn{
+            margin-left: 45px;
+            margin-top: 10px;
+            font-weight: bold;
+            color: $font_blue;
+            height: 35px;
+            width: 590px;
+            border-radius: 3px 3px;
+            border: 1px solid $newshop_line;
+            text-align: left;
+          }
+        }
+        .shop_mainleft-notice{
+          height: 60px;
+          border-bottom: 1px solid $background-gray;
+          .shop_mainleft-notice__text{
+            margin-top: 10px;
+            font-weight: bold;
+            color: #82ad24;
+            font-size: 12px;
+            .shop_mainleft-notice__formlink{
+              font-weight: bold;
+              color: $font_blue;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+      .shop_main-right{
+        margin-top:15px;
+        width: 300px;
+        .shop_mainright-telphone{
+          height: 70px;
+          display: flex;
+          border-bottom: 1px solid $newshop_line;
+          border-top: 1px solid $newshop_line;
+          .shop_mainright-telephone__number{
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 60px;
+            width: 210px;
+          }
+          button.telephone__sendbtn{
+            width: 70px;
+            height: 30px;
+            padding: 3px;
+            color: black;
+            background-color: white;
+            border-radius: 3px 3px;
+            margin-top: 15px;
+          }
+        }
+        .shop_mainright-ranktitle{
+          height: 60px;
+          border-bottom: 1px solid $newshop_line;
+          .shop_mainright-ranktitle__ranking{
+            font-weight: bold;
+            line-height: 70px;
+            font-size: 14px;
+          }
+        }
+        .shop_mainright-buttons{
+          height: 40px;
+          padding: 5px 0 3px 0;
+          display: flex;
+          button.raking{
+            margin-left: 3px;
+            width: 120px;
+            height: 30px;
+            font-weight: bold;
+            border: 1px solid $newshop_line;
+          }
+          button.dinner{
+            margin-left: 2px;
+            width: 75px;
+            height: 30px;
+            font-weight: bold;
+            border: 1px solid $newshop_line;
+          }
+          button.lunch{
+            margin-left: 2px;
+            width: 75px;
+            height: 30px;
+            font-weight: bold;
+            border: 1px solid $newshop_line;
+          }
+        }
+        .shop_mainright-rankhead{
+          height: 40px;
+          border-bottom: 1px solid $newshop_line;
+          .shop_mainright-rankhead__text{
+            font-weight: bold;
+            font-size: 12px;
+            padding: 0 5px 0 10px;
+            word-wrap: break-word;
+          }
+        }
+        ul.shops_ranking{
+          height: 405px;
+          li.shop_mainright-rank1{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            position: relative;
+            .shop_mainright-ranking__image{
+              width: 80px;
+              float: left;
+            img{
+              width: 60px;
+              height: 60px;
+              margin: 10px 0 5px 10px;
+            }
+          }
+            .shop_mainright-ranking__shopname{
+              font-weight: bold;
+              font-size: 14px;
+              color: $font_blue;
+              float: left;
+              margin-top: 10px;
+            }
+            .shop_mainright-ranking__genre{
+              float: left;
+              margin-top: 12px;
+              font-size: 10px;
+            }
+            .shop_mainright-ranking__box{
+              float: left;
+              position: absolute;
+              bottom: 10px;
+              left: 80px;
+              .shop_mainright-ranking__box-stars{
+                font-size: 14px;
+                float: left;
+                margin-top: 12px;
+                background-color: #fcf4ce;
+              }
+              .shop_mainright-ranking__box-reviewcount{
+                font-size: 12px;
+                color: $font_blue;
+                float: right;
+                margin-top: 14px;
+                margin-left: 10px;
+              }
+            }
+          }
+          li.shop_mainright-rank2{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            position: relative;
+            .shop_mainright-ranking__image{
+              width: 80px;
+              float: left;
+            img{
+              width: 60px;
+              height: 60px;
+              margin: 10px 0 5px 10px;
+            }
+          }
+            .shop_mainright-ranking__shopname{
+              font-weight: bold;
+              font-size: 14px;
+              color: $font_blue;
+              float: left;
+              margin-top: 10px;
+            }
+            .shop_mainright-ranking__genre{
+              float: left;
+              margin-top: 12px;
+              font-size: 10px;
+            }
+            .shop_mainright-ranking__box{
+              float: left;
+              position: absolute;
+              bottom: 10px;
+              left: 80px;
+              .shop_mainright-ranking__box-stars{
+                font-size: 14px;
+                float: left;
+                margin-top: 12px;
+                background-color: #fcf4ce;
+              }
+              .shop_mainright-ranking__box-reviewcount{
+                font-size: 12px;
+                color: $font_blue;
+                float: right;
+                margin-top: 14px;
+                margin-left: 10px;
+              }
+            }
+          }
+          li.shop_mainright-rank3{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            position: relative;
+            .shop_mainright-ranking__image{
+              width: 80px;
+              float: left;
+            img{
+              width: 60px;
+              height: 60px;
+              margin: 10px 0 5px 10px;
+            }
+          }
+            .shop_mainright-ranking__shopname{
+              font-weight: bold;
+              font-size: 14px;
+              color: $font_blue;
+              float: left;
+              margin-top: 10px;
+            }
+            .shop_mainright-ranking__genre{
+              float: left;
+              margin-top: 12px;
+              font-size: 10px;
+            }
+            .shop_mainright-ranking__box{
+              float: left;
+              position: absolute;
+              bottom: 10px;
+              left: 80px;
+              .shop_mainright-ranking__box-stars{
+                font-size: 14px;
+                float: left;
+                margin-top: 12px;
+                background-color: #fcf4ce;
+              }
+              .shop_mainright-ranking__box-reviewcount{
+                font-size: 12px;
+                color: $font_blue;
+                float: right;
+                margin-top: 14px;
+                margin-left: 10px;
+              }
+            }
+          }
+          li.shop_mainright-rank4{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            position: relative;
+            .shop_mainright-ranking__image{
+              width: 80px;
+              float: left;
+            img{
+              width: 60px;
+              height: 60px;
+              margin: 10px 0 5px 10px;
+            }
+          }
+            .shop_mainright-ranking__shopname{
+              font-weight: bold;
+              font-size: 14px;
+              color: $font_blue;
+              float: left;
+              margin-top: 10px;
+            }
+            .shop_mainright-ranking__genre{
+              float: left;
+              margin-top: 12px;
+              font-size: 10px;
+            }
+            .shop_mainright-ranking__box{
+              float: left;
+              position: absolute;
+              bottom: 10px;
+              left: 80px;
+              .shop_mainright-ranking__box-stars{
+                font-size: 14px;
+                float: left;
+                margin-top: 12px;
+                background-color: #fcf4ce;
+              }
+              .shop_mainright-ranking__box-reviewcount{
+                font-size: 12px;
+                color: $font_blue;
+                float: right;
+                margin-top: 14px;
+                margin-left: 10px;
+              }
+            }
+          }
+          li.shop_mainright-rank5{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            position: relative;
+            .shop_mainright-ranking__image{
+              width: 80px;
+              float: left;
+            img{
+              width: 60px;
+              height: 60px;
+              margin: 10px 0 5px 10px;
+            }
+          }
+            .shop_mainright-ranking__shopname{
+              font-weight: bold;
+              font-size: 14px;
+              color: $font_blue;
+              float: left;
+              margin-top: 10px;
+            }
+            .shop_mainright-ranking__genre{
+              float: left;
+              margin-top: 12px;
+              font-size: 10px;
+            }
+            .shop_mainright-ranking__box{
+              float: left;
+              position: absolute;
+              bottom: 10px;
+              left: 80px;
+              .shop_mainright-ranking__box-stars{
+                font-size: 14px;
+                float: left;
+                margin-top: 12px;
+                background-color: #fcf4ce;
+              }
+              .shop_mainright-ranking__box-reviewcount{
+                font-size: 12px;
+                color: $font_blue;
+                float: right;
+                margin-top: 14px;
+                margin-left: 10px;
+              }
+            }
+          }
+        }
+        .shop_mainright-moreranking{
+          height: 35px;
+          border-bottom: 1px solid $newshop_line;
+          .shop_mainright-moreranking__morelink{
+            font-size: 12px;
+            color: $font_blue;
+            float: right;
+            margin-top: 7px;
+            font-weight: bold;
+          }
+        }
+        .shop_mainright-nearshops{
+          height: 40px;
+          border-bottom: 1px solid $newshop_line;
+          .shop_mainright-nearshops__title{
+            font-weight: bold;
+            font-size: 13px;
+            line-height: 40px;
+          }
+        }
+        ul.nearshops_information{
+          height: 405px;
+          li.shop_mainright-recommend1{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-recommend__image{
+              width: 80px;
+              float: left;
+              img{
+                width: 60px;
+                height: 60px;
+                margin: 10px 0 5px 10px;
+              }
+            }
+            .shop_mainright-recommend__text{
+              font-size: 14px;
+              color: $font_blue;
+              font-weight: bold;
+              padding-top: 10px;
+            }
+            .shop_mainright-recommend__person{
+              font-size: 12px;
+              color: $font_blue;
+            }
+          }
+          li.shop_mainright-recommend2{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-recommend__image{
+              width: 80px;
+              float: left;
+              img{
+                width: 60px;
+                height: 60px;
+                margin: 10px 0 5px 10px;
+              }
+            }
+            .shop_mainright-recommend__text{
+              font-size: 14px;
+              color: $font_blue;
+              font-weight: bold;
+              padding-top: 10px;
+            }
+            .shop_mainright-recommend__person{
+              font-size: 12px;
+              color: $font_blue;
+            }
+          }
+          li.shop_mainright-recommend3{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-recommend__image{
+              width: 80px;
+              float: left;
+              img{
+                width: 60px;
+                height: 60px;
+                margin: 10px 0 5px 10px;
+              }
+            }
+            .shop_mainright-recommend__text{
+              font-size: 14px;
+              color: $font_blue;
+              font-weight: bold;
+              padding-top: 10px;
+            }
+            .shop_mainright-recommend__person{
+              font-size: 12px;
+              color: $font_blue;
+            }
+          }
+          li.shop_mainright-recommend4{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-recommend__image{
+              width: 80px;
+              float: left;
+              img{
+                width: 60px;
+                height: 60px;
+                margin: 10px 0 5px 10px;
+              }
+            }
+            .shop_mainright-recommend__text{
+              font-size: 14px;
+              color: $font_blue;
+              font-weight: bold;
+              padding-top: 10px;
+            }
+            .shop_mainright-recommend__person{
+              font-size: 12px;
+              color: $font_blue;
+            }
+          }
+          li.shop_mainright-recommend5{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-recommend__image{
+              width: 80px;
+              float: left;
+              img{
+                width: 60px;
+                height: 60px;
+                margin: 10px 0 5px 10px;
+              }
+            }
+            .shop_mainright-recommend__text{
+              font-size: 14px;
+              color: $font_blue;
+              font-weight: bold;
+              padding-top: 10px;
+            }
+            .shop_mainright-recommend__person{
+              font-size: 12px;
+              color: $font_blue;
+            }
+          }
+        }
+        .shop_mainright-morerecommend{
+          height: 35px;
+          .shop_mainright-morerecommend__linktext{
+            float: right;
+            font-size: 12px;
+            color: blue;
+            line-height: 35px;
+          }
+        }
+        .shop_mainright-feature{
+          height: 35px;
+          border-bottom: 1px solid $newshop_line;
+          .shop_mainright-feature__title{
+            font-size: 14px;
+            color: 14px;
+            font-weight: bold;
+            line-height: 35px;
+          }
+        }
+        ul.shops_features{
+          height: 640px;
+          li.shop_mainright-feature1{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-feature__image{
+              width: 80px;
+              float: left;
+              img{
+                width: 60px;
+                height: 60px;
+                margin: 10px 0 5px 10px;
+              }
+            }
+            .shop_mainright-feature__title{
+              font-size: 13px;
+              color: $font_blue;
+              font-weight: bold;
+              padding-top: 10px;
+            }
+            .shop_mainright-feature__text{
+              font-size: 12px;
+            }
+          }
+          li.shop_mainright-feature2{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-feature__image{
+              width: 80px;
+              float: left;
+              img{
+                width: 60px;
+                height: 60px;
+                margin: 10px 0 5px 10px;
+              }
+            }
+            .shop_mainright-feature__title{
+              font-size: 13px;
+              color: $font_blue;
+              font-weight: bold;
+              padding-top: 10px;
+            }
+            .shop_mainright-feature__text{
+              font-size: 12px;
+            }
+          }
+          li.shop_mainright-feature3{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-feature__image{
+              width: 80px;
+              float: left;
+              img{
+                width: 60px;
+                height: 60px;
+                margin: 10px 0 5px 10px;
+              }
+            }
+            .shop_mainright-feature__title{
+              font-size: 13px;
+              color: $font_blue;
+              font-weight: bold;
+              padding-top: 10px;
+            }
+            .shop_mainright-feature__text{
+              font-size: 12px;
+            }
+          }
+          li.shop_mainright-feature4{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-feature__image{
+              width: 80px;
+              float: left;
+              img{
+                width: 60px;
+                height: 60px;
+                margin: 10px 0 5px 10px;
+              }
+            }
+            .shop_mainright-feature__title{
+              font-size: 13px;
+              color: $font_blue;
+              font-weight: bold;
+              padding-top: 10px;
+            }
+            .shop_mainright-feature__text{
+              font-size: 12px;
+            }
+          }
+          li.shop_mainright-feature5{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-feature__image{
+              width: 80px;
+              float: left;
+              img{
+                width: 60px;
+                height: 60px;
+                margin: 10px 0 5px 10px;
+              }
+            }
+            .shop_mainright-feature__title{
+              font-size: 13px;
+              color: $font_blue;
+              font-weight: bold;
+              padding-top: 10px;
+            }
+            .shop_mainright-feature__text{
+              font-size: 12px;
+            }
+          }
+          li.shop_mainright-feature6{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-feature__image{
+              width: 80px;
+              float: left;
+              img{
+                width: 60px;
+                height: 60px;
+                margin: 10px 0 5px 10px;
+              }
+            }
+            .shop_mainright-feature__title{
+              font-size: 13px;
+              color: $font_blue;
+              font-weight: bold;
+              padding-top: 10px;
+            }
+            .shop_mainright-feature__text{
+              font-size: 12px;
+            }
+          }
+          li.shop_mainright-feature7{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-feature__image{
+              width: 80px;
+              float: left;
+              img{
+                width: 60px;
+                height: 60px;
+                margin: 10px 0 5px 10px;
+              }
+            }
+            .shop_mainright-feature__title{
+              font-size: 13px;
+              color: $font_blue;
+              font-weight: bold;
+              padding-top: 10px;
+            }
+            .shop_mainright-feature__text{
+              font-size: 12px;
+            }
+          }
+          li.shop_mainright-feature8{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-feature__image{
+              width: 80px;
+              float: left;
+              img{
+                width: 60px;
+                height: 60px;
+                margin: 10px 0 5px 10px;
+              }
+            }
+            .shop_mainright-feature__title{
+              font-size: 13px;
+              color: $font_blue;
+              font-weight: bold;
+              padding-top: 10px;
+            }
+            .shop_mainright-feature__text{
+              font-size: 12px;
+            }
+          }
+        }
+        .shop_mainright-allfeature{
+          height: 40px;
+          .shop_mainright-allfeature__linktext{
+            float: right;
+            font-size: 12px;
+            color: $font_blue;
+            line-height: 40px;
+          }
+        }
+        .shop_mainright-forshops{
+          height: 40px;
+          border-bottom: 1px solid $newshop_line;
+          .shop_mainright-forshops__title{
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 40px;
+          }
+        }
+        ul.forshops{
+          height: 320px;
+          li.shop_mainright-promotion1{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-promotion__title{
+              font-size: 13px;
+              color: $font_blue;
+              font-weight: bold;
+              padding: 10px 0 3px 0;
+            }
+            .shop_mainright-promotion__text{
+              font-size: 12px;
+              height: 40px;
+              .shop_mainright-promotion__link{
+                font-size: 11px;
+                color: $font_blue;
+              }
+            }
+          }
+          li.shop_mainright-promotion2{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-promotion__title{
+              font-size: 13px;
+              color: $font_blue;
+              font-weight: bold;
+              padding: 10px 0 3px 0;
+            }
+            .shop_mainright-promotion__text{
+              font-size: 12px;
+              height: 40px;
+              .shop_mainright-promotion__link{
+                font-size: 11px;
+                color: $font_blue;
+              }
+            }
+          }
+          li.shop_mainright-promotion3{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-promotion__title{
+              font-size: 13px;
+              color: $font_blue;
+              font-weight: bold;
+              padding: 10px 0 3px 0;
+            }
+            .shop_mainright-promotion__text{
+              font-size: 12px;
+              height: 40px;
+              .shop_mainright-promotion__link{
+                font-size: 11px;
+                color: $font_blue;
+              }
+            }
+          }
+          li.shop_mainright-promotion4{
+            height: 80px;
+            border-bottom: 1px solid $newshop_line;
+            .shop_mainright-promotion__title{
+              font-size: 13px;
+              color: $font_blue;
+              font-weight: bold;
+              padding: 10px 0 3px 0;
+            }
+            .shop_mainright-promotion__text{
+              font-size: 12px;
+              height: 40px;
+              .shop_mainright-promotion__link{
+                font-size: 11px;
+                color: $font_blue;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.highlight{
+  background-color:yellow #色は自由にお決めになって。
+}

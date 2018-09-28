@@ -1,0 +1,138 @@
+= render partial: 'shares/header'
+.shop_view
+  .shop_views
+    .location-link
+      = image_tag 'home_icon.png'
+      = link_to '食べログ', root_path
+      %span.location-link__location
+        = image_tag 'location_arrow.png'
+        = @shop.station
+      %span.location-link__searchshop
+        = image_tag 'location_arrow.png'
+        - @genre.each do |genre|
+          = genre.name
+      %a.span.location-link__shopname{href: "#{shop_path(@shop.id)}"}
+        = image_tag 'location_arrow.png'
+        %i.fas.fa-utensils
+        = @shop.shop_name
+      %a.span.location-link__shopmenu{href: "#{show_menu_shop_path(@shop.id)}"}
+        = image_tag 'location_arrow.png'
+        料理メニュー
+    = render partial: 'shares/shop_subheader'
+    .shop_lists
+      %ul.header_list
+        %li.menu-shop_lists__top
+          %a.shop-top-link{ href: "/shops/#{@shop.id}", style: "color: #595960;"}
+            %span
+              店舗トップ
+        %li.menu-shop_lists__menu
+          メニュー
+        %li.menu-shop_lists__image
+          写真
+        %li.menu-shop_lists__review
+          %a.reviews-link{ href: "/shops/#{@shop.id}/show_reviews", style: "color: #595960;"}
+            %span
+              口コミ
+        %li.menu-shop_lists__map
+          地図
+    .shop_main
+      .shop_main-left
+        .shop-menu
+          / .shop-menu-update-date
+          /   %p
+          /     ※2018/00/00 更新
+          - if @shop.menu_name_1? || @shop.menu_name_2? || @shop.menu_name_3? || @shop.menu_name_4? || @shop.menu_name_5?
+            .shop-menu-title
+              .shop-menu-title__name
+                料理メニュー
+              .shop-menu-title__display-price
+                (税抜価格)
+          - else
+            .shop-menu-none
+              %p
+                ※登録されたメニューはありません。
+          .shop-menu-lists
+            %ul
+              - if @shop.menu_name_1?
+                %li.shop-menu-list
+                  - if @shop.menu_image_1?
+                    .shop-menu-image
+                      = image_tag @shop.menu_image_1
+                  .shop-menu-content
+                    .shop-menu-content-upper
+                      .shop-menu-name
+                        = @shop.menu_name_1
+                      .shop-menu-price
+                        %p.shop-menu-price-number
+                          = @shop.menu_price_1
+                          円
+                    .shop-menu-content-bottom
+                      .shop-menu-detail
+                        = @shop.menu_detail_1
+              - if @shop.menu_name_2?
+                %li.shop-menu-list
+                  - if @shop.menu_image_2?
+                    .shop-menu-image
+                      = image_tag @shop.menu_image_2
+                  .shop-menu-content
+                    .shop-menu-content-upper
+                      .shop-menu-name
+                        = @shop.menu_name_2
+                      .shop-menu-price
+                        %p.shop-menu-price-number
+                          = @shop.menu_price_2
+                          円
+                    .shop-menu-content-bottom
+                      .shop-menu-detail
+                        = @shop.menu_detail_2
+              - if @shop.menu_name_3?
+                %li.shop-menu-list
+                  - if @shop.menu_image_3?
+                    .shop-menu-image
+                      = image_tag @shop.menu_image_3
+                  .shop-menu-content
+                    .shop-menu-content-upper
+                      .shop-menu-name
+                        = @shop.menu_name_3
+                      .shop-menu-price
+                        %p.shop-menu-price-number
+                          = @shop.menu_price_3
+                          円
+                    .shop-menu-content-bottom
+                      .shop-menu-detail
+                        = @shop.menu_detail_3
+              - if @shop.menu_name_4?
+                %li.shop-menu-list
+                  - if @shop.menu_image_4?
+                    .shop-menu-image
+                      = image_tag @shop.menu_image_4
+                  .shop-menu-content
+                    .shop-menu-content-upper
+                      .shop-menu-name
+                        = @shop.menu_name_4
+                      .shop-menu-price
+                        %p.shop-menu-price-number
+                          = @shop.menu_price_4
+                          円
+                    .shop-menu-content-bottom
+                      .shop-menu-detail
+                        = @shop.menu_detail_4
+              - if @shop.menu_name_5?
+                %li.shop-menu-list
+                  - if @shop.menu_image_5?
+                    .shop-menu-image
+                      = image_tag @shop.menu_image_5
+                  .shop-menu-content
+                    .shop-menu-content-upper
+                      .shop-menu-name
+                        = @shop.menu_name_5
+                      .shop-menu-price
+                        %p.shop-menu-price-number
+                          = @shop.menu_price_5
+                          円
+                    .shop-menu-content-bottom
+                      .shop-menu-detail
+                        = @shop.menu_detail_5
+        = render partial: 'shares/shop-basic-info'
+      = render partial: 'shares/shop_main_right'
+= render partial: 'shares/footer'

@@ -16,6 +16,7 @@ class ShopsController < ApplicationController
       @shops = Shop.search(@prefecture_id, @genre_id)
       @shops = @shops.sort.reverse
       @shops = Kaminari.paginate_array(@shops).page(params[:page]).per(10)
+      @search_result = params[:search]
       @reviews = Review.count
     end
   end
@@ -40,7 +41,6 @@ class ShopsController < ApplicationController
     @shop.destroy
     redirect_to action: 'index'
   end
-
 
   def show_menu
   end
@@ -92,11 +92,41 @@ class ShopsController < ApplicationController
       :prtext,
       :prefecture_ids,
       :genre_ids,
+      :budget_ids,
       :pic1,
       :pic2,
       :pic3,
       :pic4,
-      :pic5)
+      :pic5,
+      :menu_name_1,
+      :menu_name_2,
+      :menu_name_3,
+      :menu_name_4,
+      :menu_name_5,
+      :menu_image_1,
+      :menu_image_2,
+      :menu_image_3,
+      :menu_image_4,
+      :menu_image_5,
+      :menu_price_1,
+      :menu_price_2,
+      :menu_price_3,
+      :menu_price_4,
+      :menu_price_5,
+      :menu_detail_1,
+      :menu_detail_2,
+      :menu_detail_3,
+      :menu_detail_4,
+      :menu_detail_5,
+      :sub_prtext,
+      :station)
+  end
+
+  def set_shop_info
+    @shop = Shop.find(params[:id])
+    @prefecture = @shop.prefectures
+    @genre = @shop.genres
+    @budget = @shop.budgets
   end
 
   def set_shop

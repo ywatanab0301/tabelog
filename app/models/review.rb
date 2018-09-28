@@ -19,4 +19,11 @@ class Review < ApplicationRecord
   mount_uploader :pic4, ImageUploader
   mount_uploader :pic5, ImageUploader
 
+  def dinner_rate_average
+    Review.where(lunch_dinner: 1).average(:rate)
+  end
+
+  def lunch_rate_average
+    Review.where(lunch_dinner: 2).average(:rate)
+  end
 end

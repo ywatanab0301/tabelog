@@ -1,0 +1,4 @@
+$('#sort_lunch').on('click', function(e){
+  $(".shops-reviews-wrap").remove();
+  $(".shop-review-list").html('<%= escape_javascript(render @reviews) %>');
+})

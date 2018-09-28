@@ -1,0 +1,129 @@
+= render partial: 'shares/header'
+.shop_view
+  .shop_views
+    .location-link
+      = image_tag 'home_icon.png'
+      = link_to '食べログ', root_path
+      %span.location-link__location
+        = image_tag 'location_arrow.png'
+        = @shop.station
+      %span.location-link__searchshop
+        = image_tag 'location_arrow.png'
+        - @genre.each do |genre|
+          = genre.name
+      %a.span.location-link__shopname{href: "#{shop_path(@shop.id)}"}
+        = image_tag 'location_arrow.png'
+        %i.fas.fa-utensils
+        = @shop.shop_name
+      %a.span.location-link__shopreviews{href: "#{show_reviews_shop_path(@shop.id)}"}
+        = image_tag 'location_arrow.png'
+        口コミ一覧
+    = render partial: 'shares/shop_subheader'
+    .shop_lists
+      %ul.header_list
+        %li.shop-reviews-page-shop_lists__top
+          %a.shop-top-link{ href: "/shops/#{@shop.id}", style: "color: #595960;"}
+            %span
+              店舗トップ
+        %li.shop-reviews-page-shop_lists__menu
+          %a.menu-link{ href: "/shops/#{@shop.id}/show_menu", style: "color: #595960;"}
+            %span
+              メニュー
+        %li.shops-top-shop_lists__image
+          写真
+        %li.shops-top-shop_lists__review
+          %a.reviews-link{ href: "/shops/#{@shop.id}/show_reviews", style: "color: #595960;"}
+            %span
+              口コミ
+        %li.shops-top-shop_lists__map
+          地図
+    .shop_main
+      .shop_main-left
+        .review-search-box
+          .review-search-label
+            口コミ検索
+          .review-search-box-input
+          = form_tag "/shops/#{@shop.id}/show_reviews", method: :get, id: "search", remote: true do
+            = text_field_tag :search, params[:search], class: "form"
+            = submit_tag "検索", :name => nil, id: "search_btn", disabled: false
+        .shop_main-left-change-review-list
+          .shop_main-left-change-review-list-inner
+            .shop_main-left-change-review-list-text
+              %p
+                気になるレストランの口コミ・評判を
+              %p
+                フォロー中レビュアーごとにご覧いただけます。
+            .shop_main-left-change-review-list-right
+              .shop_main-left-change-review-list-all
+                すべてのレビュアー
+              .shop_main-left-change-review-list-following
+                = link_to "フォロー中のレビュアー"
+        .shop_main-left-change-review-sort-list
+          %ul.shop_main-left-change-review-sort-list-ul
+            %li.shop_main-left-change-review-sort-list__all
+              %i.fas.fa-comments
+              すべての口コミ
+            %li.shop_main-left-change-review-sort-list__dinner
+              %i.fas.fa-moon
+              = link_to "夜の口コミ", sort_dinner_shop_path, id: "sort_dinner", remote: true
+            %li.shop_main-left-change-review-sort-list__lunch
+              .shop_main-left-change-review-sort-list__lunch--inner
+                %i.fas.fa-sun
+                = link_to "昼の口コミ", sort_lunch_shop_path, id: "sort_lunch", remote: true
+        .shop_main-left-review-order-change
+          %ul.shop_main-left-review-order-change-list-ul
+            %li.shop_main-left-review-order-change-list1
+              %i.fas.fa-sort
+              標準
+            %li.shop_main-left-review-order-change-list2
+              = link_to "訪問月", sort_visit_shop_path
+            %li.shop_main-left-review-order-change-list3
+              = link_to "いいね順", sort_popular_shop_path
+        .shop_main-left-shop-review-notice
+          %p.notice-message-1
+            これらの口コミは、訪問した当時の主観的なご意見・ご感想です。
+          .notice-message-low
+            %p.notice-message-2
+              最新の情報とは異なる可能性がありますので、お店の方にご確認ください。
+            %p.notice-message-detail-link
+              .fas.fa-caret-right
+              %p.notice-message-detail
+                = link_to "詳しくはこちら"
+        .shop-main-left-shop-review-sorting
+          %p.review-counting
+            1～
+            = @reviews.length
+            件を表示 ／ 全
+            = @reviews.length
+            件
+          .review-sorting-by-number
+            表示件数：
+            .review-sorting-by-number__select-box
+              %select.select-box
+                %option
+                  20
+                %option
+                  50
+                %option
+                  100
+          .review-change-display-list-type
+            表示形式：
+            .display-list-type-normal
+              .fas.fa-align-justify
+              通常
+            .display-list-type-simple
+              .fas.fa-list-ul
+              = link_to "簡易リスト"
+
+        - if @reviews.present?
+          = render @reviews
+        - else
+          .rvwlst-notfound
+            .rvwlst-notfound__attention
+              %p.rvwlst-notfound__text
+                %strong ご指定の条件に該当する口コミは見つかりませんでした。
+              %p.rvwlst-notfound__text2 検索条件を変更して、再度検索してください。
+
+        = render partial: 'shares/shop-basic-info'
+      = render partial: 'shares/shop_main_right'
+= render partial: 'shares/footer'

@@ -9,7 +9,7 @@
               %span
                 = image_tag 'home_icon.png'
             %li.link
-              = link_to "食べログ"
+              = link_to "食べログ", root_path
             %li
               %span
                 = image_tag 'location_arrow.png'
@@ -22,7 +22,6 @@
               %p
                 = @user.nickname
                 さん
-
     .mypage-header-wrap
       .mypage-header
         .mypage-header__cover-image
@@ -33,28 +32,33 @@
                   = image_tag @user.background_image.url, class: "image"
                 - else
                   = image_tag "61450017_624.gif", class: "image"
-                %label.change-header-cover.fas.fa-camera
-                  カバー写真を変更
-                  = f.file_field :background_image, style: 'display: none;'
-                  = f.hidden_field :user_id, value: current_user.id
-                = f.submit "変更を保存する", class: "cover-image-submit"
+                - if @user.id == current_user.id
+                  %label.change-header-cover.fas.fa-camera
+                    カバー写真を変更
+                    = f.file_field :background_image, style: 'display: none;'
+                    = f.hidden_field :user_id, value: current_user.id
+                  = f.submit "変更を保存する", class: "cover-image-submit"
           .page-name
             %p
               = @user.nickname
               のレストランガイド
-          .rvwr-page-setting
-            = link_to "レビュアーページ設定", edit_user_path
+          / 下記にフォローボタンのビューファイルをrender
+          = render 'follow_form'
+          - if @user.id == current_user.id
+            .rvwr-page-setting
+              = link_to "レビュアーページ設定", edit_user_path
         = form_for @user do |f|
           .mypage-header__user-avatar
             -if @user.avatar?
               = image_tag @user.avatar.url
             -else
               = image_tag "avatar_nophoto.gif"
-            %label.change-header-avatar-image.fas.fa-camera
-              変更
-              = f.file_field :avatar, style: 'display: none;'
-              = f.hidden_field :user_id, value: current_user.id
-            = f.submit "保存", class: "mypage-avatar-image-submit"
+            - if @user.id == current_user.id
+              %label.change-header-avatar-image.fas.fa-camera
+                変更
+                = f.file_field :avatar, style: 'display: none;'
+                = f.hidden_field :user_id, value: current_user.id
+              = f.submit "保存", class: "mypage-avatar-image-submit"
         .mypage-header-contents
           .mypage-header-contents__image-wrap
           .mypage-header-contents__info
@@ -62,7 +66,7 @@
               .mypage-header-contents__info--nickname
                 = @user.nickname
               .mypage-header-contents__info--prof
-                = link_to "➤ プロフィール詳細"
+                = link_to "➤ プロフィール詳細", user_path(@user.id)
           .mypage-header-contents__counts
             .rvwr-counter
               %dl.status
@@ -84,35 +88,35 @@
         .mypage-header-navi
           %ul.mypage-header-navi__list
             %li.mypage-header-navi__log
-              .rvwr_navi__count
+              %a.rvwr_navi__count{ href: "/users/#{@user.id}"}
                 = @reviews.length
-              .rvwr-navi__menu
-                ログ
+                .rvwr-navi__menu
+                  ログ
             %li.mypage-header-navi__rvw
-              .rvwr_navi__count
+              %a.rvwr_navi__count{ href: "/users/#{@user.id}/show_gone"}
                 = @reviews.uniq.length
-              .rvwr-navi__menu
-                行ったお店
+                .rvwr-navi__menu
+                  行ったお店
             %li.mypage-header-navi__interest
-              .rvwr_navi__count
+              %a.rvwr_navi__count{ href: "/users/#{@user.id}/show_wannago"}
                 0
-              .rvwr-navi__menu
-                行きたいお店
+                .rvwr-navi__menu
+                  行きたいお店
             %li.mypage-header-navi__matome
-              .rvwr_navi__count
+              %a.rvwr_navi__count{ href: "#"}
                 0
-              .rvwr-navi__menu
-                まとめ
+                .rvwr-navi__menu
+                  まとめ
             %li.mypage-header-navi__follow
-              .rvwr_navi__count
-                0
-              .rvwr-navi__menu
-                フォロー中
+              %a.rvwr_navi__count{href: "#{following_path(@user)}"}
+                = @user.followings.count
+                .rvwr-navi__menu
+                  フォロー中
             %li.mypage-header-navi__follower
-              .rvwr_navi__count
-                0
-              .rvwr-navi__menu
-                フォロワー
+              %a.rvwr_navi__count{ href: "#{follower_path(@user)}"}
+                = @user.followers.count
+                .rvwr-navi__menu
+                  フォロワー
 
   .container
     .main-column
@@ -127,10 +131,16 @@
               .review-info
                 .restaurant-name
                   👑
-                .review-prefecture
-                  = review.shop.shop_prefectures.name
-                .review-area
-                  渋谷、神泉/カフェ、カフェ・喫茶（その他）、喫茶店
+                  = link_to shop_path(review.shop.id) do
+                    = review.shop.shop_name
+                - review.shop.prefectures.each do |prefecture|
+                  .review-prefecture
+                    = prefecture.name
+                - review.shop.genres.each do |genre|
+                  .review-area
+                    = genre.name
+                    = review.shop.station
+                    付近
               .review-title
                 %p
                   %a
@@ -155,11 +165,12 @@
                     = review.shop.shop_name
                   %span.review-post__rst-area
                     (渋谷、神泉 / ダイニングバー、インド料理、インドカレー)
-                .review-post__buttons
-                  = link_to shop_review_path(review.shop_id, review.id), method: :delete, class: "delete_alert" do
-                    .review-post__buttons--trash.fas.fa-trash-alt
-                  = link_to edit_shop_review_path(review.shop_id, review.id) do
-                    .review-post__buttons--edit.fas.fa-edit
+                - if review.user_id == current_user.id
+                  .review-post__buttons
+                    = link_to shop_review_path(review.shop_id, review.id), method: :delete, class: "delete_alert" do
+                      .review-post__buttons--trash.fas.fa-trash-alt
+                    = link_to edit_shop_review_path(review.shop_id, review.id) do
+                      .review-post__buttons--edit.fas.fa-edit
             .review-post__rst-review
               .review-post__rst-review--score-data
                 .review-score
@@ -199,7 +210,8 @@
                   .review-used-price
                     %p
                       使った金額（1人）：
-                      夜 ~￥999
+                      - review.budgets.each do |budget|
+                        = budget.name
                   .price-range
               .review-post__rst-review--content
                 .review-title

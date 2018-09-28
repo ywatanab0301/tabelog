@@ -41,6 +41,7 @@
         min-height: 1em;
         line-height: 1;
         margin-bottom: 1.2rem;
+        margin-top: 1.2rem;
         // sass要調整
         .timeline__visit-date::before{
           margin-left: 45px;
@@ -193,6 +194,7 @@
                 min-height: 112px;
                 color: #13131e;
                 font-size: 1.3rem;
+                margin-left: 20px;
                 .timeline-matome__title {
                   margin-bottom: 12px;
                   .timeline-matome__title-link {
@@ -207,6 +209,9 @@
                 }
                 .timeline-matome__desc {
                   line-height: 1.6;
+                  p.overrap{
+                    height: 100px;
+                  }
                   .timeline-matome__desc-target {
                     margin-top: 10px;
                     font-weight: bold;

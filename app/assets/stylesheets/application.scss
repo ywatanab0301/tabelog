@@ -3,14 +3,17 @@
 @import "./variable" ;
 @import "./color" ;
 @import "./clearfix" ;
-@import "mypage";
+@import "./mypage";
 @import "./new";
 @import "./user-resistration" ;
 @import "./reviews" ;
 @import "./user-edit" ;
 @import "./user-login" ;
-@import "./index";
-@import "./one-shopview" ;
+@import "./index" ;
+@import "./one-shop-show-top" ;
+@import "./one-shop-show-menu" ;
+@import "./one-shop-show-review" ;
+@import "./shop-basic-info" ;
 @import "./search-main" ;
 @import "./top" ;
 @import "./announcement" ;
@@ -19,8 +22,15 @@
 @import "./top-lunch" ;
 @import "./kodawari-search" ;
 @import "./top-genre-rank" ;
+@import "./header" ;
+@import "./footer" ;
 @import "./like";
-@import "./one-shop-show-review";
+@import "./show_follower";
+@import "./flexslider" ;
+@import "./user-show-all" ;
+@import "./user-show-gone" ;
+@import "./user-show-wannago" ;
+
 
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, output, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, section, main, summary, time, mark, audio, video, embed {
   outline: 0;
@@ -95,6 +105,11 @@ a {
   text-decoration: none;
 }
 
+.user-menu__item a{
+  color: white;
+}
+
+
 img {
   vertical-align: bottom;
 }
@@ -167,6 +182,25 @@ article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, 
   display: inline-block;
   position: relative;
   font-size: 1.2rem;
+  padding-right: 20px;
+}
+
+.user-menu__target.user-menu__target--dropdown {
+  padding-right: 1px;
+}
+
+.p-user-menu__popup {
+  display: none;
+  position: absolute;
+  top: 20px;
+  text-align: left;
+  white-space: normal;
+}
+
+.p-user-menu__popup.user-menu__popup--setting {
+  top: 26px;
+  right: -14px;
+  width: 140px;
 }
 
 .balloon {
@@ -175,30 +209,36 @@ article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, 
   border: 1px solid #d2d2d2;
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  background-color: $white;
+  background-color: #ffffff;
 }
 
-.user-menu__target.user-menu__target--dropdown {
-  padding-right: 1px;
+.balloon--top:before {
+  top: -7px;
+  right: 10px;
+  border-width: 0 6px 6px;
+  border-bottom-color: #d2d2d2;
 }
 
-.user-menu__target {
-  padding: 0 8px;
+.notification-sort__box {
+  display: none;
 }
 
-// .user-menu__target.user-menu__target--dropdown:after {
-//   display: inline-block;
-//   color: #999;
-//   font-size: 1rem;
-//   font-family: "メイリオ";
-//   font-style: normal;
-//   font-weight: normal;
-//   font-variant: normal;
-//   -webkit-font-smoothing: antialiased;
-//   text-transform: none;
-//   speak: none;
-//   content: "\f633";
-// }
+
+.setting-list {
+  display: none;
+}
+
+
+.fas.fa-sort-down {
+  padding-bottom: 10px;
+  margin-left: 5px;
+  color: white;
+}
+
+.user-menu__popup.user-menu__popup--notification {
+  right: -10px;
+  width: 350px;
+}
 
 
 .top-header__inner.top-header__search {
@@ -210,7 +250,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, 
 
 .contents.contents--fixed {
   padding-right: 0;
-  padding-left: 270px;
+  padding-left: 155px;
   width: 980px;
 }
 
@@ -478,4 +518,25 @@ width: 100%;
   display: block;
   overflow: hidden;
   content: "";
+}
+
+.highlight {
+  background-color: yellow
+}
+
+.p-rvwr-cover.p-rvwr-cover--s {
+  height: 90px;
+}
+
+.p-rvwr-cover {
+  position: relative;
+  height: 340px;
+  overflow: hidden;
+}
+
+.follow-rvwr-item__cover.p-rvwr-cover.p-rvwr-cover--s.rvwr-cover-img {
+  top: 50%;
+  left: 50%;
+  margin-top: -55.5102px;
+  margin-left: -160px;
 }

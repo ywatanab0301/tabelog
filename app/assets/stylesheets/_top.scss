@@ -37,6 +37,7 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
         letter-spacing: 0.02em;
         line-height: 1.4;
         font-size: 5.4rem;
+        text-shadow: 4px 4px 3px #808080;
         }
         .top-header__sub-lead {
           margin-top: 9px;
@@ -45,6 +46,7 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
           line-height: 1.7;
           margin-left: 1.1rem;
           font-size: 2rem;
+          text-shadow: 4px 4px 3px #808080;
       }
     }
     .top-header__visible-btn-wrapper.is-active {
@@ -64,6 +66,27 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
       bottom: 135px;
       right: 0;
       left: 0;
+      position: relative;
+      #search{
+        width: 400px;
+        height: 50px;
+        border-radius: 3px 3px;
+        position: absolute;
+        top: 500px;
+        left: 300px;
+        padding: 10px;
+      }
+      .searchbtn{
+        width: 100px;
+        height: 50px;
+        color: $white;
+        background-color: $main_orange;
+        position: absolute;
+        top: 500px;
+        left: 700px;
+        border-radius: 3px 3px;
+        font-size: 16px;
+      }
       .global-header-search {
         padding-top: 0px;
       .container.header-wrapper.header-wrapper--bottom {
@@ -111,6 +134,19 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
             }
           }
         }
+      }
+    }
+    ul#hitlist{
+      width: 400px;
+      border-radius: 3px 3px;
+      position: absolute;
+      top: 415px;
+      left: 300px;
+      li#shoplist{
+        box-shadow: 0.5px 0.5px 1px 1px rgba(0,0,0,0.1) inset;
+        background-color: $white;
+        padding: 10px;
+        cursor: pointer;
       }
     }
 }
