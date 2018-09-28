@@ -165,11 +165,13 @@
         .shop-review-post-who-likes
           .shop-review-post-who-likes__count
             %p.number-who-likes
-              = review.likes.count
+              = review.likes_count
             %p
               人が「いいね！」しています。
-          .shop-review-post-who-likes__icons
-
+          - review.likes.each do |like|
+            .shop-review-post-who-likes__icons
+              = link_to user_path(like.user.id) do
+                = image_tag "#{like.user.avatar}"
         .shop-review-post-who-wannago
           .shop-review-post-who-wannago__count
             %p.number-who-wannago
