@@ -1,12 +1,23 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit]
+  before_action :set_shop_info, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit, :sort_dinner, :sort_lunch, :show]
 
   def index
-    @prefecture_id = params[:prefecture_id]
-    @genre_id = params[:genre_id]
-    @shops = Shop.search(@prefecture_id, @genre_id)
-    @shops = @shops.sort.reverse
-    @shops = Kaminari.paginate_array(@shops).page(params[:page]).per(10)
+    if params[:search].present?
+      @prefecture_id = params[:prefecture_id]
+      @genre_id = params[:genre_id]
+      @shops = Shop.search(@prefecture_id, @genre_id)
+      @shops = @shops.sort.reverse
+      @shops = Kaminari.paginate_array(@shops).page(params[:page]).per(10)
+      @search_result = params[:search]
+      @reviews = Review.count
+    else
+      @prefecture_id = params[:prefecture_id]
+      @genre_id = params[:genre_id]
+      @shops = Shop.search(@prefecture_id, @genre_id)
+      @shops = @shops.sort.reverse
+      @shops = Kaminari.paginate_array(@shops).page(params[:page]).per(10)
+      @reviews = Review.count
+    end
   end
 
   def new
@@ -25,19 +36,46 @@ class ShopsController < ApplicationController
     @reviews = @shop.reviews.includes(:user).order('created_at DESC')
   end
 
+  def destroy
+    @shop.destroy
+    redirect_to action: 'index'
+  end
+
+
   def show_menu
   end
 
   def show_reviews
-    @reviews = @shop.reviews.includes(:user).order('created_at DESC')
+    if params[:search].present?
+      @reviews = @shop.reviews.where('text LIKE(?)', "%#{params[:search]}%")
+    else
+      @reviews = @shop.reviews.includes(:user).order('created_at DESC')
+    end
   end
 
   def sort_popular
-    @reviews = @shop.reviews.includes(:user).order('likes_count DESC')
+    @reviews = @shop.reviews.includes(:budgets, :user).order('likes_count DESC')
   end
 
   def sort_visit
-    @reviews = @shop.reviews.includes(:user).order('visit_day DESC')
+    @reviews = @shop.reviews.includes(:budgets, :user).order('visit_day DESC')
+  end
+
+  def top_page
+    @shops = Shop.where('shop_name LIKE(?)', "%#{params[:keyword]}%")
+    @reviews = Review.count
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
+  def sort_dinner
+    @reviews = @shop.reviews.includes(:user).order('visit_day DESC').where(lunch_dinner: "1")
+  end
+
+  def sort_lunch
+    @reviews = @shop.reviews.includes(:user).order('visit_day DESC').where(lunch_dinner: "2")
   end
 
   private
