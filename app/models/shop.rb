@@ -65,7 +65,7 @@ class Shop < ApplicationRecord
     elsif genre_id
       @shops = Genre.find(genre_id).shops
     else
-      Shop.all
+      Shop.all.includes(:genres, :reviews, :prefectures)
     end
   end
 
