@@ -59,13 +59,15 @@
                   = image_tag @shop.pic4.url if @shop.pic4.present?
                 %li
                   = image_tag @shop.pic5.url if @shop.pic5.present?
-        .shop-mainleft-review-shop-pr-title
-          %p
-            = @shop.prtext
+        - if @shop.prtext?
+          .shop-mainleft-review-shop-pr-title
+            %p
+              = @shop.prtext
 
-        .shop-mainleft-review-shop-pr-text
-          %p.js-text-overflow
-            = @shop.sub_prtext
+        - if @shop.sub_prtext?
+          .shop-mainleft-review-shop-pr-text
+            %p.js-text-overflow
+              = @shop.sub_prtext
         .shop_mainleft-review
           .shop_mainleft-review__title
             口コミ

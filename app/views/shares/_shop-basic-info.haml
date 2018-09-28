@@ -56,8 +56,8 @@
 %ul.shop_details_lists
   %li.shop_details_lists__money
     予算
-  - @budget.each do |budget|
-    %li.shop_details_lists__money-input
+  %li.shop_details_lists__money-input
+    - @budget.each do |budget|
       = budget.name
 %ul.shop_details_lists
   %li.shop_details_lists__paying
