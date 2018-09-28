@@ -163,7 +163,7 @@
     border-top: 3px solid $shopindex_border;
     background-color: $newshop_background;
     &__title{
-      span.title{
+      span.area, span.no, span.genre{
         font-size: 17px;
         font-weight: bold;
       }

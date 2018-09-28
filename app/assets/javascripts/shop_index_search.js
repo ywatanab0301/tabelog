@@ -19,6 +19,32 @@ $(function() {
   });
 });
 
+// 選択肢をviewに反映
+$(function(){
+  $("button.btn-search").hover(function(){
+    // エリア
+    var preId = $('.content__side__top form [name=prefecture_id]:checked').attr('id');
+    var area = $(".content__side__top__area__main").text();
+    var result1 = area.replace("全国", $('label[for="' + preId + '"]').text());
+    $(".content__side__top__area__main").text(result1);
+
+    var titlearea = $(".content__main__header__title span.area").text();
+    var result2 =  titlearea.replace("全国", $('label[for="' + preId + '"]').text());
+    $(".content__main__header__title span.area").text(result2);
+
+    // ジャンル
+    var genreId = $('.content__side__top form [name=genre_id]:checked').attr('id');
+    var genre = $(".content__side__top__genre__main").text();
+    var result3 = genre.replace("すべて", $('label[for="' + genreId + '"]').text());
+    $(".content__side__top__genre__main").text(result3);
+
+    var titlegenre = $(".content__main__header__title span.genre").text();
+    var result4 =  titlegenre.replace("お店、レストラン", $('label[for="' + genreId + '"]').text());
+    $(".content__main__header__title span.genre").text(result4);
+
+  });
+})
+
 // タブの色変更
 $(function() {
   $("li.nav-item.origin").on('click mouseover', function(){
@@ -83,7 +109,7 @@ $(function(){
 
 // 写真の変更
 $(function(){
- $('ul.photolist img').hover(function(){
+ $('ul.photolist img').on('mouseover', function(){
   var $thisImg = $(this).attr('src');
   var $thisAlt = $(this).attr('alt');
   $('.content__main__shop__each__body__left__frame img.photo').attr({src:$thisImg,alt:$thisAlt});

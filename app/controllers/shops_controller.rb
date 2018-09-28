@@ -7,6 +7,7 @@ class ShopsController < ApplicationController
     @shops = Shop.search(@prefecture_id, @genre_id)
     @shops = @shops.sort.reverse
     @shops = Kaminari.paginate_array(@shops).page(params[:page]).per(10)
+
   end
 
   def new

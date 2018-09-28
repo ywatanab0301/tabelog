@@ -17,7 +17,7 @@
   .content__side
     .content__side__top
       = form_tag( shops_path, method: :get) do
-        .content__side__top__area
+        .content__side__top__area{'data-search-result': @search_result}
           .content__side__top__area__header エリアから探す
           .content__side__top__area__main 全国
           .content__side__top__area__box
@@ -42,7 +42,9 @@
   .content__main
     .content__main__header
       .content__main__header__title
-        %span.title 全国のお店、レストラン
+        %span.area 全国
+        %span.no の
+        %span.genre お店、レストラン
         %span.count 1000
         %span.unit 件
       %a.search_form 検索条件を変更
