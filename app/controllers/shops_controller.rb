@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :set_shop_info, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit, :sort_dinner, :sort_lunch, :show]
+  before_action :set_resources, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit, :sort_dinner, :sort_lunch, :show]
 
   def index
     if params[:search].present?
@@ -38,6 +38,7 @@ class ShopsController < ApplicationController
   end
 
   def destroy
+    @shop = Shop.find(params[:id])
     @shop.destroy
     redirect_to action: 'index'
   end
@@ -122,17 +123,11 @@ class ShopsController < ApplicationController
       :station)
   end
 
-  def set_shop_info
+  def set_resources
     @shop = Shop.find(params[:id])
     @prefecture = @shop.prefectures
     @genre = @shop.genres
     @budget = @shop.budgets
-  end
-
-  def set_shop
-    @shop = Shop.find(params[:shop_id])
-    @prefecture = @shop.prefectures
-    @genre = @shop.genres
   end
 
 end
