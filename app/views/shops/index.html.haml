@@ -109,7 +109,8 @@
                 .fa.fa-comments
                 %a.review
                 = link_to "/shops/#{shop.id}/show_reviews" do
-                  = shop.reviews.count
+                  %span.count
+                    = shop.reviews.count
               .content__main__shop__each__body__right__review
                 %a.title
                 = link_to "/shops/#{shop.id}/show_reviews" do
