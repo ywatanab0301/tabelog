@@ -28,9 +28,6 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shop = Shop.find(params[:id])
-    @prefecture = @shop.prefectures
-    @genre = @shop.genres
     @reviews = @shop.reviews.includes(:user).order('created_at DESC')
   end
 
