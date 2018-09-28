@@ -51,7 +51,7 @@ class Shop < ApplicationRecord
     end
   end
 
-  def self.search(prefecture_id, genre_id)
+  def self.shopsearch(prefecture_id, genre_id)
     if prefecture_id && genre_id
       @shop_prefecture = Prefecture.find(prefecture_id).shops.pluck(:id)
       @shop_genre = Genre.find(genre_id).shops.pluck(:id)

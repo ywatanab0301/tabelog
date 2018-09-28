@@ -4,13 +4,13 @@ class ShopsController < ApplicationController
 
   def index
     if params[:search].present?
-      @shops = Shop.search(@prefecture_id, @genre_id)
+      @shops = Shop.shopsearch(@prefecture_id, @genre_id)
       @shops = @shops.sort.reverse
       @shops = Kaminari.paginate_array(@shops).page(params[:page]).per(10)
       @search_result = params[:search]
       @reviews = Review.count
     else
-      @shops = Shop.search(@prefecture_id, @genre_id)
+      @shops = Shop.shopsearch(@prefecture_id, @genre_id)
       @shops = @shops.sort.reverse
       @shops = Kaminari.paginate_array(@shops).page(params[:page]).per(10)
       @search_result = params[:search]
