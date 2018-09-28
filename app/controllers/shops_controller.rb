@@ -1,18 +1,15 @@
 class ShopsController < ApplicationController
+  before_action :set_index, only: [:index]
   before_action :set_resources, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit, :sort_dinner, :sort_lunch, :show]
 
   def index
     if params[:search].present?
-      @prefecture_id = params[:prefecture_id]
-      @genre_id = params[:genre_id]
       @shops = Shop.search(@prefecture_id, @genre_id)
       @shops = @shops.sort.reverse
       @shops = Kaminari.paginate_array(@shops).page(params[:page]).per(10)
       @search_result = params[:search]
       @reviews = Review.count
     else
-      @prefecture_id = params[:prefecture_id]
-      @genre_id = params[:genre_id]
       @shops = Shop.search(@prefecture_id, @genre_id)
       @shops = @shops.sort.reverse
       @shops = Kaminari.paginate_array(@shops).page(params[:page]).per(10)
@@ -128,6 +125,11 @@ class ShopsController < ApplicationController
     @prefecture = @shop.prefectures
     @genre = @shop.genres
     @budget = @shop.budgets
+  end
+
+  def set_index
+    @prefecture_id = params[:prefecture_id]
+    @genre_id = params[:genre_id]
   end
 
 end
