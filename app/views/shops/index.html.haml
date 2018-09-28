@@ -7,12 +7,6 @@
         %li 食べログ
       %li > レストラン新規登録
 
-  / .location__right
-  /   %ul
-  /   = link_to '#' do
-  /     %li (店舗数)店舗
-  /   %li (口コミ数)
-
 .content
   .content__side
     .content__side__top
@@ -45,8 +39,6 @@
         %span.area 全国
         %span.no の
         %span.genre お店、レストラン
-        / %span.count 1000
-        / %span.unit 件
       %a.search_form 検索条件を変更
     %ul.nav.nav-tabs
       %li.nav-item.origin
@@ -63,13 +55,9 @@
           %span 口コミ数
 
     .content__main__list
-      / %span.page-count 1
-      / %span.page-count ~
       %span.page-count
       = @shops.count
       %span.page-count 件を表示
-      / %span ／
-      / %span.shop.count 全 100 件
 
     .content__main__shop
       - @shops.each do |shop|
