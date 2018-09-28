@@ -3,9 +3,10 @@
   .location__left
     %ul
       %li.fa.fa-home
-      = link_to searches_path, method: :get do
-        %li 食べログ
-      %li > レストラン新規登録
+        = link_to shops_path do
+          %li 食べログ
+        %li
+        = link_to " > レストラン一覧", shops_path
 
 .content
   .content__side
