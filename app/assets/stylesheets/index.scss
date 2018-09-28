@@ -255,37 +255,74 @@ $rate5 : 10*$starHalf;
   &__body{
     display: flex;
     &__left{
+      float: left;
       width: 160px;
       height: 193px;
-      margin-top: 10px;
+      margin-top: 30px;
       margin-left: 10px;
-      &__frame{
+      .content__main__shop__each__body__left__frame{
+        margin-top: 15px;
+        margin-left: 15px;
         padding: 4px;
         border: 1px solid $shop_border;
-        width: 160px;
-        height: 160px;
         background-color: $white;
-        img.photo1{
-          width: 150px;
-          height: 150px;
+        position: relative;
+        width: 130px ;
+        height: 130px ;
+        overflow: hidden;
+          .photo1{
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            display: none;
+            position: absolute;
+          }
+          .photo2{
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            display: none;
+            position: absolute;
+          }
+          .photo3{
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            display: none;
+            position: absolute;
+          }
+          .photo4{
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            display: none;
+            position: absolute;
+          }
+          .photo5{
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            display: none;
+            position: absolute;
+          }
         }
-      }
-      ul.photolist{
+        ul.photolist{
         margin-top: 10px;
         list-style: none;
+        margin-left: 6px;
         li.photolist{
           float: left;
           margin-right: 3px;
-          width: 27px;
-          height: 27px;
+          width: 30px;
+          height: 30px;
           overflow: hidden;
           img.photo1,img.photo2, img.photo3, img.photo4, img.photo5{
-            width: 27px;
-            height: 27px;
+            width: 30px;
+            height: 30px;
+          }
           }
         }
       }
-    }
     &__right{
        padding-left: 22px;
       p.pr{

@@ -83,17 +83,21 @@
             .content__main__shop__each__body__left
               .content__main__shop__each__body__left__frame
                 = image_tag shop.pic1.url, class: "photo1" if shop.pic1.present?
-                %ul.photolist
-                  %li.photolist
-                    = image_tag shop.pic1.url, class: "photo1" if shop.pic1.present?
-                  %li.photolist
-                    = image_tag shop.pic2.url, class: "photo2" if shop.pic2.present?
-                  %li.photolist
-                    = image_tag shop.pic3.url, class: "photo3" if shop.pic3.present?
-                  %li.photolist
-                    = image_tag shop.pic4.url, class: "photo4" if shop.pic4.present?
-                  %li.photolist
-                    = image_tag shop.pic5.url, class: "photo5" if shop.pic5.present?
+                = image_tag shop.pic2.url, class: "photo2" if shop.pic2.present?
+                = image_tag shop.pic3.url, class: "photo3" if shop.pic3.present?
+                = image_tag shop.pic4.url, class: "photo4" if shop.pic4.present?
+                = image_tag shop.pic5.url, class: "photo5" if shop.pic5.present?
+              %ul.photolist
+                %li.photolist
+                  = image_tag shop.pic1.url, class: "photo1" if shop.pic1.present?
+                %li.photolist
+                  = image_tag shop.pic2.url, class: "photo2" if shop.pic2.present?
+                %li.photolist
+                  = image_tag shop.pic3.url, class: "photo3" if shop.pic3.present?
+                %li.photolist
+                  = image_tag shop.pic4.url, class: "photo4" if shop.pic4.present?
+                %li.photolist
+                  = image_tag shop.pic5.url, class: "photo5" if shop.pic5.present?
             .content__main__shop__each__body__right
               %p.pr
                 = shop.prtext
