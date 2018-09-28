@@ -53,21 +53,22 @@ class Shop < ApplicationRecord
 
   def self.search(prefecture_id, genre_id)
     if prefecture_id && genre_id
-      @shop_p = Prefecture.find(prefecture_id).shops.pluck(:id)
-      @shop_g = Genre.find(genre_id).shops.pluck(:id)
-      @shop_f = []
-      @shop_p.each do |id|
-        @shop_f << @shop_g.grep(id)[0] if @shop_g.grep(id) != []
+      @shop_prefecture = Prefecture.find(prefecture_id).shops.pluck(:id)
+      @shop_genre = Genre.find(genre_id).shops.pluck(:id)
+      @shop_find = []
+      @shop_prefecture.each do |id|
+        @shop_find << @shop_genre.grep(id)[0] if @shop_genre.grep(id) != []
       end
-      @shops = @shop_f.map { |id| Shop.find(id) }
+      @shops = @shop_find.map { |id| Shop.find(id) }
     elsif prefecture_id
       @shops = Prefecture.find(prefecture_id).shops
     elsif genre_id
       @shops = Genre.find(genre_id).shops
     else
       Shop.all
+    end
   end
-    
+
   def self.search(search)
     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
       Shop.where(['shop_name LIKE ? OR station LIKE ? OR prtext LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
