@@ -77,10 +77,10 @@
                 投稿する
         .shop_mainleft-friend
           .shop_mainleft-friend__image
-            = image_tag current_user.avatar.url
+            = image_tag "avatar_nophoto.gif"
           .shop_mainleft-friend__text
             好みのあう人をフォローすると、その人のオススメのお店から探せます。
-        - @reviews.each do |review|
+        - @reviews.first(4).each do |review|
           %ul.pickup_review
             %li.pickup_review-avatar
               .pickup_review-avatar__icon
