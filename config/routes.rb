@@ -10,10 +10,8 @@ Rails.application.routes.draw do
   end
 
   resources :shops do
-    collection do
-      get :top_page
-    end
     member do
+      get :top_page
       get :show_menu
       get :show_reviews
       get :sort_visit
