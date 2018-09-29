@@ -84,21 +84,26 @@
           %ul.pickup_review
             %li.pickup_review-avatar
               .pickup_review-avatar__icon
-                = image_tag review.user.avatar.url
+                %a{href: "#{user_path(review.user.id)}"}
+                  = image_tag review.user.avatar.url
               .pickup_review-avatar__nickname
-                = review.user.nickname
+                %a{href: "#{user_path(review.user.id)}"}
+                  = review.user.nickname
               .pickup_review-avatar__count
-                (
-                = review.user.followers.length
-                )
+                %a{href: "#{follower_path(review.user.id)}"}
+                  (
+                  = review.user.followers.length
+                  )
             %li.pickup_review-text
               .pickup_review-text__title
                 %span.review-title-showpage
-                  = review.title
+                  %a{href: "#{show_reviews_shop_path(@shop.id)}", style: "color: black;"}
+                    = review.title
               .pickup_review-text__text
                 %p.js-text-overflow
                   = review.text
               .pickup_review-text__continue
+                %a{href: "#{show_reviews_shop_path(@shop.id)}"}
                 = link_to "続きを読む"
               .pickup_review-text__icons
                 %span.pickup_review-text__heart
@@ -113,10 +118,11 @@
                     = review.rate
         .shop_mainleft-morereview
           .shop_mainleft-morereview__link
-            口コミをもっと見る
-            （全
-            = @reviews.length
-            件）
+            %a{href: "#{show_reviews_shop_path(@shop.id)}"}
+              口コミをもっと見る
+              （全
+              = @reviews.length
+              件）
         .shop_mainleft-aroundshop
           .shop_mainleft-aroundshop__title
             [PR] 近くのお店
