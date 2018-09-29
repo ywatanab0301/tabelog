@@ -324,7 +324,7 @@
                                         %p.overrap.js-text-overflow
                                           = review.text
                                         %p.timeline-matome__desc-target
-                                          %a{href: "/shops/#{shop.id}/show_reviews"}
+                                          %a{href: "/users/#{current_user.id}"}
                                             レビューの詳細を見る
           .colum2__right.top-colum__right
             - if user_signed_in?
@@ -365,16 +365,16 @@
                               0
                       %li.userdata__data-item
                         .userdata__data-row
-                          %a{href: "#{following_path(current_user.id)}"}
+                          %a{href: "#"}
                             .userdata__data-subject
-                            フォロー中
-                            %span.userdata__data-count
+                            = link_to "フォロー中", following_path(current_user.id)
+                            .userdata__data-count
                               = current_user.followings.count
                       %li.userdata__data-item
                         .userdata__data-row.is-disabled
-                          %a{href: "#{follower_path(current_user.id)}"}
+                          %a{href: "#"}
                             .userdata__data-subject
-                            フォロワー
+                            = link_to "フォロワー", follower_path(current_user.id)
                             .userdata__data-count
                               = current_user.followers.count
                       %li.userdata__data-item
