@@ -27,6 +27,14 @@ class Shop < ApplicationRecord
     reviews.average(:rate).round(2) if reviews.present?
   end
 
+  def dinner_average
+    reviews.where(lunch_dinner: 1).average(:rate).round(2)
+  end
+
+  def lunch_average
+    reviews.where(lunch_dinner: 2).average(:rate).round(2)
+  end
+
   def show_last_review
     if reviews.last.present?
       reviews.last.text

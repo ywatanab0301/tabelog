@@ -21,11 +21,15 @@
               = prefecture.name
     .shop-review-post__rst-review
       - if review.lunch_dinner == 1
+        .shop-review-one-time
+          %p.shops-shop-review-visited-month
+            = review.visit_day.strftime('%Y/%m')
+            訪問
         .shop-review-post__rst-review--score-data
           .shop-review-score
-            .far.fa-sun
-              .shop_views-namespace__ratestar
-              %span{class: :"star-actived rate-#{@shop.star_review_average}0"}
+            .far.fa-moon
+            .shop_views-namespace__ratestar
+              %span{class: :"star-actived rate-#{review.rate.round * 10}"}
             .shop-review-rating-point
               = review.rate.round(1) unless review.rate == nil
             %ul.shop-review-rate-detail
@@ -55,12 +59,17 @@
                   %strong
                     = review.drink_rate.round(1) unless review.drink_rate == nil
       - else
+        .shop-review-one-time
+          %p.shops-shop-review-visited-month
+            = review.visit_day.strftime('%Y/%m')
+            訪問
         .shop-review-post__rst-review--score-data
           .shop-review-score
+            .far.fa-sun
             .shop_views-namespace__ratestar
-            %span{class: :"star-actived rate-#{@shop.star_review_average}0"}
-              .shop-review-rating-point
-                = review.rate.round(1) unless review.rate == nil
+              %span{class: :"star-actived rate-#{review.rate.round * 10}"}
+            .shop-review-rating-point
+              = review.rate.round(1) unless review.rate == nil
             %ul.shop-review-rate-detail
               %li.food-rate
                 %p
@@ -92,50 +101,13 @@
           %p
             使った金額（1人）：
           - review.budgets.each do |budget|
+            - if review.lunch_dinner == 1
+              .far.fa-moon
+            - else
+              .far.fa-sun
             .shop-price-range
               = budget.name
     .shop-review-post-contents
-      .shop-review-one-time
-        %p.shops-shop-review-visited-month
-          = review.visit_day.strftime('%Y/%m')
-          訪問
-        .shop-review-post__rst-review--score-data
-          .shop-review-score
-            .far.fa-sun.shop-review-rating-point
-              = review.rate.round(1) unless review.rate == nil
-            %ul.shop-review-rate-detail
-              %li.food-rate
-                %p
-                  料理・味
-                  %strong
-                    = review.food_rate.round(1) unless review.food_rate == nil
-              %li.service-rate
-                %p
-                  サービス
-                  %strong
-                    = review.service_rate.round(1) unless review.service_rate == nil
-              %li.atmosphere-rate
-                %p
-                  雰囲気
-                  %strong
-                    = review.atmosphere.round(1) unless review.atmosphere == nil
-              %li.cp-rate
-                %p
-                  CP
-                  %strong
-                    = review.cp_rate.round(1) unless review.cp_rate == nil
-              %li.drink-rate
-                %p.drink-rate
-                  酒・ドリンク
-                  %strong
-                    = review.drink_rate.round(1) unless review.drink_rate == nil
-            .shop-review-price
-              .shop-review-used-price
-                %p
-                  使った金額（1人）：
-                - review.budgets.each do |budget|
-                  .shop-price-range
-                    = budget.name
       .shop-review-post__rst-review--content
         .shop-review-title
           %p

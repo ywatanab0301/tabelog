@@ -113,7 +113,7 @@
                   訪問
                   = review.visit_day.strftime('%Y/%m')
                 %span.pickup_review-text__ratestar
-                  %span{class: :"star-actived rate-#{review.rate.to_i * 10}"}
+                  %span{class: :"star-actived rate-#{review.rate.round * 10}"}
                   %span.num
                     = review.rate
         .shop_mainleft-morereview

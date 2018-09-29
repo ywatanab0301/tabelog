@@ -3,16 +3,26 @@
     .shop_views-namespace
       .shop_views-namespace__shopname
         = @shop.shop_name
+        %span.shopname_f
+          (
+          = @shop.shop_name_f
+          )
       .shop_views-namespace__ratestar
         %span{class: :"star-actived rate-#{@shop.star_review_average}0"}
         %span.num
           = @shop.review_average
-      %span.shop_views-namespace__icons
-        .far.fa-sun
+      .shop_views-namespace__icons
         .far.fa-moon
+        %span
+          = @shop.dinner_average
+        .far.fa-sun
+        %span
+          = @shop.lunch_average
         .far.fa-comment
-          = @shop.reviews.count
-          件
+        %span
+          %a{href: "#{show_reviews_shop_path(@shop.id)}"}
+            = @shop.reviews.count
+            件
       .shop_views-namespace__aword
     .shop_views-detailspace
       .shop_views-detailspace__station
