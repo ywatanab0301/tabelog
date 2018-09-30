@@ -286,16 +286,9 @@
                       %h6
                         = review.updated_at.strftime('%Y/%m/%d')
                         更新
-<<<<<<< HEAD
-                .review-post__rst-review--like-button
-                  = render partial:'likes/like_links',locals: { review: review }
-                  / .review-post__rst-review--like-button--wannago
-                  /   = render partial: 'wants/want_links', locals: {shop: @shop}
-=======
                 - if user_signed_in?
                   .review-post__rst-review--like-button
                     = render partial:'likes/like_links',locals: { review: review }
->>>>>>> master
     .side-column
       .side-column-inner
         .top-info
