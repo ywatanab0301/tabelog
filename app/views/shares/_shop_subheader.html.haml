@@ -64,10 +64,7 @@
             %span
               行った
         .shop-views__wannabtn
-          %a.wannabtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: #595960;"}
-            %i.fas.fa-thumbtack
-            %span
-              行きたい
+          = render partial: 'wants/want_links', locals: {shop: @shop}
         .shop-views__post-btn
           %a.postbtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: white;"}
             %span
