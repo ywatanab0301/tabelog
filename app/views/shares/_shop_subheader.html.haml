@@ -17,13 +17,13 @@
           - if @shop.dinner_average
             = @shop.dinner_average
           - else
-            0.0
+            \-
         .far.fa-sun
         %span
           - if @shop.lunch_average
             = @shop.lunch_average
           - else
-            0.0
+            \-
         .far.fa-comment
         %span
           %a{href: "#{show_reviews_shop_path(@shop.id)}"}
