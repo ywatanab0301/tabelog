@@ -7,6 +7,8 @@ class Shop < ApplicationRecord
   has_many :budgets, through: :shop_budgets
   has_many :shop_genres, dependent: :destroy
   has_many :genres, through: :shop_genres
+  has_many :wants, dependent: :destroy
+  has_many :users, through: :wants
 
   mount_uploader :pic1, ImageUploader
   mount_uploader :pic2, ImageUploader
