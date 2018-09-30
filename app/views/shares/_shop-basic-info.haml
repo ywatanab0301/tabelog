@@ -15,7 +15,7 @@
       (
       = @shop.shop_name_f
       )
--@genre.each do |genre|
+- @genre.each do |genre|
   %ul.shop_details_lists
     %li.shop_details_lists__genre
       ジャンル
@@ -25,7 +25,7 @@
   %li.shop_details_lists__telephone
     お問い合わせ
   %li.shop_details_lists__telephone-input
-    = @shop.phone_number
+    = converting_to_phone_number(@shop.phone_number)
 %ul.shop_details_lists
   %li.shop_details_lists__canreserve
     予約可否
@@ -39,7 +39,7 @@
       = prefecture.name
 %ul.shop_details_lists
   %li.shop_details_lists__access
-    交通手段
+    交通
   %li.shop_details_lists__access-input
     = @shop.station
     近く

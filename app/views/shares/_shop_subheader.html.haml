@@ -1,0 +1,76 @@
+.shop_subheader
+  .shop_subheader-left
+    .shop_views-namespace
+      .shop_views-namespace__shopname
+        = @shop.shop_name
+        %span.shopname_f
+          (
+          = @shop.shop_name_f
+          )
+      .shop_views-namespace__ratestar
+        %span{class: :"star-actived rate-#{@shop.star_review_average}0"}
+        %span.num
+          = @shop.review_average
+      .shop_views-namespace__icons
+        .far.fa-moon
+        %span
+          - if @shop.dinner_average
+            = @shop.dinner_average
+          - else
+            \-
+        .far.fa-sun
+        %span
+          - if @shop.lunch_average
+            = @shop.lunch_average
+          - else
+            \-
+        .far.fa-comment
+        %span
+          %a{href: "#{show_reviews_shop_path(@shop.id)}"}
+            = @shop.reviews.count
+            件
+      .shop_views-namespace__aword
+    .shop_views-detailspace
+      .shop_views-detailspace__station
+        最寄り駅:
+        = @shop.station
+      - @genre.each do |genre|
+        .shop_views-detailspace__genre
+          ジャンル :
+          = genre.name
+      - if @budget.present?
+        - @budget.each do |budget|
+          .shop_views-detailspace__average
+            予算
+            = budget.name
+            %span.shop_views-detailspace__schedule
+              定休日 :
+              = @shop.closed_day
+            %span.shop_views-detailspace__moredetail
+      - else
+        .shop_views-detailspace__average
+          予算:???
+          %span.shop_views-detailspace__schedule
+            定休日 :
+            = @shop.closed_day
+          %span.shop_views-detailspace__moredetail
+            = link_to "店舗詳細(詳細)", "/shops/#{@shop.id}", method: :delete
+  .shop_subheader-right
+    .shop_views-buttons
+      .button.shop-views
+        .shop-views__gonebtn
+          %a.gonebtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: #595960;"}
+            %i.fas.fa-heart
+            %span
+              行った
+        .shop-views__wannabtn
+          %a.wannabtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: #595960;"}
+            %i.fas.fa-thumbtack
+            %span
+              行きたい
+        .shop-views__post-btn
+          %a.postbtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: white;"}
+            %span
+              投稿
+      %button.shop-views__recommend
+        メモを残そう（例：友達のおすすめカフェ）
