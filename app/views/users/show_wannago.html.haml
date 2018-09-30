@@ -158,39 +158,6 @@
                 50
               %option
                 100
+      = render 'wants/index', shop: @shop
 
-      .user-mypage-wannago-shops
-        .gone-wannago-buttons
-          .button-gone
-            %button.shop-review-post-like-wannago__buttons--gone
-              %i.fas.fa-heart
-              行った
-          .button-wannago
-            %button.shop-review-post-like-wannago__buttons--wannago
-              %i.fas.fa-thumbtack
-              行きたい
-        .user-mypage-wannago-shops-left
-          .user-mypage-wannago-shops__image
-            = image_tag "avatar_nophoto.gif"
-        .user-mypage-wannago-shops-right
-          .user-mypage-wannago-shops__shop-name
-            %p
-              みやび屋
-          .user-mypage-wannago-shops__info1
-            .user-mypage-wannago-shops__info--station
-              小伝馬町、
-            .user-mypage-wannago-shops__info--genre
-              スープカレー
-          .user-mypage-wannago-shops__rate
-            .user-mypage-wannago-shops__rate--star
-              ⭐⭐⭐⭐⭐
-            .user-mypage-wannago-shops__rate--score
-              3.13
-          .user-mypage-wannago-shops__info2
-            .user-mypage-wannago-shops__info2--budget-dinner
-              🌃 ¥4,000〜¥4,999
-            .user-mypage-wannago-shops__info2--budget-lunch
-              🌅 〜¥999
-            .user-mypage-wannago-shops__info2--budget-off
-              ㉁ 日曜日、祝日
 = render partial: 'shares/footer'
