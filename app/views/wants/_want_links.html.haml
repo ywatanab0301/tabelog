@@ -1,0 +1,11 @@
+.want-link{id: "want-link-#{shop.id}"}
+  - if current_user.wants.find_by(shop_id: shop.id)
+    = link_to notwant_path(shop.id), method: :delete, remote: true do
+      .want-go
+        %button.fas.fa-thumbtack{id: "thumbtack-#{shop.id}"}
+          行きたい
+  - else
+    = link_to want_path(shop.id), method: :post, remote: true do
+      .want-go
+        %button.fa.fa-thumbtack{id: "thumbtack-#{shop.id}"}
+          行きたい
