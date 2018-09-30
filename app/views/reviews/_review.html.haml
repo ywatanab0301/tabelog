@@ -157,9 +157,8 @@
       .shop-review-post-like-wannago
         .shop-review-post-like-wannago__buttons
           = render partial: 'likes/like_links', locals: {review: review}
-          %button.shop-review-post-like-wannago__buttons--wannago
-            %i.fas.fa-thumbtack
-            行きたい
+          .shop-review-post-like-wannago__buttons--wannago
+            = render partial: 'wants/want_links', locals: {shop: @shop}
         .shop-review-post-who-likes
           .shop-review-post-who-likes__count
             %p.number-who-likes
