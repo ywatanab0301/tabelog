@@ -57,11 +57,13 @@ $(function() {
 $(function() {
   $("li.nav-item.rank").on('click', function(){
     $(this).css('background-color', '#fff');
-    $("li.nav-item.review").css('background-color', '');
-    $("li.nav-item.review").css('borderTopColor', '');
+    $("li.nav-item.review").css({
+        backgroundColor : '' ,
+        borderTopColor : '' });
     $('a.nav-link.review').css('color', '');
-    $("li.nav-item.origin").css('background-color', '#faf8f5');
-    $('li.nav-item.origin').css('borderTopColor', '#e0dccc');
+    $("li.nav-item.origin").css({
+        backgroundColor : '#faf8f5',
+        borderTopColor : '#e0dccc' });
     $('li.nav-item.origin span').css('color', '#000');
     $('li.nav-item.origin .fa.fa-utensils').css('color', '#000');
   });
@@ -74,11 +76,13 @@ $(function() {
 $(function() {
   $("li.nav-item.review").on('click', function(){
     $(this).css('background-color', '#fff');
-    $("li.nav-item.rank").css('background-color', '');
-    $("li.nav-item.rank").css('borderTopColor', '');
+    $("li.nav-item.rank").css({
+        backgroundColor : '' ,
+        borderTopColor : '' });
     $('a.nav-link.rank').css('color', '');
-    $("li.nav-item.origin").css('background-color', '#faf8f5');
-    $('li.nav-item.origin').css('borderTopColor', '#e0dccc');
+    $("li.nav-item.origin").css({
+        backgroundColor : '#faf8f5',
+        borderTopColor : '#e0dccc' });
     $('li.nav-item.origin span').css('color', '#000');
     $('li.nav-item.origin .fa.fa-utensils').css('color', '#000');
   });
@@ -107,13 +111,4 @@ $(function(){
       })
     );
   });
-});
-
-// 写真の変更
-$(function(){
- $('ul.photolist img').on('mouseover', function(){
-  var $thisImg = $(this).attr('src');
-  var $thisAlt = $(this).attr('alt');
-  $('.content__main__shop__each__body__left__frame img.photo').attr({src:$thisImg,alt:$thisAlt});
- });
 });
