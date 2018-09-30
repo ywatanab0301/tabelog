@@ -1,7 +1,7 @@
 class Shop < ApplicationRecord
   has_many :reservations
-  has_many :reviews
-  has_many :shop_prefectures
+  has_many :reviews, dependent: :destroy
+  has_many :shop_prefectures, dependent: :destroy
   has_many :prefectures, through: :shop_prefectures
   has_many :shop_budgets, dependent: :destroy
   has_many :budgets, through: :shop_budgets

@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
 # association
   has_many :reviews, dependent: :destroy
-  has_many :like_reviews, through: :likes, source: :review
+  has_many :like_reviews, through: :likes, source: :review,dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :reservations, dependent: :destroy
   has_many :relationships, dependent: :destroy
