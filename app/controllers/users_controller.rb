@@ -20,8 +20,6 @@ class UsersController < ApplicationController
   end
 
   def show_wannago
-    @user = current_user
-    @wants = Want.where(user_id: @user.id).all
   end
 
   def edit
@@ -43,6 +41,7 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+    @wants = Want.where(user_id: @user.id).all
   end
 
 end
