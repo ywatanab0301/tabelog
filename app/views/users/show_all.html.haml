@@ -169,62 +169,14 @@
                       %p.review-shop-genre
                         = genre.name
                         ）
-              .shop-review-post__rst-review
-                .shop-review-post__rst-review--score-data
-                  .shop-review-score
-                    .shop-review-rating-star
-                      🌃  🌟🌟🌟⭐⭐
-                    .shop-review-rating-point
-                      = review.rate.round(1) unless review.rate == nil
-                    %ul.shop-review-rate-detail
-                      %li.food-rate
-                        %p
-                          料理・味
-                          %strong
-                            = review.food_rate.round(1) unless review.food_rate == nil
-                      %li.service-rate
-                        %p
-                          サービス
-                          %strong
-                            = review.service_rate.round(1) unless review.service_rate == nil
-                      %li.atmosphere-rate
-                        %p
-                          雰囲気
-                          %strong
-                            = review.atmosphere.round(1) unless review.atmosphere == nil
-                      %li.cp-rate
-                        %p
-                          CP
-                          %strong
-                            = review.cp_rate.round(1) unless review.cp_rate == nil
-                      %li.drink-rate
-                        %p.drink-rate
-                          酒・ドリンク
-                          %strong
-                            = review.drink_rate.round(1) unless review.drink_rate == nil
-                .shop-review-price
-                  .shop-review-used-price
-                    %p
-                      使った金額（1人）：
-                    - review.budgets.each do |budget|
-                      .shop-price-range
-                        🌃
-                        = budget.name
-              .user-shop-review-post-contents
-                - if review.user_id == current_user.id
-                  .user-review-post__buttons
-                    = link_to shop_review_path(review.shop_id, review.id), method: :delete, class: "delete_alert" do
-                      .review-post__buttons--trash.fas.fa-trash-alt
-                    = link_to edit_shop_review_path(review.shop_id, review.id) do
-                      .user-review-post__buttons--edit.fas.fa-edit
-                .shop-review-one-time
-                  %p.shops-shop-review-visited-month
-                    = review.visit_day.strftime('%Y/%m/%d')
-                    訪問
+              - if review.lunch_dinner == 1
+                .shop-review-post__rst-review
                   .shop-review-post__rst-review--score-data
                     .shop-review-score
+                      .far.fa-moon
+                      .shop_views-namespace__ratestar
+                        %span{class: :"star-actived rate-#{review.rate.round * 10}"}
                       .shop-review-rating-point
-                        🌅
                         = review.rate.round(1) unless review.rate == nil
                       %ul.shop-review-rate-detail
                         %li.food-rate
@@ -252,18 +204,152 @@
                             酒・ドリンク
                             %strong
                               = review.drink_rate.round(1) unless review.drink_rate == nil
-                      .shop-review-price
-                        .shop-review-used-price
+                  .shop-review-price
+                    .shop-review-used-price
+                      %p
+                        使った金額（1人）：
+                      - review.budgets.each do |budget|
+                        %p.shop-price-range
+                          %i.far.fa-moon
+                          = budget.name
+              - else
+                .shop-review-post__rst-review
+                  .shop-review-post__rst-review--score-data
+                    .shop-review-score
+                      .far.fa-sun
+                      .shop_views-namespace__ratestar
+                        %span{class: :"star-actived rate-#{review.rate.round * 10}"}
+                      .shop-review-rating-point
+                        = review.rate.round(1) unless review.rate == nil
+                      %ul.shop-review-rate-detail
+                        %li.food-rate
                           %p
-                            使った金額（1人）：
-                          .shop-price-range
-                            🌃 ~￥999
-                  .shop-review-count
-                    1回目
+                            料理・味
+                            %strong
+                              = review.food_rate.round(1) unless review.food_rate == nil
+                        %li.service-rate
+                          %p
+                            サービス
+                            %strong
+                              = review.service_rate.round(1) unless review.service_rate == nil
+                        %li.atmosphere-rate
+                          %p
+                            雰囲気
+                            %strong
+                              = review.atmosphere.round(1) unless review.atmosphere == nil
+                        %li.cp-rate
+                          %p
+                            CP
+                            %strong
+                              = review.cp_rate.round(1) unless review.cp_rate == nil
+                        %li.drink-rate
+                          %p.drink-rate
+                            酒・ドリンク
+                            %strong
+                              = review.drink_rate.round(1) unless review.drink_rate == nil
+                  .shop-review-price
+                    .shop-review-used-price
+                      %p
+                        使った金額（1人）：
+                      - review.budgets.each do |budget|
+                        .far.fa-sun
+                        %p.shop-price-range
+                          = budget.name
+              .user-shop-review-post-contents
+                - if review.user_id == current_user.id
+                  .user-review-post__buttons
+                    = link_to shop_review_path(review.shop_id, review.id), method: :delete, class: "delete_alert" do
+                      .review-post__buttons--trash.fas.fa-trash-alt
+                    = link_to edit_shop_review_path(review.shop_id, review.id) do
+                      .user-review-post__buttons--edit.fas.fa-edit
+                - if review.lunch_dinner == 1
+                  .shop-review-one-time
+                    %p.shops-shop-review-visited-month
+                      = review.visit_day.strftime('%Y/%m/%d')
+                      訪問
+                    .shop-review-post__rst-review--score-data
+                      .shop-review-score
+                        .far.fa-moon
+                        .shop-review-rating-point
+                          = review.rate.round(1) unless review.rate == nil
+                        %ul.shop-review-rate-detail
+                          %li.food-rate
+                            %p
+                              料理・味
+                              %strong
+                                = review.food_rate.round(1) unless review.food_rate == nil
+                          %li.service-rate
+                            %p
+                              サービス
+                              %strong
+                                = review.service_rate.round(1) unless review.service_rate == nil
+                          %li.atmosphere-rate
+                            %p
+                              雰囲気
+                              %strong
+                                = review.atmosphere.round(1) unless review.atmosphere == nil
+                          %li.cp-rate
+                            %p
+                              CP
+                              %strong
+                                = review.cp_rate.round(1) unless review.cp_rate == nil
+                          %li.drink-rate
+                            %p.drink-rate
+                              酒・ドリンク
+                              %strong
+                                = review.drink_rate.round(1) unless review.drink_rate == nil
+                        .shop-review-price
+                          .shop-review-used-price
+                            %p
+                              使った金額（1人）：
+                            - review.budgets.each do |budget|
+                              = budget.name
+                - else
+                  .shop-review-one-time
+                    %p.shops-shop-review-visited-month
+                      = review.visit_day.strftime('%Y/%m/%d')
+                      訪問
+                    .shop-review-post__rst-review--score-data
+                      .shop-review-score
+                        .far.fa-sun
+                        .shop-review-rating-point
+                          = review.rate.round(1) unless review.rate == nil
+                        %ul.shop-review-rate-detail
+                          %li.food-rate
+                            %p
+                              料理・味
+                              %strong
+                                = review.food_rate.round(1) unless review.food_rate == nil
+                          %li.service-rate
+                            %p
+                              サービス
+                              %strong
+                                = review.service_rate.round(1) unless review.service_rate == nil
+                          %li.atmosphere-rate
+                            %p
+                              雰囲気
+                              %strong
+                                = review.atmosphere.round(1) unless review.atmosphere == nil
+                          %li.cp-rate
+                            %p
+                              CP
+                              %strong
+                                = review.cp_rate.round(1) unless review.cp_rate == nil
+                          %li.drink-rate
+                            %p.drink-rate
+                              酒・ドリンク
+                              %strong
+                                = review.drink_rate.round(1) unless review.drink_rate == nil
+                        .shop-review-price
+                          .shop-review-used-price
+                            %p
+                              使った金額（1人）：
+                            - review.budgets.each do |budget|
+                              = budget.name
                 .shop-review-post__rst-review--content
                   .shop-review-title
                     %p
-                      %a
+                      %a{href: "#{show_reviews_shop_path(review.shop.id)},", style: "color: black"}
                         = review.title
                   .shop-review-text
                     %p
