@@ -36,7 +36,7 @@
           地図
     .shop_main
       .shop_main-left
-        -if @shop.pic1? || @shop.pic2? || @shop.pic3? || @shop.pic4? || @shop.pic5?
+        - if @shop.pic1? || @shop.pic2? || @shop.pic3? || @shop.pic4? || @shop.pic5?
           #slider.flexslider
             %ul.slides
               %li
@@ -73,10 +73,16 @@
         .shop_mainleft-review
           .shop_mainleft-review__title
             口コミ
-          .review-postbtn
-            %a.postbtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: white;"}
-              %span
-                投稿する
+          - if user_signed_in?
+            .review-postbtn
+              %a.postbtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: white;"}
+                %span
+                  投稿する
+          - else
+            .review-postbtn
+              %a.postbtn-link{ href: "#{new_user_registration_path}", style: "color: white;"}
+                %span
+                  投稿する
         .shop_mainleft-friend
           .shop_mainleft-friend__image
             = image_tag "avatar_nophoto.gif"

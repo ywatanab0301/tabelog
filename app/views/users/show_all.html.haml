@@ -113,15 +113,16 @@
             = link_to "店舗表示"
 
       .user-mypage-wannago-shops
-        .gone-wannago-buttons
-          .button-gone
-            %button.shop-review-post-like-wannago__buttons--gone
-              %i.fas.fa-heart
-              行った
-          .button-wannago
-            %button.shop-review-post-like-wannago__buttons--wannago
-              %i.fas.fa-thumbtack
-              行きたい
+        - if user_signed_in?
+          .gone-wannago-buttons
+            .button-gone
+              %button.shop-review-post-like-wannago__buttons--gone
+                %i.fas.fa-heart
+                行った
+            .button-wannago
+              %button.shop-review-post-like-wannago__buttons--wannago
+                %i.fas.fa-thumbtack
+                行きたい
         .user-mypage-wannago-shops-left
           .user-mypage-wannago-shops__image
             = image_tag "avatar_nophoto.gif"
@@ -256,12 +257,13 @@
                         %p.shop-price-range
                           = budget.name
               .user-shop-review-post-contents
-                - if review.user_id == current_user.id
-                  .user-review-post__buttons
-                    = link_to shop_review_path(review.shop_id, review.id), method: :delete, class: "delete_alert" do
-                      .review-post__buttons--trash.fas.fa-trash-alt
-                    = link_to edit_shop_review_path(review.shop_id, review.id) do
-                      .user-review-post__buttons--edit.fas.fa-edit
+                - if user_signed_in?
+                  - if review.user_id == current_user.id
+                    .user-review-post__buttons
+                      = link_to shop_review_path(review.shop_id, review.id), method: :delete, class: "delete_alert" do
+                        .review-post__buttons--trash.fas.fa-trash-alt
+                      = link_to edit_shop_review_path(review.shop_id, review.id) do
+                        .user-review-post__buttons--edit.fas.fa-edit
                 - if review.lunch_dinner == 1
                   .shop-review-one-time
                     %p.shops-shop-review-visited-month
@@ -369,27 +371,30 @@
                 .shop-review-post-update-date
                   = review.updated_at.strftime('%Y/%m/%d')
                   更新
-                .shop-review-post-like-wannago
-                  .shop-review-post-like-wannago__buttons
-                    = render partial: 'likes/like_links', locals: {review: review}
-                    .shop-review-post-like-wannago__buttons--wannago
-                      / = render partial: 'wants/want_links', locals: {shop: @shop}
-                  .shop-review-post-who-likes
-                    .shop-review-post-who-likes__count
-                      %p.number-who-likes
-                        = review.likes_count
-                      %p
-                        人が「いいね！」しています。
-                    - review.likes.each do |like|
-                      .shop-review-post-who-likes__icons
-                        = link_to user_path(like.user.id) do
-                          = image_tag "#{like.user.avatar}"
-                  .shop-review-post-who-wannago
-                    .shop-review-post-who-wannago__count
-                      %p.number-who-wannago
-                        1
-                      %p
-                        人が「行きたい」しています。
-                    .shop-review-post-who-wannago__icons
-                      = image_tag "avatar_nophoto.gif"
+
+                - if user_signed_in?
+                  .shop-review-post-like-wannago
+                    .shop-review-post-like-wannago__buttons
+                      = render partial: 'likes/like_links', locals: {review: review}
+                      %button.shop-review-post-like-wannago__buttons--wannago
+                        / = render partial: 'wants/want_links', locals: {shop: @shop}
+                    .shop-review-post-who-likes
+                      .shop-review-post-who-likes__count
+                        %p.number-who-likes
+                          = review.likes_count
+                        %p
+                          人が「いいね！」しています。
+                      - review.likes.each do |like|
+                        .shop-review-post-who-likes__icons
+                          = link_to user_path(like.user.id) do
+                            = image_tag "#{like.user.avatar}"
+                    .shop-review-post-who-wannago
+                      .shop-review-post-who-wannago__count
+                        %p.number-who-wannago
+                          1
+                        %p
+                          人が「行きたい」しています。
+                      .shop-review-post-who-wannago__icons
+                        = image_tag "avatar_nophoto.gif"
+
 = render partial: 'shares/footer'

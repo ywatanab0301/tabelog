@@ -58,16 +58,34 @@
   .shop_subheader-right
     .shop_views-buttons
       .button.shop-views
-        .shop-views__gonebtn
-          %a.gonebtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: #595960;"}
-            %i.fas.fa-heart
-            %span
-              行った
-        .shop-views__wannabtn
-          = render partial: 'wants/want_links', locals: {shop: @shop}
-        .shop-views__post-btn
-          %a.postbtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: white;"}
-            %span
-              投稿
+
+        - if user_signed_in?
+          .shop-views__gonebtn
+            %a.gonebtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: #595960;"}
+              %i.fas.fa-heart
+              %span
+                行った
+          .shop-views__wannabtn
+            = render partial: 'wants/want_links', locals: {shop: @shop}
+          .shop-views__post-btn
+            %a.postbtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: white;"}
+              %span
+                投稿
+        - else
+          .shop-views__gonebtn
+            %a.gonebtn-link{ href: "#{new_user_registration_path}", style: "color: #595960;"}
+              %i.fas.fa-heart
+              %span
+                行った
+          .shop-views__wannabtn
+            %a.wannabtn-link{ href: "#{new_user_registration_path}", style: "color: #595960;"}
+              %i.fas.fa-thumbtack
+              %span
+                行きたい
+          .shop-views__post-btn
+            %a.postbtn-link{ href: "#{new_user_registration_path}", style: "color: white;"}
+              %span
+                投稿
+
       %button.shop-views__recommend
         メモを残そう（例：友達のおすすめカフェ）
