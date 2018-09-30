@@ -100,8 +100,6 @@
               1～
               = @reviews.length
               件を表示 ／ 全
-              = @reviews.length
-              件
             -else
               0件
           .review-sorting-by-number
@@ -123,7 +121,6 @@
               .fas.fa-list-ul
               = link_to "簡易リスト"
         .shop-review-list
-
         - if @reviews.present?
           = render @reviews
         - else
