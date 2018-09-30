@@ -37,6 +37,10 @@
       住所
     %li.shop_details_lists__address-input
       = prefecture.name
+      = @shop.city_address
+
+      #map{:style => "width: 100%; height: 320px;"}
+
 %ul.shop_details_lists
   %li.shop_details_lists__access
     交通

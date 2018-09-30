@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     member do
       get :show_menu
       get :show_reviews
+      get :show_map
       get :sort_visit
       get :sort_popular
       get :sort_lunch

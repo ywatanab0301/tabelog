@@ -1,0 +1,248 @@
+= render partial: 'shares/header'
+.shop_view
+  .shop_views
+    .location-link
+      = image_tag 'home_icon.png'
+      = link_to '食べログ', root_path
+      %span.location-link__location
+        = image_tag 'location_arrow.png'
+        = @shop.station
+      %span.location-link__searchshop
+        = image_tag 'location_arrow.png'
+        - @genre.each do |genre|
+          = genre.name
+      %a.span.location-link__shopname{href: "#{shop_path(@shop.id)}"}
+        = image_tag 'location_arrow.png'
+        %i.fas.fa-utensils
+        = @shop.shop_name
+    = render partial: 'shares/shop_subheader'
+    .shop_lists
+      %ul.map-shops-show-header_list
+        %li.map-shops-top-shop_lists__top
+          %a.shop-top-link{ href: "/shops/#{@shop.id}", style: "color: #595960;"}
+            %span
+              店舗トップ
+        %li.map-shops-top-shop_lists__menu
+          %a.menu-link{ href: "/shops/#{@shop.id}/show_menu", style: "color: #595960;"}
+            %span
+              メニュー
+        %li.map-shops-top-shop_lists__image
+          写真
+        %li.map-shops-top-shop_lists__review
+          %a.reviews-link{ href: "/shops/#{@shop.id}/show_reviews", style: "color: #595960;"}
+            %span
+              口コミ
+        %li.map-shops-top-shop_lists__map
+          地図
+    .shop_main
+      .shop_main-left
+        #map.map-page-map{:style => "width: 100%; height: 600px;"}
+        .shop-map-page-info
+          %ul.shop-map-page-info__address
+            %li.shop_details_lists__address
+              住所
+            - @prefecture.each do |prefecture|
+              %li.shop_details_lists__address-input
+                = prefecture.name
+                = @shop.city_address
+
+        .shop_mainleft-shopdetail
+          .shop_mainleft-shopdetail__title
+            店舗情報（詳細）
+        .shop_mainleft-information
+          .shop_mainleft-information__title
+            店舗基本情報
+        %ul.shop_details_lists
+          %li.shop_details_lists__shopname
+            店名
+          %li.shop_details_lists__shopname-input
+            %p
+              = @shop.shop_name
+            %p
+              (
+              = @shop.shop_name_f
+              )
+        - @genre.each do |genre|
+          %ul.shop_details_lists
+            %li.shop_details_lists__genre
+              ジャンル
+            %li.shop_details_lists__genre-input
+              = genre.name
+        %ul.shop_details_lists
+          %li.shop_details_lists__telephone
+            お問い合わせ
+          %li.shop_details_lists__telephone-input
+            = @shop.phone_number
+        %ul.shop_details_lists
+          %li.shop_details_lists__canreserve
+            予約可否
+          %li.shop_details_lists__canreserve-input
+            完全予約制
+        - @prefecture.each do |prefecture|
+          %ul.shop_details_lists
+            %li.map-shop_details_lists__address
+              住所
+            %li.map-shop_details_lists__address-input
+              = prefecture.name
+              = @shop.city_address
+
+        %ul.shop_details_lists
+          %li.shop_details_lists__access
+            交通
+          %li.shop_details_lists__access-input
+            = @shop.station
+            近く
+        %ul.shop_details_lists
+          %li.shop_details_lists__time
+            営業時間
+          %li.shop_details_lists__time-input
+            = @shop.hours
+        %ul.shop_details_lists
+          %li.shop_details_lists__closed
+            定休日
+          %li.shop_details_lists__closed-input
+            = @shop.closed_day
+        %ul.shop_details_lists
+          %li.shop_details_lists__money
+            予算
+          %li.shop_details_lists__money-input
+            - @budget.each do |budget|
+              = budget.name
+        %ul.shop_details_lists
+          %li.shop_details_lists__paying
+            支払い方法
+          %li.shop_details_lists__paying-input
+            カード不可・電子マネー不可
+        .shop_mainleft-seat-details
+          .shop_mainleft-seat-details__title
+            席・設備
+        %ul.shop_details_lists
+          %li.shop_details_lists__seat
+            席数
+          %li.shop_details_lists__seat-count
+            8席
+        %ul.shop_details_lists
+          %li.shop_details_lists__private
+            個室
+          %li.shop_details_lists__private-count
+            無
+        %ul.shop_details_lists
+          %li.shop_details_lists__donate
+            貸切
+          %li.shop_details_lists__donate-can
+            不可
+        %ul.shop_details_lists
+          %li.shop_details_lists__smoke
+            禁煙・喫煙
+          %li.shop_details_lists__smoke-shop
+            完全禁煙
+        %ul.shop_details_lists
+          %li.shop_details_lists__parking
+            駐車場
+          %li.shop_details_lists__parking-shop
+            無
+        .shop_mainleft-feature
+          .shop_mainleft-feature__title
+            特徴・関連情報
+        %ul.shop_details_lists
+          %li.shop_details_lists__scene
+            利用シーン
+          %li.shop_details_lists__scene-input
+            知人・友人と
+        %ul.shop_details_lists
+          %li.shop_details_lists__hp
+            ホームページ
+          %li.shop_details_lists__hp-input
+        %ul.shop_details_lists
+          %li.shop_details_lists__open
+            オープン日
+          %li.shop_details_lists__open-fanfare
+            2014年7月
+        %ul.shop_details_lists
+          %li.shop_details_lists__firstposter
+            初投稿者
+          %li.shop_details_lists__firstposter-name
+            chienasiko（80）
+        .shop_mainleft-underbox
+          .shop_mainleft-underbox_upper
+            %button.shop_mainleft-underbox__mailbtn
+              %i.fas.fa-envelope
+              メールで情報を送る
+            %button.shop_mainleft-underbox__copybtn
+              %i.fas.fa-print
+              印刷ページを表示
+          %button.shop_mainleft-underbox__blogbtn
+            %i.fas.fa-link
+            ブログに店舗情報を貼る
+        .shop_mainleft-notice
+          .shop_mainleft-notice__text
+            このレストランは食べログ店舗会員等に登録しているため、ユーザーの皆様は編集することができません。
+            %br
+              店舗情報に誤りを発見された場合には、ご連絡をお願いいたします。
+              %span.shop_mainleft-notice__formlink
+                = link_to "お問い合わせフォーム"
+        .shop_mainleft-around
+          .shop_mainleft-around__title
+            周辺のお店ランキング
+        .shop_mainleft-aroundrank
+          .shop_mainleft-aroundranking
+            .shop_mainleft-aroundranking__no1
+              .shop_mainleft-aroundranking__no1-image
+                = image_tag "avatar_nophoto.gif"
+              .shop_mainleft-aroundranking__no1-shopname
+                シャンドワゾー
+              .shop_mainleft-aroundranking__no1-count
+                (174)
+              .shop_mainleft-aroundranking__no1-genre
+                (ケーキ)
+              .shop_mainleft-aroundranking__no1-stars
+                ⭐️⭐️⭐️3.00
+            .shop_mainleft-aroundranking__no2
+              .shop_mainleft-aroundranking__no1-image
+                = image_tag "avatar_nophoto.gif"
+              .shop_mainleft-aroundranking__no1-shopname
+                シャンドワゾー
+              .shop_mainleft-aroundranking__no1-count
+                (174)
+              .shop_mainleft-aroundranking__no1-genre
+                (ケーキ)
+              .shop_mainleft-aroundranking__no1-stars
+                ⭐️⭐️⭐️3.00
+            .shop_mainleft-aroundranking__no3
+              .shop_mainleft-aroundranking__no1-image
+                = image_tag "avatar_nophoto.gif"
+              .shop_mainleft-aroundranking__no1-shopname
+                シャンドワゾー
+              .shop_mainleft-aroundranking__no1-count
+                (174)
+              .shop_mainleft-aroundranking__no1-genre
+                (ケーキ)
+              .shop_mainleft-aroundranking__no1-stars
+                ⭐️⭐️⭐️3.00
+            .shop_mainleft-aroundranking__no4
+              .shop_mainleft-aroundranking__no1-image
+                = image_tag "avatar_nophoto.gif"
+              .shop_mainleft-aroundranking__no1-shopname
+                シャンドワゾー
+              .shop_mainleft-aroundranking__no1-count
+                (174)
+              .shop_mainleft-aroundranking__no1-genre
+                (ケーキ)
+              .shop_mainleft-aroundranking__no1-stars
+                ⭐️⭐️⭐️3.00
+            .shop_mainleft-aroundranking__no5
+              .shop_mainleft-aroundranking__no1-image
+                = image_tag "avatar_nophoto.gif"
+              .shop_mainleft-aroundranking__no1-shopname
+                シャンドワゾー
+              .shop_mainleft-aroundranking__no1-count
+                (174)
+              .shop_mainleft-aroundranking__no1-genre
+                (ケーキ)
+              .shop_mainleft-aroundranking__no1-stars
+                ⭐️⭐️⭐️3.00
+        .shop_mainleft-moreranking
+          .shop_mainleft-moreranking-link
+            川口・鳩ヶ谷のレストラン情報を見る
+      = render partial: 'shares/shop_main_right'
+= render partial: 'shares/footer'

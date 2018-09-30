@@ -34,7 +34,9 @@
             %span
               口コミ
         %li.menu-shop_lists__map
-          地図
+          %a.map-link{ href: "/shops/#{@shop.id}/show_map", style: "color: #595960;"}
+            %span
+              地図
     .shop_main
       .shop_main-left
         .shop-menu
