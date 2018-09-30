@@ -120,7 +120,7 @@
                   .top-search__data-count
 
                     .navi-count
-                      = @shops.count
+                      = @shopes.count
                       店舗
                       = @reviews
                       口コミ
@@ -294,7 +294,7 @@
               - if user_signed_in?
                 #js-timeline-contents.timeline-contents
                   .timeline.timeline-body.js-timeline-box.is-visible
-                    - @shops.each do |shop|
+                    - @shopes.first(5).each do |shop|
                       - shop.reviews.first(5).each do |review|
                         - if review.user_id == current_user.id
                           .timeline-inner

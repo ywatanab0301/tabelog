@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
   def create
     review = Review.new(review_params)
     if review.save
-      redirect_to controller: 'users', action: 'show', id: current_user.id
+      redirect_to controller: 'users', action: 'show_gone',id: current_user.id
     else
       redirect_to action: 'new'
     end
