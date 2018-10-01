@@ -62,6 +62,7 @@ gem 'fog-aws'
 #Other
 gem 'kaminari'
 gem 'pry-rails'
+gem 'mechanize'
 
 
 group :development, :test do
