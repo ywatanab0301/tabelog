@@ -11,14 +11,18 @@
         = image_tag 'location_arrow.png'
         - @genre.each do |genre|
           = genre.name
-      %span.location-link__shopname{href: "#{shop_path(@shop.id)}"}
+      %span.location-link__shopname
+      %a{href: "#{shop_path(@shop.id)}"}
         = image_tag 'location_arrow.png'
         %i.fas.fa-utensils
         = @shop.shop_name
-      %span.location-link__shopreviews{href: "#{show_reviews_shop_path(@shop.id)}"}
+      %span.location-link__shopreviews
+      %a{href: "#{show_reviews_shop_path(@shop.id)}"}
         = image_tag 'location_arrow.png'
         口コミ一覧
+
     = render partial: 'shares/shop_subheader'
+
     .shop_lists
       %ul.header_list
         %li.shop-reviews-page-shop_lists__top
@@ -96,8 +100,6 @@
               1～
               = @reviews.length
               件を表示 ／ 全
-              = @reviews.length
-              件
             -else
               0件
           .review-sorting-by-number
@@ -119,7 +121,6 @@
               .fas.fa-list-ul
               = link_to "簡易リスト"
         .shop-review-list
-
         - if @reviews.present?
           = render @reviews
         - else

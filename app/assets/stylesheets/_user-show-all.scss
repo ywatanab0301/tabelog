@@ -526,7 +526,78 @@
             padding: 0 0 3px;
             .shop-review-score {
               display: flex;
-
+              .far.fa-moon{
+                  color: #ffd700;
+                  padding: 7px 0 0 0;
+                }
+                .far.fa-sun{
+                  color: #ff8c00;
+                  padding: 7px 0 0 0;
+                }
+                  .shop_views-namespace__ratestar {
+                margin-left: 10px;
+                margin-top: 5px;
+                  span.star-actived{
+                    position: relative;
+                    display: inline-block;
+                    width: 10*$starHalf;
+                    height: 1.6*$starHalf;
+                    font-size: 1.8*$starHalf;
+                    &:before,&:after{
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      content: '★★★★★';
+                      display: inline-block;
+                      height: 1.6*$starHalf;
+                      line-height: 1.8*$starHalf;
+                    }
+                    &:before{
+                    color: #ddd;
+                    }
+                    &:after{
+                    color: #ffa500;
+                    overflow: hidden;
+                    white-space: nowrap;}
+                  }
+                  .rate-0:after{
+                    width: 0;
+                  }
+                  .rate-05:after{
+                    width: $starHalf
+                  }
+                  .rate-10:after{
+                    width: $rate1;
+                  }
+                  .rate-15:after{
+                    width: $rate1-5;
+                  }
+                  .rate-20:after{
+                    width: $rate2;
+                  }
+                  .rate-25:after{
+                    width: $rate2-5;
+                  }
+                  .rate-30:after{
+                    width: $rate3;
+                  }
+                  .rate-35:after{
+                    width: $rate3-5;
+                  }
+                  .rate-40:after{
+                    width: $rate4;
+                  }
+                  .rate-45:after{
+                    width: $rate4-5;
+                  }
+                  .rate-50:after{
+                    width: $rate5;
+                  }
+                  span.num{
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+              }
               .shop-review-rating-star {
                 font-size: 17px;
               }
@@ -568,14 +639,31 @@
           }
           .shop-review-price {
             padding-top: 3px;
+            position: relative;
 
             .shop-review-used-price {
               display: flex;
               font-size: 10px;
               color: $font_gray;
+              .far.fa-moon{
+                color: #ffd700;
+                margin: 2px 0 0 0;
+              }
+              .far.fa-sun{
+                color: #ff8c00;
+                margin: 2px 0 0 0;
+              }
             }
             .shop-price-range {
               padding-left: 5px;
+            .far.fa-moon{
+                color: #ffd700;
+                margin: 2px 0 0 0;
+              }
+              .far.fa-sun{
+                color: #ff8c00;
+                margin: 2px 0 0 0;
+              }
             }
           }
         }
@@ -624,7 +712,14 @@
 
               .shop-review-score {
                 display: flex;
-
+                  .far.fa-moon{
+                  color: #ffd700;
+                  margin: 10px 5px 0 0;
+                }
+                .far.fa-sun{
+                  color: #ff8c00;
+                  margin: 10px 5px 0 0;
+                }
                 .shop-review-rating-point {
                   color: $font_bright_red;
                   font-size: 12px;
@@ -736,13 +831,52 @@
               padding: 10px 15px;
               display: flex;
               justify-content: space-between;
-
-              button.shop-review-post-like-wannago__buttons--like {
-                background-color: $sub_orange;
-                color: $white;
-                padding: 2px 10px 2px 10px;
-                font-weight: bold;
-                border-radius: 5px;
+              .like-link{
+                  .likeing{
+                .fa.fa-heart {
+                    font-weight: bold;
+                    font-size: 110%;
+                    background-color: #c4c4c4;
+                    color: $white;
+                    box-shadow: 0 1px 1px rgba(0,0,0,0.2) inset;
+                    text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+                    vertical-align: middle;
+                    line-height: 30px;
+                    border-radius: 3px 3px;
+                    width: 12.3em;
+                    height: 100%;
+                    text-align: center;
+                    border: none;
+                  }
+                  .far.fa-heart {
+                    font-weight: bold;
+                    font-size: 110%;
+                    background-color: #ff9600;
+                    color: $white;
+                    box-shadow: 0 1px 1px rgba(0,0,0,0.2) inset;
+                    text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+                    vertical-align: middle;
+                    line-height: 30px;
+                    border-radius: 3px 3px;
+                    width: 7.3em;
+                    height: 100%;
+                    text-align: center;
+                    border: none;
+                    position: relative;
+                  }
+                  .like_counter{
+                    display: inline-block;
+                    bottom: 22px;
+                    left: 120px;
+                    font-size: 14px;
+                  }
+                  .afterlike_counter{
+                    display: inline-block;
+                    bottom: 22px;
+                    left: 172px;
+                    font-size: 14px;
+                  }
+                }
               }
               button.shop-review-post-like-wannago__buttons--wannago {
                 color: $font_gray;

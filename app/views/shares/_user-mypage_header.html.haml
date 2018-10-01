@@ -1,0 +1,56 @@
+.user-mypage-header-wrap
+  .user-mypage-header
+    .user-mypage-header__cover-image
+      .user-cover-image
+        - if @user.background_image?
+          = image_tag @user.background_image.url, class: "image"
+        - else
+          = image_tag "61450017_624.gif", class: "image"
+      .user-page-name
+        %p
+          = @user.nickname
+          のレストランガイド
+      - if user_signed_in?
+        - if @user.id == current_user.id
+          %a.rvwr-mypage-setting{ href: "/users/#{current_user.id}/edit", style: "color: black;"}
+            %span
+              レビュアーページ設定
+    .user-mypage-header__user-avatar
+      = link_to user_path(@user.id) do
+        - if @user.avatar?
+          = image_tag @user.avatar.url
+        - else
+          = image_tag "avatar_nophoto.gif"
+    .user-mypage-header-contents
+      .user-mypage-header-contents__image-wrap
+      .user-mypage-header-contents__info
+        .user-mypage-header-contents__userinfo
+          .user-mypage-header-contents__info--nickname
+            %a.username-mypage-link{ href:"/users/#{@user.id}", style:"color: black"}
+              = @user.nickname
+      .mypage-header-contents__headline
+        %ul.mypage-header-contents__headline-ul
+          %li.top-page-link
+            %a.top-page-link{ href: "/users/#{@user.id}", style: "color: #595960;"}
+              %span
+                トップ
+          %li.gone-shop-link
+            %a.top-page-link{ href: "/users/#{@user.id}/show_gone", style: "color: #595960;"}
+              %span
+                行ったお店
+          %li.wannago-shop-link
+            %a.top-page-link{ href: "/users/#{@user.id}/show_wannago", style: "color: #595960;"}
+              %span
+                行きたいお店
+          %li.matome-link
+            %a.top-page-link{ href: "#", style: "color: #595960;"}
+              %span
+                まとめ
+          %li.following-link
+            %a.top-page-link{ href: "/following/#{@user.id}", style: "color: #595960;"}
+              %span
+                フォロー中
+          %li.followers-link
+            %a.top-page-link{ href: "/followers/#{@user.id}", style: "color: #595960;"}
+              %span
+                フォロワー

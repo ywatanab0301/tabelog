@@ -36,11 +36,12 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :avatar, :background_image)
+    params.require(:user).permit(:nickname, :avatar, :background_image, :wants_count)
   end
 
   def set_user
     @user = User.find(params[:id])
+    @wants = Want.where(user_id: @user.id).all
   end
 
 end

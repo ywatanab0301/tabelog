@@ -52,6 +52,7 @@ class ShopsController < ApplicationController
   end
 
   def top_page
+    @shopes = Shop.order("created_at DESC")
     @shops = Shop.where('shop_name LIKE(?)', "%#{params[:keyword]}%")
     @reviews = Review.count
     respond_to do |format|

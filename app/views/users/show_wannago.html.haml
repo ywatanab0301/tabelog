@@ -28,61 +28,7 @@
               %p
                 行きたい一覧
 
-    .user-mypage-header-wrap
-      .user-mypage-header
-        .user-mypage-header__cover-image
-          .user-cover-image
-            - if @user.background_image?
-              = image_tag @user.background_image.url, class: "image"
-            - else
-              = image_tag "61450017_624.gif", class: "image"
-          .user-page-name
-            %p
-              = @user.nickname
-              のレストランガイド
-          - if @user.id == current_user.id
-            %a.rvwr-mypage-setting{ href: "/users/#{current_user.id}/edit", style: "color: black;"}
-              %span
-                レビュアーページ設定
-        .user-mypage-header__user-avatar
-          = link_to user_path(@user.id) do
-            -if @user.avatar?
-              = image_tag @user.avatar.url
-            -else
-              = image_tag "avatar_nophoto.gif"
-        .user-mypage-header-contents
-          .user-mypage-header-contents__image-wrap
-          .user-mypage-header-contents__info
-            .user-mypage-header-contents__userinfo
-              .user-mypage-header-contents__info--nickname
-                %a.username-mypage-link{ href:"/users/#{@user.id}", style:"color: black"}
-                  = @user.nickname
-          .mypage-header-contents__headline
-            %ul.mypage-header-contents__headline-ul
-              %li.top-page-link
-                %a.top-page-link{ href: "/users/#{@user.id}", style: "color: #595960;"}
-                  %span
-                    トップ
-              %li.gone-page-gone-shop-link
-                %a.top-page-link{ href: "/users/#{@user.id}/show_gone", style: "color: #595960;"}
-                  %span
-                    行ったお店
-              %li.wannago-page-wannago-shop-link
-                %a.top-page-link{ href: "/users/#{@user.id}/show_wannago", style: "color: #595960;"}
-                  %span
-                    行きたいお店
-              %li.matome-link
-                %a.top-page-link{ href: "#", style: "color: #595960;"}
-                  %span
-                    まとめ
-              %li.following-link
-                %a.top-page-link{ href: "/following/#{@user.id}", style: "color: #595960;"}
-                  %span
-                    フォロー中
-              %li.followers-link
-                %a.top-page-link{ href: "/followers/#{@user.id}", style: "color: #595960;"}
-                  %span
-                    フォロワー
+    = render partial: "shares/user-mypage_header"
   .user-page-content
     .user-page-content__side
       .user-page-content__side__top
@@ -158,39 +104,6 @@
                 50
               %option
                 100
+      = render 'wants/index', shop: @shop
 
-      .user-mypage-wannago-shops
-        .gone-wannago-buttons
-          .button-gone
-            %button.shop-review-post-like-wannago__buttons--gone
-              %i.fas.fa-heart
-              行った
-          .button-wannago
-            %button.shop-review-post-like-wannago__buttons--wannago
-              %i.fas.fa-thumbtack
-              行きたい
-        .user-mypage-wannago-shops-left
-          .user-mypage-wannago-shops__image
-            = image_tag "avatar_nophoto.gif"
-        .user-mypage-wannago-shops-right
-          .user-mypage-wannago-shops__shop-name
-            %p
-              みやび屋
-          .user-mypage-wannago-shops__info1
-            .user-mypage-wannago-shops__info--station
-              小伝馬町、
-            .user-mypage-wannago-shops__info--genre
-              スープカレー
-          .user-mypage-wannago-shops__rate
-            .user-mypage-wannago-shops__rate--star
-              ⭐⭐⭐⭐⭐
-            .user-mypage-wannago-shops__rate--score
-              3.13
-          .user-mypage-wannago-shops__info2
-            .user-mypage-wannago-shops__info2--budget-dinner
-              🌃 ¥4,000〜¥4,999
-            .user-mypage-wannago-shops__info2--budget-lunch
-              🌅 〜¥999
-            .user-mypage-wannago-shops__info2--budget-off
-              ㉁ 日曜日、祝日
 = render partial: 'shares/footer'

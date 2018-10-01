@@ -1,0 +1,3 @@
+$("<%= @id_name %>").html('<%= escape_javascript(render("wants/want_links", shop: @shop  )) %>');
+$("<%= @id_thumbtack %>").removeClass('glyphicon-thumbtack-empty');
+$("<%= @id_thumbtack %>").addClass('glyphicon-thumbtack');
