@@ -74,15 +74,26 @@
               - shop.genres.each do |genre|
                 %p.shop_genre
                   = genre.name
-            .content__main__shop__each__header__buttons
-              %a{href: "#{new_shop_review_path(shop.id)}"}
-                %button.shops_index_gone
-                  .fa.fa-heart
-                  行った
-              %a{href: "#{new_shop_review_path(shop.id)}"}
-                %button.shops_index_wannago
-                  .fa.fa-map-pin
-                  行きたい
+            - if user_signed_in?
+              .content__main__shop__each__header__buttons
+                %a{href: "#{new_shop_review_path(shop.id)}"}
+                  %button.shops_index_gone
+                    .fa.fa-heart
+                    行った
+                %a{href: "#{new_shop_review_path(shop.id)}"}
+                  %button.shops_index_wannago
+                    .fa.fa-map-pin
+                    行きたい
+            - else
+              .content__main__shop__each__header__buttons
+                %a{href: "#{new_user_registration_path}"}
+                  %button.shops_index_gone
+                    .fa.fa-heart
+                    行った
+                %a{href: "#{new_user_registration_path}"}
+                  %button.shops_index_wannago
+                    .fa.fa-map-pin
+                    行きたい
           .content__main__shop__each__body
             .content__main__shop__each__body__left
               .content__main__shop__each__body__left__frame=

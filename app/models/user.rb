@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
 # association
   has_many :reviews, dependent: :destroy
-  has_many :like_reviews, through: :likes, source: :review
+  has_many :like_reviews, through: :likes, source: :review,dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :reservations, dependent: :destroy
   has_many :relationships, dependent: :destroy
@@ -19,6 +19,8 @@ class User < ApplicationRecord
   # こちらが受動的関係、、フォローしているユーザーを取り出す
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
+  has_many :wants, dependent: :destroy
+  has_many :shops, through: :wants
 
 
     def following?(other_user)
