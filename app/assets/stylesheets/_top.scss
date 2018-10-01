@@ -195,8 +195,15 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
               font-weight: bold;
               text-align: right;
               flex-grow: 1;
+              display: flex;
               .navi-count {
                 font-size: 1rem;
+                margin-left: 400px;
+              }
+              button.navi-postbtn{
+                font-size: 1rem;
+                margin-left: 20px;
+                border-radius: 3px 3px;
               }
             }
           }
