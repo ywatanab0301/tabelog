@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 20180927154458) do
     t.float    "rate",         limit: 24,    null: false
     t.float    "food_rate",    limit: 24,    null: false
     t.float    "service_rate", limit: 24,    null: false
-    t.float    "drink_rate",   limit: 24,    null: false
     t.float    "atmosphere",   limit: 24,    null: false
     t.float    "cp_rate",      limit: 24,    null: false
     t.string   "title",                      null: false
@@ -72,6 +71,7 @@ ActiveRecord::Schema.define(version: 20180927154458) do
     t.datetime "visit_day",                  null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.float    "drink_rate",   limit: 24,    null: false
     t.string   "pic1"
     t.string   "pic2"
     t.string   "pic3"

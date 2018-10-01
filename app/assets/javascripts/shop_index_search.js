@@ -1,23 +1,13 @@
 // 選択肢を出す
-function select() {
-  var show = $(".content__side__top__area__box").show();
-  var hide = $('.content__side__top__area__box').hide();
-
-  $(".content__side__top__area__main").hover(show);
-  $(".content__main").hover(hide);
-
-  return select;
-};
-
-// $(function() {
-//   $(".content__side__top__area__main").hover(function(){
-//     $(this).next('.content__side__top__area__box').show();
-//   }, function(){
-//     $(".content__main").hover(function(){
-//       $('.content__side__top__area__box').hide();
-//     })
-//   });
-// });
+$(function() {
+  $(".content__side__top__area__main").hover(function(){
+    $(this).next('.content__side__top__area__box').show();
+  }, function(){
+    $(".content__main").hover(function(){
+      $('.content__side__top__area__box').hide();
+    })
+  });
+});
 
 
 $(function() {
