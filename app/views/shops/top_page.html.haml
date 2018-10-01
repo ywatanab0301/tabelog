@@ -48,15 +48,16 @@
                   %a#open-user-setting.user-menu__target.user-menu__target--dropdown.user-menu__target--user-image{href: "/users/#{current_user.id}"}
                     %img{ alt: "", height: "27" ,src: "#{current_user.avatar}", width: "27"}
                   %i.fas.fa-sort-down
-                    %ul.setting-list
-                      %li.setting-list__item
-                        %a.setting-list__target{href: "#"} フォロー中一覧
-                      %li.setting-list__item
-                        %a.setting-list__target{href: "#"} 下書き一覧
-                      %li.setting-list__item
-                        %a.setting-list__target{href: "#"} 設定
-                      %li.setting-list__item
-                        %a.setting-list__target{href: "#"} ログアウト
+                    #menu
+                      %ul.setting-list
+                        %li.setting-list__item
+                          %a.setting-list__target{href: "#"} フォロー中一覧
+                        %li.setting-list__item
+                          %a.setting-list__target{href: "#"} 下書き一覧
+                        %li.setting-list__item
+                          %a.setting-list__target{href: "#"} 設定
+                        %li.setting-list__item
+                          %a.setting-list__target{href: "#"} ログアウト
 
             - else
               %ul.user-menu.js-exec-welcome
