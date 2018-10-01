@@ -10,15 +10,16 @@
         %p
           = @user.nickname
           のレストランガイド
-      - if @user.id == current_user.id
-        %a.rvwr-mypage-setting{ href: "/users/#{current_user.id}/edit", style: "color: black;"}
-          %span
-            レビュアーページ設定
+      - if user_signed_in?
+        - if @user.id == current_user.id
+          %a.rvwr-mypage-setting{ href: "/users/#{current_user.id}/edit", style: "color: black;"}
+            %span
+              レビュアーページ設定
     .user-mypage-header__user-avatar
       = link_to user_path(@user.id) do
-        -if @user.avatar?
+        - if @user.avatar?
           = image_tag @user.avatar.url
-        -else
+        - else
           = image_tag "avatar_nophoto.gif"
     .user-mypage-header-contents
       .user-mypage-header-contents__image-wrap

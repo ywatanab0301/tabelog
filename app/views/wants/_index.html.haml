@@ -1,0 +1,42 @@
+
+- @wants.each do |want|
+  - @shop = Shop.find(want.shop_id)
+  .user-mypage-wannago-shops
+    .gone-wannago-buttons
+      .button-gone
+        %button.shop-review-post-like-wannago__buttons--gone
+          %i.fas.fa-heart
+          行った
+      .button-wannago
+        .shop-review-post-like-wannago__buttons--wannago
+          = render partial: 'wants/want_links', locals: {shop: @shop}
+    .user-mypage-wannago-shops-left
+      .user-mypage-wannago-shops__image
+        = image_tag @shop.pic1
+    .user-mypage-wannago-shops-right
+      %a.user-mypage-wannago-shops__shop-name{ href: "/shops/#{want.shop.id}"}
+        = @shop.shop_name
+      .user-mypage-wannago-shops__info1
+        .user-mypage-wannago-shops__info--station
+          = @shop.city_address
+        .user-mypage-wannago-shops__info--genre
+          - want.shop.genres.each do |genre|
+            = genre.name
+      .user-mypage-wannago-shops__rate
+        .user-mypage-wannago-shops__rate--star
+          ⭐⭐⭐⭐⭐
+        .user-mypage-wannago-shops__rate--score
+          3.1
+          / = @shop.reviews.rate.round(1) unless @shop.reviews.rate == nil
+      .user-mypage-wannago-shops__info2
+        .user-mypage-wannago-shops__info2--budget-dinner
+          🌃
+          - want.shop.budgets.each do |budget|
+            = budget.name
+        .user-mypage-wannago-shops__info2--budget-lunch
+          🌅
+          - want.shop.budgets.each do |budget|
+            = budget.name
+        .user-mypage-wannago-shops__info2--budget-off
+          %span ㉁
+          = @shop.closed_day
