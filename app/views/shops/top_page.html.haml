@@ -14,23 +14,11 @@
                   %a#open-message-notification.user-menu__target.user-menu__target--dropdown{ href: "#"}
                     %span.user-menu__text
                       メッセージ
-                  / #message-notification.user-menu__popup.user-menu__popup--notification.js-exec-notification-box
-                  /   .balloon.balloon--top
-                  /     #message-notification-list.notification-list
-                  /     .notification-bottom
-                  /       %a#message-link.c-link-circle{href: "#"}
-                  /         %span
-                  /           %strong> 受信メッセージ一覧
-                  /           を見る
-                %li.user-menu__item
-                  %a#open-information-notification.user-menu__target.user-menu__target--dropdown{ href: "#"}
-                    %span.user-menu__text お知らせ
-                  %i.fas.fa-sort-down
-                    %ul.notification-sort__box
-                      %li#selector-comment.notification-sort__tab.notification-sort__tab--comment.gly-b-conversation
-                        %span.notification-sort__text コメント
-                      %li#selector-other.notification-sort__tab.notification-sort__tab--other.gly-b-tabelike.is-selected
-                        %span.notification-sort__text いいね！ほかの通知をもっと見る
+                    / %ul.notification-sort__box{:ontouchstart => ""}
+                    /   %li#selector-comment.notification-sort__tab.notification-sort__tab--comment.gly-b-conversation
+                    /     %span.notification-sort__text コメント
+                    /   %li#selector-other.notification-sort__tab.notification-sort__tab--other.gly-b-tabelike.is-selected
+                    /     %span.notification-sort__text いいね！ほかの通知をもっと見る
                 %li.user-menu__item
                   %a.user-menu__target{ href: "#"}
                     %span.user-menu__text Tpoint
@@ -47,17 +35,10 @@
                 %li.user-menu__item.user-menu__item--setting
                   %a#open-user-setting.user-menu__target.user-menu__target--dropdown.user-menu__target--user-image{href: "/users/#{current_user.id}"}
                     %img{ alt: "", height: "27" ,src: "#{current_user.avatar}", width: "27"}
-                  %i.fas.fa-sort-down
-                    #menu
-                      %ul.setting-list
-                        %li.setting-list__item
-                          %a.setting-list__target{href: "#"} フォロー中一覧
-                        %li.setting-list__item
-                          %a.setting-list__target{href: "#"} 下書き一覧
-                        %li.setting-list__item
-                          %a.setting-list__target{href: "#"} 設定
-                        %li.setting-list__item
-                          %a.setting-list__target{href: "#"} ログアウト
+                %li.user-menu__item
+                  %ul.dropdawn-notice
+                    %li.dropdawn-content
+                      = render 'top_drop_down'
 
             - else
               %ul.user-menu.js-exec-welcome
@@ -75,7 +56,6 @@
                   %a.user-menu__text{ href: "#"} 行った・行きたい
                 %li.user-menu__item
                   %a.user-menu__text{ href: "/users/sign_in"} ログイン
-
       .top-header
         .top-header__visual.js-top-main-visual-image
           .top-header__image
