@@ -120,6 +120,22 @@ html {
       }
     }
   }
+  #searchAddressBtn {
+    margin-top: 5px;
+  }
+
+  #shop_latitude {
+    margin-top: 5px;
+    width: 70%;
+  }
+
+  #shop_longitude {
+    width: 70%;
+  }
+  // tr.google-map {
+  //   height: 200px;
+  //   border-bottom: 1px solid $newshop_line;
+  // }
   .p.attention{
     color: red;
     font-size: 12px;
