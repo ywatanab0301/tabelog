@@ -21,6 +21,10 @@ class Shop < ApplicationRecord
   mount_uploader :menu_image_4, ImageUploader
   mount_uploader :menu_image_5, ImageUploader
 
+  #geocoder が city_address から経度・緯度を取得
+  geocoded_by :city_address
+  after_validation :geocode, if: :city_address_changed?
+
   def star_review_average
     reviews.average(:rate).round if reviews.present?
   end

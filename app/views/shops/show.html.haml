@@ -33,7 +33,9 @@
             %span
               口コミ
         %li.shops-top-shop_lists__map
-          地図
+          %a.map-link{ href: "/shops/#{@shop.id}/show_map", style: "color: #595960;"}
+            %span
+              地図
     .shop_main
       .shop_main-left
         - if @shop.pic1? || @shop.pic2? || @shop.pic3? || @shop.pic4? || @shop.pic5?

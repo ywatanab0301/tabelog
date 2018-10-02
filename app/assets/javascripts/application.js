@@ -16,3 +16,6 @@
 //= require_tree .
 //= require popper
 //= require bootstrap-sprockets
+
+//= require gmaps/google
+//= require underscore
