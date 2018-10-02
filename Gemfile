@@ -62,6 +62,9 @@ gem 'fog-aws'
 #Other
 gem 'kaminari'
 gem 'pry-rails'
+gem 'geocoder'
+gem 'gmaps4rails'
+gem "gon"
 
 
 group :development, :test do
