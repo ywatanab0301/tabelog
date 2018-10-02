@@ -256,8 +256,9 @@
                         %a.c-link-circle{ href:"#"}
                           %span 海外のお店を探す
                       %li.top-search__morelink-item
-                        %a.c-link-circle{ href:"#"}
-                          %span 全国のお店を探す
+                        %a.c-link-circle
+                          = link_to shops_path do
+                            %span 全国のお店を探す
             %section#js-timeline.top-timeline
               #timeline-header.top-timeline__heading
                 %h3.top-text.top-text.js-text-title
