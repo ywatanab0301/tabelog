@@ -18,7 +18,9 @@
       %a.span.location-link__shopmenu{href: "#{show_menu_shop_path(@shop.id)}"}
         = image_tag 'location_arrow.png'
         料理メニュー
+
     = render partial: 'shares/shop_subheader'
+
     .shop_lists
       %ul.header_list
         %li.menu-shop_lists__top
@@ -66,8 +68,7 @@
                         = @shop.menu_name_1
                       .shop-menu-price
                         %p.shop-menu-price-number
-                          = @shop.menu_price_1
-                          円
+                          = converting_to_jpy(@shop.menu_price_1)
                     .shop-menu-content-bottom
                       .shop-menu-detail
                         = @shop.menu_detail_1
@@ -82,8 +83,7 @@
                         = @shop.menu_name_2
                       .shop-menu-price
                         %p.shop-menu-price-number
-                          = @shop.menu_price_2
-                          円
+                          = converting_to_jpy(@shop.menu_price_2)
                     .shop-menu-content-bottom
                       .shop-menu-detail
                         = @shop.menu_detail_2
@@ -98,8 +98,7 @@
                         = @shop.menu_name_3
                       .shop-menu-price
                         %p.shop-menu-price-number
-                          = @shop.menu_price_3
-                          円
+                          = converting_to_jpy(@shop.menu_price_3)
                     .shop-menu-content-bottom
                       .shop-menu-detail
                         = @shop.menu_detail_3
@@ -114,8 +113,7 @@
                         = @shop.menu_name_4
                       .shop-menu-price
                         %p.shop-menu-price-number
-                          = @shop.menu_price_4
-                          円
+                          = converting_to_jpy(@shop.menu_price_4)
                     .shop-menu-content-bottom
                       .shop-menu-detail
                         = @shop.menu_detail_4
@@ -130,8 +128,7 @@
                         = @shop.menu_name_5
                       .shop-menu-price
                         %p.shop-menu-price-number
-                          = @shop.menu_price_5
-                          円
+                          = converting_to_jpy(@shop.menu_price_5)
                     .shop-menu-content-bottom
                       .shop-menu-detail
                         = @shop.menu_detail_5

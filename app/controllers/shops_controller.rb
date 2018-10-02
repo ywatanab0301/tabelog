@@ -1,15 +1,18 @@
 class ShopsController < ApplicationController
-  before_action :set_shop_info, only: [:show_menu, :show_reviews, :show_map, :sort_popular, :sort_visit, :sort_dinner, :sort_lunch, :show]
+
+  before_action :set_index, only: [:index]
+  before_action :set_resources, only: [:show_menu, :show_reviews, :show_map, :sort_popular, :sort_visit, :sort_dinner, :sort_lunch, :show]
 
   def index
     if params[:search].present?
-      @shops = Shop.search(params[:search]).order("created_at DESC").page(params[:page]).per(10)
+      @shops = Shop.search(params[:search]).order("created_at DESC")
+      @shops_page = Kaminari.paginate_array(@shops).page(params[:page]).per(10)
+    else
+      @shops = Shop.shopsearch(@prefecture_id, @genre_id).sort.reverse
+      @shops_page = Kaminari.paginate_array(@shops).page(params[:page]).per(10)
+    end
       @search_result = params[:search]
       @reviews = Review.count
-    else
-      @shops = Shop.order("created_at DESC").page(params[:page]).per(10)
-      @reviews = Review.count
-    end
   end
 
   def new
@@ -22,7 +25,7 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @reviews = @shop.reviews.includes(:budgets, :user).order('created_at DESC')
+    @reviews = @shop.reviews.includes(:user).order('created_at DESC')
   end
 
   def destroy
@@ -37,7 +40,6 @@ class ShopsController < ApplicationController
   def show_reviews
     if params[:search].present?
       @reviews = @shop.reviews.where('text LIKE(?)', "%#{params[:search]}%")
-
     else
       @reviews = @shop.reviews.includes(:user).order('created_at DESC')
     end
@@ -55,6 +57,7 @@ class ShopsController < ApplicationController
   end
 
   def top_page
+    @shopes = Shop.order("created_at DESC")
     @shops = Shop.where('shop_name LIKE(?)', "%#{params[:keyword]}%")
     @reviews = Review.count
     respond_to do |format|
@@ -114,15 +117,21 @@ class ShopsController < ApplicationController
       :sub_prtext,
       :station,
       :latitude,
-      :longitude)
+      :longitude,
+      :shop_id)
   end
 
-  def set_shop_info
+  def set_resources
     @shop = Shop.find(params[:id])
     @prefecture = @shop.prefectures
     @genre = @shop.genres
     @budget = @shop.budgets
     gon.shop = @shop
+  end
+
+  def set_index
+    @prefecture_id = params[:prefecture_id]
+    @genre_id = params[:genre_id]
   end
 
 end

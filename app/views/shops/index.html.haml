@@ -3,59 +3,63 @@
   .location__left
     %ul
       %li.fa.fa-home
-      = link_to shops_path do
-        %li 食べログ
-      %li
-      = link_to " > レストラン一覧", shops_path
-  .location__right
-    %ul
-    = link_to '#' do
-      %li
-      = @shops.count
-      店舗
+        = link_to shops_path do
+          %li 食べログ
+        %li
+        = link_to " > レストラン一覧", shops_path
+
 .content
   .content__side
     .content__side__top
-      .content__side__top__area
-        .content__side__top__area__header エリアから探す
-        .content__side__top__area__main 全国
-        .content__side__top__area__footer
-          %a.target{href: "#"} このエリアを地図で見る
-      .content__side__top__genre
-        .content__side__top__genre__header ジャンルから探す
-        .content__side__top__genre__main すべて
+      = form_tag( shops_path, method: :get) do
+        .content__side__top__area
+          .content__side__top__area__header エリアから探す
+          .content__side__top__area__main 全国
+          .content__side__top__area__box
+            %p.title 都道府県から探す
+            - Prefecture.all.each do |option|
+              = radio_button_tag :prefecture_id, option.id, option.id.to_s == @prefecture_id
+              = label_tag "prefecture_id_#{option.id}", option.name
+          .content__side__top__area__footer
+            %a.target{href: "#"} このエリアを地図で見る
+        .content__side__top__genre
+          .content__side__top__genre__header ジャンルから探す
+          .content__side__top__genre__main すべて
+          .content__side__top__genre__box
+            %p.title ジャンルから探す
+            - Genre.all.each do |option|
+              = radio_button_tag :genre_id, option.id, option.id.to_s == @genre_id
+              = label_tag "genre_id_#{option.id}", option.name
+
+        %button.btn-search{title: "検索する", type: "submit"} 検索する
+
+
   .content__main
     .content__main__header
       .content__main__header__title
-        %span.title 全国のお店、レストラン
-        %span.count
-          = @shops.count
-        %span.unit 件
+        %span.area 全国
+        %span.no の
+        %span.genre お店、レストラン
       %a.search_form{href: "#{new_shop_path}"}
         検索条件を変更
     %ul.nav.nav-tabs
       %li.nav-item.origin
-        %a.nav-link{href: "#"}
+        = link_to shops_path do
           .fa.fa-utensils
           %span 標準【会員店舗優先】
       %li.nav-item.rank
-        %a.nav-link{href: "#"}
+        %a.nav-link.rank
           .fa.fa-chess-king
           %span ランキング
       %li.nav-item.review
-        %a.nav-link{href: "#"}
+        %a.nav-link.review
           .fa.fa-comment
           %span 口コミ数
     .content__main__list
       %span.page-count
-      1 ~
       = @shops.count
-      件を表示
-      %span ／
-      %span.shop.count
-      全
-      = @shops.count
-      件
+      %span.page-count 件を表示
+
     .content__main__shop
       - @shops.each do |shop|
         .content__main__shop__each
@@ -70,15 +74,26 @@
               - shop.genres.each do |genre|
                 %p.shop_genre
                   = genre.name
-            .content__main__shop__each__header__buttons
-              %a{href: "#{new_shop_review_path(shop.id)}"}
-                %button.shops_index_gone
-                  .fa.fa-heart
-                  行った
-              %a{href: "#{new_shop_review_path(shop.id)}"}
-                %button.shops_index_wannago
-                  .fa.fa-map-pin
-                  行きたい
+            - if user_signed_in?
+              .content__main__shop__each__header__buttons
+                %a{href: "#{new_shop_review_path(shop.id)}"}
+                  %button.shops_index_gone
+                    .fa.fa-heart
+                    行った
+                %a{href: "#{new_shop_review_path(shop.id)}"}
+                  %button.shops_index_wannago
+                    .fa.fa-map-pin
+                    行きたい
+            - else
+              .content__main__shop__each__header__buttons
+                %a{href: "#{new_user_registration_path}"}
+                  %button.shops_index_gone
+                    .fa.fa-heart
+                    行った
+                %a{href: "#{new_user_registration_path}"}
+                  %button.shops_index_wannago
+                    .fa.fa-map-pin
+                    行きたい
           .content__main__shop__each__body
             .content__main__shop__each__body__left
               .content__main__shop__each__body__left__frame
@@ -109,7 +124,8 @@
                 .fa.fa-comments
                 %a.review
                 = link_to "/shops/#{shop.id}/show_reviews" do
-                  = shop.reviews.count
+                  %span.count
+                    = shop.reviews.count
               .content__main__shop__each__body__right__review
                 %a.title
                 = link_to "/shops/#{shop.id}/show_reviews" do
@@ -120,5 +136,5 @@
                 %p.review.js-text-overflow
                   = shop.show_last_review
     .content__main__page
-      = paginate @shops
+      = paginate @shops_page
 = render partial: 'shares/footer'

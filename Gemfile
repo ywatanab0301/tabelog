@@ -65,6 +65,7 @@ gem 'pry-rails'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem "gon"
+gem 'mechanize'
 
 
 group :development, :test do

@@ -26,6 +26,7 @@
 @import "./header" ;
 @import "./footer" ;
 @import "./like";
+@import "./wants";
 @import "./show_follower";
 @import "./flexslider" ;
 @import "./user-show-all" ;
@@ -251,8 +252,6 @@ article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, 
 
 .contents.contents--fixed {
   padding-right: 0;
-  padding-left: 155px;
-  width: 980px;
 }
 
 .contents {

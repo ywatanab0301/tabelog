@@ -2,12 +2,9 @@
 .useredit
   .location-link
     = link_to "食べログ", destroy_user_session_path, method: :delete
-    %span.location-link__reviewer
-      > 食べログレビュアー
     %span.location-link__username
-      > #{@user.nickname} さん
-    %span.location-link__reviewsetting
-      > レビュアー設定
+      %a{href: "#{user_path(@user.id)}", style: "color: black"}
+        > #{@user.nickname} さん
     %span.location-link__profile
       > プロフィール
   .useredit-box

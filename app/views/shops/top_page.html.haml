@@ -120,11 +120,13 @@
                   .top-search__data-count
 
                     .navi-count
-                      = @shops.count
+                      = @shopes.count
                       店舗
                       = @reviews
                       口コミ
-
+                    %a{href: "#{new_shop_path}", style: "color: black"}
+                      %button.navi-postbtn
+                        新しくお店を登録
                 .top-search__contents
                   .top-search__contents-title 都道府県から探す
                   .js-hotarea-icon.top-search__hotarea
@@ -275,8 +277,9 @@
                         %a.c-link-circle{ href:"#"}
                           %span 海外のお店を探す
                       %li.top-search__morelink-item
-                        %a.c-link-circle{ href:"#"}
-                          %span 全国のお店を探す
+                        %a.c-link-circle
+                          = link_to shops_path do
+                            %span 全国のお店を探す
             %section#js-timeline.top-timeline
               #timeline-header.top-timeline__heading
                 %h3.top-text.top-text.js-text-title
@@ -294,7 +297,7 @@
               - if user_signed_in?
                 #js-timeline-contents.timeline-contents
                   .timeline.timeline-body.js-timeline-box.is-visible
-                    - @shops.each do |shop|
+                    - @shopes.first(5).each do |shop|
                       - shop.reviews.first(5).each do |review|
                         - if review.user_id == current_user.id
                           .timeline-inner

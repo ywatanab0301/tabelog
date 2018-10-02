@@ -27,18 +27,20 @@
 .content{
   margin: 0 auto;
   width: 980px;
+  display: flex;
 }
 
 .content__side{
-  float: left;
   width: 190px;
   &__top{
+    position: absolute;
     margin-bottom: 16px;
     padding: 8px;
     border-radius: 4px;
-    width: 100%;
+    width: 190px;
     background-color: $shopindex_back;
     &__area{
+      position: relative;
       margin-bottom: 8px;
       padding-bottom: 8px;
       border-radius: 4px;
@@ -58,6 +60,34 @@
         border-left: solid 1px $shopindex_orange;
         font-weight: bold;
         font-size: 15px;
+      }
+      &__box {
+        z-index: 1;
+        display: none;
+        position: absolute;
+        padding: 16px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 4px;
+        background: $white;
+        color: $blue;
+        width: 610px;
+        margin-left: 200px;
+        margin-top: -100px;
+        border: 1px solid #d2d2d2;
+        p.title{
+          margin-bottom: 12px;
+          padding: 8px 12px;
+          font-weight: bold;
+          background: #faf8f5;
+          border-top: 1px solid #eeece4;
+          border-bottom: 1px solid #eeece4;
+          font-size: 1.3rem;
+          color: #595960;
+        }
+        label{
+          padding-right: 7px
+        }
       }
       &__footer{
         padding: 12px 2px;
@@ -91,19 +121,48 @@
         font-weight: bold;
         font-size: 15px;
       }
+      &__box {
+        z-index: 1;
+        display: none;
+        position: absolute;
+        padding: 16px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 4px;
+        background: $white;
+        color: $blue;
+        width: 610px;
+        margin-left: 200px;
+        margin-top: -50px;
+        border: 1px solid #d2d2d2;
+        p.title{
+          margin-bottom: 12px;
+          padding: 8px 12px;
+          font-weight: bold;
+          background: #faf8f5;
+          border-top: 1px solid #eeece4;
+          border-bottom: 1px solid #eeece4;
+          font-size: 1.3rem;
+          color: #595960;
+        }
+        label{
+          padding-right: 7px
+        }
+      }
     }
+
   }
 }
 
 .content__main{
-  float: right;
+  margin-left: 20px;
   width: 770px;
   &__header{
     padding: 18px 20px 20px;
     border-top: 3px solid $shopindex_border;
     background-color: $newshop_background;
     &__title{
-      span.title{
+      span.area, span.no, span.genre{
         font-size: 17px;
         font-weight: bold;
       }
@@ -144,35 +203,54 @@
     li.nav-item.origin{
       background-color: $white;
       border-top: 1px solid $index_red;
-      a.nav-link{
+      position: relative;
+      a{
         color: $index_red;
-        font-weight: bold;
         text-align: center;
+        text-decoration: none;
+        position: absolute;
+        width: 180px
       }
     }
     li.nav-item.rank{
       border-top: 1px solid $shopindex_border;
       width: 180px;
-      a.nav-link{
+      position: relative;
+      a.nav-link.rank{
         color: $black;
         text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%,-50%);
+        -webkit-transform : translate(-50%,-50%);
+        transform : translate(-50%,-50%);
+        width: 180px
       }
     }
     li.nav-item.review{
       border-top: 1px solid $shopindex_border;
       border-right: 1px solid $shopindex_border;
       width: 180px;
-      a.nav-link{
+      position: relative;
+      a.nav-link.review{
         color: $black;
         text-align: center;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%,-50%);
+        -webkit-transform : translate(-50%,-50%);
+        transform : translate(-50%,-50%);
+        width: 180px
       }
     }
   }
 }
 
 .content__main__list{
-  padding-top: 10px;
-  padding-bottom: 6px;
+  padding: 15px 0 3px 10px ;
   font-size: 12px;
 }
 
@@ -359,7 +437,7 @@ $rate5 : 10*$starHalf;
         .rate-0:after{
           width: 0;
         }
-        .rate-5:after{
+        .rate-05:after{
           width: $starHalf
         }
         .rate-10:after{

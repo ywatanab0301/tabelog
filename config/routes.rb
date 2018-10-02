@@ -10,10 +10,8 @@ Rails.application.routes.draw do
   end
 
   resources :shops do
-    collection do
-      get :top_page
-    end
     member do
+      get :top_page
       get :show_menu
       get :show_reviews
       get :show_map
@@ -21,6 +19,8 @@ Rails.application.routes.draw do
       get :sort_popular
       get :sort_lunch
       get :sort_dinner
+      post 'wannago', to: 'wants#create'
+      get 'show_wannago' =>"wants#show_wannago"
     end
     resources :reviews, only: [:new, :create, :edit, :update, :destroy, :show]
   end
@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   resources :following, only: [:show]
   resources :followers, only: [:show]
   resources :relationships, only: [:create, :destroy]
+
+  post   '/want/:shop_id' => 'wants#want',   as: 'want'
+  delete '/want/:shop_id' => 'wants#notwant', as: 'notwant'
 
   post   '/like/:review_id' => 'likes#like',   as: 'like'
   delete '/like/:review_id' => 'likes#unlike', as: 'unlike'

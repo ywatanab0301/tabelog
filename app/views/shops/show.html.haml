@@ -15,7 +15,9 @@
         = image_tag 'location_arrow.png'
         %i.fas.fa-utensils
         = @shop.shop_name
+
     = render partial: 'shares/shop_subheader'
+
     .shop_lists
       %ul.shops-show-header_list
         %li.shops-top-shop_lists__top
@@ -36,7 +38,7 @@
               地図
     .shop_main
       .shop_main-left
-        -if @shop.pic1? || @shop.pic2? || @shop.pic3? || @shop.pic4? || @shop.pic5?
+        - if @shop.pic1? || @shop.pic2? || @shop.pic3? || @shop.pic4? || @shop.pic5?
           #slider.flexslider
             %ul.slides
               %li
@@ -73,34 +75,45 @@
         .shop_mainleft-review
           .shop_mainleft-review__title
             口コミ
-          .review-postbtn
-            %a.postbtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: white;"}
-              %span
-                投稿する
+          - if user_signed_in?
+            .review-postbtn
+              %a.postbtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: white;"}
+                %span
+                  投稿する
+          - else
+            .review-postbtn
+              %a.postbtn-link{ href: "#{new_user_registration_path}", style: "color: white;"}
+                %span
+                  投稿する
         .shop_mainleft-friend
           .shop_mainleft-friend__image
-            = image_tag current_user.avatar.url
+            = image_tag "avatar_nophoto.gif"
           .shop_mainleft-friend__text
             好みのあう人をフォローすると、その人のオススメのお店から探せます。
-        - @reviews.each do |review|
+        - @reviews.first(4).each do |review|
           %ul.pickup_review
             %li.pickup_review-avatar
               .pickup_review-avatar__icon
-                = image_tag review.user.avatar.url
+                %a{href: "#{user_path(review.user.id)}"}
+                  = image_tag review.user.avatar.url
               .pickup_review-avatar__nickname
-                = review.user.nickname
+                %a{href: "#{user_path(review.user.id)}"}
+                  = review.user.nickname
               .pickup_review-avatar__count
-                (
-                = review.user.followers.length
-                )
+                %a{href: "#{follower_path(review.user.id)}"}
+                  (
+                  = review.user.followers.length
+                  )
             %li.pickup_review-text
               .pickup_review-text__title
                 %span.review-title-showpage
-                  = review.title
+                  %a{href: "#{show_reviews_shop_path(@shop.id)}", style: "color: black;"}
+                    = review.title
               .pickup_review-text__text
                 %p.js-text-overflow
                   = review.text
               .pickup_review-text__continue
+                %a{href: "#{show_reviews_shop_path(@shop.id)}"}
                 = link_to "続きを読む"
               .pickup_review-text__icons
                 %span.pickup_review-text__heart
@@ -110,15 +123,16 @@
                   訪問
                   = review.visit_day.strftime('%Y/%m')
                 %span.pickup_review-text__ratestar
-                  %span{class: :"star-actived rate-#{review.rate.to_i * 10}"}
+                  %span{class: :"star-actived rate-#{review.rate.round * 10}"}
                   %span.num
                     = review.rate
         .shop_mainleft-morereview
           .shop_mainleft-morereview__link
-            口コミをもっと見る
-            （全
-            = @reviews.length
-            件）
+            %a{href: "#{show_reviews_shop_path(@shop.id)}"}
+              口コミをもっと見る
+              （全
+              = @reviews.length
+              件）
         .shop_mainleft-aroundshop
           .shop_mainleft-aroundshop__title
             [PR] 近くのお店
