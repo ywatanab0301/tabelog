@@ -40,15 +40,30 @@ $(function(){
   });
 });
 
+
 $(function(){
   $('.top-headline').on('mouseout',function(){
      // console.log("over！！！！");
-    $('.fas.fa-sort-down').css({
+    $('.btn').css({
+      backgroundColor: 'transparent'
+    });
+  });
+  $('.top-headline').on('mouseover',function(){
+    $('.btn').css({
+      backgroundColor:'white'
+    });
+  });
+});
+
+$(function(){
+  $('.top-headline').on('mouseout',function(){
+     // console.log("over！！！！");
+    $('.fa.fa-bell').css({
       color: '#fff'
     });
   });
   $('.top-headline').on('mouseover',function(){
-    $('.fas.fa-sort-down').css({
+    $('.fa.fa-bell').css({
       color: '#06c'
     });
   });
