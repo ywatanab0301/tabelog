@@ -1,18 +1,17 @@
 $(function() {
-  // 「Open」ボタンをクリック時に、fadeInメソッドでHTML要素を表示する
+
+
   $('.postbtn-link').on('click', function() {
     $('.overlay, .modalWindow').fadeIn();
   });
 
-  // 「Close」ボタンをクリック時に、fadeOutメソッドでHTML要素を非表示にする
   $('.close').on('click', function() {
     $('.overlay, .modalWindow').fadeOut();
   });
 
-  locateCenter();  // => モーダルウィンドウを中央配置するための初期値を設定する
-  $(window).resize(locateCenter);  // => ウィンドウのリサイズに合わせて、モーダルウィンドウの配置を変える
+  locateCenter();
+  $(window).resize(locateCenter);
 
-// モーダルウィンドウを中央配置するための配置場所を計算する関数
   function locateCenter() {
     let w = $(window).width();
     let h = $(window).height();
