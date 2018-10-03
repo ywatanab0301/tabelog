@@ -12,8 +12,6 @@
             メッセージ
           %li.upper__right-list__notice
             お知らせ
-          %li.upper__right-list__tpoint
-            = render 'shops/top_drop_down'
           %li.upper__right-list__confirm
             予約確認
           - if user_signed_in?
@@ -27,6 +25,8 @@
                 = image_tag current_user.avatar.url
               - else
                 = image_tag "avatar_nophoto.gif"
+            %li.upper__right-list__tpoint
+              = render 'shops/top_drop_down'
           - else
             %li.upper__right-list__gone
               %a.user-menu__target{ href: "#"}
