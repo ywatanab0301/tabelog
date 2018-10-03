@@ -145,15 +145,6 @@
               .shop-review-post-who-likes__icons
                 = link_to user_path(like.user.id) do
                   = image_tag "#{like.user.avatar}"
-          .shop-review-post-who-wannago
-            .shop-review-post-who-wannago__count
-              %p.number-who-wannago
-                = review.user.wants_count
-              %p
-                人が「行きたい」しています。
-            - review.user.wants.each do |want|
-              .shop-review-post-who-wannago__icons
-                = image_tag "#{want.user.avatar}"
           .shop-review-post-who-wannago__icons
       .shop-review-post-contents-notice
         %p.shop-notice-message1
