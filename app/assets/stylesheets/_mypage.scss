@@ -420,6 +420,9 @@
           border-radius: 5px;
           padding-bottom: 7px;
           position: relative;
+          &:hover {
+            border: 1px solid $main_orange;
+          }
 
           .review-post__rst-info {
             padding: 15px;
