@@ -82,7 +82,7 @@
               %a{href: "#{bar_rank_shops_path}"}
                 バー・お酒
       .rankcontent_right
-        - @shops.first(20).each do |shop|
+        - @shops.each do |shop|
           - shop.genres.each do |genre|
             - if genre.name == "ラーメン"
               .mainrankshop
