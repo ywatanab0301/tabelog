@@ -6,20 +6,7 @@ class WantsController < ApplicationController
     @user_id = current_user.id
     @shop_id = Shop.find(params[:id]).id
     @want = Want.new(shop_id: @shop_id, user_id: @user_id)
-
-    if @want.save
-      redirect_to show_wannago_user_path
-    else
-      redirect_to show_reviews_shop_path
-    end
   end
-
-  # def destroy
-  #   @want = Want.find(params [:id])
-  #   if @want.destroy
-  #     redirect_to show_reviews_shop_path
-  #   end
-  # end
 
   def index
     @user = current_user

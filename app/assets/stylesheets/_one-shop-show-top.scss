@@ -200,15 +200,46 @@
               border-radius: 3px 3px;
               border: 1px solid $newshop_line;
               text-align: center;
-              a:link {
-                display: block;
+              line-height: 30px;
+              transition: .4s;
+              .overlay {
+                    /* viewpointを相対位置にし、全画面表示にする */
                 width: 100%;
                 height: 100%;
-                text-decoration: none;
-                span {
-                  line-height: 30px;
-                }
+                position: fixed;
+                top: 0;
+                left: 0;
+                background: rgba(0, 0, 0, 0.5);  /* 背景を半透明にする */
+                display: none;  /* HTML要素を非表示にする */
+                z-index: 100;  /* 「メインのHTML要素」よりもスタックレベルを高くする */
               }
+              .modalWindow {
+                color: black;
+                width: 900px;
+                height: 600px;
+                overflow-y: auto;
+                max-height: 90%;
+                position: fixed; /* viewpointを相対位置にする */
+                border-radius: 4px;
+                background-color: #FFF;
+                display: none;
+                z-index: 999;  /* 「オーバーレのHTML要素」よりもスタックレベルを高くする */
+                  .body {
+                    text-align: center;
+                  }
+                  button.close {
+                  }
+                  button:hover {
+                    background: #D04255;
+                    color: #FFF;
+                  }
+                  // a:link {
+                  //   display: block;
+                  //   width: 100%;
+                  //   height: 100%;
+                  //   text-decoration: none;
+                  // }
+                }
             }
           }
           button.shop-views__recommend{

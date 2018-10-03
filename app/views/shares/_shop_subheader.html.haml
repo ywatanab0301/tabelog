@@ -68,9 +68,15 @@
           .shop-views__wannabtn
             = render partial: 'wants/want_links', locals: {shop: @shop}
           .shop-views__post-btn
-            %a.postbtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: white;"}
-              %span
-                投稿
+            %a.postbtn-link 投稿
+            .overlay
+            .modalWindow
+              %button.close ✖
+              = render partial: 'reviews/new', locals: {shop: @shop}
+          / .shop-views__post-btn
+          /   %a.postbtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: white;"}
+          /     %span
+          /       投稿
         - else
           .shop-views__gonebtn
             %a.gonebtn-link{ href: "#{new_user_registration_path}", style: "color: #595960;"}
