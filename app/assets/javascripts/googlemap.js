@@ -71,7 +71,6 @@ $(function(){
 $(function(){
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: { scrollwheel: false }, internal: {id: 'map1'}}, function(){
-    console.log(handler);
     markers = handler.addMarkers([
       {
         "lat": gon.shop.latitude,
