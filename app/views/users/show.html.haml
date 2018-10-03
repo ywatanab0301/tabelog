@@ -303,6 +303,12 @@
             %h3.far.fa-calendar
               行ったカレンダー
           .timeline-calendar__container
+            = month_calendar events: @reviews do |date, reviews|
+              = date
+              - reviews.each do |review|
+                .image-avatar
+                  = link_to shop_review_path(review.shop.id, review.id) do
+                    = image_tag review.user.avatar
         .visited-area
           .visited-area__title
             %h3.fas.fa-map
