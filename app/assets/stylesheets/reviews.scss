@@ -7,7 +7,9 @@
   text-align: center;
   font-weight: bold;
   font-size: 20px;
+  color: black;
   padding: 1.2rem 0 1.2rem;
+  position: relative;
 }
 
 .reviews__rst-aliasname {
@@ -170,8 +172,8 @@
       .counter {
         position: relative;
         display: inline-block;
-        margin: 1.5em 0;
-        padding: 3px 10px;
+        margin: auto;
+        padding: 3px;
         min-width: 20px;
         max-width: 100%;
         color: #ffffff;
@@ -179,9 +181,10 @@
         background: #e64c30;
         text-align: center;
         font-weight: bold;
-        border-radius: 5px;
-        left: 90px;
-        bottom: 65px;
+        border-radius: 3px;
+        left: 45px;
+        bottom: 58px;
+        line-height: normal;
       }
       .counter:before{
         content: "";
@@ -195,10 +198,10 @@
       &--score {
         width: 50px;
         height: 100%;
-        margin-top: 20px;
+        margin-top: 35px;
       }
       #review_food_rate {
-        height: 20px;
+        height: 25px;
         width: 50px;
         color: red;
         text-align: center;
@@ -218,8 +221,8 @@
       .counter {
         position: relative;
         display: inline-block;
-        margin: 1.5em 0;
-        padding: 3px 10px;
+        margin: auto;
+        padding: 3px;
         min-width: 20px;
         max-width: 100%;
         color: #ffffff;
@@ -227,9 +230,10 @@
         background: #e64c30;
         text-align: center;
         font-weight: bold;
-        border-radius: 5px;
-        left: 90px;
-        bottom: 65px;
+        border-radius: 3px;
+        left: 45px;
+        bottom: 58px;
+        line-height: normal;
       }
       .counter:before{
         content: "";
@@ -246,10 +250,10 @@
       &--score {
         width: 50px;
         height: 100%;
-        margin-top: 20px;
+        margin-top: 35px;
       }
       #review_cp_rate {
-        height: 20px;
+        height: 25px;
         width: 50px;
         color: red;
         text-align: center;
@@ -269,8 +273,8 @@
       .counter {
         position: relative;
         display: inline-block;
-        margin: 1.5em 0;
-        padding: 3px 10px;
+        margin: auto;
+        padding: 3px;
         min-width: 20px;
         max-width: 100%;
         color: #ffffff;
@@ -278,9 +282,10 @@
         background: #e64c30;
         text-align: center;
         font-weight: bold;
-        border-radius: 5px;
-        left: 90px;
-        bottom: 65px;
+        border-radius: 3px;
+        left: 45px;
+        bottom: 58px;
+        line-height: normal;
       }
       .counter:before{
         content: "";
@@ -297,10 +302,10 @@
       &--score {
         width: 50px;
         height: 100%;
-        margin-top: 20px;
+        margin-top: 35px;
       }
       #review_service_rate {
-        height: 20px;
+        height: 25px;
         width: 50px;
         color: red;
         text-align: center;
@@ -324,8 +329,8 @@
       .counter {
         position: relative;
         display: inline-block;
-        margin: 1.5em 0;
-        padding: 3px 10px;
+        margin: auto;
+        padding: 3px;
         min-width: 20px;
         max-width: 100%;
         color: #ffffff;
@@ -333,9 +338,10 @@
         background: #e64c30;
         text-align: center;
         font-weight: bold;
-        border-radius: 5px;
-        left: 90px;
-        bottom: 65px;
+        border-radius: 3px;
+        left: 45px;
+        bottom: 58px;
+        line-height: normal;
       }
       .counter:before{
         content: "";
@@ -352,10 +358,10 @@
       &--score {
         width: 50px;
         height: 100%;
-        margin-top: 20px;
+        margin-top: 35px;
       }
       #review_drink_rate {
-        height: 20px;
+        height: 25px;
         width: 50px;
         color: red;
         text-align: center;
@@ -375,8 +381,8 @@
       .counter {
         position: relative;
         display: inline-block;
-        margin: 1.5em 0;
-        padding: 3px 10px;
+        margin: auto;
+        padding: 3px;
         min-width: 20px;
         max-width: 100%;
         color: #ffffff;
@@ -384,9 +390,10 @@
         background: #e64c30;
         text-align: center;
         font-weight: bold;
-        border-radius: 5px;
-        left: 90px;
-        bottom: 65px;
+        border-radius: 3px;
+        left: 45px;
+        bottom: 58px;
+        line-height: normal;
       }
       .counter:before{
         content: "";
@@ -403,10 +410,10 @@
       &--score {
         width: 50px;
         height: 100%;
-        margin-top: 20px;
+        margin-top: 35px;
       }
       #review_atmosphere {
-        height: 20px;
+        height: 25px;
         width: 50px;
         color: red;
         text-align: center;
