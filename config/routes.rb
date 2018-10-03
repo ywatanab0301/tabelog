@@ -10,6 +10,25 @@ Rails.application.routes.draw do
   end
 
   resources :shops do
+    collection do
+      get :yakiniku_rank
+      get :washoku_rank
+      get :yoshoku_rank
+      get :chinese_rank
+      get :asian_rank
+      get :curry_rank
+      get :nabe_rank
+      get :izakaya_rank
+      get :sousaku_rank
+      get :family_rank
+      get :lamen_rank
+      get :cafe_rank
+      get :kissa_rank
+      get :sandwich_rank
+      get :sweet_rank
+      get :bar_rank
+    end
+
     member do
       get :top_page
       get :show_menu

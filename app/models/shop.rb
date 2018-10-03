@@ -41,6 +41,22 @@ class Shop < ApplicationRecord
     reviews.where(lunch_dinner: 2).average(:rate).round(2) if reviews.where(lunch_dinner: 2).present?
   end
 
+  def review_first3
+    reviews.first(3)
+  end
+
+  def review_sort_rate
+    reviews.order("rate DESC")
+  end
+
+  def review_count
+    reviews.count if reviews.present?
+  end
+
+  def top_20_star_average
+    reviews.average(:rate).round * 10 if reviews.present?
+  end
+
   def show_last_review
     if reviews.last.present?
       reviews.last.text
