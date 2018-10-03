@@ -1,12 +1,16 @@
+- @user = User.new unless @user
 .user_logins
   .location-link
     = link_to "食べログ",destroy_user_session_path, method: :delete
+    %span.location-name
+      %a{href: "#{new_user_registration_path}"}
+        >新規登録画面へ
     %span.location-name
       >食べログへログイン(パスワード入力)
   .user_login_box
     .user_login
       ユーザーログイン
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = form_for @user do |f|
       .user_inputspace
         %ul
           %li.user_login__mailname
@@ -20,4 +24,3 @@
             = f.password_field :password, autocomplete: "current-password"
             .user_login__btn
               = f.button "Log in", class: "login-btn"
-      = render "devise/shared/links"
