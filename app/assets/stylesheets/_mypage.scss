@@ -49,7 +49,6 @@
       .mypage-header {
         margin: 0 auto;
         position: relative;
-        height: 540px;
         width: 980px;
 
         .mypage-header__cover-image{
@@ -206,7 +205,7 @@
 
         .mypage-header-contents {
           display: flex;
-          height:135px;
+          margin-bottom: 10px;
 
           .mypage-header-contents__image-wrap {
             width: 155px;
@@ -235,11 +234,11 @@
           .mypage-header-contents__counts {
             font-size: 12px;
             font-weight: bold;
-            width: 30%;
+            width:20%;
             border: solid 1px $border_gray;
-            margin: 10px 0 10px 0;
+            margin: 10px 0 0px 90px;
             border-radius: 3px;
-            padding: 0px 12px 6px 12px;
+            padding: 0px 12px 0px 12px;
             background-color: $white;
 
             .rvwr-counter {
@@ -267,7 +266,7 @@
 
           ul.mypage-header-navi__list {
             display: flex;
-            padding: 10px 0 0 0;
+            padding: 10px 0 10px 0;
             border-top: 1px solid $border_gray;
 
             li {

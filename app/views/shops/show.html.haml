@@ -77,9 +77,8 @@
             口コミ
           - if user_signed_in?
             .review-postbtn
-              %a.postbtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: white;"}
-                %span
-                  投稿する
+              %a.postsbtn-link
+                投稿する
           - else
             .review-postbtn
               %a.postbtn-link{ href: "#{new_user_registration_path}", style: "color: white;"}
@@ -117,7 +116,7 @@
                 = link_to "続きを読む"
               .pickup_review-text__icons
                 %span.pickup_review-text__heart
-                  .far.fa-heart
+                  .fas.fa-heart
                   = review.user.likes.count
                 %span.pickup_review-text__time
                   訪問

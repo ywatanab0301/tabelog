@@ -32,7 +32,7 @@
       .shop_views-namespace__aword
     .shop_views-detailspace
       .shop_views-detailspace__station
-        最寄り駅:
+        最寄り駅 :
         = @shop.station
       - @genre.each do |genre|
         .shop_views-detailspace__genre
@@ -41,7 +41,7 @@
       - if @budget.present?
         - @budget.each do |budget|
           .shop_views-detailspace__average
-            予算
+            予算 :
             = budget.name
             %span.shop_views-detailspace__schedule
               定休日 :
@@ -61,16 +61,17 @@
 
         - if user_signed_in?
           .shop-views__gonebtn
-            %a.gonebtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: #595960;"}
-              %i.fas.fa-heart
-              %span
+            .gonebtn-link
+              %a.fas.fa-heart
                 行った
+
           .shop-views__wannabtn
             = render partial: 'wants/want_links', locals: {shop: @shop}
           .shop-views__post-btn
-            %a.postbtn-link{ href: "/shops/#{@shop.id}/reviews/new", style: "color: white;"}
-              %span
-                投稿
+            %a.postbtn-link 投稿
+            .overlay
+            .modalWindow
+              = render partial: 'reviews/new', locals: {shop: @shop}
         - else
           .shop-views__gonebtn
             %a.gonebtn-link{ href: "#{new_user_registration_path}", style: "color: #595960;"}

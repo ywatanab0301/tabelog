@@ -31,111 +31,14 @@
           }
           &__ratestar{
             font-size: 24px;
-            width: 190px;
             float: left;
-            span.star-actived{
-          position: relative;
-          display: inline-block;
-          width: 15*$starHalf;
-          height: 2*$starHalf;
-          &:before,&:after{
-            position: absolute;
-            top: 0;
-            left: 0;
-            content: '★★★★★';
-            display: inline-block;
-            height: 2*$starHalf;
-            line-height: 2*$starHalf;
-          }
-          &:before{
-          color: #ddd;
-          }
-          &:after{
-          color: #ffa500;
-          overflow: hidden;
-          white-space: nowrap;}
-        }
-        .rate-0:after{
-          width: 0;
-        }
-        .rate-05:after{
-          width: $starHalf
-        }
-        .rate-10:after{
-          width: $rate1;
-        }
-        .rate-15:after{
-          width: $rate1-5;
-        }
-        .rate-20:after{
-          width: $rate2;
-        }
-        .rate-25:after{
-          width: $rate2-5;
-        }
-        .rate-30:after{
-          width: $rate3;
-        }
-        .rate-35:after{
-          width: $rate3-5;
-        }
-        .rate-40:after{
-          width: $rate4;
-        }
-        .rate-45:after{
-          width: $rate4-5;
-        }
-        .rate-50:after{
-          width: $rate5;
-        }
-        span.num{
-          font-size: 24px;
-          font-weight: bold;
-          color: red;
-        }
-        a.review{
-          font-size: 12px;
-          color: $black;
-          text-decoration: underline;
-        }
           }
           &__icons{
             font-size: 13px;
-            margin-top: 7px;
+            margin-top: 10px;
             float: left;
             padding-left: 5px;
             font-weight: bold;
-          }
-        }
-        .shop_views-detailspace{
-          height: 70px;
-          &__station{
-            width: 130px;
-            padding: 10px 0 5px 0;
-            font-size: 12px;
-            float: left;
-          }
-          &__genre{
-            margin-left: 10px;
-            padding: 10px 0 5px 0;
-            font-size: 12px;
-            float: left;
-          }
-          &__average{
-            clear: both;
-            padding: 5px 0 10px 0;
-            font-size: 12px;
-          }
-          &__schedule{
-            margin-left: 10px;
-            margin-top: 5px;
-            padding: 5px 0 10px 0;
-            font-size: 12px;
-          }
-          &__moredetail{
-            text-align: right;
-            float: right;
-            margin-right: 10px;
           }
         }
       }
@@ -363,25 +266,6 @@
             line-height: 80px;
             font-size: 16px;
             width: 620px;
-          }
-          .review-postbtn{
-            height: 26px;
-            font-weight: bold;
-            border-radius: 3px 3px;
-            background-color: $font_green;
-            color: $white;
-            border: 1px solid $font_green;
-            margin-top: 28px;
-            width: 80px;
-            padding: 2px 5px;
-            a:link {
-              display: block;
-              padding-top: 2px;
-              text-align: center;
-              width: 100%;
-              height: 100%;
-              text-decoration: none;
-            }
           }
         }
         .shop_mainleft-friend{

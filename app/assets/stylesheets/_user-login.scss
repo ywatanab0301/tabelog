@@ -1,5 +1,5 @@
 .user_logins{
-  height: calc(100vh - 10vh);
+  height: 100vh;
   width: 100vw;
   padding-top: 10vh;
   background-color: $background;
@@ -16,7 +16,7 @@
   }
   .user_login_box{
     width: 650px;
-    height: 300px;
+    height: 400px;
     margin: 0 auto;
     background-color: $white;
     filter: drop-shadow(1px 1px 1px #000);
@@ -31,13 +31,13 @@
     }
       .user_inputspace{
         width: 575px;
-        padding: 40px 5px;
+        padding: 45px 5px 20px 5px;
         margin: 0 auto;
         margin-top: 0px;
         ul{
           display: flex;
           li.user_login__mailname{
-            height: 60px;
+            height: 100px;
             width: 140px;
             background-color: $background;
             padding-left: 10px;
@@ -47,13 +47,13 @@
             font-weight: bold;
           }
           li.user_login__mailad{
-            height: 60px;
+            height: 100px;
             width: 425px;
             position: relative;
             #user_email{
               margin-left: 15px;
               width: 380px;
-              height:30px;
+              height: 60px;
               padding:5px 5px;
               line-height: 60px;
               position: absolute;
@@ -65,7 +65,7 @@
         ul{
           display: flex;
           li.user_login__pass{
-            height: 60px;
+            height: 100px;
             width: 140px;
             background-color: $background;
             padding-left: 10px;
@@ -75,13 +75,13 @@
             font-weight: bold;
           }
           li.user_login__passinput{
-            height: 60px;
+            height: 100px;
             width: 425px;
             position: relative;
             #user_password{
               margin-left: 15px;
               width: 380px;
-              height: 30px;
+              height: 60px;
               padding: 5px 5px;
               line-height: 60px;
               position: absolute;
@@ -95,16 +95,14 @@
             margin-top: 10px;
             margin-left: 40px;
             font-size: 12px;
+            display: flex;
+            height: 70px;
           }
           .user_login__remember{
-            position: absolute;
-            top: -2px;
-            left: 180px;
         }
       }
       .user_login__btn{
       height: 30px;
-      float: right;
       .login-btn{
         width: 80px;
         padding: 10px 0;
@@ -114,6 +112,8 @@
         color: $white;
         border-radius: 4px;/*角の丸み*/
         box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+        margin-left: 350px;
+        margin-top: 120px;
         }
         .edit_btn:active{
           box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);

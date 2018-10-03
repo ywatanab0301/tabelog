@@ -285,14 +285,6 @@
                           .shop-review-post-who-likes__icons
                             = link_to user_path(like.user.id) do
                               = image_tag "#{like.user.avatar}"
-                      .shop-review-post-who-wannago
-                        .shop-review-post-who-wannago__count
-                          %p.number-who-wannago
-                            1
-                          %p
-                            人が「行きたい」しています。
-                        .shop-review-post-who-wannago__icons
-                          = image_tag "avatar_nophoto.gif"
               - else
                 .shop-review-post__rst-review
                   .shop-review-post__rst-review--score-data
@@ -412,9 +404,6 @@
                     .shop-review-post-like-wannago
                       .shop-review-post-like-wannago__buttons
                         = render partial: 'likes/like_links', locals: {review: review}
-                        / %button.shop-review-post-like-wannago__buttons--wannago
-                        /   %i.fas.fa-thumbtack
-                        /   行きたい
                       .shop-review-post-who-likes
                         .shop-review-post-who-likes__count
                           %p.number-who-likes
@@ -425,12 +414,4 @@
                           .shop-review-post-who-likes__icons
                             = link_to user_path(like.user.id) do
                               = image_tag "#{like.user.avatar}"
-                      .shop-review-post-who-wannago
-                        .shop-review-post-who-wannago__count
-                          %p.number-who-wannago
-                            1
-                          %p
-                            人が「行きたい」しています。
-                        .shop-review-post-who-wannago__icons
-                          = image_tag "avatar_nophoto.gif"
 = render partial: 'shares/footer'
