@@ -7,7 +7,9 @@
   text-align: center;
   font-weight: bold;
   font-size: 20px;
+  color: black;
   padding: 1.2rem 0 1.2rem;
+  position: relative;
 }
 
 .reviews__rst-aliasname {
@@ -56,9 +58,6 @@
     border: 1px solid #d8ccb2;
     margin-right: 20px;
   }
-  #review_lunch_dinner_1 {
-    margin-left: 50px;
-  }
   &--lunch {
     width: 50%;
     height: 30px;
@@ -66,9 +65,6 @@
     font-weight: bold;
     border-radius: 3px;
     border: 1px solid #d8ccb2
-  }
-  #review_lunch_dinner_2 {
-    margin-left: 50px;
   }
 }
 .reviews-rating {
@@ -104,7 +100,7 @@
           font-weight: bold;
           border-radius: 5px;
           left: 73px;
-          bottom: 88px;
+          bottom: 100px;
         }
         .counter:before{
           content: "";
@@ -122,7 +118,7 @@
       &--score {
         width: 160px;
         height: 100%;
-        margin-top: 20px;
+        margin-top: 35px;
         #review_rate {
           margin-top: 3px;
           height: 30px;
@@ -170,8 +166,8 @@
       .counter {
         position: relative;
         display: inline-block;
-        margin: 1.5em 0;
-        padding: 3px 10px;
+        margin: auto;
+        padding: 3px;
         min-width: 20px;
         max-width: 100%;
         color: #ffffff;
@@ -179,9 +175,10 @@
         background: #e64c30;
         text-align: center;
         font-weight: bold;
-        border-radius: 5px;
-        left: 90px;
-        bottom: 65px;
+        border-radius: 3px;
+        left: 45px;
+        bottom: 55px;
+        line-height: normal;
       }
       .counter:before{
         content: "";
@@ -195,10 +192,10 @@
       &--score {
         width: 50px;
         height: 100%;
-        margin-top: 20px;
+        margin-top: 35px;
       }
       #review_food_rate {
-        height: 20px;
+        height: 25px;
         width: 50px;
         color: red;
         text-align: center;
@@ -218,8 +215,8 @@
       .counter {
         position: relative;
         display: inline-block;
-        margin: 1.5em 0;
-        padding: 3px 10px;
+        margin: auto;
+        padding: 3px;
         min-width: 20px;
         max-width: 100%;
         color: #ffffff;
@@ -227,9 +224,10 @@
         background: #e64c30;
         text-align: center;
         font-weight: bold;
-        border-radius: 5px;
-        left: 90px;
-        bottom: 65px;
+        border-radius: 3px;
+        left: 45px;
+        bottom: 55px;
+        line-height: normal;
       }
       .counter:before{
         content: "";
@@ -246,10 +244,10 @@
       &--score {
         width: 50px;
         height: 100%;
-        margin-top: 20px;
+        margin-top: 35px;
       }
       #review_cp_rate {
-        height: 20px;
+        height: 25px;
         width: 50px;
         color: red;
         text-align: center;
@@ -269,8 +267,8 @@
       .counter {
         position: relative;
         display: inline-block;
-        margin: 1.5em 0;
-        padding: 3px 10px;
+        margin: auto;
+        padding: 3px;
         min-width: 20px;
         max-width: 100%;
         color: #ffffff;
@@ -278,9 +276,10 @@
         background: #e64c30;
         text-align: center;
         font-weight: bold;
-        border-radius: 5px;
-        left: 90px;
-        bottom: 65px;
+        border-radius: 3px;
+        left: 45px;
+        bottom: 55px;
+        line-height: normal;
       }
       .counter:before{
         content: "";
@@ -297,10 +296,10 @@
       &--score {
         width: 50px;
         height: 100%;
-        margin-top: 20px;
+        margin-top: 35px;
       }
       #review_service_rate {
-        height: 20px;
+        height: 25px;
         width: 50px;
         color: red;
         text-align: center;
@@ -324,8 +323,8 @@
       .counter {
         position: relative;
         display: inline-block;
-        margin: 1.5em 0;
-        padding: 3px 10px;
+        margin: auto;
+        padding: 3px;
         min-width: 20px;
         max-width: 100%;
         color: #ffffff;
@@ -333,9 +332,10 @@
         background: #e64c30;
         text-align: center;
         font-weight: bold;
-        border-radius: 5px;
-        left: 90px;
-        bottom: 65px;
+        border-radius: 3px;
+        left: 45px;
+        bottom: 55px;
+        line-height: normal;
       }
       .counter:before{
         content: "";
@@ -352,10 +352,10 @@
       &--score {
         width: 50px;
         height: 100%;
-        margin-top: 20px;
+        margin-top: 35px;
       }
       #review_drink_rate {
-        height: 20px;
+        height: 25px;
         width: 50px;
         color: red;
         text-align: center;
@@ -375,8 +375,8 @@
       .counter {
         position: relative;
         display: inline-block;
-        margin: 1.5em 0;
-        padding: 3px 10px;
+        margin: auto;
+        padding: 3px;
         min-width: 20px;
         max-width: 100%;
         color: #ffffff;
@@ -384,9 +384,10 @@
         background: #e64c30;
         text-align: center;
         font-weight: bold;
-        border-radius: 5px;
-        left: 90px;
-        bottom: 65px;
+        border-radius: 3px;
+        left: 45px;
+        bottom: 55px;
+        line-height: normal;
       }
       .counter:before{
         content: "";
@@ -403,10 +404,10 @@
       &--score {
         width: 50px;
         height: 100%;
-        margin-top: 20px;
+        margin-top: 35px;
       }
       #review_atmosphere {
-        height: 20px;
+        height: 25px;
         width: 50px;
         color: red;
         text-align: center;
