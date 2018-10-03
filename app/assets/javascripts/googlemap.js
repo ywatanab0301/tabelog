@@ -9,8 +9,6 @@
   // 緯度経度から地図を表示
     var lat = $('#shop_latitude').val();
     var lng = $('#shop_longitude').val();
-    console.log(lat);
-    console.log(lng);
   // 座標を設定
     var myLatLng = new google.maps.LatLng(lat, lng)
     var mapOptions = {
@@ -62,7 +60,6 @@ $(function(){
           // 取得した座標をテキストボックスにセット
           $('#shop_latitude').val(pos.lat());
           $('#shop_longitude').val(pos.lng());
-          console.log(this);
 
           } else {
             // 失敗した時
@@ -84,8 +81,6 @@ $(function(){
     "infowindow": '<p>'+ gon.shop.shop_name +'</p><p>'+ gon.shop.city_address +'</p><p> link_to "Googleマップで見る" ,"https://maps.google.co.jp/maps?q=loc:'+ gon.shop.latitude +','+ gon.shop.longitude +'&iwloc=J",target: "_blank"</p>'
       }
     ]);
-    console.log(gon.shop.latitude)
-    console.log(gon.shop.longitude)
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
     handler.getMap().setZoom(16);
