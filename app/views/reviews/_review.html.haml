@@ -148,10 +148,12 @@
           .shop-review-post-who-wannago
             .shop-review-post-who-wannago__count
               %p.number-who-wannago
-                1
+                = review.user.wants_count
               %p
                 人が「行きたい」しています。
-
+            - review.user.wants.each do |want|
+              .shop-review-post-who-wannago__icons
+                = image_tag "#{want.user.avatar}"
           .shop-review-post-who-wannago__icons
       .shop-review-post-contents-notice
         %p.shop-notice-message1

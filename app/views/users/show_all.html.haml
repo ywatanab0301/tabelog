@@ -376,8 +376,6 @@
                   .shop-review-post-like-wannago
                     .shop-review-post-like-wannago__buttons
                       = render partial: 'likes/like_links', locals: {review: review}
-                      / %button.shop-review-post-like-wannago__buttons--wannago
-                      /   = render partial: 'wants/want_links', locals: {shop: @shop}
                     .shop-review-post-who-likes
                       .shop-review-post-who-likes__count
                         %p.number-who-likes
@@ -391,10 +389,11 @@
                     .shop-review-post-who-wannago
                       .shop-review-post-who-wannago__count
                         %p.number-who-wannago
-                          1
+                          = review.user.wants_count
                         %p
                           人が「行きたい」しています。
-                      .shop-review-post-who-wannago__icons
-                        = image_tag "avatar_nophoto.gif"
+                      - review.user.wants.each do |want|
+                        .shop-review-post-who-wannago__icons
+                          = image_tag "#{want.user.avatar}"
 
 = render partial: 'shares/footer'
