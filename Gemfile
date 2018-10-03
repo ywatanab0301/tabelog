@@ -66,6 +66,7 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem "gon"
 gem 'mechanize'
+gem "simple_calendar", "~> 2.0"
 
 
 group :development, :test do
