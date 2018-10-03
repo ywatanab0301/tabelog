@@ -34,13 +34,11 @@
 $(function(){
   // 検索ボタンをクリックした時
   $('#searchAddressBtn').click(function() {
-    console.log(this)
     // Geocoderオブジェクト生成
     var geocoder = new google.maps.Geocoder();
     // 住所のテキストボックスから住所取得
     var address = $('.city_address').val();
     // 住所検索実行
-    console.log(address);
     geocoder.geocode(
       {
         'address' : address,
