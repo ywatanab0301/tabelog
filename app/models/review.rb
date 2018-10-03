@@ -22,4 +22,9 @@ class Review < ApplicationRecord
   def lunch_rate_average
     Review.where(lunch_dinner: 2).average(:rate)
   end
+
+  def start_time
+    self.visit_day
+    ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
+  end
 end
