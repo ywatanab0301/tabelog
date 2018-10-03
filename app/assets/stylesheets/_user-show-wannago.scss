@@ -173,7 +173,7 @@ li.wannago-page-wannago-shop-link {
       margin-right: 5px;
       button.shop-review-post-like-wannago__buttons--gone {
         color: $font_gray;
-        padding: 2px 15px 2px 15px;
+        padding: 9px 15px 9px 15px;
         font-weight: bold;
         border-radius: 3px;
       }
@@ -182,11 +182,13 @@ li.wannago-page-wannago-shop-link {
       button.shop-review-post-like-wannago__buttons--wannago {
         color: $white;
         background-color: $font_blue;
-        padding: 2px 10px 2px 10px;
+        padding: 7px 10px 7px 10px;
         font-weight: bold;
         border-radius: 3px;
-        i.fas.fa-thumbtack {
-          color: $sub_orange;
+        width: 80px;
+        line-height: 20px;
+        .fas.fa-thumbtack{
+          color: #ff9600;
         }
       }
     }

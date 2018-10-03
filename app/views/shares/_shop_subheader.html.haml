@@ -32,7 +32,7 @@
       .shop_views-namespace__aword
     .shop_views-detailspace
       .shop_views-detailspace__station
-        最寄り駅:
+        最寄り駅 :
         = @shop.station
       - @genre.each do |genre|
         .shop_views-detailspace__genre
@@ -41,7 +41,7 @@
       - if @budget.present?
         - @budget.each do |budget|
           .shop_views-detailspace__average
-            予算
+            予算 :
             = budget.name
             %span.shop_views-detailspace__schedule
               定休日 :

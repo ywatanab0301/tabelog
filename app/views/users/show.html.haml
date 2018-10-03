@@ -75,11 +75,6 @@
                 %dd.status
                   = @reviews.length
                   件
-              %dl.status
-                %dt.status
-                  訪問者数
-                %dd.status
-                  ○人(先週○人)
               %dl.last-child
                 %dt.status
                   いいね！
@@ -167,9 +162,9 @@
                 - if user_signed_in?
                   - if review.user_id == current_user.id
                     .review-post__buttons
-                      = link_to shop_review_path(review.shop_id, review.id), method: :delete, class: "delete_alert" do
+                      = link_to shop_review_path(review.shop_id, review.id), method: :delete, class: "delete_alert", style: "color: black"do
                         .review-post__buttons--trash.fas.fa-trash-alt
-                      = link_to edit_shop_review_path(review.shop_id, review.id) do
+                      = link_to edit_shop_review_path(review.shop_id, review.id), style: "color: black" do
                         .review-post__buttons--edit.fas.fa-edit
             - if review.lunch_dinner == 1
               .review-post__rst-review
