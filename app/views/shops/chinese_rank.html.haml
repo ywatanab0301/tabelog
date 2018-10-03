@@ -83,7 +83,7 @@
                 バー・お酒
       .rankcontent_right
         - @shops.each do |shop|
-          - shop.genres.first(20).each do |genre|
+          - shop.genres.each do |genre|
             - if genre.name == "中華料理"
               .mainrankshop
                 .mainrankshop_header
