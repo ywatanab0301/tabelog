@@ -45,7 +45,7 @@
                 %li.user-menu__item
                   %a.user-menu__text{ href: "#"} 食べログの特長と便利な使い方
                 %li.user-menu__item
-                  %a.user-menu__text{ href: "/users/sign_up"} 無料会員登録
+                  %a.user-menu__text 無料会員登録
                 %li.user-menu__item
                   %a.user-menu__target{ href: "#"}
                     %span.user-menu__text>
@@ -406,8 +406,11 @@
                       .userdata-box__status.userdata-box__status--nologin
                         %p.userdata-box__name.userdata-box__name--nologin 会員未登録
                     %p.userdata-nologin-notice ログインすると、「行ったお店」「行きたいお店」を食べログ上で管理できるようになります。
-                    %p.userdata-loginbtn
-                      %a.btn-size.btn-detail.btn-sucess.js-login-window{ href: "users/sign_in"} ログイン
+                    .userdata-loginbtn
+                      %a.link-login ログイン
+                      .overlay
+                      .modalWindow
+                        = render partial: './devise/registrations/new'
                     .premium-style.premium-box
                       %p.userdata-text クレジットカードで初月無料
                       %a.p-mark.premium-btn{href: "#"} プレミアムサービスについて

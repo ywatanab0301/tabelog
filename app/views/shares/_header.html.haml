@@ -16,7 +16,7 @@
             予約確認
           - if user_signed_in?
             %li.upper__right-list__gone
-              %a.user-menu__target{ href: "/users/#{current_user.id}/show_all"}
+              %a.user-menu__target
                 行った・行きたい
             %li.upper__right-list__mypage
               = link_to "マイページ", user_path(current_user.id), method: :get
@@ -30,10 +30,13 @@
               = render 'shops/top_drop_down'
           - else
             %li.upper__right-list__gone
-              %a.user-menu__target{ href: "#{new_user_registration_path}"}
-                行った・行きたい
+              %a.user-menu__target 行った・行きたい
+              .overlay
+              .modalWindow
+                = render partial: './devise/registrations/new'
             %li.upper__right-list__login
-              = link_to "ログイン", new_user_session_path
+              %a.link-logins{ href: "users/sign_in"}
+                ログイン
     .header_down
       .header_down__left
         = link_to image_tag("logo_tabelog.svg"), root_path
