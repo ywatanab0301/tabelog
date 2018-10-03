@@ -1,6 +1,6 @@
 .user_resistrations{
   width: 100vw;
-  height: calc(105vh - 5vh);
+  height: 110vh;
   background-color: $background;
   padding-top: 10vh;
   .location-link{
@@ -29,7 +29,7 @@
     }
       .user_inputspace{
         width: 575px;
-        padding: 20px 5px;
+        padding: 20px 5px 50px 5px;
         margin: 0 auto;
         margin-top: 0px;
         ul{
@@ -56,7 +56,7 @@
             }
           }
           li.user_resistration__nickname{
-            height: 80px;
+            height: 100px;
             width: 140px;
             background-color: $background;
             padding-left: 10px;
@@ -66,12 +66,12 @@
             font-weight: bold;
           }
           li.user_resistration__inputname{
-            height: 30px;
+            height: 40px;
             width: 410px;
             #user_nickname{
               width: 380px;
               margin-left: 15px;
-              height: 40px;
+              height: 50px;
               padding:5px 5px;
               line-height: 60px;
             }
@@ -214,8 +214,11 @@
       width: 300px;
       margin: 0 auto;
       font-weight: bold;
-      height: 20px;
+      height: 40px;
       margin-top: 10px;
+      border-radius: 3px 3px;
+      background-color: #82ad24;
+      color: white;
       }
       .log_in{
         }

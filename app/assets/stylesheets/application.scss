@@ -178,6 +178,47 @@ article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, 
 .user-menu {
   display: inline-block;
   white-space: nowrap;
+  li.user-menu__items{
+    display: inline-block;
+    position: relative;
+    font-size: 1.2rem;
+    padding-right: 20px;
+    .user-menu__texts{
+      margin-left: 5px;
+      .overlay {
+        /* viewpointを相対位置にし、全画面表示にする */
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);  /* 背景を半透明にする */
+    display: none;  /* HTML要素を非表示にする */
+    z-index: 100;  /* 「メインのHTML要素」よりもスタックレベルを高くする */
+  }
+  .modalWindow {
+    color: black;
+    width: 900px;
+    height: 600px;
+    overflow-y: auto;
+    max-height: 90%;
+    position: fixed; /* viewpointを相対位置にする */
+    border-radius: 4px;
+    background-color: #FFF;
+    display: none;
+    z-index: 999;  /* 「オーバーレのHTML要素」よりもスタックレベルを高くする */
+      .body {
+        text-align: center;
+      }
+      button.close {
+      }
+      button:hover {
+        background: #D04255;
+        color: #FFF;
+      }
+    }
+    }
+  }
 }
 
 .user-menu__item{
@@ -185,6 +226,10 @@ article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, 
   position: relative;
   font-size: 1.2rem;
   padding-right: 20px;
+  .user-menu__texts{
+
+
+  }
 }
 
 .user-menu__target.user-menu__target--dropdown {
@@ -335,6 +380,38 @@ width: 100%;
   background-color: #9c0;
   background-image: -webkit-linear-gradient(top, #9c0,#82ad24);
   background-image: linear-gradient(to bottom, #9c0,#82ad24);
+.overlay {
+        /* viewpointを相対位置にし、全画面表示にする */
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);  /* 背景を半透明にする */
+    display: none;  /* HTML要素を非表示にする */
+    z-index: 100;  /* 「メインのHTML要素」よりもスタックレベルを高くする */
+  }
+  .modalWindow {
+    color: black;
+    width: 900px;
+    height: 600px;
+    overflow-y: auto;
+    max-height: 90%;
+    position: fixed; /* viewpointを相対位置にする */
+    border-radius: 4px;
+    background-color: #FFF;
+    display: none;
+    z-index: 999;  /* 「オーバーレのHTML要素」よりもスタックレベルを高くする */
+      .body {
+        text-align: center;
+      }
+      button.close {
+      }
+      button:hover {
+        background: #D04255;
+        color: #FFF;
+      }
+    }
 }
 
 .premium-style {
