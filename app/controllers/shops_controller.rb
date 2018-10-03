@@ -1,6 +1,7 @@
 class ShopsController < ApplicationController
+
   before_action :set_index, only: [:index]
-  before_action :set_resources, only: [:show_menu, :show_reviews, :sort_popular, :sort_visit, :sort_dinner, :sort_lunch, :show]
+  before_action :set_resources, only: [:show_menu, :show_reviews, :show_map, :sort_popular, :sort_visit, :sort_dinner, :sort_lunch, :show]
 
   def index
     if params[:search].present?
@@ -43,6 +44,9 @@ class ShopsController < ApplicationController
     else
       @reviews = @shop.reviews.includes(:user).order('created_at DESC')
     end
+  end
+
+  def show_map
   end
 
   def sort_popular
@@ -193,6 +197,8 @@ class ShopsController < ApplicationController
       :menu_detail_5,
       :sub_prtext,
       :station,
+      :latitude,
+      :longitude,
       :shop_id)
   end
 
@@ -201,6 +207,7 @@ class ShopsController < ApplicationController
     @prefecture = @shop.prefectures
     @genre = @shop.genres
     @budget = @shop.budgets
+    gon.shop = @shop
   end
 
   def set_index
