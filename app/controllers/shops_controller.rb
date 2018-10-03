@@ -6,11 +6,12 @@ class ShopsController < ApplicationController
     if params[:search].present?
       @shops = Shop.search(params[:search]).order("created_at DESC")
       @shops_page = Kaminari.paginate_array(@shops).page(params[:page]).per(10)
+      @search_result = params[:search]
     else
       @shops = Shop.shopsearch(@prefecture_id, @genre_id).sort.reverse
       @shops_page = Kaminari.paginate_array(@shops).page(params[:page]).per(10)
-    end
       @search_result = params[:search]
+    end
       @reviews = Review.count
   end
 
@@ -60,6 +61,86 @@ class ShopsController < ApplicationController
       format.html
       format.json
     end
+  end
+
+  def yakiniku_rank
+    @shops = Shop.all
+    @review = Review.count
+  end
+
+  def washoku_rank
+    @shops = Shop.all
+    @review = Review.count
+  end
+
+  def chinese_rank
+    @shops = Shop.all
+    @review = Review.count
+  end
+
+  def yoshoku_rank
+    @shops = Shop.all
+    @review = Review.count
+  end
+
+  def asian_rank
+    @shops = Shop.all
+    @review = Review.count
+  end
+
+  def curry_rank
+    @shops = Shop.all
+    @review = Review.count
+  end
+
+  def nabe_rank
+    @shops = Shop.all
+    @review = Review.count
+  end
+
+  def izakaya_rank
+    @shops = Shop.all
+    @review = Review.count
+  end
+
+  def sousaku_rank
+    @shops = Shop.all
+    @review = Review.count
+  end
+
+  def family_rank
+    @shops = Shop.all
+    @review = Review.count
+  end
+
+  def lamen_rank
+    @shops = Shop.all
+    @review = Review.count
+  end
+
+  def cafe_rank
+    @shops = Shop.all
+    @review = Review.count
+  end
+
+  def kissa_rank
+    @shops = Shop.all
+    @review = Review.count
+  end
+
+  def sandwich_rank
+    @shops = Shop.all
+    @review = Review.count
+  end
+
+  def sweet_rank
+    @shops = Shop.all
+    @review = Review.count
+  end
+
+  def bar_rank
+    @shops = Shop.all
+    @review = Review.count
   end
 
   def sort_dinner
