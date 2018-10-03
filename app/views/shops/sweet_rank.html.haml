@@ -1,0 +1,158 @@
+= render partial: 'shares/header'
+.maincontent_shoprank20
+  .maincontent_box
+    .rankheader
+      .rankheader_left
+        = image_tag 'home_icon.png'
+        = link_to '食べログ', root_path
+        %span.location-link__location
+          = image_tag 'location_arrow.png'
+        %span.location-link__shopname
+          %a{href: "#{sweet_rank_shops_path}"}
+            スイーツ
+          = image_tag 'location_arrow.png'
+        %span.location-link__ranktop20
+        %a{href: "#{sweet_rank_shops_path}"}
+          ランキングTOP20
+          = image_tag 'location_arrow.png'
+      .rankheader_right
+        .shop_count
+          %a{href: "#{shops_path}"}
+            = @shops.count
+            店舗
+        .shop_review_count
+          = @review
+          口コミ
+    .ranktitle
+      全国 スイーツ ランキングTOP20
+    .ranksubtitle
+      全国にあるスイーツのお店のランキングTOP20を発表！
+    .rankconent_wrapper
+      .rankcontent_left
+        .rankcontent_leftbox
+          .rankcontent_container
+            ジャンル別TOP20
+          %ul.genrelist
+            %li.genres.washoku
+              %a{href: "#{washoku_rank_shops_path}"}
+                和食
+            %li.genres
+              %a{href: "#{yoshoku_rank_shops_path}"}
+                洋食・西洋料理
+            %li.genres
+              %a{href: "#{chinese_rank_shops_path}"}
+                中華料理
+            %li.genres
+              %a{href: "#{asian_rank_shops_path}"}
+                アジア・エスニック
+            %li.genres
+              %a{href: "#{curry_rank_shops_path}"}
+                カレー
+            %li.genres.yakiniku
+              %a{href: "#{yakiniku_rank_shops_path}"}
+                焼肉・ホルモン
+            %li.genres
+              %a{href: "#{nabe_rank_shops_path}"}
+                鍋
+            %li.genres
+              %a{href: "#{izakaya_rank_shops_path}"}
+                居酒屋・ダイニングバー
+            %li.genres
+              %a{href: "#{sousaku_rank_shops_path}"}
+                創作料理・無国籍料理
+            %li.genres
+              %a{href: "#{family_rank_shops_path}"}
+                ファミレス
+            %li.genres
+              %a{href: "#{lamen_rank_shops_path}"}
+                ラーメン
+            %li.genres
+              %a{href: "#{cafe_rank_shops_path}"}
+                カフェ
+            %li.genres
+              %a{href: "#{kissa_rank_shops_path}"}
+                喫茶店
+            %li.genres
+              %a{href: "#{sandwich_rank_shops_path}"}
+                パン・サンドイッチ
+            %li.genres
+              %a{href: "#{sweet_rank_shops_path}"}
+                スイーツ
+            %li.genres
+              %a{href: "#{bar_rank_shops_path}"}
+                バー・お酒
+      .rankcontent_right
+        - @shops.first(20).each do |shop|
+          - shop.genres.each do |genre|
+            - if genre.name == "スイーツ"
+              .mainrankshop
+                .mainrankshop_header
+                  .mainrankshop_header_left
+                    %a{href: "#{shop_path(shop.id)}"}
+                      = shop.shop_name
+                    %span.station
+                      (
+                      = shop.station
+                      \/
+                    %span.genre
+                      = genre.name
+                      )
+                  .mainrankshop_header_right
+                    / = render partial: 'likes/like_links', locals: {review: review}
+                    / = render partial: 'wants/want_links', locals: {shop: @shop}
+                .mainrankshop_content
+                  .mainrankshop_content_left
+                    %a{href: "#{shop_path(shop.id)}"}
+                      = image_tag shop.pic1.url
+                  .mainrankshop_content_right
+                    .rankright_star
+                      %span{class: :"star-actived rate-#{shop.top_20_star_average}"}
+                      .rankright_star-point
+                        %span.num
+                          = shop.review_average
+                        - if shop.dinner_average
+                          .far.fa-moon
+                          %span.average
+                            = shop.dinner_average
+                        - else
+                          .far.fa-moon
+                          %span.average
+                            \-
+                        - if shop.lunch_average
+                          .far.fa-sun
+                          %span.average
+                            = shop.lunch_average
+                        - else
+                          .far.fa-sun
+                          %span.average
+                            \-
+                        %span.review_count
+                          - if shop.review_count
+                            [ 口コミ数
+                            %a{href: "#{show_reviews_shop_path(shop.id)}"}
+                              = shop.review_count
+                              件 ]
+                          - else
+                            [ 口コミ数 0 件 ]
+                    .rankright_badget
+                      予算
+                      %span.budgets
+                        - shop.budgets.each do |budget|
+                          = budget.name
+                    - if shop.review_first3
+                      %ul.rankright_box
+                        - shop.review_first3.each do |review|
+                          %li.rankright_box_title
+                            %a{href: "#{show_reviews_shop_path(shop.id)}", style: "color: #797152"}
+                              = review.title
+                            %span.user_name
+                              %a{href: "#{user_path(review.user.id)}", style: "color: #cc6666"}
+                                = review.user.nickname
+                    - else
+                      %ul.rankright_box
+                        - shop.review_first3.each do |review|
+                          %li.rankright_box_title
+                            口コミはありません
+                            %span.user_name
+                              = review.user.nickname
+= render partial: 'shares/footer'

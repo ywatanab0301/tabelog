@@ -23,86 +23,15 @@
           height: 100px;
           border-bottom: 1px solid $newshop_line;
           &__shopname{
-            font-size: 20px;
+            font-size: 24px;
             color: $black;
             font-weight: bold;
             text-align: left;
             padding: 15px 0 5px 0 ;
-            .shopname_f{
-              font-size: 12px;
-              color: black;
-              font-weight: normal;
-            }
           }
           &__ratestar{
             font-size: 24px;
             float: left;
-            span.star-actived{
-          position: relative;
-          display: inline-block;
-          width: 10*$starHalf;
-          height: 2*$starHalf;
-          font-size: 2*$starHalf;
-          &:before,&:after{
-            position: absolute;
-            top: 0;
-            left: 0;
-            content: '★★★★★';
-            display: inline-block;
-            height: 2*$starHalf;
-            line-height: 2*$starHalf;
-          }
-          &:before{
-          color: #ddd;
-          }
-          &:after{
-          color: #ffa500;
-          overflow: hidden;
-          white-space: nowrap;}
-        }
-        .rate-0:after{
-          width: 0;
-        }
-        .rate-05:after{
-          width: $starHalf
-        }
-        .rate-10:after{
-          width: $rate1;
-        }
-        .rate-15:after{
-          width: $rate1-5;
-        }
-        .rate-20:after{
-          width: $rate2;
-        }
-        .rate-25:after{
-          width: $rate2-5;
-        }
-        .rate-30:after{
-          width: $rate3;
-        }
-        .rate-35:after{
-          width: $rate3-5;
-        }
-        .rate-40:after{
-          width: $rate4;
-        }
-        .rate-45:after{
-          width: $rate4-5;
-        }
-        .rate-50:after{
-          width: $rate5;
-        }
-        span.num{
-          font-size: 18px;
-          font-weight: bold;
-          color: red;
-        }
-        a.review{
-          font-size: 12px;
-          color: $black;
-          text-decoration: underline;
-        }
           }
           &__icons{
             font-size: 13px;
@@ -200,46 +129,15 @@
               border-radius: 3px 3px;
               border: 1px solid $newshop_line;
               text-align: center;
-              line-height: 30px;
-              transition: .4s;
-              .overlay {
-                    /* viewpointを相対位置にし、全画面表示にする */
+              a:link {
+                display: block;
                 width: 100%;
                 height: 100%;
-                position: fixed;
-                top: 0;
-                left: 0;
-                background: rgba(0, 0, 0, 0.5);  /* 背景を半透明にする */
-                display: none;  /* HTML要素を非表示にする */
-                z-index: 100;  /* 「メインのHTML要素」よりもスタックレベルを高くする */
-              }
-              .modalWindow {
-                color: black;
-                width: 900px;
-                height: 600px;
-                overflow-y: auto;
-                max-height: 90%;
-                position: fixed; /* viewpointを相対位置にする */
-                border-radius: 4px;
-                background-color: #FFF;
-                display: none;
-                z-index: 999;  /* 「オーバーレのHTML要素」よりもスタックレベルを高くする */
-                  .body {
-                    text-align: center;
-                  }
-                  button.close {
-                  }
-                  button:hover {
-                    background: #D04255;
-                    color: #FFF;
-                  }
-                  // a:link {
-                  //   display: block;
-                  //   width: 100%;
-                  //   height: 100%;
-                  //   text-decoration: none;
-                  // }
+                text-decoration: none;
+                span {
+                  line-height: 30px;
                 }
+              }
             }
           }
           button.shop-views__recommend{
@@ -256,12 +154,59 @@
     }
     .shop_lists{
       height: 45px;
-      ul.shops-show-header_list{
+      ul.map-shops-show-header_list{
         height: 45px;
         border: 1px solid $newshop_line;
         border-bottom: 3px solid $shop_views_navbar;
         display: flex;
-        li.shops-top-shop_lists__top{
+        li.map-shops-top-shop_lists__top{
+          border-right: 1px solid $newshop_line;
+          width: 196px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 45px;
+          font-size: 14px;
+          a:link {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+          }
+        }
+        li.map-shops-top-shop_lists__menu{
+          border-right: 1px solid $newshop_line;
+          width: 196px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 45px;
+          font-size: 14px;
+          a:link {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+          }
+        }
+        li.map-shops-top-shop_lists__image{
+          border-right: 1px solid $newshop_line;
+          width: 196px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 45px;
+          font-size: 14px;
+        }
+        li.map-shops-top-shop_lists__review{
+          border-right: 1px solid $newshop_line;
+          width: 196px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 45px;
+          font-size: 14px;
+          a:link {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+          }
+        }
+        li.map-shops-top-shop_lists__map{
           border-right: 1px solid $newshop_line;
           width: 196px;
           font-weight: bold;
@@ -270,52 +215,6 @@
           background-color: $shop_views_navbar;
           color: white;
           font-size: 14px;
-        }
-        li.shops-top-shop_lists__menu{
-          border-right: 1px solid $newshop_line;
-          width: 196px;
-          font-weight: bold;
-          text-align: center;
-          line-height: 45px;
-          font-size: 14px;
-          a:link {
-            display: block;
-            width: 100%;
-            text-decoration: none;
-          }
-        }
-        li.shops-top-shop_lists__image{
-          border-right: 1px solid $newshop_line;
-          width: 196px;
-          font-weight: bold;
-          text-align: center;
-          line-height: 45px;
-          font-size: 14px;
-        }
-        li.shops-top-shop_lists__review{
-          border-right: 1px solid $newshop_line;
-          width: 196px;
-          font-weight: bold;
-          text-align: center;
-          line-height: 45px;
-          font-size: 14px;
-          a:link {
-            display: block;
-            width: 100%;
-            text-decoration: none;
-          }
-        }
-        li.shops-top-shop_lists__map{
-          width: 196px;
-          font-weight: bold;
-          text-align: center;
-          line-height: 45px;
-          font-size: 14px;
-          a:link {
-            display: block;
-            width: 100%;
-            text-decoration: none;
-          }
         }
       }
     }
@@ -328,6 +227,35 @@
         padding-left: 10px;
         width: 700px;
 
+      .map-page-map {
+        margin-top: 30px;
+      }
+
+      .shop-map-page-info {
+        margin: 30px 0 30px;
+        ul.shop-map-page-info__address {
+          width: 100%;
+          display: flex;
+          border-top: 1px solid $newshop_line;
+          li.shop_details_lists__address {
+            width: 120px;
+            background-color: $background;
+            line-height: 50px;
+            font-weight: bold;
+            padding-left: 15px;
+            border-left: 1px solid $newshop_line;
+            border-bottom: 1px solid $newshop_line;
+          }
+          li.shop_details_lists__address-input {
+            width: 600px;
+            line-height: 50px;
+            padding-left: 15px;
+            border-right: 1px solid $newshop_line;
+            border-bottom: 1px solid $newshop_line;
+            word-wrap: break-word;
+          }
+        }
+      }
         // ul.shop_mainleft-shop-images{
           // height: 120px;
           // display: flex;
@@ -432,7 +360,6 @@
             .pickup_review-avatar__nickname{
               margin-top: 5px;
               font-size: 12px;
-              text-align: center;
             }
             .pickup_review-avatar__count{
               font-size:  12px;
@@ -1491,3 +1418,23 @@
 .highlight{
   background-color:yellow #色は自由にお決めになって。
 }
+
+.shop_details_lists {
+  .map-shop_details_lists__address {
+    width: 120px;
+    height: 50px;
+    background-color: $background;
+    line-height: 50px;
+    font-weight: bold;
+    padding-left: 15px;
+    border-bottom: 1px solid $newshop_line;
+  }
+  .map-shop_details_lists__address-input {
+    height: 50px;
+    width: 600px;
+    line-height: 50px;
+    padding-left: 15px;
+    border-bottom: 1px solid $newshop_line;
+  }
+}
+

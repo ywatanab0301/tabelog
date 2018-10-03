@@ -1,5 +1,5 @@
 .user_logins{
-  height: calc(100vh - 10vh);
+  height: 100vh;
   width: 100vw;
   padding-top: 10vh;
   background-color: $background;
@@ -31,7 +31,7 @@
     }
       .user_inputspace{
         width: 575px;
-        padding: 40px 5px;
+        padding: 45px 5px;
         margin: 0 auto;
         margin-top: 0px;
         ul{

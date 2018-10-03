@@ -1,4 +1,3 @@
-
 - @wants.each do |want|
   - @shop = Shop.find(want.shop_id)
   .user-mypage-wannago-shops
@@ -24,17 +23,17 @@
             = genre.name
       .user-mypage-wannago-shops__rate
         .user-mypage-wannago-shops__rate--star
-          ⭐⭐⭐⭐⭐
+          %span.rating-star
+            %span{class: :"star-actived rate-#{want.shop.star_review_average}0"}
         .user-mypage-wannago-shops__rate--score
-          3.1
-          / = @shop.reviews.rate.round(1) unless @shop.reviews.rate == nil
+          = want.shop.review_average
       .user-mypage-wannago-shops__info2
         .user-mypage-wannago-shops__info2--budget-dinner
-          🌃
+          .far.fa-moon
           - want.shop.budgets.each do |budget|
             = budget.name
         .user-mypage-wannago-shops__info2--budget-lunch
-          🌅
+          .far.fa-sun
           - want.shop.budgets.each do |budget|
             = budget.name
         .user-mypage-wannago-shops__info2--budget-off

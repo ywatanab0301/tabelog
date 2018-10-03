@@ -542,7 +542,7 @@
                     display: inline-block;
                     width: 10*$starHalf;
                     height: 1.6*$starHalf;
-                    font-size: 1.8*$starHalf;
+                    font-size: 1.6*$starHalf;
                     &:before,&:after{
                       position: absolute;
                       top: 0;
@@ -550,7 +550,7 @@
                       content: '★★★★★';
                       display: inline-block;
                       height: 1.6*$starHalf;
-                      line-height: 1.8*$starHalf;
+                      line-height: 1.6*$starHalf;
                     }
                     &:before{
                     color: #ddd;

@@ -209,6 +209,11 @@
           text-align: center;
           line-height: 45px;
           font-size: 14px;
+          a:link {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+          }
         }
       }
     }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180927154458) do
+ActiveRecord::Schema.define(version: 20181001070113) do
 
   create_table "budgets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20180927154458) do
     t.float    "rate",         limit: 24,    null: false
     t.float    "food_rate",    limit: 24,    null: false
     t.float    "service_rate", limit: 24,    null: false
-    t.float    "drink_rate",   limit: 24,    null: false
+    t.float    "drink_rate"
     t.float    "atmosphere",   limit: 24,    null: false
     t.float    "cp_rate",      limit: 24,    null: false
     t.string   "title",                      null: false
@@ -111,9 +111,8 @@ ActiveRecord::Schema.define(version: 20180927154458) do
 
   create_table "shops", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "shop_name",                         null: false
-    t.string   "shop_name_f",                       null: false
+    t.string   "shop_name_f"
     t.bigint   "phone_number",                      null: false
-    t.string   "city_address",                      null: false
     t.string   "building"
     t.text     "map",                 limit: 65535
     t.text     "hours",               limit: 65535
@@ -150,6 +149,9 @@ ActiveRecord::Schema.define(version: 20180927154458) do
     t.string   "menu_detail_5"
     t.text     "sub_prtext",          limit: 65535
     t.string   "station"
+    t.float    "latitude",            limit: 24
+    t.float    "longitude",           limit: 24
+    t.string   "city_address"
     t.index ["shop_name"], name: "index_shops_on_shop_name", using: :btree
   end
 

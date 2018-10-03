@@ -7,6 +7,7 @@
     = csrf_meta_tags
     / = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     / = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = include_gon
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
 
@@ -17,6 +18,10 @@
     %link{href: "https://use.fontawesome.com/releases/v5.0.6/css/all.css", rel: "stylesheet"}
     %script{src: "https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.js"}
     %script{src: "http://code.jquery.com/jquery-latest.js"}
+
+    %script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyA-dv4jxAsnT76QZvCSxbjp-LNs3f3vx6k&callback=initMap"}
+    %script{:src => "//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"}
+
     %script{:src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"}
     %script{:src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"}
     %link{:href => "http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css", :rel => "stylesheet"}/

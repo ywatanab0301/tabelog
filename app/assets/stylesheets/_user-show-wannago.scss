@@ -222,6 +222,62 @@ li.wannago-page-wannago-shop-link {
       padding-top: 5px;
       .user-mypage-wannago-shops__rate--star {
         padding-right: 15px;
+        span.star-actived{
+          position: relative;
+          display: inline-block;
+          width: 10*$starHalf;
+          height: 2*$starHalf;
+          font-size: 2*$starHalf;
+          &:before,&:after{
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '★★★★★';
+            display: inline-block;
+            height: 2*$starHalf;
+            line-height: 2*$starHalf;
+          }
+          &:before{
+          color: #ddd;
+          }
+          &:after{
+          color: #ffa500;
+          overflow: hidden;
+          white-space: nowrap;}
+        }
+        .rate-0:after{
+          width: 0;
+        }
+        .rate-05:after{
+          width: $starHalf
+        }
+        .rate-10:after{
+          width: $rate1;
+        }
+        .rate-15:after{
+          width: $rate1-5;
+        }
+        .rate-20:after{
+          width: $rate2;
+        }
+        .rate-25:after{
+          width: $rate2-5;
+        }
+        .rate-30:after{
+          width: $rate3;
+        }
+        .rate-35:after{
+          width: $rate3-5;
+        }
+        .rate-40:after{
+          width: $rate4;
+        }
+        .rate-45:after{
+          width: $rate4-5;
+        }
+        .rate-50:after{
+          width: $rate5;
+        }
       }
       .user-mypage-wannago-shops__rate--score {
         font-weight: bold;
@@ -233,9 +289,15 @@ li.wannago-page-wannago-shop-link {
       font-size: 11px;
       .user-mypage-wannago-shops__info2--budget-dinner {
         padding-right: 15px;
+        .far.fa-moon{
+          color: #ffd700;
+        }
       }
       .user-mypage-wannago-shops__info2--budget-lunch {
         padding-right: 15px;
+        .far.fa-sun{
+          color: #ff8c00;
+        }
       }
       .user-mypage-wannago-shops__info2--budget-off {
         padding-right: 15px;

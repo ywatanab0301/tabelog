@@ -21,6 +21,10 @@ class Shop < ApplicationRecord
   mount_uploader :menu_image_4, ImageUploader
   mount_uploader :menu_image_5, ImageUploader
 
+  #geocoder が city_address から経度・緯度を取得
+  geocoded_by :city_address
+  after_validation :geocode, if: :city_address_changed?
+
   def star_review_average
     reviews.average(:rate).round if reviews.present?
   end
@@ -35,6 +39,22 @@ class Shop < ApplicationRecord
 
   def lunch_average
     reviews.where(lunch_dinner: 2).average(:rate).round(2) if reviews.where(lunch_dinner: 2).present?
+  end
+
+  def review_first3
+    reviews.first(3)
+  end
+
+  def review_sort_rate
+    reviews.order("rate DESC")
+  end
+
+  def review_count
+    reviews.count if reviews.present?
+  end
+
+  def top_20_star_average
+    reviews.average(:rate).round * 10 if reviews.present?
   end
 
   def show_last_review
@@ -58,6 +78,24 @@ class Shop < ApplicationRecord
       reviews.last.user.nickname
     else
       'No Name'
+    end
+  end
+
+  def self.shopsearch(prefecture_id, genre_id)
+    if prefecture_id && genre_id
+      @shop_prefecture = Prefecture.find(prefecture_id).shops.pluck(:id)
+      @shop_genre = Genre.find(genre_id).shops.pluck(:id)
+      @shop_find = []
+      @shop_prefecture.each do |id|
+        @shop_find << @shop_genre.grep(id)[0] if @shop_genre.grep(id) != []
+      end
+      @shops = @shop_find.map { |id| Shop.find(id) }
+    elsif prefecture_id
+      @shops = Prefecture.find(prefecture_id).shops
+    elsif genre_id
+      @shops = Genre.find(genre_id).shops
+    else
+      Shop.includes(:genres, :reviews, :prefectures)
     end
   end
 
