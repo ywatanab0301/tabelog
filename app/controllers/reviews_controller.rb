@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-    before_action :set_shop, only: [:new, :edit]
-    before_action :set_review, only: [:edit, :update, :destroy]
+    before_action :set_shop, only: [:new, :edit, :show]
+    before_action :set_review, only: [:edit, :update, :destroy, :show]
 
   def index
     @reviews = Review.includes(:user)
@@ -37,7 +37,9 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @review = Review.find(params[:id])
+    @prefecture = @shop.prefectures
+    @genre = @shop.genres
+    @budget = @shop.budgets
   end
 
   private

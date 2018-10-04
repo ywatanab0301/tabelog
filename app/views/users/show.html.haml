@@ -162,9 +162,9 @@
                 - if user_signed_in?
                   - if review.user_id == current_user.id
                     .review-post__buttons
-                      = link_to shop_review_path(review.shop_id, review.id), method: :delete, class: "delete_alert", style: "color: black"do
+                      = link_to shop_review_path(review.shop_id, review.id), method: :delete, class: "delete_alert", style: "color: #595960;"do
                         .review-post__buttons--trash.fas.fa-trash-alt
-                      = link_to edit_shop_review_path(review.shop_id, review.id), style: "color: black" do
+                      = link_to edit_shop_review_path(review.shop_id, review.id), style: "color: #595960;" do
                         .review-post__buttons--edit.fas.fa-edit
             - if review.lunch_dinner == 1
               .review-post__rst-review
@@ -298,6 +298,12 @@
             %h3.far.fa-calendar
               行ったカレンダー
           .timeline-calendar__container
+            = month_calendar events: @reviews do |date, reviews|
+              = date
+              - reviews.each do |review|
+                .image-avatar
+                  = link_to shop_review_path(review.shop.id, review.id) do
+                    = image_tag review.user.avatar
         .visited-area
           .visited-area__title
             %h3.fas.fa-map

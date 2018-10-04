@@ -1,197 +1,433 @@
 = render partial: 'shares/header'
 
-/ -@reviews.each do |review|
-.shops-reviews-wrap
-  .shops-review-post
-    .shop-review-post__user-info
-      .shop-review-post__user-info--avatar
-        -if @review.user.avatar?
-          = image_tag @review.user.avatar.url
-        -else
-          = image_tag "avatar_nophoto.gif"
-      .shop-review-post__user-info--right
-        .shop-review-post__user-info--username
-          %p.review-user-name
-            = @review.user.nickname
-          %p.reviewer-follower-number
-            (278)
-          %p
-            さんの口コミ
-        .shop-review-post__user-info--moreinfo
-          %p
-            男性・千葉県
-    .shop-review-post__rst-review
-      .shop-review-post__rst-review--score-data
-        .shop-review-score
-          .shop-review-rating-star
-            🌃  🌟🌟🌟⭐⭐
-          .shop-review-rating-point
-            = @review.rate.round(1) unless @review.rate == nil
-          %ul.shop-review-rate-detail
-            %li.food-rate
-              %p
-                料理・味
-                %strong
-                  = @review.food_rate.round(1) unless @review.food_rate == nil
-            %li.service-rate
-              %p
-                サービス
-                %strong
-                  = @review.service_rate.round(1) unless @review.service_rate == nil
-            %li.atmosphere-rate
-              %p
-                雰囲気
-                %strong
-                  = @review.atmosphere.round(1) unless @review.atmosphere == nil
-            %li.cp-rate
-              %p
-                CP
-                %strong
-                  = @review.cp_rate.round(1) unless @review.cp_rate == nil
-            %li.drink-rate
-              %p.drink-rate
-                酒・ドリンク
-                %strong
-                  = @review.drink_rate.round(1) unless @review.drink_rate == nil
-      .shop-review-post__rst-review--score-data
-        .shop-review-score
-          .shop-review-rating-star
-            🌅  🌟🌟🌟⭐⭐
-          .shop-review-rating-point
-            = @review.rate.round(1) unless @review.rate == nil
-          %ul.shop-review-rate-detail
-            %li.food-rate
-              %p
-                料理・味
-                %strong
-                  = @review.food_rate.round(1) unless @review.food_rate == nil
-            %li.service-rate
-              %p
-                サービス
-                %strong
-                  = @review.service_rate.round(1) unless @review.service_rate == nil
-            %li.atmosphere-rate
-              %p
-                雰囲気
-                %strong
-                  = @review.atmosphere.round(1) unless @review.atmosphere == nil
-            %li.cp-rate
-              %p
-                CP
-                %strong
-                  = @review.cp_rate.round(1) unless @review.cp_rate == nil
-            %li.drink-rate
-              %p.drink-rate
-                酒・ドリンク
-                %strong
-                  = @review.drink_rate.round(1) unless @review.drink_rate == nil
-      .shop-review-count
-        1回
-      .shop-review-price
-        .shop-review-used-price
-          %p
-            使った金額（1人）：
-          .shop-price-range
-            🌃 ~￥999
-    .shop-review-post-contents
-      .shop-review-one-time
-        %p.shops-shop-review-visited-month
-          = @review.visit_day.strftime('%Y/%m')
-          訪問
-        .shop-review-post__rst-review--score-data
-          .shop-review-score
-            .shop-review-rating-point
-              🌅
-              = @review.rate.round(1) unless @review.rate == nil
-            %ul.shop-review-rate-detail
-              %li.food-rate
-                %p
-                  料理・味
-                  %strong
-                    = @review.food_rate.round(1) unless @review.food_rate == nil
-              %li.service-rate
-                %p
-                  サービス
-                  %strong
-                    = @review.service_rate.round(1) unless @review.service_rate == nil
-              %li.atmosphere-rate
-                %p
-                  雰囲気
-                  %strong
-                    = @review.atmosphere.round(1) unless @review.atmosphere == nil
-              %li.cp-rate
-                %p
-                  CP
-                  %strong
-                    = @review.cp_rate.round(1) unless @review.cp_rate == nil
-              %li.drink-rate
-                %p.drink-rate
-                  酒・ドリンク
-                  %strong
-                    = @review.drink_rate.round(1) unless @review.drink_rate == nil
-            .shop-review-price
-              .shop-review-used-price
-                %p
-                  使った金額（1人）：
-                .shop-price-range
-                  🌃 ~￥999
-        .shop-review-count
-          1回目
-      .shop-review-post__rst-review--content
-        .shop-review-title
-          %p
-            %a
-              = @review.title
-        .shop-review-text
-          %p
-            = simple_format(@review.text)
-      .shop-review-post-contents-images
-        %ul.shop-review-post-contents-images.ul
-          %li.shop-review-post-contents-image1
-            = image_tag "avatar_nophoto.gif"
-          %li.shop-review-post-contents-image2
-            = image_tag "avatar_nophoto.gif"
-          %li.shop-review-post-contents-image3
-            = image_tag "avatar_nophoto.gif"
-          %li.shop-review-post-contents-image4
-            = image_tag "avatar_nophoto.gif"
-          %li.shop-review-post-contents-image5
-            = image_tag "avatar_nophoto.gif"
-      .shop-review-post-like-wannago
-        .shop-review-post-like-wannago__buttons
-          = render 'likes/like_links', review: @review
-          %button.shop-review-post-like-wannago__buttons--wannago
-            %i.fas.fa-thumbtack
-            行きたい
-        .shop-review-post-who-likes
-          .shop-review-post-who-likes__count
-            %p.number-who-likes
-              76
-            %p
-              人が「いいね！」しています。
-          .shop-review-post-who-likes__icons
-            = image_tag "avatar_nophoto.gif"
-            = image_tag "avatar_nophoto.gif"
-            = image_tag "avatar_nophoto.gif"
-            = image_tag "avatar_nophoto.gif"
-            = image_tag "avatar_nophoto.gif"
-            = image_tag "avatar_nophoto.gif"
-            = image_tag "avatar_nophoto.gif"
-            = image_tag "avatar_nophoto.gif"
-            = image_tag "avatar_nophoto.gif"
-            = image_tag "avatar_nophoto.gif"
-        .shop-review-post-who-wannago
-          .shop-review-post-who-wannago__count
-            %p.number-who-wannago
-              1
-            %p
-              人が「行きたい」しています。
-          .shop-review-post-who-wannago__icons
-            = image_tag "avatar_nophoto.gif"
-      .shop-review-post-contents-notice
-        %p.shop-notice-message1
-          利用規約に違反している口コミは、右のリンクから報告することができます。
-        %p.shop-notice-message2
-          = link_to "➤ 問題のある口コミを連絡する"
+.shop_view
+  .shop_views
+    .location-link
+      = image_tag 'home_icon.png'
+      = link_to '食べログ', root_path
+      %span.location-link__location
+        = image_tag 'location_arrow.png'
+        = @shop.station
+      %span.location-link__searchshop
+        = image_tag 'location_arrow.png'
+        - @genre.each do |genre|
+          = genre.name
+      %span.location-link__shopname
+      %a{href: "#{shop_path(@shop.id)}"}
+        = image_tag 'location_arrow.png'
+        %i.fas.fa-utensils
+        = @shop.shop_name
+      %span.location-link__shopreviews
+      %a{href: "#{show_reviews_shop_path(@shop.id)}"}
+        = image_tag 'location_arrow.png'
+        口コミ一覧
+      %span.location-link__shopreview-one
+        = image_tag 'location_arrow.png'
+        口コミ詳細
+
+    = render partial: 'shares/shop_subheader'
+
+    .shop_lists
+      %ul.header_list
+        %li.shop-reviews-page-shop_lists__top
+          %a.shop-top-link{ href: "/shops/#{@shop.id}", style: "color: #595960;"}
+            %span
+              店舗トップ
+        %li.shop-reviews-page-shop_lists__menu
+          %a.menu-link{ href: "/shops/#{@shop.id}/show_menu", style: "color: #595960;"}
+            %span
+              メニュー
+        %li.shop-reviews-page-shop_lists__image
+          写真
+        %li.shop-reviews-page-shop_lists__review
+          %a.reviews-link{ href: "/shops/#{@shop.id}/show_reviews", style: "color: white;"}
+            %span
+              口コミ
+        %li.shop-reviews-page-shop_lists__map
+          %a.map-link{ href: "/shops/#{@shop.id}/show_map", style: "color: #595960;"}
+            %span
+              地図
+
+    .shop_main
+      .shop_main-left
+        .shops-reviews-wrap
+          .shops-review-post
+            .shop-review-post__user-info
+              .shop-review-post__user-info--avatar
+                = link_to image_tag(@review.user.avatar.url), user_path(@review.user.id)
+              .shop-review-post__user-info--right
+                .shop-review-post__user-info--username
+                  %p.review-user-name
+                    %a.nickname{href: "#{user_path(@review.user.id)}"}
+                      = @review.user.nickname
+                  %p.reviewer-follower-number
+                    %a{href: "#{follower_path(@review.user.id)}"}
+                      (
+                      = @review.user.followers.count
+                      )
+                  %p
+                    さんの口コミ
+                .shop-review-post__user-info--moreinfo
+                  - @prefecture.each do |prefecture|
+                    %p
+                      = prefecture.name
+            .shop-review-post__rst-review
+              - if @review.lunch_dinner == 1
+                .shop-review-one-time
+                  %p.shops-shop-review-visited-month
+                    = @review.visit_day.strftime('%Y/%m')
+                    訪問
+                .shop-review-post__rst-review--score-data
+                  .shop-review-score
+                    .far.fa-moon
+                    .shop_views-namespace__ratestar
+                      %span{class: :"star-actived rate-#{@review.rate.round * 10}"}
+                    .shop-review-rating-point
+                      = @review.rate.round(1) unless @review.rate == nil
+                    %ul.shop-review-rate-detail
+                      %li.food-rate
+                        %p
+                          料理・味
+                          %strong
+                            = @review.food_rate.round(1) unless @review.food_rate == nil
+                      %li.service-rate
+                        %p
+                          サービス
+                          %strong
+                            = @review.service_rate.round(1) unless @review.service_rate == nil
+                      %li.atmosphere-rate
+                        %p
+                          雰囲気
+                          %strong
+                            = @review.atmosphere.round(1) unless @review.atmosphere == nil
+                      %li.cp-rate
+                        %p
+                          CP
+                          %strong
+                            = @review.cp_rate.round(1) unless @review.cp_rate == nil
+                      %li.drink-rate
+                        %p.drink-rate
+                          酒・ドリンク
+                          %strong
+                            = @review.drink_rate.round(1) unless @review.drink_rate == nil
+              - else
+                .shop-review-one-time
+                  %p.shops-shop-review-visited-month
+                    = @review.visit_day.strftime('%Y/%m')
+                    訪問
+                .shop-review-post__rst-review--score-data
+                  .shop-review-score
+                    .far.fa-sun
+                    .shop_views-namespace__ratestar
+                      %span{class: :"star-actived rate-#{@review.rate.round * 10}"}
+                    .shop-review-rating-point
+                      = @review.rate.round(1) unless @review.rate == nil
+                    %ul.shop-review-rate-detail
+                      %li.food-rate
+                        %p
+                          料理・味
+                          %strong
+                            = @review.food_rate.round(1) unless @review.food_rate == nil
+                      %li.service-rate
+                        %p
+                          サービス
+                          %strong
+                            = @review.service_rate.round(1) unless @review.service_rate == nil
+                      %li.atmosphere-rate
+                        %p
+                          雰囲気
+                          %strong
+                            = @review.atmosphere.round(1) unless @review.atmosphere == nil
+                      %li.cp-rate
+                        %p
+                          CP
+                          %strong
+                            = @review.cp_rate.round(1) unless @review.cp_rate == nil
+                      %li.drink-rate
+                        %p.drink-rate
+                          酒・ドリンク
+                          %strong
+                            = @review.drink_rate.round(1) unless @review.drink_rate == nil
+              .shop-review-price
+                .shop-review-used-price
+                  %p
+                    使った金額（1人）：
+                  - @review.budgets.each do |budget|
+                    - if @review.lunch_dinner == 1
+                      .far.fa-moon
+                    - else
+                      .far.fa-sun
+                    .shop-price-range
+                      = budget.name
+            .shop-review-post-contents
+              .shop-review-post__rst-review--content
+                .shop-review-title
+                  %p
+                    %a
+                      = @review.title
+                .shop-review-text
+                  %p
+                    = simple_format(@review.text)
+              .shop-review-post-contents-images
+                %ul.shop-review-post-contents-images.ul
+                  %li.shop-review-post-contents-image1
+                    = image_tag @review.pic1
+                  %li.shop-review-post-contents-image2
+                    = image_tag @review.pic2
+                  %li.shop-review-post-contents-image3
+                    = image_tag @review.pic3
+                  %li.shop-review-post-contents-image4
+                    = image_tag @review.pic4
+                  %li.shop-review-post-contents-image5
+                    = image_tag @review.pic5
+
+              - if user_signed_in?
+                .shop-review-post-like-wannago
+                  .shop-review-post-like-wannago__buttons
+                    = render partial: 'likes/like_links', locals: {review: @review}
+                    .shop-review-post-like-wannago__buttons--wannago
+                      = render partial: 'wants/want_links', locals: {shop: @shop}
+                  .shop-review-post-who-likes
+                    .shop-review-post-who-likes__count
+                      %p.number-who-likes
+                        = @review.likes_count
+                      %p
+                        人が「いいね！」しています。
+                    - @review.likes.each do |like|
+                      .shop-review-post-who-likes__icons
+                        = link_to user_path(like.user.id) do
+                          = image_tag "#{like.user.avatar}"
+                  .shop-review-post-who-wannago__icons
+              .shop-review-post-contents-notice
+                %p.shop-notice-message1
+                  利用規約に違反している口コミは、右のリンクから報告することができます。
+                %p.shop-notice-message2
+                  = link_to "➤ 問題のある口コミを連絡する"
+
+
+          = render partial: 'shares/shop-basic-info'
+
+      .shop_main-right
+        .shop_mainright-telphone
+          .shop_mainright-telephone__number
+            %i.fas.fa-phone
+            = converting_to_phone_number(@shop.phone_number)
+          %button.telephone__sendbtn
+            送る
+        .shop_mainright-ranktitle
+          .shop_mainright-ranktitle__ranking
+            周辺のお店ランキング
+        .shop_mainright-buttons
+          %button.raking
+            👑総合ランキング
+          %button.dinner
+            🌃夜
+          %button.lunch
+            🌅昼
+        .shop_mainright-rankhead
+          %p.shop_mainright-rankhead__text
+            「######」のランキング（昼の点数の高いお店）です。
+        %ul.shops_ranking
+          %li.shop_mainright-rank1
+            .shop_mainright-ranking__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-ranking__shopname
+              鮨 猪股
+            .shop_mainright-ranking__genre
+              （寿司）
+            .shop_mainright-ranking__box
+              .shop_mainright-ranking__box-stars
+                ⭐️⭐️⭐️3.00
+              .shop_mainright-ranking__box-reviewcount
+                [ 口コミ 106 件 ]
+          %li.shop_mainright-rank2
+            .shop_mainright-ranking__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-ranking__shopname
+              鮨 猪股
+            .shop_mainright-ranking__genre
+              （寿司）
+            .shop_mainright-ranking__box
+              .shop_mainright-ranking__box-stars
+                ⭐️⭐️⭐️3.00
+              .shop_mainright-ranking__box-reviewcount
+                [ 口コミ 106 件 ]
+          %li.shop_mainright-rank3
+            .shop_mainright-ranking__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-ranking__shopname
+              鮨 猪股
+            .shop_mainright-ranking__genre
+              （寿司）
+            .shop_mainright-ranking__box
+              .shop_mainright-ranking__box-stars
+                ⭐️⭐️⭐️3.00
+              .shop_mainright-ranking__box-reviewcount
+                [ 口コミ 106 件 ]
+          %li.shop_mainright-rank4
+            .shop_mainright-ranking__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-ranking__shopname
+              鮨 猪股
+            .shop_mainright-ranking__genre
+              （寿司）
+            .shop_mainright-ranking__box
+              .shop_mainright-ranking__box-stars
+                ⭐️⭐️⭐️3.00
+              .shop_mainright-ranking__box-reviewcount
+                [ 口コミ 106 件 ]
+          %li.shop_mainright-rank5
+            .shop_mainright-ranking__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-ranking__shopname
+              鮨 猪股
+            .shop_mainright-ranking__genre
+              （寿司）
+            .shop_mainright-ranking__box
+              .shop_mainright-ranking__box-stars
+                ⭐️⭐️⭐️3.00
+              .shop_mainright-ranking__box-reviewcount
+                [ 口コミ 106 件 ]
+        .shop_mainright-moreranking
+          .shop_mainright-moreranking__morelink
+            「####」のランキングをもっと見る
+        .shop_mainright-nearshops
+          .shop_mainright-nearshops__title
+            このお店の近くのグルメ情報まとめ
+        %ul.nearshops_information
+          %li.shop_mainright-recommend1
+            .shop_mainright-recommend__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-recommend__text
+              浦和で飲むならこのお店！おすすめの居酒屋12選
+            .shop_mainright-recommend__person
+              食べログまとめ編集部
+          %li.shop_mainright-recommend2
+            .shop_mainright-recommend__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-recommend__text
+              埼玉グルメ！食べログランキングで人気のお店13選
+            .shop_mainright-recommend__person
+              食べログまとめ編集部
+          %li.shop_mainright-recommend3
+            .shop_mainright-recommend__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-recommend__text
+              【食べ歩き珍道中】越谷レイクタウン
+            .shop_mainright-recommend__person
+              だるま３世
+          %li.shop_mainright-recommend4
+            .shop_mainright-recommend__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-recommend__text
+              新時代のマニアックな中華街！西川口チャイナタウンまとめ9選
+            .shop_mainright-recommend__person
+              やっぱりモツが好き
+          %li.shop_mainright-recommend5
+            .shop_mainright-recommend__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-recommend__text
+              埼玉県春日部市の埼玉県立 #春日部高校 周辺の美味しい...
+            .shop_mainright-recommend__person
+              takafumiaoki000
+        .shop_mainright-morerecommend
+          .shop_mainright-morerecommend__linktext
+            このお店の近くのグルメ情報まとめをもっと見る
+        .shop_mainright-feature
+          .shop_mainright-feature__title
+            食べログ特集
+        %ul.shops_features
+          %li.shop_mainright-feature1
+            .shop_mainright-feature__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-feature__title
+              Mastercard限定
+            .shop_mainright-feature__text
+              食べログ人気店を含む全国約600店で受けられるお得なサービス
+          %li.shop_mainright-feature2
+            .shop_mainright-feature__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-feature__title
+              ANAカード利用者様へ
+            .shop_mainright-feature__text
+              マイルが貯まるお店が見つかるANAカードマイルプラス・グルメ
+          %li.shop_mainright-feature3
+            .shop_mainright-feature__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-feature__title
+              私たちの居場所、ここにも
+            .shop_mainright-feature__text
+              プルーム・テックを利用できるお店特集
+          %li.shop_mainright-feature4
+            .shop_mainright-feature__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-feature__title
+              ★3.5以上の居酒屋特集
+            .shop_mainright-feature__text
+              全国のおすすめ店ご紹介！／胸のムカムカに。スクラートG！
+          %li.shop_mainright-feature5
+            .shop_mainright-feature__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-feature__title
+              出張先で、人気店を探せる
+            .shop_mainright-feature__text
+              せっかくの遠出。普段は行けない「地方の人気店」を機内で探そう
+          %li.shop_mainright-feature6
+            .shop_mainright-feature__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-feature__title
+              百名店の味わいをご自宅で！
+            .shop_mainright-feature__text
+              食べログ 百名店の味わいを楽しめるカレーが新発売！
+          %li.shop_mainright-feature7
+            .shop_mainright-feature__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-feature__title
+              秋を堪能できるお店特集
+            .shop_mainright-feature__text
+              宴会・女子会・二次会などに。秋が満喫できるお店セレクション！
+          %li.shop_mainright-feature8
+            .shop_mainright-feature__image
+              = image_tag "avatar_nophoto.gif"
+            .shop_mainright-feature__title
+              全国ご当地グルメ・観光特集
+            .shop_mainright-feature__text
+              人気の観光スポットや特産品など、地域ならではの情報をご紹介
+        .shop_mainright-allfeature
+          .shop_mainright-allfeature__linktext
+            特集一覧へ
+        .shop_mainright-forshops
+          .shop_mainright-forshops__title
+            店舗運営者の方へ
+        %ul.forshops
+          %li.shop_mainright-promotion1
+            .shop_mainright-promotion__title
+              無料でお店のPRができます！
+            .shop_mainright-promotion__text
+              店舗準会員になると、無駄な広告費をかけずに効果的なPRができます。
+              %span.shop_mainright-promotion__link
+                詳しくはこちら
+          %li.shop_mainright-promotion2
+            .shop_mainright-promotion__title
+              無料ではじめる予約台帳アプリ
+            .shop_mainright-promotion__text
+              紙ではできない予約管理を。いますぐ無料ではじめよう。
+              %span.shop_mainright-promotion__link
+                詳しくはこちら
+          %li.shop_mainright-promotion3
+            .shop_mainright-promotion__title
+              手数料3.24％、飲食店向けのカード決済！
+            .shop_mainright-promotion__text
+              固定費ゼロ。決済手数料3.24%で気軽にカード決済を導入できます。
+              %span.shop_mainright-promotion__link
+                詳しくはこちら
+          %li.shop_mainright-promotion4
+            .shop_mainright-promotion__title
+              食べログ店舗会員登録がお済みの方へ
+            .shop_mainright-promotion__text
+              既に会員登録が完了している方はこちらからログインできます。
+              %span.shop_mainright-promotion__link
+                ログインはこちらから
+
 
 = render partial: 'shares/footer'
