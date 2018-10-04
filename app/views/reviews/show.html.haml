@@ -27,6 +27,27 @@
 
     = render partial: 'shares/shop_subheader'
 
+    .shop_lists
+      %ul.header_list
+        %li.shop-reviews-page-shop_lists__top
+          %a.shop-top-link{ href: "/shops/#{@shop.id}", style: "color: #595960;"}
+            %span
+              店舗トップ
+        %li.shop-reviews-page-shop_lists__menu
+          %a.menu-link{ href: "/shops/#{@shop.id}/show_menu", style: "color: #595960;"}
+            %span
+              メニュー
+        %li.shop-reviews-page-shop_lists__image
+          写真
+        %li.shop-reviews-page-shop_lists__review
+          %a.reviews-link{ href: "/shops/#{@shop.id}/show_reviews", style: "color: white;"}
+            %span
+              口コミ
+        %li.shop-reviews-page-shop_lists__map
+          %a.map-link{ href: "/shops/#{@shop.id}/show_map", style: "color: #595960;"}
+            %span
+              地図
+
     .shop_main
       .shop_main-left
         .shops-reviews-wrap
