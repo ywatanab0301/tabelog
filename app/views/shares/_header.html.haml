@@ -16,7 +16,7 @@
             予約確認
           - if user_signed_in?
             %li.upper__right-list__gone
-              %a.user-menu__target
+              %a.user-menu__target{ href: "/users/#{current_user.id}/show_all"}
                 行った・行きたい
             %li.upper__right-list__mypage
               = link_to "マイページ", user_path(current_user.id), method: :get
