@@ -1,7 +1,7 @@
 .dropdown.notification-dropdown
   %button.btn{ "data-toggle" => "dropdown", :type => "button"}
     %span.glyphicon.glyphicon-flag
-      %i.fa.fa-bell{"aria-hidden" => "true"}>
+      %i.fas.fa-user-check{"aria-hidden" => "true"}>
   %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
     %li.dropdown-header.text-center Menu
     %li.divider{:role => "separator"}
@@ -9,4 +9,3 @@
       = link_to 'フォロー中一覧',following_path(current_user)
     %li.text-center
       = link_to 'ログアウト', destroy_user_session_path, method: :delete
-
