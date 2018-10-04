@@ -22,7 +22,7 @@ $(function() {
 
 // 選択肢をviewに反映
 $(function(){
-  $("button.btn-search").hover(function(){
+  $(".content").hover(function(){
     // エリア
     var preId = $('.content__side__top form [name=prefecture_id]:checked').attr('id');
     var area = $(".content__side__top__area__main").text();
