@@ -185,6 +185,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, menu, nav, 
     padding-right: 20px;
     .user-menu__texts{
       margin-left: 5px;
+      cursor: pointer;
       .overlay {
         /* viewpointを相対位置にし、全画面表示にする */
     width: 100%;

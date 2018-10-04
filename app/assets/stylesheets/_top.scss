@@ -10,6 +10,7 @@ body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermen
 
 body:not(.is-jack-append) .rsttop-headline:not(:hover) .rsttop-headline__usermenu .p-user-menu__text {
     color: $white;
+    cursor: pointer;
 }
 
 .top-header__inner {
