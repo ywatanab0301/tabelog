@@ -32,10 +32,81 @@
             font-weight: bold;
             text-align: left;
             padding: 15px 0 0 0 ;
+            .shopname_f{
+              font-size: 12px;
+              color: black;
+              font-weight: normal;
+            }
           }
           &__ratestar{
             font-size: 24px;
             float: left;
+            span.star-actived{
+              position: relative;
+              display: inline-block;
+              width: 10*$starHalf;
+              height: 2*$starHalf;
+              font-size: 2*$starHalf;
+          &:before,&:after{
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '★★★★★';
+            display: inline-block;
+            height: 2*$starHalf;
+            line-height: 2*$starHalf;
+          }
+          &:before{
+            color: #ddd;
+          }
+          &:after{
+            color: #ffa500;
+            overflow: hidden;
+            white-space: nowrap;}
+          }
+        .rate-0:after{
+          width: 0;
+        }
+        .rate-05:after{
+          width: $starHalf
+        }
+        .rate-10:after{
+          width: $rate1;
+        }
+        .rate-15:after{
+          width: $rate1-5;
+        }
+        .rate-20:after{
+          width: $rate2;
+        }
+        .rate-25:after{
+          width: $rate2-5;
+        }
+        .rate-30:after{
+          width: $rate3;
+        }
+        .rate-35:after{
+          width: $rate3-5;
+        }
+        .rate-40:after{
+          width: $rate4;
+        }
+        .rate-45:after{
+          width: $rate4-5;
+        }
+        .rate-50:after{
+          width: $rate5;
+        }
+        span.num{
+          font-size: 18px;
+          font-weight: bold;
+          color: red;
+        }
+        a.review{
+          font-size: 12px;
+          color: $black;
+          text-decoration: underline;
+        }
           }
           &__icons{
             font-size: 13px;
@@ -43,18 +114,11 @@
             float: left;
             padding-left: 5px;
             font-weight: bold;
-            .far.fa-moon{
-              color: #ffd700;
-            }
-            .far.fa-sun{
-              color: #ff8c00;
-            }
           }
         }
         .shop_views-detailspace{
           height: 70px;
           &__station{
-            width: 130px;
             padding: 10px 0 5px 0;
             font-size: 12px;
             float: left;
@@ -101,6 +165,10 @@
               border: 1px solid $newshop_line;
               border-radius: 3px 3px;
               text-align: center;
+              .fas.fa-heart{
+                margin-top: 10px;
+                color: #595960;
+              }
               a:link {
                 display: block;
                 width: 100%;
@@ -139,14 +207,45 @@
               border-radius: 3px 3px;
               border: 1px solid $newshop_line;
               text-align: center;
-              a:link {
-                display: block;
+              line-height: 30px;
+              transition: .4s;
+              .overlay {
+                  /* viewpointを相対位置にし、全画面表示にする */
                 width: 100%;
                 height: 100%;
-                text-decoration: none;
-                span {
-                  line-height: 30px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background: rgba(0, 0, 0, 0.5);  /* 背景を半透明にする */
+                display: none;  /* HTML要素を非表示にする */
+                z-index: 100;  /* 「メインのHTML要素」よりもスタックレベルを高くする */
+              }
+              .modalWindow {
+                color: black;
+                width: 900px;
+                height: 600px;
+                overflow-y: auto;
+                max-height: 90%;
+                position: fixed; /* viewpointを相対位置にする */
+                border-radius: 4px;
+                background-color: #FFF;
+                display: none;
+                z-index: 999;  /* 「オーバーレのHTML要素」よりもスタックレベルを高くする */
+                .body {
+                text-align: center;
                 }
+                button.close {
+                }
+                button:hover {
+                background: #D04255;
+                color: #FFF;
+                }
+                // a:link {
+                //   display: block;
+                //   width: 100%;
+                //   height: 100%;
+                //   text-decoration: none;
+                // }
               }
             }
           }
@@ -166,7 +265,6 @@
         display: flex;
         width: 100%;
         margin-top: 10px;
-        border-top: 1px solid $newshop_line;
       .shop_main-left{
         padding-right: 20px;
         padding-left: 10px;
