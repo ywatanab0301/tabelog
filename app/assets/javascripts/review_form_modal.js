@@ -160,32 +160,32 @@ $(function() {
   }
 });
 
-$(function() {
+// $(function() {
 
-  $('.user-menu__target').on('click', function() {
-    $('.overlay, .modalWindow').fadeIn();
-  });
+//   $('.user-menu__target').on('click', function() {
+//     $('.overlay, .modalWindow').fadeIn();
+//   });
 
-  $('.overlay').on('click', function() {
-    $('.overlay, .modalWindow').fadeOut();
-  });
+//   $('.overlay').on('click', function() {
+//     $('.overlay, .modalWindow').fadeOut();
+//   });
 
-  locateCenter();
-  $(window).resize(locateCenter);
+//   locateCenter();
+//   $(window).resize(locateCenter);
 
-  function locateCenter() {
-    let w = $(window).width();
-    let h = $(window).height();
+//   function locateCenter() {
+//     let w = $(window).width();
+//     let h = $(window).height();
 
-    let cw = $('.modalWindow').outerWidth();
-    let ch = $('.modalWindow').outerHeight();
+//     let cw = $('.modalWindow').outerWidth();
+//     let ch = $('.modalWindow').outerHeight();
 
-    $('.modalWindow').css({
-      'left': ((w - cw) / 2) + 'px',
-      'top': ((h - ch) / 2) + 'px'
-    });
-  }
-});
+//     $('.modalWindow').css({
+//       'left': ((w - cw) / 2) + 'px',
+//       'top': ((h - ch) / 2) + 'px'
+//     });
+//   }
+// });
 
 // $(function() {
 

@@ -3,9 +3,9 @@
     .header_upper
       .header_upper__left
         %span.header_upper__left-shopname
-          鮨 猪股
+          全国
         %span.header_upper__left-location
-          川口（寿司）
+          すべて
       .header_upper__right
         %ul.upper__right-list
           %li.upper__right-list__message
@@ -16,7 +16,7 @@
             予約確認
           - if user_signed_in?
             %li.upper__right-list__gone
-              %a.user-menu__target
+              %a.user-menu__target{ href: "/users/#{current_user.id}/show_all"}
                 行った・行きたい
             %li.upper__right-list__mypage
               = link_to "マイページ", user_path(current_user.id), method: :get
@@ -35,15 +35,14 @@
               .modalWindow
                 = render partial: './devise/registrations/new'
             %li.upper__right-list__login
-              %a.link-logins{ href: "users/sign_in"}
+              %a.link-logins
                 ログイン
     .header_down
       .header_down__left
         = link_to image_tag("logo_tabelog.svg"), root_path
       .header_down__right
-        %ul.down__right-search
-          %li.down__right-search__area
-          %li.down__right-search__keyword
-          %li.down__right-search__calender
-          %li.down__right-search__count
-          %li.down__right-search__search
+        = form_tag shops_path, method: :get do
+          = text_field_tag :search, params[:search], { placeholder: "キーワード[例:お肉、立川]"}
+          = button_tag type: 'submit', class: 'header_search' do
+            %i.fa.fa-search.fa-2x
+      %ul#hitlist
