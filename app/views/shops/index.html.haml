@@ -57,8 +57,7 @@
           %span 口コミ数
     .content__main__list
       %span.page-count
-      = @shops.count
-      %span.page-count 件を表示
+        = page_entries_info(@shops)
 
     .content__main__shop
       - @shops.each do |shop|
