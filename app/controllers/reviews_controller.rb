@@ -40,6 +40,7 @@ class ReviewsController < ApplicationController
     @prefecture = @shop.prefectures
     @genre = @shop.genres
     @budget = @shop.budgets
+    gon.shop = @shop
   end
 
   private
