@@ -1,4 +1,4 @@
-$('#search').on('submit', function(e){
+$('#search2').on('submit', function(e){
   $(".shops-reviews-wrap").remove();
   $(".shop-review-list").html('<%= escape_javascript(render @reviews) %>');
 })

@@ -49,7 +49,7 @@
           .review-search-label
             口コミ検索
           .review-search-box-input
-          = form_tag "/shops/#{@shop.id}/show_reviews", method: :get, id: "search", remote: true do
+          = form_tag "/shops/#{@shop.id}/show_reviews", method: :get, id: "search2", remote: true do
             = text_field_tag :search, params[:search], class: "form"
             = submit_tag "検索", :name => nil, id: "search_btn"
         .shop_main-left-change-review-list
