@@ -349,16 +349,16 @@
                               0
                       %li.userdata__data-item
                         .userdata__data-row
-                          %a{href: "#"}
+                          %a{href: "#{following_path(current_user.id)}"}
                             .userdata__data-subject
-                            = link_to "フォロー中", following_path(current_user.id)
+                              フォロー中
                             .userdata__data-count
                               = current_user.followings.count
                       %li.userdata__data-item
                         .userdata__data-row.is-disabled
-                          %a{href: "#"}
+                          %a{href: "#{follower_path(current_user.id)}"}
                             .userdata__data-subject
-                            = link_to "フォロワー", follower_path(current_user.id)
+                              フォロワー
                             .userdata__data-count
                               = current_user.followers.count
                       %li.userdata__data-item
