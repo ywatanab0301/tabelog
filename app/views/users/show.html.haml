@@ -138,7 +138,7 @@
                     付近
               .review-title
                 %p
-                  %a{href: "#{show_reviews_shop_path(review.shop.id)}", style: "color: black"}
+                  = link_to shop_review_path(review.shop.id, review.id), style: "color: black;" do
                     💬
                     = review.title
             / %span.pickup_review-text__ratestar
@@ -211,13 +211,14 @@
                 .review-post__rst-review--content
                   .review-title
                     %p
-                      %a{href: "#{show_reviews_shop_path(review.shop.id)}", style: "color: black"}
+                      = link_to shop_review_path(review.shop.id, review.id), style: "color: black;" do
                         = review.title
                   .review-text
                     %p
                       = review.text
                     %span.review-showall
-                      もっと見る
+                      = link_to shop_review_path(review.shop.id, review.id) do
+                        もっと見る
                     .review-update-date
                       %h6
                         = review.updated_at.strftime('%Y/%m/%d')
