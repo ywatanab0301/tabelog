@@ -8,6 +8,13 @@
         %li
         = link_to " > レストラン一覧", shops_path
 
+  .location__right
+    %ul
+    = link_to '#' do
+      %li
+        = @shops.total_count
+        店舗
+
 .content
   .content__side
     .content__side__top

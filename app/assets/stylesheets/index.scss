@@ -1,9 +1,10 @@
-.location{
+.location.search_result{
   margin: 0 auto;
   width: 980px;
   padding: 15px 0;
   height: 15px;
   font-size: 92%;
+  margin-bottom: 10px;
     &__left{
       ul {
         list-style: none;
