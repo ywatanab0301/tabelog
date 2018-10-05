@@ -1,15 +1,4 @@
 ja:
-  date:
-    abbr_day_names:
-    - 日
-    - 月
-    - 火
-    - 水
-    - 木
-    - 金
-    - 土
-
-ja:
   views:
     pagination:
       first: "最初"
@@ -25,3 +14,12 @@ ja:
         display_entries: '%{entry_name}の1-%{count}件を表示中 / 合計%{count}件'
       more_pages:
         display_entries: '%{entry_name}の%{first}-%{last}件を表示中 / 合計%{total}件'
+  date:
+    abbr_day_names:
+    - 日
+    - 月
+    - 火
+    - 水
+    - 木
+    - 金
+    - 土
