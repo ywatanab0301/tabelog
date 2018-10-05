@@ -44,7 +44,7 @@ $(function(){
     var genre = $(".content__side__top__genre__main").text();
     var result3 = genre.replace("すべて", $('label[for="' + genreId + '"]').text());
     var titlegenre = $(".content__main__header__title span.genre").text();
-    var result4 =  titlegenre.replace("お店、レストラン", $('label[for="' + genreId + '"]').text());
+    var result4 =  titlegenre.replace("すべて", $('label[for="' + genreId + '"]').text());
 
     if ($('.content__side__top__genre__box input').is(':checked')){
       $(".content__side__top__genre__main").text(result3);
