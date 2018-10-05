@@ -27,10 +27,11 @@
                     .rvwr-user-img__box
                       %a{href: "#{user_path(user.id)}"}
                         = image_tag user.avatar.url, width:"60", height:"60", class: "user-image"
-                  - @user.reviews.first(1).each do |review|
+                  - user.reviews.last(1).each do |review|
                     %p.follow-rvwr-item__page-name
                       %a{href: "#{show_gone_user_path(user.id)}", style: "color: white"}
-                        = review.title
+                        - if user.reviews.ids
+                          = review.title
                 .follow-rvwr-item__contents
                   .follow-rvwr-item__contents-head
                     .follow-rvwr-item__status
