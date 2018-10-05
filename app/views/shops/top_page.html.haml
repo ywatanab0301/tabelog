@@ -346,7 +346,7 @@
                             .userdata__data-subject
                               行きたいお店
                             .userdata__data-count
-                              0
+                              = current_user.wants.count
                       %li.userdata__data-item
                         .userdata__data-row
                           %a{href: "#{following_path(current_user.id)}"}
