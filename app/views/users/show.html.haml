@@ -34,7 +34,10 @@
                       カバー写真を変更
                       = f.file_field :background_image, style: 'display: none;'
                       = f.hidden_field :user_id, value: current_user.id
-                    = f.submit "変更を保存する", class: "cover-image-submit"
+                    %label.cover-image-submit
+                      保存
+                      = f.submit style: 'display: none;'
+                      %i.fas.fa-thumbs-up
           .page-name
             %p
               = @user.nickname
