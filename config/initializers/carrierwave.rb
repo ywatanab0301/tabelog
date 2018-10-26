@@ -12,6 +12,6 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1'
   }
 
-  config.fog_directory  = '34tabelog'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/34tabelog'
+  config.fog_directory  = 'tabelog34'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/tabelog34'
 end
